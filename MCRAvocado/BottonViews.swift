@@ -1,6 +1,6 @@
 //
 //  BottonViews.swift
-//  MRCAvocado
+//  MCRAvocado
 //
 //  Created by Onie on 20.08.2022.
 //
@@ -13,7 +13,8 @@ struct RoundImageViewSrokedFilled: View {
 		Image(systemName: systemName)
 			.font(.largeTitle)
 			.foregroundColor(Color.white)
-			.frame(width: 56, height: 56)
+			.frame(width: Constants.General.roundImageViewWidhtHeight,
+				   height: Constants.General.roundImageViewWidhtHeight)
 			.background(
 				Circle().fill(ColorLibrary.buttonColor))
 			.overlay(

@@ -1,6 +1,6 @@
 //
 //  TextViews.swift
-//  MRCAvocado
+//  MCRAvocado
 //
 //  Created by Onie on 20.08.2022.
 //
@@ -43,7 +43,7 @@ struct OnboardingLineText: View {
 	let lineText: String
 	var body: some View {
 		Text(lineText)
-			.fontWeight(.medium).frame(maxWidth: 568, alignment: .leading)
+			.fontWeight(.medium).frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .leading)
 			.font(.title3)
 			.padding(.leading)
 	}
@@ -53,6 +53,8 @@ struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
 			VStack() {
+				OnboardingTitleText(text: "Avocado")
+				OnboardingLineText(lineText: "Some text")
 				WelcomeText(text: StringLibrary.welcomeText)
 				UserNameText(text: StringLibrary.userNameText)
 			}

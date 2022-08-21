@@ -17,6 +17,7 @@
 		0949F44628B1B3D5000B9CE6 /* StringLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44528B1B3D5000B9CE6 /* StringLibrary.swift */; };
 		0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44728B1B3FF000B9CE6 /* TextViews.swift */; };
 		0949F44E28B1B802000B9CE6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44D28B1B802000B9CE6 /* OnboardingView.swift */; };
+		0949F45028B1C431000B9CE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44F28B1C431000B9CE6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		0949F44528B1B3D5000B9CE6 /* StringLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLibrary.swift; sourceTree = "<group>"; };
 		0949F44728B1B3FF000B9CE6 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		0949F44D28B1B802000B9CE6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		0949F44F28B1C431000B9CE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				0949F44528B1B3D5000B9CE6 /* StringLibrary.swift */,
 				0949F43F28B1B30A000B9CE6 /* ColorLibrary.swift */,
+				0949F44F28B1C431000B9CE6 /* Constants.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -112,9 +115,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0949F42D28B1AF6D000B9CE6 /* MRCAvocado */ = {
+		0949F42D28B1AF6D000B9CE6 /* MCRAvocado */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0949F43C28B1AF70000B9CE6 /* Build configuration list for PBXNativeTarget "MRCAvocado" */;
+			buildConfigurationList = 0949F43C28B1AF70000B9CE6 /* Build configuration list for PBXNativeTarget "MCRAvocado" */;
 			buildPhases = (
 				0949F42A28B1AF6D000B9CE6 /* Sources */,
 				0949F42B28B1AF6D000B9CE6 /* Frameworks */,
@@ -124,8 +127,8 @@
 			);
 			dependencies = (
 			);
-			name = MRCAvocado;
-			productName = MRCAvocado;
+			name = MCRAvocado;
+			productName = MCRAvocado;
 			productReference = 0949F42E28B1AF6D000B9CE6 /* MCRAvocado.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -157,7 +160,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0949F42D28B1AF6D000B9CE6 /* MRCAvocado */,
+				0949F42D28B1AF6D000B9CE6 /* MCRAvocado */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +190,7 @@
 				0949F44E28B1B802000B9CE6 /* OnboardingView.swift in Sources */,
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
 				0949F44028B1B30A000B9CE6 /* ColorLibrary.swift in Sources */,
+				0949F45028B1C431000B9CE6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +332,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MRCAvocado;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MCRAvocado;
 				PRODUCT_NAME = MCRAvocado;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -357,7 +361,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MRCAvocado;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MCRAvocado;
 				PRODUCT_NAME = MCRAvocado;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -377,7 +381,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0949F43C28B1AF70000B9CE6 /* Build configuration list for PBXNativeTarget "MRCAvocado" */ = {
+		0949F43C28B1AF70000B9CE6 /* Build configuration list for PBXNativeTarget "MCRAvocado" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0949F43D28B1AF70000B9CE6 /* Debug */,

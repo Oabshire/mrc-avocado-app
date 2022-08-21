@@ -1,6 +1,6 @@
 //
 //  StringLibrary.swift
-//  MRCAvocado
+//  MCRAvocado
 //
 //  Created by Onie on 20.08.2022.
 //
