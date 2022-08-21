@@ -27,6 +27,7 @@ struct ContentView: View {
 
 
 struct HeaderView: View {
+	@State private var isOnboardingIsShowing: Bool = false
 	var body: some View {
 		HStack {
 			VStack {
@@ -35,10 +36,11 @@ struct HeaderView: View {
 			}
 			Spacer()
 			Button(action: {
+				isOnboardingIsShowing = true
 			}) {
 				RoundImageViewSrokedFilled(systemName: "questionmark")
 				
-			}
+			}.sheet(isPresented: $isOnboardingIsShowing, onDismiss: {} , content: {OnbordingView(isOnboardingIsShowing: $isOnboardingIsShowing)})
 		}.padding()
 		Spacer()
 	}
