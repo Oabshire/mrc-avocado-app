@@ -17,6 +17,14 @@ struct MainImageView: View {
 	}
 }
 
+struct OnboardingIconView: View {
+	let imageName: String
+	var body: some View {
+		Image(systemName: imageName).font(.title)
+			.foregroundColor(ColorLibrary.onboardingAccentColor)
+			.frame(width: 30, height: 30)
+	}
+}
 
 struct ImageViews_Previews: PreviewProvider {
 	static var previews: some View {

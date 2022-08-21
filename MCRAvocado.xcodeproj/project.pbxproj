@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0949F43228B1AF6D000B9CE6 /* MRCAvocadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F43128B1AF6D000B9CE6 /* MRCAvocadoApp.swift */; };
+		0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F43128B1AF6D000B9CE6 /* MCRAvocadoApp.swift */; };
 		0949F43428B1AF6D000B9CE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F43328B1AF6D000B9CE6 /* ContentView.swift */; };
 		0949F43628B1AF70000B9CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0949F43528B1AF70000B9CE6 /* Assets.xcassets */; };
 		0949F43928B1AF70000B9CE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0949F43828B1AF70000B9CE6 /* Preview Assets.xcassets */; };
@@ -16,11 +16,12 @@
 		0949F44428B1B39D000B9CE6 /* BottonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44328B1B39D000B9CE6 /* BottonViews.swift */; };
 		0949F44628B1B3D5000B9CE6 /* StringLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44528B1B3D5000B9CE6 /* StringLibrary.swift */; };
 		0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44728B1B3FF000B9CE6 /* TextViews.swift */; };
+		0949F44E28B1B802000B9CE6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44D28B1B802000B9CE6 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0949F42E28B1AF6D000B9CE6 /* MRCAvocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MRCAvocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0949F43128B1AF6D000B9CE6 /* MRCAvocadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRCAvocadoApp.swift; sourceTree = "<group>"; };
+		0949F42E28B1AF6D000B9CE6 /* MCRAvocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCRAvocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0949F43128B1AF6D000B9CE6 /* MCRAvocadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCRAvocadoApp.swift; sourceTree = "<group>"; };
 		0949F43328B1AF6D000B9CE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0949F43528B1AF70000B9CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0949F43828B1AF70000B9CE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -29,6 +30,7 @@
 		0949F44328B1B39D000B9CE6 /* BottonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonViews.swift; sourceTree = "<group>"; };
 		0949F44528B1B3D5000B9CE6 /* StringLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLibrary.swift; sourceTree = "<group>"; };
 		0949F44728B1B3FF000B9CE6 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		0949F44D28B1B802000B9CE6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +47,7 @@
 		0949F42528B1AF6D000B9CE6 = {
 			isa = PBXGroup;
 			children = (
-				0949F43028B1AF6D000B9CE6 /* MRCAvocado */,
+				0949F43028B1AF6D000B9CE6 /* MCRAvocado */,
 				0949F42F28B1AF6D000B9CE6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,12 +55,12 @@
 		0949F42F28B1AF6D000B9CE6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0949F42E28B1AF6D000B9CE6 /* MRCAvocado.app */,
+				0949F42E28B1AF6D000B9CE6 /* MCRAvocado.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0949F43028B1AF6D000B9CE6 /* MRCAvocado */ = {
+		0949F43028B1AF6D000B9CE6 /* MCRAvocado */ = {
 			isa = PBXGroup;
 			children = (
 				0949F44B28B1B50D000B9CE6 /* Views */,
@@ -66,7 +68,7 @@
 				0949F44C28B1B51F000B9CE6 /* App */,
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
 			);
-			path = MRCAvocado;
+			path = MCRAvocado;
 			sourceTree = "<group>";
 		};
 		0949F43728B1AF70000B9CE6 /* Preview Content */ = {
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				0949F43328B1AF6D000B9CE6 /* ContentView.swift */,
+				0949F44D28B1B802000B9CE6 /* OnboardingView.swift */,
 				0949F44728B1B3FF000B9CE6 /* TextViews.swift */,
 				0949F44328B1B39D000B9CE6 /* BottonViews.swift */,
 				0949F44128B1B354000B9CE6 /* ImageViews.swift */,
@@ -100,7 +103,7 @@
 		0949F44C28B1B51F000B9CE6 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				0949F43128B1AF6D000B9CE6 /* MRCAvocadoApp.swift */,
+				0949F43128B1AF6D000B9CE6 /* MCRAvocadoApp.swift */,
 				0949F43528B1AF70000B9CE6 /* Assets.xcassets */,
 			);
 			name = App;
@@ -123,7 +126,7 @@
 			);
 			name = MRCAvocado;
 			productName = MRCAvocado;
-			productReference = 0949F42E28B1AF6D000B9CE6 /* MRCAvocado.app */;
+			productReference = 0949F42E28B1AF6D000B9CE6 /* MCRAvocado.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -141,7 +144,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0949F42928B1AF6D000B9CE6 /* Build configuration list for PBXProject "MRCAvocado" */;
+			buildConfigurationList = 0949F42928B1AF6D000B9CE6 /* Build configuration list for PBXProject "MCRAvocado" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -180,7 +183,8 @@
 				0949F44228B1B354000B9CE6 /* ImageViews.swift in Sources */,
 				0949F43428B1AF6D000B9CE6 /* ContentView.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* BottonViews.swift in Sources */,
-				0949F43228B1AF6D000B9CE6 /* MRCAvocadoApp.swift in Sources */,
+				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
+				0949F44E28B1B802000B9CE6 /* OnboardingView.swift in Sources */,
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
 				0949F44028B1B30A000B9CE6 /* ColorLibrary.swift in Sources */,
 			);
@@ -310,7 +314,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MRCAvocado/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MCRAvocado/Preview Content\"";
 				DEVELOPMENT_TEAM = YZ7WPJDTA7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -325,7 +329,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MRCAvocado;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MCRAvocado;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,7 +343,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MRCAvocado/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MCRAvocado/Preview Content\"";
 				DEVELOPMENT_TEAM = YZ7WPJDTA7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -354,7 +358,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MRCAvocado;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MCRAvocado;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -364,7 +368,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0949F42928B1AF6D000B9CE6 /* Build configuration list for PBXProject "MRCAvocado" */ = {
+		0949F42928B1AF6D000B9CE6 /* Build configuration list for PBXProject "MCRAvocado" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0949F43A28B1AF70000B9CE6 /* Debug */,
