@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0949F42E28B1AF6D000B9CE6 /* MCRAvocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCRAvocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0949F42E28B1AF6D000B9CE6 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0949F43128B1AF6D000B9CE6 /* MCRAvocadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCRAvocadoApp.swift; sourceTree = "<group>"; };
 		0949F43328B1AF6D000B9CE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0949F43528B1AF70000B9CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		0949F42F28B1AF6D000B9CE6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0949F42E28B1AF6D000B9CE6 /* MCRAvocado.app */,
+				0949F42E28B1AF6D000B9CE6 /* Avocado.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,7 +129,7 @@
 			);
 			name = MCRAvocado;
 			productName = MCRAvocado;
-			productReference = 0949F42E28B1AF6D000B9CE6 /* MCRAvocado.app */;
+			productReference = 0949F42E28B1AF6D000B9CE6 /* Avocado.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -333,7 +333,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MCRAvocado;
-				PRODUCT_NAME = MCRAvocado;
+				PRODUCT_NAME = Avocado;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -362,7 +362,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MCRAvocado;
-				PRODUCT_NAME = MCRAvocado;
+				PRODUCT_NAME = Avocado;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
