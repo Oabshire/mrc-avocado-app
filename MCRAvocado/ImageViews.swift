@@ -1,6 +1,6 @@
 //
 //  ImageViews.swift
-//  MRCAvocado
+//  MCRAvocado
 //
 //  Created by Onie on 20.08.2022.
 //
@@ -13,7 +13,8 @@ struct MainImageView: View {
 		Image(systemName)
 			.font(.system(size: 250))
 			.foregroundColor(ColorLibrary.mainImageColor)
-			.frame(width: 200, height: 200)
+			.frame(width: Constants.General.imageWidhtHeight,
+				   height: Constants.General.imageWidhtHeight)
 	}
 }
 

@@ -1,6 +1,6 @@
 //
 //  OnboardingView.swift
-//  MRCAvocado
+//  MCRAvocado
 //
 //  Created by Onie on 20.08.2022.
 //
@@ -19,7 +19,8 @@ struct OnbordingView: View {
 					Image("onboardingAvocado")
 						.resizable()
 						.scaledToFit()
-						.frame(width: 200, height: 200)
+						.frame(width: Constants.General.imageWidhtHeight,
+							   height: Constants.General.imageWidhtHeight)
 						.padding()
 					LineTextView(imageName: "menucard", lineText: StringLibrary.onboardingFirstText)
 					LineTextView(imageName: "dollarsign.circle", lineText: StringLibrary.onboardingSecondText)
@@ -55,16 +56,16 @@ struct HitMeButton: View {
 			isOnboardingIsShowing = false
 		}) {
 			Text("Ok".uppercased()).fontWeight(.bold).font(.title3)
-				.frame(maxWidth: 568)
+				.frame(maxWidth: Constants.Onboarding.buttonWidth)
 		}
-		.padding(20.0)
+		.padding(Constants.Onboarding.buttonPadding)
 		.background(
 			ZStack {
 				ColorLibrary.onboardingAccentColor
 			}
 		)
 		.foregroundColor(Color.white)
-		.cornerRadius(21)
+		.cornerRadius(Constants.Onboarding.buttonCornerRadius)
 	}
 }
 
