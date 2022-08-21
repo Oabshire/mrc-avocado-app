@@ -28,6 +28,27 @@ struct UserNameText: View {
 	}
 }
 
+struct OnboardingTitleText: View {
+	var text: String
+	var body: some View {
+		Text(text)
+			.bold()
+			.foregroundColor(ColorLibrary.onboardingAccentColor)
+			.kerning(3.0)
+			.font(.largeTitle)
+	}
+}
+
+struct OnboardingLineText: View {
+	let lineText: String
+	var body: some View {
+		Text(lineText)
+			.fontWeight(.medium).frame(maxWidth: 568, alignment: .leading)
+			.font(.title3)
+			.padding(.leading)
+	}
+}
+
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
