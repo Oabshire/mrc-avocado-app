@@ -31,8 +31,8 @@ struct HeaderView: View {
 	var body: some View {
 		HStack {
 			VStack {
-				WelcomeText(text: StringLibrary.welcomeText)
-				UserNameText(text: StringLibrary.userNameText)
+				WelcomeText(text: TextLibrary.welcomeText)
+				UserNameText(text: TextLibrary.userNameText)
 			}
 			Spacer()
 			Button(action: {
