@@ -38,7 +38,7 @@ struct HeaderView: View {
 			Button(action: {
 				isOnboardingIsShowing = true
 			}) {
-				RoundImageViewSrokedFilled(systemName: "questionmark")
+				RoundImageViewSrokedFilled(systemName: "questionmark.circle")
 				
 			}.sheet(isPresented: $isOnboardingIsShowing, onDismiss: {} , content: {OnbordingView(isOnboardingIsShowing: $isOnboardingIsShowing)})
 		}.padding()
