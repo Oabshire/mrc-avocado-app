@@ -33,7 +33,7 @@ struct OnboardingTitleText: View {
 	var body: some View {
 		Text(text)
 			.bold()
-			.foregroundColor(ColorLibrary.onboardingAccentColor)
+			.foregroundColor(Color.onboardingAccentColor)
 			.kerning(3.0)
 			.font(.largeTitle)
 	}

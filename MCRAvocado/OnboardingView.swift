@@ -61,7 +61,7 @@ struct HitMeButton: View {
 		.padding(Constants.Onboarding.buttonPadding)
 		.background(
 			ZStack {
-				ColorLibrary.onboardingAccentColor
+				Color.onboardingAccentColor
 			}
 		)
 		.foregroundColor(Color.white)

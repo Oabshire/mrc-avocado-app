@@ -16,7 +16,7 @@ struct RoundImageViewSrokedFilled: View {
 			.frame(width: Constants.General.roundImageViewWidhtHeight,
 				   height: Constants.General.roundImageViewWidhtHeight)
 			.background(
-				Circle().fill(ColorLibrary.buttonColor))
+				Circle().fill(Color.buttonColor))
 	}
 }
 
