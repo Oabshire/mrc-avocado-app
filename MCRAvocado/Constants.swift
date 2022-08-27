@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 enum Constants {
 	enum General {

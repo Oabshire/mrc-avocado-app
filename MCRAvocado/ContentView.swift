@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
 	var body: some View {
 		ZStack {
-			ColorLibrary.mainBackgroundColor
+			Color.mainBackgroundColor
 				.edgesIgnoringSafeArea(.all)
 			LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.2), Color.clear]),
 						   startPoint: .top,
@@ -31,14 +31,14 @@ struct HeaderView: View {
 	var body: some View {
 		HStack {
 			VStack {
-				WelcomeText(text: StringLibrary.welcomeText)
-				UserNameText(text: StringLibrary.userNameText)
+				WelcomeText(text: TextLibrary.welcomeText)
+				UserNameText(text: TextLibrary.userNameText)
 			}
 			Spacer()
 			Button(action: {
 				isOnboardingIsShowing = true
 			}) {
-				RoundImageViewSrokedFilled(systemName: "questionmark")
+				RoundImageViewSrokedFilled(systemName: "questionmark.circle")
 				
 			}.sheet(isPresented: $isOnboardingIsShowing, onDismiss: {} , content: {OnbordingView(isOnboardingIsShowing: $isOnboardingIsShowing)})
 		}.padding()

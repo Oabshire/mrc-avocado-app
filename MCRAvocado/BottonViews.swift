@@ -11,20 +11,17 @@ struct RoundImageViewSrokedFilled: View {
 	var systemName: String
 	var body: some View {
 		Image(systemName: systemName)
-			.font(.largeTitle)
+			.font(.system(size: 57))
 			.foregroundColor(Color.white)
 			.frame(width: Constants.General.roundImageViewWidhtHeight,
 				   height: Constants.General.roundImageViewWidhtHeight)
 			.background(
-				Circle().fill(ColorLibrary.buttonColor))
-			.overlay(
-				Circle().strokeBorder((ColorLibrary.mainImageColor), lineWidth: 2.0))
-		
+				Circle().fill(Color.buttonColor))
 	}
 }
 
 struct BottonViews_Previews: PreviewProvider {
 	static var previews: some View {
-		RoundImageViewSrokedFilled(systemName:"questionmark")
+		RoundImageViewSrokedFilled(systemName:"questionmark.circle")
 	}
 }

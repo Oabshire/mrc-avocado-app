@@ -11,10 +11,10 @@
 		0949F43428B1AF6D000B9CE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F43328B1AF6D000B9CE6 /* ContentView.swift */; };
 		0949F43628B1AF70000B9CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0949F43528B1AF70000B9CE6 /* Assets.xcassets */; };
 		0949F43928B1AF70000B9CE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0949F43828B1AF70000B9CE6 /* Preview Assets.xcassets */; };
-		0949F44028B1B30A000B9CE6 /* ColorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F43F28B1B30A000B9CE6 /* ColorLibrary.swift */; };
+		0949F44028B1B30A000B9CE6 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F43F28B1B30A000B9CE6 /* ColorExtension.swift */; };
 		0949F44228B1B354000B9CE6 /* ImageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44128B1B354000B9CE6 /* ImageViews.swift */; };
 		0949F44428B1B39D000B9CE6 /* BottonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44328B1B39D000B9CE6 /* BottonViews.swift */; };
-		0949F44628B1B3D5000B9CE6 /* StringLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44528B1B3D5000B9CE6 /* StringLibrary.swift */; };
+		0949F44628B1B3D5000B9CE6 /* TextLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44528B1B3D5000B9CE6 /* TextLibrary.swift */; };
 		0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44728B1B3FF000B9CE6 /* TextViews.swift */; };
 		0949F44E28B1B802000B9CE6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44D28B1B802000B9CE6 /* OnboardingView.swift */; };
 		0949F45028B1C431000B9CE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44F28B1C431000B9CE6 /* Constants.swift */; };
@@ -26,10 +26,10 @@
 		0949F43328B1AF6D000B9CE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0949F43528B1AF70000B9CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0949F43828B1AF70000B9CE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0949F43F28B1B30A000B9CE6 /* ColorLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLibrary.swift; sourceTree = "<group>"; };
+		0949F43F28B1B30A000B9CE6 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		0949F44128B1B354000B9CE6 /* ImageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViews.swift; sourceTree = "<group>"; };
 		0949F44328B1B39D000B9CE6 /* BottonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottonViews.swift; sourceTree = "<group>"; };
-		0949F44528B1B3D5000B9CE6 /* StringLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLibrary.swift; sourceTree = "<group>"; };
+		0949F44528B1B3D5000B9CE6 /* TextLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLibrary.swift; sourceTree = "<group>"; };
 		0949F44728B1B3FF000B9CE6 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		0949F44D28B1B802000B9CE6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		0949F44F28B1C431000B9CE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -46,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09239A0B28BABD0000B14F20 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0949F43F28B1B30A000B9CE6 /* ColorExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		0949F42528B1AF6D000B9CE6 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +75,7 @@
 			children = (
 				0949F44B28B1B50D000B9CE6 /* Views */,
 				0949F44928B1B4D2000B9CE6 /* Models */,
+				09239A0B28BABD0000B14F20 /* Extensions */,
 				0949F44C28B1B51F000B9CE6 /* App */,
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
 			);
@@ -84,8 +93,7 @@
 		0949F44928B1B4D2000B9CE6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0949F44528B1B3D5000B9CE6 /* StringLibrary.swift */,
-				0949F43F28B1B30A000B9CE6 /* ColorLibrary.swift */,
+				0949F44528B1B3D5000B9CE6 /* TextLibrary.swift */,
 				0949F44F28B1C431000B9CE6 /* Constants.swift */,
 			);
 			name = Models;
@@ -182,14 +190,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0949F44628B1B3D5000B9CE6 /* StringLibrary.swift in Sources */,
+				0949F44628B1B3D5000B9CE6 /* TextLibrary.swift in Sources */,
 				0949F44228B1B354000B9CE6 /* ImageViews.swift in Sources */,
 				0949F43428B1AF6D000B9CE6 /* ContentView.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* BottonViews.swift in Sources */,
 				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
 				0949F44E28B1B802000B9CE6 /* OnboardingView.swift in Sources */,
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
-				0949F44028B1B30A000B9CE6 /* ColorLibrary.swift in Sources */,
+				0949F44028B1B30A000B9CE6 /* ColorExtension.swift in Sources */,
 				0949F45028B1C431000B9CE6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,12 +335,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MCRAvocado;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anastasiiaTereshchenko.mcrAvocado;
 				PRODUCT_NAME = Avocado;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -356,12 +365,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.onie.MCRAvocado;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anastasiiaTereshchenko.mcrAvocado;
 				PRODUCT_NAME = Avocado;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

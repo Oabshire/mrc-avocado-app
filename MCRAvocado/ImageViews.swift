@@ -12,7 +12,7 @@ struct MainImageView: View {
 	var body: some View {
 		Image(systemName)
 			.font(.system(size: 250))
-			.foregroundColor(ColorLibrary.mainImageColor)
+			.foregroundColor(Color.mainImageColor)
 			.frame(width: Constants.General.imageWidhtHeight,
 				   height: Constants.General.imageWidhtHeight)
 	}
@@ -22,7 +22,7 @@ struct OnboardingIconView: View {
 	let imageName: String
 	var body: some View {
 		Image(systemName: imageName).font(.title)
-			.foregroundColor(ColorLibrary.onboardingAccentColor)
+			.foregroundColor(Color.onboardingAccentColor)
 			.frame(width: 30, height: 30)
 	}
 }
