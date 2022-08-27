@@ -5,7 +5,7 @@
 //  Created by Onie on 20.08.2022.
 //
 
-enum StringLibrary {
+enum TextLibrary {
 	public static let welcomeText = "Welcome,"
 	public static let userNameText = "Anastasiia"
 	public static let onboardingTitleText = "Avocado"
