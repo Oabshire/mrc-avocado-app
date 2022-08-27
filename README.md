@@ -1,5 +1,5 @@
 
-<img src="https://raw.githubusercontent.com/Oabshire/mrc-avocado-app/homework/week01/ReadmeAssets/MCRAvocado.png?token=GHSAT0AAAAAABXVF6L2GNNYKCXIUZBWVSWYYYCJHBA" width="850" height="129"/> 
+<img src="https://github.com/Oabshire/mrc-avocado-app/blob/main/ReadmeAssets/MCRAvocado.png?raw=true" width="850" height="129"/> 
 
 # About the App
 
