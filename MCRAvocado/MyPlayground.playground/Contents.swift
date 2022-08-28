@@ -1,5 +1,7 @@
 import UIKit
 
+// MARK: - Assigment 1
+
 /// category of meal
 enum MealType {
 	case scramble
@@ -63,9 +65,9 @@ struct Meal: MenuItem {
 	let price: Double
 	let isInStock: Bool
 	let calories: Int
-	let type: MealType
 	let ingridients: String
 	let isVegan: Bool
+	let type: MealType
 }
 
 extension Meal: Hashable {
@@ -76,15 +78,15 @@ extension Meal: Hashable {
 
 /// Beverage
 struct Beverage: MenuItem {
-	var type: DrinkType
-	var ingridients: String
-	var isVegan: Bool
 	let name: String
 	let price: Double
 	let isInStock: Bool
 	let calories: Int
-	let withIce: Bool
-	let typeOfMilk: MilkType
+	let ingridients: String
+	let isVegan: Bool
+	let type: DrinkType
+	let withIce: Bool? // Assigment 3
+	let typeOfMilk: MilkType?  // Assigment 3
 	let cupSize: CupSize
 }
 
@@ -93,6 +95,8 @@ extension Beverage: Hashable {
 		return lhs.name == rhs.name && lhs.name == rhs.name
 	}
 }
+
+// MARK: - Assigment 2
 
 // I whant to create  dictionary like that:
 // let order: [MenuItem: Int] = [:]
