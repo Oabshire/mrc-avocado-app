@@ -22,18 +22,19 @@ struct Order {
 		return totalPrice
 	}
 	
-	
 	/// Add menu item to existing order
 	/// - Parameters:
 	///   - item: menu item to add
 	///   - amount: ammount of items
-	func addMenuItem(item: MenuItem, amount: Int, to order: inout Order) {
+	/// - Returns: True - if item added, false - if not.
+	mutating func addMenuItem(item: MenuItem, amount: Int) -> Bool{
 		guard item.isInStock else {
 			print("Sorry! Out of Stock :(")
-			return
+			return false
 		}
-		let existingAmount: Int = order.orderedItems[item] ?? 0
-		order.orderedItems[item] = existingAmount + amount
+		let existingAmount: Int = orderedItems[item] ?? 0
+		orderedItems[item] = existingAmount + amount
+		return true
 	}
 	
 	

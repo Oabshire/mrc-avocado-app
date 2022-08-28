@@ -23,7 +23,7 @@ extension TextLibrary {
 
 extension TextLibrary {
 	
-	/// Texts used as descriptions of MniItem struct 
+	/// Texts used as descriptions of MenuItem struct
 	enum MenuItemDescription {
 		public static let butterWaffle = "Our house-made Belgian Waffle topped with whipped real butter"
 		public static let eggsBaconWaffle = "Our house-made Belgian waffle is served with 2 eggs your way and 2 custom-cured hickory-smoked bacon strips"
