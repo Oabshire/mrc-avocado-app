@@ -17,8 +17,8 @@ enum MealType {
 }
 
 
-/// category of drink
-enum DrinkType {
+/// category of beverage
+enum BeverageType {
 	case tea
 	case coffee
 	case juice
@@ -41,7 +41,7 @@ enum MilkType {
 }
 
 
-/// Cup size for Drinks
+/// Cup size for beverages
 enum CupSize {
 	case tall
 	case grande
@@ -81,7 +81,7 @@ struct Beverage: MenuItem {
 	var isInStock: Bool
 	let calories: Int
 	let description: String?
-	let type: DrinkType
+	let type: BeverageType
 	let withIce: Bool? // Assigment 3
 	let typeOfMilk: MilkType?  // Assigment 3
 	let cupSize: CupSize
@@ -101,13 +101,13 @@ extension Beverage: Hashable {
 // That why I create  2 dictionaries and 1 struct instead
 // I hope it's ok
 let mealOrder: [Meal: Int] = [:]
-let drinkOrder: [Beverage: Int] = [:]
+var beverageOrder: [Beverage: Int] = [:]
 
 
 /// Order
 struct Order {
-	let mealOrder: [Meal: Int]
-	let drinkOrder: [Beverage: Int]
+	var mealOrder: [Meal: Int]
+	var beverageOrder: [Beverage: Int]
 	let numberOfPersons: Int
 	let tableNumber: Int
 	let dateOfCreation: Date
@@ -182,9 +182,27 @@ let orangeJuice = Beverage(name: "orangeJuice",
 						   typeOfMilk: nil,
 						   cupSize: .grande)
 
-let firstOrder = Order(mealOrder: [eggsBaconWaffle: 1, blueberryPancake: 1],
-					   drinkOrder: [icedCoffee:1, orangeJuice: 1],
-					   numberOfPersons: 2,
-					   tableNumber: 28,
-					   dateOfCreation: Date())
+// MARK: - Assigment 5
+var order = Order(mealOrder: [eggsBaconWaffle: 1, blueberryPancake: 1],
+				  beverageOrder: [icedCoffee:1, orangeJuice: 1],
+				  numberOfPersons: 2,
+				  tableNumber: 28,
+				  dateOfCreation: Date())
+
+func addMenuItem(item: MenuItem, amount: Int, to order: inout Order) {
+	guard item.isInStock else {
+		print("Sorry! Out of Stock :(")
+		return
+	}
+	if let beverage = item as? Beverage {
+		let existingAmount: Int = order.beverageOrder[beverage] ?? 0
+		order.beverageOrder[beverage] = existingAmount + amount
+	} else if let meal = item as? Meal {
+		let existingAmount: Int = order.mealOrder[meal] ?? 0
+		order.mealOrder[meal] = existingAmount + amount
+	}
+}
+
+addMenuItem(item: butterWaffle, amount: 2, to: &order)
+addMenuItem(item: orangeJuice, amount: 2, to: &order)
 
