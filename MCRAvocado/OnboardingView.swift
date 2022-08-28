@@ -13,7 +13,7 @@ struct OnbordingView: View {
 		GeometryReader { geometry in
 			ScrollView(showsIndicators: false) {
 				VStack {
-					OnboardingTitleText(text: TextLibrary.onboardingTitleText)
+					OnboardingTitleText(text: TextLibrary.ViewTexts.onboardingTitleText)
 						.padding(.top)
 					
 					Image("onboardingAvocado")
@@ -22,9 +22,9 @@ struct OnbordingView: View {
 						.frame(width: Constants.General.imageWidhtHeight,
 							   height: Constants.General.imageWidhtHeight)
 						.padding()
-					LineTextView(imageName: "menucard", lineText: TextLibrary.onboardingFirstText)
-					LineTextView(imageName: "dollarsign.circle", lineText: TextLibrary.onboardingSecondText)
-					LineTextView(imageName: "camera", lineText: TextLibrary.onboardingThirdText)
+					LineTextView(imageName: "menucard", lineText: TextLibrary.ViewTexts.onboardingFirstText)
+					LineTextView(imageName: "dollarsign.circle", lineText: TextLibrary.ViewTexts.onboardingSecondText)
+					LineTextView(imageName: "camera", lineText: TextLibrary.ViewTexts.onboardingThirdText)
 					Spacer()
 					HitMeButton(isOnboardingIsShowing: $isOnboardingIsShowing).padding()
 				}
