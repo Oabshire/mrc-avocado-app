@@ -20,10 +20,11 @@
 		0949F45028B1C431000B9CE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F44F28B1C431000B9CE6 /* Constants.swift */; };
 		095AD0C828BBF53000651B36 /* MenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0C728BBF53000651B36 /* MenuItemModel.swift */; };
 		095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0CA28BBF75900651B36 /* OrderModel.swift */; };
+		095AD0E028BBFF9200651B36 /* OrderModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		095AD0D428BBFDBB00651B36 /* PBXContainerItemProxy */ = {
+		095AD0E128BBFF9200651B36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0949F42628B1AF6D000B9CE6 /* Project object */;
 			proxyType = 1;
@@ -48,7 +49,8 @@
 		095AD0C528BAD88700651B36 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		095AD0C728BBF53000651B36 /* MenuItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemModel.swift; sourceTree = "<group>"; };
 		095AD0CA28BBF75900651B36 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
-		095AD0D028BBFDBB00651B36 /* MCRAvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCRAvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCRAvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +61,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		095AD0CD28BBFDBB00651B36 /* Frameworks */ = {
+		095AD0DA28BBFF9200651B36 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				0949F43028B1AF6D000B9CE6 /* MCRAvocado */,
+				095AD0DE28BBFF9200651B36 /* MCRAvocadoTests */,
 				0949F42F28B1AF6D000B9CE6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				0949F42E28B1AF6D000B9CE6 /* Avocado.app */,
+				095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +166,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		095AD0DE28BBFF9200651B36 /* MCRAvocadoTests */ = {
+			isa = PBXGroup;
+			children = (
+				095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */,
+			);
+			path = MCRAvocadoTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -182,6 +194,24 @@
 			productReference = 0949F42E28B1AF6D000B9CE6 /* Avocado.app */;
 			productType = "com.apple.product-type.application";
 		};
+		095AD0DC28BBFF9200651B36 /* MCRAvocadoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 095AD0E528BBFF9200651B36 /* Build configuration list for PBXNativeTarget "MCRAvocadoTests" */;
+			buildPhases = (
+				095AD0D928BBFF9200651B36 /* Sources */,
+				095AD0DA28BBFF9200651B36 /* Frameworks */,
+				095AD0DB28BBFF9200651B36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				095AD0E228BBFF9200651B36 /* PBXTargetDependency */,
+			);
+			name = MCRAvocadoTests;
+			productName = MCRAvocadoTests;
+			productReference = 095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -194,6 +224,10 @@
 				TargetAttributes = {
 					0949F42D28B1AF6D000B9CE6 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					095AD0DC28BBFF9200651B36 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 0949F42D28B1AF6D000B9CE6;
 					};
 				};
 			};
@@ -211,6 +245,7 @@
 			projectRoot = "";
 			targets = (
 				0949F42D28B1AF6D000B9CE6 /* MCRAvocado */,
+				095AD0DC28BBFF9200651B36 /* MCRAvocadoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,7 +260,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		095AD0CE28BBFDBB00651B36 /* Resources */ = {
+		095AD0DB28BBFF9200651B36 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,20 +288,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		095AD0CC28BBFDBB00651B36 /* Sources */ = {
+		095AD0D928BBFF9200651B36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095AD0E028BBFF9200651B36 /* OrderModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		095AD0D528BBFDBB00651B36 /* PBXTargetDependency */ = {
+		095AD0E228BBFF9200651B36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0949F42D28B1AF6D000B9CE6 /* MCRAvocado */;
-			targetProxy = 095AD0D428BBFDBB00651B36 /* PBXContainerItemProxy */;
+			targetProxy = 095AD0E128BBFF9200651B36 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -445,6 +481,42 @@
 			};
 			name = Release;
 		};
+		095AD0E328BBFF9200651B36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YZ7WPJDTA7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anastasiiaTereshchenko.MCRAvocadoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Avocado.app/Avocado";
+			};
+			name = Debug;
+		};
+		095AD0E428BBFF9200651B36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YZ7WPJDTA7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anastasiiaTereshchenko.MCRAvocadoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Avocado.app/Avocado";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -462,6 +534,15 @@
 			buildConfigurations = (
 				0949F43D28B1AF70000B9CE6 /* Debug */,
 				0949F43E28B1AF70000B9CE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		095AD0E528BBFF9200651B36 /* Build configuration list for PBXNativeTarget "MCRAvocadoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				095AD0E328BBFF9200651B36 /* Debug */,
+				095AD0E428BBFF9200651B36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

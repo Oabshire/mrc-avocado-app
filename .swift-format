@@ -1,0 +1,8 @@
+{
+	"version": 1,
+	"lineLenght": 120,
+	"indentation": {
+	"spaces": 2
+	},
+	"lineBreakBeforeControlFlowKeywords": true
+}
