@@ -43,7 +43,7 @@ enum CupSize {
 }
 
 /// MenuItem
-struct MenuItem {
+struct MenuItem: Hashable {
 	let name: String
 	let price: Double
 	var isInStock: Bool
@@ -67,12 +67,6 @@ struct MenuItem {
 	}
 }
 
-extension MenuItem: Hashable {
-	static func == (lhs: MenuItem, rhs: MenuItem) -> Bool {
-		return lhs.name == rhs.name && lhs.name == rhs.name
-	}
-}
-
 /// Order
 struct Order {
 	var orderedItems: [MenuItem: Int]
@@ -86,6 +80,49 @@ struct Order {
 			totalPrice += a.key.price
 		}
 		return totalPrice
+	}
+	
+	// MARK: - Assignment  6
+	
+	mutating func addMenuItem(item: MenuItem, amount: Int) {
+		guard item.isInStock else {
+			print("Sorry! Out of Stock :(")
+			return
+		}
+		let existingAmount: Int = orderedItems[item] ?? 0
+		orderedItems[item] = existingAmount + amount
+	}
+	// MARK: - Assignment  7
+	
+	func createStringForPrint(from menuItem: MenuItem) -> String {
+		var result = "Name: \(menuItem.name), Price: \(menuItem.price), Is in stock: \(menuItem.isInStock), Calories: \(menuItem.calories), Type: \(menuItem.type)"
+		if let description = menuItem.description {
+			result += ", Description: \(description)"
+		}
+		if let typeOfMilk = menuItem.typeOfMilk {
+			result += ", Type of milk: \(typeOfMilk)"
+		}
+		if let withIce = menuItem.withIce {
+			result += ", With ice: \(withIce)"
+		}
+		if let cupSize = menuItem.cupSize {
+			result += ", Cup Sise: \(cupSize)"
+		}
+		result += ", Type: \(menuItem.type)"
+		
+		return result
+	}
+	
+	func printOrderedItems() {
+		for (item, amount) in orderedItems {
+			print("\(createStringForPrint(from: item)) : \(amount)")
+		}
+	}
+	
+	func printOrderedItemsNameAngAmount() {
+		for (item, amount) in orderedItems {
+			print("\(item.name) : \(amount)")
+		}
 	}
 }
 
@@ -154,57 +191,28 @@ let orangeJuice = MenuItem(name: "orangeJuice",
 						   typeOfMilk: nil,
 						   cupSize: .grande)
 
+let orangeJuiceTall = MenuItem(name: "orangeJuice",
+							   price: 4.99,
+							   isInStock: true,
+							   calories: 150,
+							   description: nil,
+							   type: .juice,
+							   withIce: false,
+							   typeOfMilk: nil,
+							   cupSize: .tall)
+
 // MARK: - Assignment  5
 var order = Order(orderedItems: [eggsBaconWaffle: 1, blueberryPancake: 1,icedCoffee:1, orangeJuice: 1],
 				  numberOfPersons: 2,
 				  tableNumber: 28,
 				  dateOfCreation: Date())
-
-func addMenuItem(item: MenuItem, amount: Int, to order: inout Order) {
-	guard item.isInStock else {
-		print("Sorry! Out of Stock :(")
-		return
-	}
-	let existingAmount: Int = order.orderedItems[item] ?? 0
-	order.orderedItems[item] = existingAmount + amount
-}
-
-addMenuItem(item: butterWaffle, amount: 2, to: &order)
-addMenuItem(item: orangeJuice, amount: 2, to: &order)
+order.addMenuItem(item: butterWaffle, amount: 2)
+order.addMenuItem(item: orangeJuice, amount: 2)
+order.addMenuItem(item: orangeJuiceTall, amount: 1)
 
 // MARK: - Assignment  6
 
-func createStringForPrint(from menuItem: MenuItem) -> String {
-	var result = "Name: \(menuItem.name), Price: \(menuItem.price), Is in stock: \(menuItem.isInStock), Calories: \(menuItem.calories), Type: \(menuItem.type)"
-	if let description = menuItem.description {
-		result += ", Description: \(description)"
-	}
-	if let typeOfMilk = menuItem.typeOfMilk {
-		result += ", Type of milk: \(typeOfMilk)"
-	}
-	if let withIce = menuItem.withIce {
-		result += ", With ice: \(withIce)"
-	}
-	if let cupSize = menuItem.cupSize {
-		result += ", Cup Sise: \(cupSize)"
-	}
-	result += ", Type: \(menuItem.type)"
-	
-	return result
-}
-
-func printOrderedItems(from order: Order) {
-	for (item, amount) in order.orderedItems {
-		print("\(createStringForPrint(from: item)) : \(amount)")
-	}
-}
-printOrderedItems(from: order)
+order.printOrderedItems()
 
 
-func printOrderedItemsNameAngAmount(from order: Order) {
-	for (item, amount) in order.orderedItems {
-		print("\(item.name) : \(amount)")
-	}
-}
-
-printOrderedItemsNameAngAmount(from: order)
+order.printOrderedItemsNameAngAmount()
