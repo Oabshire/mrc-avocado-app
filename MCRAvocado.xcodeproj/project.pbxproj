@@ -33,6 +33,7 @@
 		0949F44728B1B3FF000B9CE6 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		0949F44D28B1B802000B9CE6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		0949F44F28B1C431000B9CE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		095AD0C528BAD88700651B36 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 				0949F44928B1B4D2000B9CE6 /* Models */,
 				09239A0B28BABD0000B14F20 /* Extensions */,
 				0949F44C28B1B51F000B9CE6 /* App */,
+				095AD0C628BAD8B400651B36 /* Playground */,
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
 			);
 			path = MCRAvocado;
@@ -118,6 +120,14 @@
 				0949F43528B1AF70000B9CE6 /* Assets.xcassets */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		095AD0C628BAD8B400651B36 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				095AD0C528BAD88700651B36 /* MyPlayground.playground */,
+			);
+			name = Playground;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
