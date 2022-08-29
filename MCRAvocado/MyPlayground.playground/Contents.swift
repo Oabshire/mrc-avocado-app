@@ -93,26 +93,7 @@ struct Order {
 		orderedItems[item] = existingAmount + amount
 	}
 	// MARK: - Assignment  7
-	
-	func createStringForPrint(from menuItem: MenuItem) -> String {
-		var result = "Name: \(menuItem.name), Price: \(menuItem.price), Is in stock: \(menuItem.isInStock), Calories: \(menuItem.calories), Type: \(menuItem.type)"
-		if let description = menuItem.description {
-			result += ", Description: \(description)"
-		}
-		if let typeOfMilk = menuItem.typeOfMilk {
-			result += ", Type of milk: \(typeOfMilk)"
-		}
-		if let withIce = menuItem.withIce {
-			result += ", With ice: \(withIce)"
-		}
-		if let cupSize = menuItem.cupSize {
-			result += ", Cup Sise: \(cupSize)"
-		}
-		result += ", Type: \(menuItem.type)"
 		
-		return result
-	}
-	
 	func printOrderedItems() {
 		for (item, amount) in orderedItems {
 			print("\(createStringForPrint(from: item)) : \(amount)")
@@ -126,9 +107,30 @@ struct Order {
 	}
 }
 
+func createStringForPrint(from menuItem: MenuItem) -> String {
+	var result = "Name: \(menuItem.name), Price: \(menuItem.price), Is in stock: \(menuItem.isInStock), Calories: \(menuItem.calories), Type: \(menuItem.type)"
+	if let description = menuItem.description {
+		result += ", Description: \(description)"
+	}
+	if let typeOfMilk = menuItem.typeOfMilk {
+		result += ", Type of milk: \(typeOfMilk)"
+	}
+	if let withIce = menuItem.withIce {
+		result += ", With ice: \(withIce)"
+	}
+	if let cupSize = menuItem.cupSize {
+		result += ", Cup Sise: \(cupSize)"
+	}
+	result += ", Type: \(menuItem.type)"
+	
+	return result
+}
+
 // MARK: - Assignment  2
 
 let orderedItems: [MenuItem: Int] = [:]
+
+
 
 // MARK: - Assignment  4
 
@@ -213,6 +215,11 @@ order.addMenuItem(item: orangeJuiceTall, amount: 1)
 // MARK: - Assignment  6
 
 order.printOrderedItems()
-
-
 order.printOrderedItemsNameAngAmount()
+
+// another print func
+
+func printOrderedItemsWithAmount(from order: Order) {
+	order.orderedItems.forEach { print("\(createStringForPrint(from: ($0))): \($1)") }
+}
+printOrderedItemsWithAmount(from: order)
