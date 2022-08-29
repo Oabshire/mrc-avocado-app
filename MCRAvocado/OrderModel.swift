@@ -40,9 +40,7 @@ struct Order {
 	
 	/// Full print ordered items with amount
 	func printOrderedItems() {
-		for (item, amount) in orderedItems {
-			print("\(createStringForPrint(from: item)) : \(amount)")
-		}
+		orderedItems.forEach { print("\(createStringForPrint(from: ($0))): \($1)") }
 	}
 	
 	/// Print Name and amount of ordered items
