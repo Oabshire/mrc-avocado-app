@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OnbordingView: View {
+struct OnboardingView: View {
 	@Binding var isOnboardingIsShowing: Bool
 	var body: some View {
 		GeometryReader { geometry in
@@ -19,8 +19,8 @@ struct OnbordingView: View {
 					Image("onboardingAvocado")
 						.resizable()
 						.scaledToFit()
-						.frame(width: Constants.General.imageWidhtHeight,
-							   height: Constants.General.imageWidhtHeight)
+						.frame(width: Constants.General.imageWidthHeight,
+							   height: Constants.General.imageWidthHeight)
 						.padding()
 					LineTextView(imageName: "menucard", lineText: TextLibrary.ViewTexts.onboardingFirstText)
 					LineTextView(imageName: "dollarsign.circle", lineText: TextLibrary.ViewTexts.onboardingSecondText)
@@ -69,13 +69,13 @@ struct HitMeButton: View {
 	}
 }
 
-struct OnbordingView_Previews: PreviewProvider {
+struct OnboardingView_Previews: PreviewProvider {
 	
 	static var previews: some View {
-		OnbordingView(isOnboardingIsShowing: .constant(true))
-		OnbordingView(isOnboardingIsShowing: .constant(true)).preferredColorScheme(.dark)
-		OnbordingView(isOnboardingIsShowing: .constant(true)).previewLayout(.fixed(width: 568, height: 320))
-		OnbordingView(isOnboardingIsShowing: .constant(true)).previewLayout(.fixed(width: 568, height: 320))
+		OnboardingView(isOnboardingIsShowing: .constant(true))
+		OnboardingView(isOnboardingIsShowing: .constant(true)).preferredColorScheme(.dark)
+		OnboardingView(isOnboardingIsShowing: .constant(true)).previewLayout(.fixed(width: 568, height: 320))
+		OnboardingView(isOnboardingIsShowing: .constant(true)).previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}
 }

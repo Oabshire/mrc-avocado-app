@@ -25,7 +25,7 @@ struct Order {
 	/// Add menu item to existing order
 	/// - Parameters:
 	///   - item: menu item to add
-	///   - amount: ammount of items
+	///   - amount: amount of items
 	/// - Returns: True - if item added, false - if not.
 	mutating func addMenuItem(item: MenuItem, amount: Int) -> Bool{
 		guard item.isInStock else {
@@ -44,7 +44,7 @@ struct Order {
 	}
 	
 	/// Print Name and amount of ordered items
-	func printOrderedItemsNameAngAmount() {
+	func printOrderedItemsNameAndAmount() {
 		for (item, amount) in orderedItems {
 			print("\(item.name) : \(amount)")
 		}
@@ -64,7 +64,7 @@ private extension Order {
 			result += ", With ice: \(withIce)"
 		}
 		if let cupSize = menuItem.cupSize {
-			result += ", Cup Sise: \(cupSize)"
+			result += ", Cup Size: \(cupSize)"
 		}
 		result += ", Type: \(menuItem.type)"
 		

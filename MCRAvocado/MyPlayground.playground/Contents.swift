@@ -23,7 +23,7 @@ enum MenuItemType {
 	case other
 }
 
-/// Type of milk used for coffe, tea, and hot chocolate
+/// Type of milk used for coffee, tea, and hot chocolate
 enum MilkType {
 	case whole
 	case nonFat
@@ -100,7 +100,7 @@ struct Order {
 		}
 	}
 	
-	func printOrderedItemsNameAngAmount() {
+	func printOrderedItemsNameAndAmount() {
 		for (item, amount) in orderedItems {
 			print("\(item.name) : \(amount)")
 		}
@@ -119,7 +119,7 @@ func createStringForPrint(from menuItem: MenuItem) -> String {
 		result += ", With ice: \(withIce)"
 	}
 	if let cupSize = menuItem.cupSize {
-		result += ", Cup Sise: \(cupSize)"
+		result += ", Cup Size: \(cupSize)"
 	}
 	result += ", Type: \(menuItem.type)"
 	
@@ -173,7 +173,7 @@ let blackTea = MenuItem(name: "Black tea",
 						cupSize: .tall)
 
 
-let icedCoffee = MenuItem(name: "Iced cofee",
+let icedCoffee = MenuItem(name: "Iced coffee",
 						  price: 5.99,
 						  isInStock: true,
 						  calories: 20,
