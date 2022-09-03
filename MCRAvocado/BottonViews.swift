@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct RoundImageViewSrokedFilled: View {
+struct RoundImageViewStrokedFilled: View {
 	var systemName: String
 	var body: some View {
 		Image(systemName: systemName)
 			.font(.system(size: 57))
 			.foregroundColor(Color.white)
-			.frame(width: Constants.General.roundImageViewWidhtHeight,
-				   height: Constants.General.roundImageViewWidhtHeight)
+			.frame(width: Constants.General.roundImageViewWidthHeight,
+				   height: Constants.General.roundImageViewWidthHeight)
 			.background(
 				Circle().fill(Color.buttonColor))
 	}
@@ -22,6 +22,6 @@ struct RoundImageViewSrokedFilled: View {
 
 struct BottonViews_Previews: PreviewProvider {
 	static var previews: some View {
-		RoundImageViewSrokedFilled(systemName:"questionmark.circle")
+		RoundImageViewStrokedFilled(systemName:"questionmark.circle")
 	}
 }

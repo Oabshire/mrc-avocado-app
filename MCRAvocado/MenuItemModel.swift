@@ -26,7 +26,7 @@ enum MenuItemType {
 	case other
 }
 
-/// Type of milk used for coffe, tea, and hot chocolate
+/// Type of milk used for coffee, tea, and hot chocolate
 enum MilkType {
 	case whole
 	case nonFat
@@ -62,7 +62,7 @@ struct MenuItem {
 	///   - name: Name of the item
 	///   - price: price of the item
 	///   - isInStock: is item in stock
-	///   - calories: callories in 1 portion
+	///   - calories: calories in 1 portion
 	///   - description: description of item used in menu
 	///   - type: type of item
 	///   - withIce: is item with ice if it is a beverage
