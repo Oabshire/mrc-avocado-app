@@ -14,7 +14,7 @@ final class OrderModelTests: XCTestCase {
 	
 	override func setUpWithError() throws {
 		super.setUp()
-		menuItem = MenuItem(name: "Oatmilk",
+		menuItem = MenuItem(name: "Oatmeal",
 							price: 10.70,
 							isInStock: true,
 							calories: 500,
