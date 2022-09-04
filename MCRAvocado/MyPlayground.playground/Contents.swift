@@ -72,12 +72,20 @@ struct Order {
 	let tableNumber: Int
 	let dateOfCreation: Date
 	
-	var totalPrice: Double {
+	var ammountWithoutDiscount: Double {
 		var totalPrice = 0.0
 		for a in orderedItems {
 			totalPrice += a.key.price
 		}
 		return totalPrice
+	}
+	
+	//MARK: - Assignment 8 (HW3)
+	var appliedDiscount: Discount = .none
+	
+	var currentDiscountedAmount: Double {
+		let amountAfterDiscount = ammountWithoutDiscount - ammountWithoutDiscount * Double(appliedDiscount.percentageValue) / 100.0
+		return  round(amountAfterDiscount * 100) / 100
 	}
 	
 	mutating func addMenuItem(item: MenuItem, amount: Int) {
@@ -237,16 +245,16 @@ order.addMenuItem(item: orangeJuice, amount: 2)
 order.addMenuItem(item: orangeJuiceTall, amount: 1)
 
 //MARK: - Assignment 1 (HW3)
-print(order.totalPrice)
-print(calculateDiscountedAmount(from: order.totalPrice, with: 5))
+print(order.ammountWithoutDiscount)
+print(calculateDiscountedAmount(from: order.ammountWithoutDiscount, with: 5))
 //MARK: - Assignment 2 (HW3)
-print(calculateDiscountedAmount(from: order.totalPrice))
+print(calculateDiscountedAmount(from: order.ammountWithoutDiscount))
 //MARK: - Assignment 3 (HW3)
 printDiscount({amount , discount in
 	calculateDiscountedAmount(from: amount, with: discount)
-}, order.totalPrice, 5)
+}, order.ammountWithoutDiscount, 5)
 //MARK: - Assignment 4 (HW3)
-print (discountedAmountClosure(order.totalPrice, 5))
+print (discountedAmountClosure(order.ammountWithoutDiscount, 5))
 
 //MARK: - Assignment 5 (HW3)
 let menuItems = [butterWaffle, eggsBaconWaffle, blueberryPancake, blackTea, icedCoffee, orangeJuice]
@@ -285,6 +293,7 @@ enum Discount {
 	case veteransDay
 	case thanksgivingDay
 	case christmasDay
+	case none
 	
 	var percentageValue: Int {
 		switch self {
@@ -296,6 +305,8 @@ enum Discount {
 			return 15
 		case .martinLutherKing, .washingtons, .laborDay, .columbusDay:
 			return 5
+		case .none:
+			return 0
 		}
 	}
 }
@@ -304,3 +315,7 @@ func printDiscount(for discount: Discount) {
 	print(discount.percentageValue)
 }
 printDiscount(for: .columbusDay)
+
+//MARK: - Assignment 8 (HW3)
+order.appliedDiscount = .columbusDay
+print(order.currentDiscountedAmount)
