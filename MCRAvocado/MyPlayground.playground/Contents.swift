@@ -118,6 +118,11 @@ struct Order {
 			print("\(item.name) : \(amount)")
 		}
 	}
+	
+	//MARK: - Assignment 10 (HW3)
+	func calculaTotalAmountAfterApplyingDicount() -> Double {
+		return currentDiscountedAmount
+	}
 }
 
 private extension Order {
@@ -333,3 +338,7 @@ print(order.currentDiscountedAmount)
 //MARK: - Assignment 9 (HW3)
 order.ammountWithoutDiscount
 order.maximumDiscount
+
+//MARK: - Assignment 10 (HW3)
+
+order.calculaTotalAmountAfterApplyingDicount()
