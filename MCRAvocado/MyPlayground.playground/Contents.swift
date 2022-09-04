@@ -106,13 +106,13 @@ struct Order {
 		let existingAmount: Int = orderedItems[item] ?? 0
 		orderedItems[item] = existingAmount + amount
 	}
-
+	
 	func printOrderedItems() {
 		for (item, amount) in orderedItems {
 			print("\(createStringForPrint(from: item)) : \(amount)")
 		}
 	}
-
+	
 	func printOrderedItemsNameAndAmount() {
 		for (item, amount) in orderedItems {
 			print("\(item.name) : \(amount)")
@@ -342,3 +342,27 @@ order.maximumDiscount
 //MARK: - Assignment 10 (HW3)
 
 order.calculaTotalAmountAfterApplyingDicount()
+
+//MARK: - Assignment 11 (HW3)
+
+protocol DiscountProtocol {
+	var discountType: Discount { get set}
+	var discountPercentage: Int { get }
+	func calculateDiscount(for order: Order) -> Double
+}
+
+class DiscountClass: DiscountProtocol {
+	var discountType: Discount
+	
+	var discountPercentage: Int { discountType.percentageValue }
+	
+	init(discountType: Discount) {
+		self.discountType = discountType
+	}
+	func calculateDiscount(for order: Order) -> Double {
+		(order.ammountWithoutDiscount * Double(discountPercentage)/100).roundTwoAfterPoint
+	}
+}
+
+let discountClass = DiscountClass(discountType: .columbusDay)
+let discountAmount = discountClass.calculateDiscount(for: order)
