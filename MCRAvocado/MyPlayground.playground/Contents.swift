@@ -1,5 +1,10 @@
 import UIKit
 
+extension Double {
+	var roundTwoAfterPoint: Double {
+		(self * 100).rounded() / 100
+	}
+}
 /// category of meal
 enum MenuItemType {
 	case scramble
@@ -85,8 +90,13 @@ struct Order {
 	
 	var currentDiscountedAmount: Double {
 		let amountAfterDiscount = ammountWithoutDiscount - ammountWithoutDiscount * Double(appliedDiscount.percentageValue) / 100.0
-		return  round(amountAfterDiscount * 100) / 100
+		return  amountAfterDiscount.roundTwoAfterPoint
 	}
+	
+	//MARK: - Assignment 9 (HW3)
+	lazy var maximumDiscount: Double = {
+		(ammountWithoutDiscount * Double(Discount.newYear.percentageValue)/100).roundTwoAfterPoint
+	}()
 	
 	mutating func addMenuItem(item: MenuItem, amount: Int) {
 		guard item.isInStock else {
@@ -139,7 +149,7 @@ private extension Order {
 /// - Returns:  total amount after discount.
 func  calculateDiscountedAmount(from amount: Double, with discountPercentage: Int) -> Double {
 	let amountAfterDiscount = amount - amount * Double(discountPercentage) / 100.0
-	return  round(amountAfterDiscount * 100) / 100
+	return  amountAfterDiscount.roundTwoAfterPoint
 }
 
 //MARK: - Assignment 2 (HW3)
@@ -149,7 +159,7 @@ func  calculateDiscountedAmount(from amount: Double, with discountPercentage: In
 func  calculateDiscountedAmount(from amount: Double) -> Double {
 	let discountPercentage = 5
 	let amountAfterDiscount = amount - amount * Double(discountPercentage) / 100.0
-	return  round(amountAfterDiscount * 100) / 100
+	return amountAfterDiscount.roundTwoAfterPoint
 }
 
 typealias Operate = (Double, Int) -> Double
@@ -163,7 +173,7 @@ func printDiscount(_ operate: Operate, _ a: Double, _ b: Int) {
 
 var discountedAmountClosure = { (a: Double, b: Int) -> Double in
 	let amountAfterDiscount = a - a * Double(b) / 100.0
-	return  round(amountAfterDiscount * 100) / 100
+	return amountAfterDiscount.roundTwoAfterPoint
 }
 
 let orderedItems: [MenuItem: Int] = [:]
@@ -319,3 +329,7 @@ printDiscount(for: .columbusDay)
 //MARK: - Assignment 8 (HW3)
 order.appliedDiscount = .columbusDay
 print(order.currentDiscountedAmount)
+
+//MARK: - Assignment 9 (HW3)
+order.ammountWithoutDiscount
+order.maximumDiscount
