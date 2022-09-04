@@ -104,10 +104,21 @@ struct Order {
 	
 	//MARK: - Assignment 1 (HW3)
 	
-	/// Calculate the discountedAmount
+	/// Calculate the discounted Amount
 	/// - Parameter discountPercentage: discountPercentage (5%, 10% and so on)
 	/// - Returns:  total amount after discount.
-	func  calculateDiscountedAmount(discountPercentage: Int) -> Double {
+	func  calculateDiscountedAmount(with discountPercentage: Int) -> Double {
+		let amountAfterDiscount = totalPrice - totalPrice * Double(discountPercentage) / 100.0
+		return  round(amountAfterDiscount * 100) / 100
+
+	}
+	
+	//MARK: - Assignment 2 (HW3)
+	
+	/// Calculate the amount with 5% discount
+	/// - Returns: total amount after 5% discount.
+	func  calculateDiscountedAmount() -> Double {
+		let discountPercentage = 5
 		let amountAfterDiscount = totalPrice - totalPrice * Double(discountPercentage) / 100.0
 		return  round(amountAfterDiscount * 100) / 100
 
@@ -217,4 +228,5 @@ order.addMenuItem(item: orangeJuice, amount: 2)
 order.addMenuItem(item: orangeJuiceTall, amount: 1)
 
 print(order.totalPrice)
-print(order.calculateDiscountedAmount(discountPercentage: 10))
+print(order.calculateDiscountedAmount(with: 5))
+print(order.calculateDiscountedAmount())
