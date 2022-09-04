@@ -101,28 +101,6 @@ struct Order {
 			print("\(item.name) : \(amount)")
 		}
 	}
-	
-	//MARK: - Assignment 1 (HW3)
-	
-	/// Calculate the discounted Amount
-	/// - Parameter discountPercentage: discountPercentage (5%, 10% and so on)
-	/// - Returns:  total amount after discount.
-	func  calculateDiscountedAmount(with discountPercentage: Int) -> Double {
-		let amountAfterDiscount = totalPrice - totalPrice * Double(discountPercentage) / 100.0
-		return  round(amountAfterDiscount * 100) / 100
-
-	}
-	
-	//MARK: - Assignment 2 (HW3)
-	
-	/// Calculate the amount with 5% discount
-	/// - Returns: total amount after 5% discount.
-	func  calculateDiscountedAmount() -> Double {
-		let discountPercentage = 5
-		let amountAfterDiscount = totalPrice - totalPrice * Double(discountPercentage) / 100.0
-		return  round(amountAfterDiscount * 100) / 100
-
-	}
 }
 
 private extension Order {
@@ -146,6 +124,35 @@ private extension Order {
 	}
 }
 
+
+//MARK: - Assignment 1 (HW3)
+
+/// Calculate the discounted Amount
+/// - Parameter discountPercentage: discountPercentage (5%, 10% and so on)
+/// - Returns:  total amount after discount.
+func  calculateDiscountedAmount(from amount: Double, with discountPercentage: Int) -> Double {
+	let amountAfterDiscount = amount - amount * Double(discountPercentage) / 100.0
+	return  round(amountAfterDiscount * 100) / 100
+
+}
+
+//MARK: - Assignment 2 (HW3)
+
+/// Calculate the amount with 5% discount
+/// - Returns: total amount after 5% discount.
+func  calculateDiscountedAmount(from amount: Double) -> Double {
+	let discountPercentage = 5
+	let amountAfterDiscount = amount - amount * Double(discountPercentage) / 100.0
+	return  round(amountAfterDiscount * 100) / 100
+
+}
+
+typealias Operate = (Double, Int) -> Double
+
+//MARK: - Assignment 3 (HW3)
+func printDiscount(_ operate: Operate, _ a: Double, _ b: Int) {
+	print(operate(a,b))
+}
 
 
 let orderedItems: [MenuItem: Int] = [:]
@@ -227,6 +234,12 @@ order.addMenuItem(item: butterWaffle, amount: 2)
 order.addMenuItem(item: orangeJuice, amount: 2)
 order.addMenuItem(item: orangeJuiceTall, amount: 1)
 
+//MARK: - Assignment 1 (HW3)
 print(order.totalPrice)
-print(order.calculateDiscountedAmount(with: 5))
-print(order.calculateDiscountedAmount())
+print(calculateDiscountedAmount(from: order.totalPrice, with: 5))
+//MARK: - Assignment 2 (HW3)
+print(calculateDiscountedAmount(from: order.totalPrice))
+//MARK: - Assignment 3 (HW3)
+printDiscount({amount , discount in
+	calculateDiscountedAmount(from: amount, with: discount)
+}, order.totalPrice, 5)
