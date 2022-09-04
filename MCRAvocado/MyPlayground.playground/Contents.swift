@@ -154,6 +154,12 @@ func printDiscount(_ operate: Operate, _ a: Double, _ b: Int) {
 	print(operate(a,b))
 }
 
+//MARK: - Assignment 4 (HW3)
+
+var discountedAmountClosure = { (a: Double, b: Int) -> Double in
+	let amountAfterDiscount = a - a * Double(b) / 100.0
+	return  round(amountAfterDiscount * 100) / 100
+}
 
 let orderedItems: [MenuItem: Int] = [:]
 
@@ -243,3 +249,5 @@ print(calculateDiscountedAmount(from: order.totalPrice))
 printDiscount({amount , discount in
 	calculateDiscountedAmount(from: amount, with: discount)
 }, order.totalPrice, 5)
+//MARK: - Assignment 4 (HW3)
+print (discountedAmountClosure(order.totalPrice, 5))
