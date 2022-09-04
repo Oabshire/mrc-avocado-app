@@ -260,4 +260,18 @@ let increasedMenuItems: [MenuItem] = menuItems.map {
 	item.price = $0.price  + $0.price * 0.5
 	return item
 }
-print(increasedMenuItems)
+
+//MARK: - Assignment 6 (HW3)
+let discountMap = ["New Year": 25,
+				   "Martin Luther King’s Birthday": 5,
+				   "Washington’s Birthday": 5,
+				   "Memorial Day": 15,
+				   "Juneteenth National Independence Day": 20,
+				   "Independence Day": 5,
+				   "Labor Day": 5,
+				   "Columbus Day":5,
+				   "Veterans’ Day": 15,
+				   "Thanksgiving Day": 20,
+				   "Christmas Day": 20
+].sorted{$0.value > $1.value}
+print(discountMap)
