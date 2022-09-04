@@ -1,7 +1,5 @@
 import UIKit
 
-// MARK: - Assignment  1
-
 /// category of meal
 enum MenuItemType {
 	case scramble
@@ -50,8 +48,8 @@ struct MenuItem: Hashable {
 	let calories: Int
 	let description: String?
 	let type: MenuItemType
-	let withIce: Bool? // Assignment  3
-	let typeOfMilk: MilkType? // Assignment  3
+	let withIce: Bool?
+	let typeOfMilk: MilkType?
 	let cupSize: CupSize?
 	
 	init(name: String, price: Double, isInStock: Bool, calories: Int, description: String? = nil, type: MenuItemType, withIce: Bool? = nil , typeOfMilk: MilkType? = nil, cupSize: CupSize? = nil) {
@@ -82,7 +80,6 @@ struct Order {
 		return totalPrice
 	}
 	
-	// MARK: - Assignment  6
 	
 	mutating func addMenuItem(item: MenuItem, amount: Int) {
 		guard item.isInStock else {
@@ -92,8 +89,7 @@ struct Order {
 		let existingAmount: Int = orderedItems[item] ?? 0
 		orderedItems[item] = existingAmount + amount
 	}
-	// MARK: - Assignment  7
-		
+
 	func printOrderedItems() {
 		for (item, amount) in orderedItems {
 			print("\(createStringForPrint(from: item)) : \(amount)")
@@ -105,34 +101,43 @@ struct Order {
 			print("\(item.name) : \(amount)")
 		}
 	}
-}
-
-func createStringForPrint(from menuItem: MenuItem) -> String {
-	var result = "Name: \(menuItem.name), Price: \(menuItem.price), Is in stock: \(menuItem.isInStock), Calories: \(menuItem.calories), Type: \(menuItem.type)"
-	if let description = menuItem.description {
-		result += ", Description: \(description)"
-	}
-	if let typeOfMilk = menuItem.typeOfMilk {
-		result += ", Type of milk: \(typeOfMilk)"
-	}
-	if let withIce = menuItem.withIce {
-		result += ", With ice: \(withIce)"
-	}
-	if let cupSize = menuItem.cupSize {
-		result += ", Cup Size: \(cupSize)"
-	}
-	result += ", Type: \(menuItem.type)"
 	
-	return result
+	//MARK: - Assignment 1 (HW3)
+	
+	/// Calculate the discountedAmount
+	/// - Parameter discountPercentage: discountPercentage (5%, 10% and so on)
+	/// - Returns:  total amount after discount.
+	func  calculateDiscountedAmount(discountPercentage: Int) -> Double {
+		let amountAfterDiscount = totalPrice - totalPrice * Double(discountPercentage) / 100.0
+		return  round(amountAfterDiscount * 100) / 100
+
+	}
 }
 
-// MARK: - Assignment  2
+private extension Order {
+	func createStringForPrint(from menuItem: MenuItem) -> String {
+		var result = "Name: \(menuItem.name), Price: \(menuItem.price), Is in stock: \(menuItem.isInStock), Calories: \(menuItem.calories), Type: \(menuItem.type)"
+		if let description = menuItem.description {
+			result += ", Description: \(description)"
+		}
+		if let typeOfMilk = menuItem.typeOfMilk {
+			result += ", Type of milk: \(typeOfMilk)"
+		}
+		if let withIce = menuItem.withIce {
+			result += ", With ice: \(withIce)"
+		}
+		if let cupSize = menuItem.cupSize {
+			result += ", Cup Size: \(cupSize)"
+		}
+		result += ", Type: \(menuItem.type)"
+		
+		return result
+	}
+}
+
+
 
 let orderedItems: [MenuItem: Int] = [:]
-
-
-
-// MARK: - Assignment  4
 
 enum DescriptionText {
 	public static let butterWaffle = "Our house-made Belgian Waffle topped with whipped real butter"
@@ -203,7 +208,6 @@ let orangeJuiceTall = MenuItem(name: "orangeJuice",
 							   typeOfMilk: nil,
 							   cupSize: .tall)
 
-// MARK: - Assignment  5
 var order = Order(orderedItems: [eggsBaconWaffle: 1, blueberryPancake: 1,icedCoffee:1, orangeJuice: 1],
 				  numberOfPersons: 2,
 				  tableNumber: 28,
@@ -212,14 +216,5 @@ order.addMenuItem(item: butterWaffle, amount: 2)
 order.addMenuItem(item: orangeJuice, amount: 2)
 order.addMenuItem(item: orangeJuiceTall, amount: 1)
 
-// MARK: - Assignment  6
-
-order.printOrderedItems()
-order.printOrderedItemsNameAngAmount()
-
-// another print func
-
-func printOrderedItemsWithAmount(from order: Order) {
-	order.orderedItems.forEach { print("\(createStringForPrint(from: ($0))): \($1)") }
-}
-printOrderedItemsWithAmount(from: order)
+print(order.totalPrice)
+print(order.calculateDiscountedAmount(discountPercentage: 10))
