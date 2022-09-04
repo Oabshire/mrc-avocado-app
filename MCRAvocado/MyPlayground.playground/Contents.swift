@@ -43,7 +43,7 @@ enum CupSize {
 /// MenuItem
 struct MenuItem: Hashable {
 	let name: String
-	let price: Double
+	var price: Double
 	var isInStock: Bool
 	let calories: Int
 	let description: String?
@@ -251,3 +251,13 @@ printDiscount({amount , discount in
 }, order.totalPrice, 5)
 //MARK: - Assignment 4 (HW3)
 print (discountedAmountClosure(order.totalPrice, 5))
+
+//MARK: - Assignment 5 (HW3)
+let menuItems = [butterWaffle, eggsBaconWaffle, blueberryPancake, blackTea, icedCoffee, orangeJuice]
+
+let increasedMenuItems: [MenuItem] = menuItems.map {
+	var item = $0
+	item.price = $0.price  + $0.price * 0.5
+	return item
+}
+print(increasedMenuItems)
