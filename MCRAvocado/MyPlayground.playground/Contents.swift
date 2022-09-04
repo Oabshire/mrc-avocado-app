@@ -80,7 +80,6 @@ struct Order {
 		return totalPrice
 	}
 	
-	
 	mutating func addMenuItem(item: MenuItem, amount: Int) {
 		guard item.isInStock else {
 			print("Sorry! Out of Stock :(")
@@ -95,7 +94,7 @@ struct Order {
 			print("\(createStringForPrint(from: item)) : \(amount)")
 		}
 	}
-	
+
 	func printOrderedItemsNameAndAmount() {
 		for (item, amount) in orderedItems {
 			print("\(item.name) : \(amount)")
@@ -133,7 +132,6 @@ private extension Order {
 func  calculateDiscountedAmount(from amount: Double, with discountPercentage: Int) -> Double {
 	let amountAfterDiscount = amount - amount * Double(discountPercentage) / 100.0
 	return  round(amountAfterDiscount * 100) / 100
-
 }
 
 //MARK: - Assignment 2 (HW3)
@@ -144,7 +142,6 @@ func  calculateDiscountedAmount(from amount: Double) -> Double {
 	let discountPercentage = 5
 	let amountAfterDiscount = amount - amount * Double(discountPercentage) / 100.0
 	return  round(amountAfterDiscount * 100) / 100
-
 }
 
 typealias Operate = (Double, Int) -> Double
@@ -200,7 +197,6 @@ let blackTea = MenuItem(name: "Black tea",
 						withIce: nil,
 						typeOfMilk: nil,
 						cupSize: .tall)
-
 
 let icedCoffee = MenuItem(name: "Iced coffee",
 						  price: 5.99,
@@ -275,3 +271,36 @@ let discountMap = ["New Year": 25,
 				   "Christmas Day": 20
 ].sorted{$0.value > $1.value}
 print(discountMap)
+
+//MARK: - Assignment 7 (HW3)
+
+enum Discount {
+	case newYear
+	case martinLutherKing
+	case washingtons
+	case memorialDay
+	case nationalIndependenceDay
+	case laborDay
+	case columbusDay
+	case veteransDay
+	case thanksgivingDay
+	case christmasDay
+	
+	var percentageValue: Int {
+		switch self {
+		case .newYear:
+			return 25
+		case .thanksgivingDay, .nationalIndependenceDay, .christmasDay:
+			return 20
+		case .memorialDay, .veteransDay:
+			return 15
+		case .martinLutherKing, .washingtons, .laborDay, .columbusDay:
+			return 5
+		}
+	}
+}
+
+func printDiscount(for discount: Discount) {
+	print(discount.percentageValue)
+}
+printDiscount(for: .columbusDay)
