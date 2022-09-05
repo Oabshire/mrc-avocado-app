@@ -1,10 +1,4 @@
 import UIKit
-
-extension Double {
-	var roundTwoAfterPoint: Double {
-		(self * 100).rounded() / 100
-	}
-}
 /// category of meal
 enum MenuItemType {
 	case scramble
@@ -366,3 +360,11 @@ class DiscountClass: DiscountProtocol {
 
 let discountClass = DiscountClass(discountType: .columbusDay)
 let discountAmount = discountClass.calculateDiscount(for: order)
+
+//MARK: - Assignment 12 (HW3)
+extension Double {
+	var roundTwoAfterPoint: Double {
+		(self * 100).rounded() / 100
+	}
+}
+
