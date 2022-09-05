@@ -175,6 +175,19 @@ var discountedAmountClosure = { (a: Double, b: Int) -> Double in
 	return amountAfterDiscount.roundTwoAfterPoint
 }
 
+// Nice to have
+var discountedAmountClosure_2: Operate  = { (a, b) -> Double in
+	let amountAfterDiscount = a - a * Double(b) / 100.0
+	return amountAfterDiscount.roundTwoAfterPoint
+}
+
+// Nice to have
+var discountedAmountClosure_3: Operate  = {
+	let amountAfterDiscount = $0 - $0 * Double($1) / 100.0
+	return amountAfterDiscount.roundTwoAfterPoint
+}
+
+
 let orderedItems: [MenuItem: Int] = [:]
 
 enum DescriptionText {
@@ -256,14 +269,19 @@ order.addMenuItem(item: orangeJuiceTall, amount: 1)
 //MARK: - Assignment 1 (HW3)
 print(order.amountWithoutDiscount)
 print(calculateDiscountedAmount(from: order.amountWithoutDiscount, with: 5))
+
 //MARK: - Assignment 2 (HW3)
 print(calculateDiscountedAmount(from: order.amountWithoutDiscount))
+
 //MARK: - Assignment 3 (HW3)
 printDiscount({amount , discount in
 	calculateDiscountedAmount(from: amount, with: discount)
 }, order.amountWithoutDiscount, 5)
+
 //MARK: - Assignment 4 (HW3)
-print (discountedAmountClosure(order.amountWithoutDiscount, 5))
+print(discountedAmountClosure(order.amountWithoutDiscount, 5))
+print(discountedAmountClosure_2(order.amountWithoutDiscount, 5))
+print(discountedAmountClosure_3(order.amountWithoutDiscount, 5))
 
 //MARK: - Assignment 5 (HW3)
 let menuItems = [butterWaffle, eggsBaconWaffle, blueberryPancake, blackTea, icedCoffee, orangeJuice]
