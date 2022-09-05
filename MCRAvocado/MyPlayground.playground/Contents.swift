@@ -71,7 +71,7 @@ struct Order {
 	let tableNumber: Int
 	let dateOfCreation: Date
 	
-	var ammountWithoutDiscount: Double {
+	var amountWithoutDiscount: Double {
 		var totalPrice = 0.0
 		for a in orderedItems {
 			totalPrice += a.key.price
@@ -83,13 +83,13 @@ struct Order {
 	var appliedDiscount: Discount = .none
 	
 	var currentDiscountedAmount: Double {
-		let amountAfterDiscount = ammountWithoutDiscount - ammountWithoutDiscount * Double(appliedDiscount.percentageValue) / 100.0
+		let amountAfterDiscount = amountWithoutDiscount - amountWithoutDiscount * Double(appliedDiscount.percentageValue) / 100.0
 		return  amountAfterDiscount.roundTwoAfterPoint
 	}
 	
 	//MARK: - Assignment 9 (HW3)
 	lazy var maximumDiscount: Double = {
-		(ammountWithoutDiscount * Double(Discount.newYear.percentageValue)/100).roundTwoAfterPoint
+		(amountWithoutDiscount * Double(Discount.newYear.percentageValue)/100).roundTwoAfterPoint
 	}()
 	
 	mutating func addMenuItem(item: MenuItem, amount: Int) {
@@ -114,7 +114,7 @@ struct Order {
 	}
 	
 	//MARK: - Assignment 10 (HW3)
-	func calculaTotalAmountAfterApplyingDicount() -> Double {
+	func calculateTotalAmountAfterApplyingDiscount() -> Double {
 		return currentDiscountedAmount
 	}
 }
@@ -254,16 +254,16 @@ order.addMenuItem(item: orangeJuice, amount: 2)
 order.addMenuItem(item: orangeJuiceTall, amount: 1)
 
 //MARK: - Assignment 1 (HW3)
-print(order.ammountWithoutDiscount)
-print(calculateDiscountedAmount(from: order.ammountWithoutDiscount, with: 5))
+print(order.amountWithoutDiscount)
+print(calculateDiscountedAmount(from: order.amountWithoutDiscount, with: 5))
 //MARK: - Assignment 2 (HW3)
-print(calculateDiscountedAmount(from: order.ammountWithoutDiscount))
+print(calculateDiscountedAmount(from: order.amountWithoutDiscount))
 //MARK: - Assignment 3 (HW3)
 printDiscount({amount , discount in
 	calculateDiscountedAmount(from: amount, with: discount)
-}, order.ammountWithoutDiscount, 5)
+}, order.amountWithoutDiscount, 5)
 //MARK: - Assignment 4 (HW3)
-print (discountedAmountClosure(order.ammountWithoutDiscount, 5))
+print (discountedAmountClosure(order.amountWithoutDiscount, 5))
 
 //MARK: - Assignment 5 (HW3)
 let menuItems = [butterWaffle, eggsBaconWaffle, blueberryPancake, blackTea, icedCoffee, orangeJuice]
@@ -330,12 +330,12 @@ order.appliedDiscount = .columbusDay
 print(order.currentDiscountedAmount)
 
 //MARK: - Assignment 9 (HW3)
-order.ammountWithoutDiscount
+order.amountWithoutDiscount
 order.maximumDiscount
 
 //MARK: - Assignment 10 (HW3)
 
-order.calculaTotalAmountAfterApplyingDicount()
+order.calculateTotalAmountAfterApplyingDiscount()
 
 //MARK: - Assignment 11 (HW3)
 
@@ -354,7 +354,7 @@ class DiscountClass: DiscountProtocol {
 		self.discountType = discountType
 	}
 	func calculateDiscount(for order: Order) -> Double {
-		(order.ammountWithoutDiscount * Double(discountPercentage)/100).roundTwoAfterPoint
+		(order.amountWithoutDiscount * Double(discountPercentage)/100).roundTwoAfterPoint
 	}
 }
 
