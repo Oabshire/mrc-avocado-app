@@ -9,18 +9,27 @@ import Foundation
 
 /// Order Model
 struct Order {
+	// MARK: - Properties
 	var orderedItems: [MenuItem: Int]
-	let numberOfPersons: Int
+	var numberOfPersons: Int
+	var discount: Discount = .none
 	let tableNumber: Int
 	let dateOfCreation: Date
 	
-	var totalPrice: Double {
+	var amountWithoutDiscount: Double {
 		var totalPrice = 0.0
 		for a in orderedItems {
-			totalPrice += a.key.price
+			totalPrice += (a.key.price * Double(a.value))
 		}
 		return totalPrice
 	}
+	
+	var discountedAmount: Double {
+		let amountAfterDiscount = amountWithoutDiscount - amountWithoutDiscount * Double(discount.percentageValue) / 100.0
+		return  amountAfterDiscount.roundTwoAfterPoint
+	}
+	
+	// MARK: - Funtions
 	
 	/// Add menu item to existing order
 	/// - Parameters:
@@ -50,6 +59,8 @@ struct Order {
 		}
 	}
 }
+
+// MARK: - Private
 
 private extension Order {
 	func createStringForPrint(from menuItem: MenuItem) -> String {

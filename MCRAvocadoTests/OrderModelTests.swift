@@ -73,3 +73,48 @@ extension OrderModelTests {
 		XCTAssertEqual(sut.orderedItems[menuItem], 3)
 	}
 }
+
+// MARK: - Test amountWithoutDiscount
+extension OrderModelTests {
+	func testAmountWithoutDiscount() {
+		// arrange
+		let menuItem0 = MenuItem(name: "Cinnamon Roll",
+								 price: 4.5,
+								 isInStock: false,
+								 calories: 150,
+								 description: "Some description",
+								 type: .side)
+		let menuItem1 = MenuItem(name: "Oatmeal",
+								 price: 10.70,
+								 isInStock: true,
+								 calories: 500,
+								 description: "Some description",
+								 type: .oatmeal)
+		sut.orderedItems = [menuItem0: 1, menuItem1: 2]
+		// act & assert
+		XCTAssertEqual(sut.amountWithoutDiscount, 25.9)
+		XCTAssertEqual(sut.discountedAmount, 25.9)
+	}
+	
+	func testAmountWithDiscount() {
+		// arrange
+		let menuItem0 = MenuItem(name: "Cinnamon Roll",
+								 price: 4.5,
+								 isInStock: false,
+								 calories: 150,
+								 description: "Some description",
+								 type: .side)
+		let menuItem1 = MenuItem(name: "Oatmeal",
+								 price: 10.70,
+								 isInStock: true,
+								 calories: 500,
+								 description: "Some description",
+								 type: .oatmeal)
+		sut.orderedItems = [menuItem0: 1, menuItem1: 2]
+		sut.discount = .newYear
+
+		// act & assert
+		XCTAssertEqual(sut.amountWithoutDiscount, 25.9)
+		XCTAssertEqual(sut.discountedAmount, 19.42)
+	}
+}
