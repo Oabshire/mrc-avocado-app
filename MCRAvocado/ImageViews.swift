@@ -14,7 +14,7 @@ struct MainImageView: View {
 			.font(.system(size: 250))
 			.foregroundColor(Color.mainImageColor)
 			.frame(width: Constants.General.imageWidthHeight,
-				   height: Constants.General.imageWidthHeight)
+						 height: Constants.General.imageWidthHeight)
 	}
 }
 

@@ -20,12 +20,13 @@ struct OnboardingView: View {
 						.resizable()
 						.scaledToFit()
 						.frame(width: Constants.General.imageWidthHeight,
-							   height: Constants.General.imageWidthHeight)
+									 height: Constants.General.imageWidthHeight)
 						.padding()
 					LineTextView(imageName: "menucard", lineText: TextLibrary.ViewTexts.onboardingFirstText)
 					LineTextView(imageName: "dollarsign.circle", lineText: TextLibrary.ViewTexts.onboardingSecondText)
 					LineTextView(imageName: "camera", lineText: TextLibrary.ViewTexts.onboardingThirdText)
 					Spacer()
+					
 					HitMeButton(isOnboardingIsShowing: $isOnboardingIsShowing).padding()
 				}
 				.frame(minHeight: geometry.size.height)
@@ -52,20 +53,9 @@ struct LineTextView: View {
 struct HitMeButton: View {
 	@Binding var isOnboardingIsShowing: Bool
 	var body: some View {
-		Button(action: {
+		BottomButton(text: "Ok", color: Color.onboardingAccentColor) {
 			isOnboardingIsShowing = false
-		}) {
-			Text("Ok".uppercased()).fontWeight(.bold).font(.title3)
-				.frame(maxWidth: Constants.Onboarding.buttonWidth)
 		}
-		.padding(Constants.Onboarding.buttonPadding)
-		.background(
-			ZStack {
-				Color.onboardingAccentColor
-			}
-		)
-		.foregroundColor(Color.white)
-		.cornerRadius(Constants.Onboarding.buttonCornerRadius)
 	}
 }
 
