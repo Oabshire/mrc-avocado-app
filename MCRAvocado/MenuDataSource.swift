@@ -76,7 +76,7 @@ let menuDataSource = MenuModel(section:
 																															cupSize: nil)
 
 																				 ]),
-																 Section(name: .coldDrinks,
+																 Section(name: .hotDrinks,
 																				 menuItems: [MenuItem(name: "Hot coffee",
 																															price: 2.99,
 																															isInStock: true,

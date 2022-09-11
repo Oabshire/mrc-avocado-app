@@ -55,8 +55,8 @@ struct TextViews_Previews: PreviewProvider {
 			VStack() {
 				OnboardingTitleText(text: "Avocado")
 				OnboardingLineText(lineText: "Some text")
-				WelcomeText(text: TextLibrary.ViewTexts.welcomeText)
-				UserNameText(text: TextLibrary.ViewTexts.userNameText)
+				WelcomeText(text: TextLibrary.ViewTexts.welcomeText).background(.black)
+				UserNameText(text: TextLibrary.ViewTexts.userNameText).background(.black)
 			}
 		}
 	}

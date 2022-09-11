@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 	@State private var menuIsShowing: Bool = false
+	@State private var orderIsShowing: Bool = false
 	var body: some View {
 		ZStack {
 			Color.mainBackgroundColor
@@ -22,10 +23,16 @@ struct ContentView: View {
 					HeaderView()
 					Spacer()
 					HStack {
-						BottomButton(text: "Menu", color: .buttonColor) { menuIsShowing = true }.sheet(isPresented: $menuIsShowing) {
-							TestUIList().background(.clear)
+						BottomButton(text: "Menu", color: .buttonColor) {
+							menuIsShowing = true
+						}.fullScreenCover(isPresented: $menuIsShowing) {
+							MenuViewRepresentable(menuIsShowing: $menuIsShowing)
 						}
-						BottomButton(text: "Cart", color: .buttonColor) { }
+						BottomButton(text: "Cart", color: .buttonColor) {
+							orderIsShowing = true
+						}.fullScreenCover(isPresented: $orderIsShowing) {
+							OrderView(orderIsShowing: $orderIsShowing)
+						}
 					}
 				}
 			}

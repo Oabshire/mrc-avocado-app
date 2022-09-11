@@ -8,13 +8,14 @@
 import Foundation
 
 /// Order Model
-struct Order {
+class Order: ObservableObject {
+	
 	// MARK: - Properties
-	var orderedItems: [MenuItem: Int]
+	var orderedItems: [MenuItem: Int] = [:]
 	var numberOfPersons: Int
 	var discount: Discount = .none
 	let tableNumber: Int
-	let dateOfCreation: Date
+	let dateOfCreation: Date = Date()
 	
 	var amountWithoutDiscount: Double {
 		var totalPrice = 0.0
@@ -28,6 +29,19 @@ struct Order {
 		let amountAfterDiscount = amountWithoutDiscount - amountWithoutDiscount * Double(discount.percentageValue) / 100.0
 		return  amountAfterDiscount.roundTwoAfterPoint
 	}
+
+	/// Init
+	/// - Parameters:
+	///   - orderedItems: ordered menu items and it amount
+	///   - numberOfPersons: number of persons
+	///   - tableNumber: table number
+	init(orderedItems: [MenuItem: Int],
+			 numberOfPersons: Int,
+			 tableNumber: Int) {
+		self.orderedItems = orderedItems
+		self.numberOfPersons = numberOfPersons
+		self.tableNumber = tableNumber
+	}
 	
 	// MARK: - Funtions
 	
@@ -36,7 +50,7 @@ struct Order {
 	///   - item: menu item to add
 	///   - amount: amount of items
 	/// - Returns: True - if item added, false - if not.
-	mutating func addMenuItem(item: MenuItem, amount: Int) -> Bool{
+	func addMenuItem(item: MenuItem, amount: Int) -> Bool{
 		guard item.isInStock else {
 			print("Sorry! Out of Stock :(")
 			return false

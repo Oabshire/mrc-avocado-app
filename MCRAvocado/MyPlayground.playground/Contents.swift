@@ -198,70 +198,70 @@ enum DescriptionText {
 }
 
 let butterWaffle = MenuItem(name: "Waffle with butter",
-							price: 12.79,
-							isInStock: false,
-							calories: 570,
-							description: DescriptionText.butterWaffle,
-							type: .waffle)
+														price: 12.79,
+														isInStock: false,
+														calories: 570,
+														description: DescriptionText.butterWaffle,
+														type: .waffle)
 
 let eggsBaconWaffle = MenuItem(name: "Waffle with eggs and bacon",
-							   price: 14.99,
-							   isInStock: true,
-							   calories: 1000,
-							   description: DescriptionText.eggsBaconWaffle,
-							   type: .waffle)
+															 price: 14.99,
+															 isInStock: true,
+															 calories: 1000,
+															 description: DescriptionText.eggsBaconWaffle,
+															 type: .waffle)
 
 let blueberryPancake = MenuItem(name: "Blueberry pancake",
-								price: 11.99,
-								isInStock: true,
-								calories: 610,
-								description: DescriptionText.blueberryPancake,
-								type: .pancake)
+																price: 11.99,
+																isInStock: true,
+																calories: 610,
+																description: DescriptionText.blueberryPancake,
+																type: .pancake)
 
 let blackTea = MenuItem(name: "Black tea",
-						price: 2.99,
-						isInStock: true,
-						calories: 0,
-						description: nil,
-						type: .tea,
-						withIce: nil,
-						typeOfMilk: nil,
-						cupSize: .tall)
+												price: 2.99,
+												isInStock: true,
+												calories: 0,
+												description: nil,
+												type: .tea,
+												withIce: nil,
+												typeOfMilk: nil,
+												cupSize: .tall)
 
 let icedCoffee = MenuItem(name: "Iced coffee",
-						  price: 5.99,
-						  isInStock: true,
-						  calories: 20,
-						  description: DescriptionText.icedCoffee,
-						  type: .coffee,
-						  withIce: true,
-						  typeOfMilk: .coconut,
-						  cupSize: .tall)
+													price: 5.99,
+													isInStock: true,
+													calories: 20,
+													description: DescriptionText.icedCoffee,
+													type: .coffee,
+													withIce: true,
+													typeOfMilk: .coconut,
+													cupSize: .tall)
 
 let orangeJuice = MenuItem(name: "orangeJuice",
-						   price: 4.99,
-						   isInStock: true,
-						   calories: 150,
-						   description: nil,
-						   type: .juice,
-						   withIce: false,
-						   typeOfMilk: nil,
-						   cupSize: .grande)
+													 price: 4.99,
+													 isInStock: true,
+													 calories: 150,
+													 description: nil,
+													 type: .juice,
+													 withIce: false,
+													 typeOfMilk: nil,
+													 cupSize: .grande)
 
 let orangeJuiceTall = MenuItem(name: "orangeJuice",
-							   price: 4.99,
-							   isInStock: true,
-							   calories: 150,
-							   description: nil,
-							   type: .juice,
-							   withIce: false,
-							   typeOfMilk: nil,
-							   cupSize: .tall)
+															 price: 4.99,
+															 isInStock: true,
+															 calories: 150,
+															 description: nil,
+															 type: .juice,
+															 withIce: false,
+															 typeOfMilk: nil,
+															 cupSize: .tall)
 
 var order = Order(orderedItems: [eggsBaconWaffle: 1, blueberryPancake: 1,icedCoffee:1, orangeJuice: 1],
-				  numberOfPersons: 2,
-				  tableNumber: 28,
-				  dateOfCreation: Date())
+									numberOfPersons: 2,
+									tableNumber: 28,
+									dateOfCreation: Date())
 order.addMenuItem(item: butterWaffle, amount: 2)
 order.addMenuItem(item: orangeJuice, amount: 2)
 order.addMenuItem(item: orangeJuiceTall, amount: 1)
@@ -294,16 +294,16 @@ let increasedMenuItems: [MenuItem] = menuItems.map {
 
 //MARK: - Assignment 6 (HW3)
 let discountMap = ["New Year": 25,
-				   "Martin Luther King’s Birthday": 5,
-				   "Washington’s Birthday": 5,
-				   "Memorial Day": 15,
-				   "Juneteenth National Independence Day": 20,
-				   "Independence Day": 5,
-				   "Labor Day": 5,
-				   "Columbus Day":5,
-				   "Veterans’ Day": 15,
-				   "Thanksgiving Day": 20,
-				   "Christmas Day": 20
+									 "Martin Luther King’s Birthday": 5,
+									 "Washington’s Birthday": 5,
+									 "Memorial Day": 15,
+									 "Juneteenth National Independence Day": 20,
+									 "Independence Day": 5,
+									 "Labor Day": 5,
+									 "Columbus Day":5,
+									 "Veterans’ Day": 15,
+									 "Thanksgiving Day": 20,
+									 "Christmas Day": 20
 ].sorted{$0.value > $1.value}
 print(discountMap)
 
@@ -386,3 +386,7 @@ extension Double {
 	}
 }
 
+let id1 =  UUID()
+let id2 = UUID()
+
+let a:String = id1.description < id2.description ? "y" : "n"
