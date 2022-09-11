@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
-	@Binding var isOnboardingIsShowing: Bool
+	@Binding var onboardingIsShowing: Bool
 	var body: some View {
 		GeometryReader { geometry in
 			ScrollView(showsIndicators: false) {
@@ -27,7 +27,7 @@ struct OnboardingView: View {
 					LineTextView(imageName: "camera", lineText: TextLibrary.ViewTexts.onboardingThirdText)
 					Spacer()
 					
-					HitMeButton(isOnboardingIsShowing: $isOnboardingIsShowing).padding()
+					HitMeButton(onboardingIsShowing: $onboardingIsShowing).padding()
 				}
 				.frame(minHeight: geometry.size.height)
 			}.frame(width: geometry.size.width)
@@ -51,10 +51,10 @@ struct LineTextView: View {
 }
 
 struct HitMeButton: View {
-	@Binding var isOnboardingIsShowing: Bool
+	@Binding var onboardingIsShowing: Bool
 	var body: some View {
 		BottomButton(text: "Ok", color: Color.onboardingAccentColor) {
-			isOnboardingIsShowing = false
+			onboardingIsShowing = false
 		}
 	}
 }
@@ -62,10 +62,10 @@ struct HitMeButton: View {
 struct OnboardingView_Previews: PreviewProvider {
 	
 	static var previews: some View {
-		OnboardingView(isOnboardingIsShowing: .constant(true))
-		OnboardingView(isOnboardingIsShowing: .constant(true)).preferredColorScheme(.dark)
-		OnboardingView(isOnboardingIsShowing: .constant(true)).previewLayout(.fixed(width: 568, height: 320))
-		OnboardingView(isOnboardingIsShowing: .constant(true)).previewLayout(.fixed(width: 568, height: 320))
+		OnboardingView(onboardingIsShowing: .constant(true))
+		OnboardingView(onboardingIsShowing: .constant(true)).preferredColorScheme(.dark)
+		OnboardingView(onboardingIsShowing: .constant(true)).previewLayout(.fixed(width: 568, height: 320))
+		OnboardingView(onboardingIsShowing: .constant(true)).previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+	@State private var menuIsShowing: Bool = false
 	var body: some View {
 		ZStack {
 			Color.mainBackgroundColor
@@ -21,7 +22,9 @@ struct ContentView: View {
 					HeaderView()
 					Spacer()
 					HStack {
-						BottomButton(text: "Menu", color: .buttonColor) { }
+						BottomButton(text: "Menu", color: .buttonColor) { menuIsShowing = true }.sheet(isPresented: $menuIsShowing) {
+							TestUIList().background(.clear)
+						}
 						BottomButton(text: "Cart", color: .buttonColor) { }
 					}
 				}
@@ -32,7 +35,7 @@ struct ContentView: View {
 
 
 struct HeaderView: View {
-	@State private var isOnboardingIsShowing: Bool = false
+	@State private var onboardingIsShowing: Bool = false
 	var body: some View {
 		HStack {
 			VStack {
@@ -41,11 +44,11 @@ struct HeaderView: View {
 			}
 			Spacer()
 			Button(action: {
-				isOnboardingIsShowing = true
+				onboardingIsShowing = true
 			}) {
 				RoundImageViewStrokedFilled(systemName: "questionmark.circle")
 				
-			}.sheet(isPresented: $isOnboardingIsShowing, onDismiss: {} , content: {OnboardingView(isOnboardingIsShowing: $isOnboardingIsShowing)})
+			}.sheet(isPresented: $onboardingIsShowing, onDismiss: {} , content: {OnboardingView(onboardingIsShowing: $onboardingIsShowing)})
 		}.padding()
 	}
 }
