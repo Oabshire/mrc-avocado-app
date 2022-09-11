@@ -27,7 +27,9 @@
 		09C1CBFE28CD2904004548F1 /* MenuCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CBFD28CD2904004548F1 /* MenuCellModel.swift */; };
 		09C1CC2628CD4926004548F1 /* MenuViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2528CD4926004548F1 /* MenuViewRepresentable.swift */; };
 		09C1CC2828CD53B0004548F1 /* MenuDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2728CD53B0004548F1 /* MenuDataSource.swift */; };
-		09C1CC2A28CD6923004548F1 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2928CD6923004548F1 /* SectionView.swift */; };
+		09C1CC2C28CE5417004548F1 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2B28CE5417004548F1 /* OrderView.swift */; };
+		09C1CC2F28CE69D1004548F1 /* OrderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2E28CE69D1004548F1 /* OrderCellView.swift */; };
+		09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */; };
 		09F7AAFF28C595A400262C52 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7AAFE28C595A400262C52 /* DoubleExtension.swift */; };
 		09F7AB0128C5978500262C52 /* DiscountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7AB0028C5978500262C52 /* DiscountModel.swift */; };
 /* End PBXBuildFile section */
@@ -66,7 +68,9 @@
 		09C1CBFD28CD2904004548F1 /* MenuCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellModel.swift; sourceTree = "<group>"; };
 		09C1CC2528CD4926004548F1 /* MenuViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewRepresentable.swift; sourceTree = "<group>"; };
 		09C1CC2728CD53B0004548F1 /* MenuDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDataSource.swift; sourceTree = "<group>"; };
-		09C1CC2928CD6923004548F1 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		09C1CC2B28CE5417004548F1 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		09C1CC2E28CE69D1004548F1 /* OrderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellView.swift; sourceTree = "<group>"; };
+		09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataSource.swift; sourceTree = "<group>"; };
 		09F7AAFE28C595A400262C52 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		09F7AB0028C5978500262C52 /* DiscountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,15 +123,15 @@
 		0949F43028B1AF6D000B9CE6 /* MCRAvocado */ = {
 			isa = PBXGroup;
 			children = (
-				0949F44B28B1B50D000B9CE6 /* Views */,
 				095AD0C928BBF53500651B36 /* Models */,
+				0949F44B28B1B50D000B9CE6 /* Views */,
+				09C1CBFA28CD152B004548F1 /* MenuModule */,
+				09C1CC2D28CE6985004548F1 /* OrderModule */,
 				0949F44928B1B4D2000B9CE6 /* Libraries */,
 				09239A0B28BABD0000B14F20 /* Extensions */,
 				0949F44C28B1B51F000B9CE6 /* App */,
 				095AD0C628BAD8B400651B36 /* Playground */,
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
-				09C1CBFA28CD152B004548F1 /* MenuModule */,
-				09C1CC2728CD53B0004548F1 /* MenuDataSource.swift */,
 			);
 			path = MCRAvocado;
 			sourceTree = "<group>";
@@ -182,9 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				095AD0C728BBF53000651B36 /* MenuItemModel.swift */,
-				095AD0CA28BBF75900651B36 /* OrderModel.swift */,
 				09F7AB0028C5978500262C52 /* DiscountModel.swift */,
-				09C1CBF628CD0C6A004548F1 /* MenuModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -200,13 +202,25 @@
 		09C1CBFA28CD152B004548F1 /* MenuModule */ = {
 			isa = PBXGroup;
 			children = (
+				09C1CBF628CD0C6A004548F1 /* MenuModel.swift */,
 				09C1CBF828CD1523004548F1 /* MenuViewController.swift */,
 				09C1CBFB28CD1D86004548F1 /* MenuItemCell.swift */,
 				09C1CBFD28CD2904004548F1 /* MenuCellModel.swift */,
 				09C1CC2528CD4926004548F1 /* MenuViewRepresentable.swift */,
-				09C1CC2928CD6923004548F1 /* SectionView.swift */,
+				09C1CC2728CD53B0004548F1 /* MenuDataSource.swift */,
 			);
 			name = MenuModule;
+			sourceTree = "<group>";
+		};
+		09C1CC2D28CE6985004548F1 /* OrderModule */ = {
+			isa = PBXGroup;
+			children = (
+				095AD0CA28BBF75900651B36 /* OrderModel.swift */,
+				09C1CC2B28CE5417004548F1 /* OrderView.swift */,
+				09C1CC2E28CE69D1004548F1 /* OrderCellView.swift */,
+				09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */,
+			);
+			name = OrderModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,16 +330,18 @@
 				09F7AB0128C5978500262C52 /* DiscountModel.swift in Sources */,
 				0949F44228B1B354000B9CE6 /* ImageViews.swift in Sources */,
 				09C1CBF728CD0C6A004548F1 /* MenuModel.swift in Sources */,
+				09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */,
 				0949F43428B1AF6D000B9CE6 /* ContentView.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
 				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
 				0949F44E28B1B802000B9CE6 /* OnboardingView.swift in Sources */,
+				09C1CC2F28CE69D1004548F1 /* OrderCellView.swift in Sources */,
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
-				09C1CC2A28CD6923004548F1 /* SectionView.swift in Sources */,
 				0949F44028B1B30A000B9CE6 /* ColorExtension.swift in Sources */,
 				0949F45028B1C431000B9CE6 /* Constants.swift in Sources */,
 				09C1CC2828CD53B0004548F1 /* MenuDataSource.swift in Sources */,
 				09C1CBFE28CD2904004548F1 /* MenuCellModel.swift in Sources */,
+				09C1CC2C28CE5417004548F1 /* OrderView.swift in Sources */,
 				095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */,
 				09C1CBFC28CD1D86004548F1 /* MenuItemCell.swift in Sources */,
 				095AD0C828BBF53000651B36 /* MenuItemModel.swift in Sources */,

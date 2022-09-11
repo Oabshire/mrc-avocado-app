@@ -5,6 +5,8 @@
 //  Created by Onie on 28.08.2022.
 //
 
+import Foundation
+
 /// Category of menu items
 enum MenuItemType: String {
 	case scramble
@@ -42,6 +44,7 @@ enum CupSize {
 
 /// Menu Item Model
 struct MenuItem {
+	let id = UUID()
 	let name: String
 	let price: Double
 	var isInStock: Bool
@@ -80,5 +83,12 @@ struct MenuItem {
 extension MenuItem: Hashable {
 	static func == (lhs: MenuItem, rhs: MenuItem) -> Bool {
 		return lhs.name == rhs.name && lhs.name == rhs.name
+	}
+}
+
+// MARK: - Comparable
+extension MenuItem: Comparable {
+	static func < (lhs: MenuItem, rhs: MenuItem) -> Bool {
+		lhs.id.description < rhs.id.description
 	}
 }

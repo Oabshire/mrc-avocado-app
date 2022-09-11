@@ -31,8 +31,16 @@ struct UIList: UIViewRepresentable {
 	}
 }
 
-struct TestUIList: View {
+struct MenuViewRepresentable: View {
+	@Binding var menuIsShowing: Bool
 	var body: some View {
-		UIList(dataSource: menuDataSource)
+		NavigationView {
+			UIList(dataSource: menuDataSource).navigationBarTitle("Menu")
+				.navigationBarTitleDisplayMode(.inline)
+				.navigationBarItems(leading: Button(action: { menuIsShowing = false}) {
+					Text("Done")
+				})
+				.background(Color.mainBackgroundColor)
+		}
 	}
 }
