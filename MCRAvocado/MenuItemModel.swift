@@ -6,7 +6,7 @@
 //
 
 /// Category of menu items
-enum MenuItemType {
+enum MenuItemType: String {
 	case scramble
 	case omelets
 	case eggsBenedict
@@ -16,13 +16,8 @@ enum MenuItemType {
 	case bagel
 	case dessert
 	case side
-	case tea
-	case coffee
-	case juice
-	case milkShake
-	case lemonade
-	case soda
-	case hotChocolate
+	case coldDrinks
+	case hotDrinks
 	case other
 }
 
