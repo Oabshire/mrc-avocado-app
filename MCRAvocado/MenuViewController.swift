@@ -1,8 +1,8 @@
 //
 //  MenuViewController.swift
-//  MCRAvocado
+//  UIKitAssignment
 //
-//  Created by Onie on 10.09.2022.
+//  Created by Onie on 11.09.2022.
 //
 
 import SwiftUI
@@ -22,6 +22,10 @@ class MenuViewController: UITableViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.title = "Menu"
+		self.tableView.backgroundColor = .mainBackgroundColor
+		self.tableView.separatorStyle = .none
+
 		self.tableView.estimatedRowHeight = 80
 		self.tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(MenuItemCell.self, forCellReuseIdentifier: MenuItemCell.reuseID)
@@ -45,6 +49,22 @@ class MenuViewController: UITableViewController {
 		cell.dataModel = MenuCellModel(menuItem: dataSource.section[sectionNumber].menuItems[cellNumber])
 		return cell
 	}
+
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let sectionNumber = indexPath.section
+		let cellNumber = indexPath.row
+		let menuItem = dataSource.section[sectionNumber].menuItems[cellNumber]
+		let datailViewController = DetailHostingController(menuItem: menuItem)
+		//this way №1
+		// Screen dissmiss on button "Add to order"
+		self.present(datailViewController, animated: true)
+
+		//this way №2
+		// Screen dissmiss on button "Back"
+		//		navigationController?.pushViewController(datailViewController, animated: true)
+		tableView.deselectRow(at: indexPath, animated: true)
+	}
+
 
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		dataSource.section[section].name.rawValue.uppercased()
