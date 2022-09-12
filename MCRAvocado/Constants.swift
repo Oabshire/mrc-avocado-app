@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import SwiftUI
 
 enum Constants {
+
 	enum General {
 		public static let imageWidthHeight = CGFloat(200.0)
 		public static let roundImageViewWidthHeight = CGFloat(56.0)
