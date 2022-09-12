@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-import SwiftUI
-
+/// View for Detail information about menu item
 struct MenuDetailView: View {
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
-	@State var ammountToAdd: Int = 1
+	@State var amountToAdd: Int = 1
 
+	/// Action for bottom button
 	var donePressed: (() -> Void)?
+
+	/// Source of data
 	var menuItem: MenuItem?
 
 	var body: some View {
@@ -28,7 +30,7 @@ struct MenuDetailView: View {
 						.resizable()
 						.frame(width: 150, height: 150)
 					if let menuItem = menuItem {
-						DetailView(ammountToAdd: $ammountToAdd, menuItem: menuItem, donePressed: donePressed)
+						DetailView(amountToAdd: $amountToAdd, menuItem: menuItem, donePressed: donePressed)
 					}
 				}
 			}
@@ -37,7 +39,7 @@ struct MenuDetailView: View {
 				Color.mainImageColor
 					.edgesIgnoringSafeArea(.all)
 				if let menuItem = menuItem {
-					DetailView(ammountToAdd: $ammountToAdd, menuItem: menuItem, donePressed: donePressed)
+					DetailView(amountToAdd: $amountToAdd, menuItem: menuItem, donePressed: donePressed)
 				}
 			}
 		}

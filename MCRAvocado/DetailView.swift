@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct DetailView: View {
-	@Binding var ammountToAdd: Int
+	@Binding var amountToAdd: Int
+
+	/// Source of data
 	var menuItem: MenuItem
+	
+	/// Action for bottom button
 	var donePressed: (() -> Void)?
 
 	var body: some View {
@@ -20,10 +24,12 @@ struct DetailView: View {
 				.padding(.leading)
 
 			HStack{
-				DetailTitleText(lineText: "$ " + String((menuItem.price * Double(ammountToAdd)).roundTwoAfterPoint))
-				Stepper(value: $ammountToAdd, in: 1...100) {
-					DetailTitleText(lineText: String(ammountToAdd))
-				}.padding(.trailing)
+				DetailTitleText(lineText: "$ " + String((menuItem.price * Double(amountToAdd)).roundTwoAfterPoint))
+					.frame(maxWidth: 200)
+				Spacer()
+				Stepper(value: $amountToAdd, in: 1...100) {
+					DetailTitleText(lineText: String(amountToAdd))
+				}.frame(maxWidth: 125).padding(.trailing)
 			}
 			Spacer()
 			BottomButton(text: "Add to Order", color: .buttonColor) {

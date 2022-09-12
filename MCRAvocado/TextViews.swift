@@ -67,7 +67,8 @@ struct DetailDescriptionText: View {
 			.foregroundColor(.black)
 			.kerning(1.5)
 			.font(.title2)
-			.fontWeight(.medium).frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
+			.fontWeight(.medium)
+			.frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
 	}
 }
 
@@ -78,8 +79,8 @@ struct TextViews_Previews: PreviewProvider {
 			VStack() {
 				OnboardingTitleText(text: "Avocado")
 				OnboardingLineText(lineText: "Some text")
-				WelcomeText(text: TextLibrary.ViewTexts.welcomeText).background(.black)
-				UserNameText(text: TextLibrary.ViewTexts.userNameText).background(.black)
+				WelcomeText(text: TextLibrary.AppTexts.welcomeText).background(.black)
+				UserNameText(text: TextLibrary.AppTexts.userNameText).background(.black)
 			}
 		}
 	}

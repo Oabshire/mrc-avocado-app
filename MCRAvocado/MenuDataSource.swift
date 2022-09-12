@@ -5,6 +5,7 @@
 //  Created by Onie on 10.09.2022.
 //
 
+/// Sorce of menu data
 let menuDataSource = MenuModel(section:
 																[Section(name: .waffle,
 																				 menuItems: [MenuItem(name: "Waffle with butter",

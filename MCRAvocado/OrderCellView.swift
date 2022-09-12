@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Cell for ordered items
 struct OrderCellView: View {
 	
 	var menuItem: MenuItem
@@ -17,22 +18,22 @@ struct OrderCellView: View {
 		HStack{
 			Image("pancake")
 				.resizable()
-				.frame(width: 75,
-							 height: 75)
+				.frame(width: Constants.General.cellsImageWidthHeight,
+							 height: Constants.General.cellsImageWidthHeight)
 			Spacer()
 			VStack{
 				OnboardingLineText(lineText: menuItem.name).foregroundColor(.black)
 				HStack{
-					OnboardingLineText(lineText: "$ " + String(menuItem.price)).foregroundColor(.black)
+					OnboardingLineText(lineText: "$ " + String(menuItem.price)).foregroundColor(.black).frame(maxWidth: 125)
 					Spacer()
 					Stepper(value: $value, in: 1...99) {
 						Text(String(value)).bold().foregroundColor(.black)
-					}.frame(width: 125)
+					}.frame(maxWidth: 125)
 				}
 			}
 		}
 		.padding()
-		.background(RoundedRectangle(cornerRadius: 15).fill(Color.mainImageColor))
+		.background(RoundedRectangle(cornerRadius: Constants.General.cellsCornerRadius).fill(Color.mainImageColor))
 	}
 }
 

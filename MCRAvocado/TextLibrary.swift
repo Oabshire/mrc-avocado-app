@@ -11,7 +11,9 @@ enum TextLibrary { }
 extension TextLibrary {
 	
 	/// Texts used in views
-	enum ViewTexts {
+	enum AppTexts {
+		public static let menuText = "Menu"
+		public static let cartText = "Cart"
 		public static let welcomeText = "Welcome,"
 		public static let userNameText = "Anastasiia"
 		public static let onboardingTitleText = "Avocado"

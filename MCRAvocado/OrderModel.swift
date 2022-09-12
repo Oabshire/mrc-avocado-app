@@ -43,7 +43,7 @@ class Order: ObservableObject {
 		self.tableNumber = tableNumber
 	}
 	
-	// MARK: - Funtions
+	// MARK: - Functions
 	
 	/// Add menu item to existing order
 	/// - Parameters:
