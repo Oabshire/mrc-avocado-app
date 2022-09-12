@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// SwiftUI Table for ordered items
 struct OrderView: View {
 	
 	@StateObject var order: Order = orderDataSource
@@ -23,7 +24,7 @@ struct OrderView: View {
 					}
 				}
 			}
-			.navigationBarTitle("Cart")
+			.navigationBarTitle(TextLibrary.AppTexts.cartText)
 			.navigationBarItems(leading: Button(action: { orderIsShowing = false}) {
 				Text("Done")
 			})

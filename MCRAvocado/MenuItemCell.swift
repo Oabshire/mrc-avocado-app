@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Cell for Menu table
 class MenuItemCell: UITableViewCell {
 
 	public static let reuseID = "MenuItem"
@@ -21,7 +22,7 @@ class MenuItemCell: UITableViewCell {
 			setupConstrains()
 		}
 	}
-
+	// MARK: - Private Components
 	private let nameLabel: UILabel = {
 		let label = UILabel()
 		label.textColor  = .black
@@ -67,7 +68,7 @@ class MenuItemCell: UITableViewCell {
 	private let cellImageView: UIImageView = {
 		let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 75, height: 75))
 		imageView.contentMode = .scaleAspectFill
-		imageView.layer.cornerRadius = 10
+		imageView.layer.cornerRadius = Constants.General.cellsCornerRadius
 		imageView.clipsToBounds = true
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
@@ -75,7 +76,7 @@ class MenuItemCell: UITableViewCell {
 
 	private let backView: UIView = {
 		let view = UIView()
-		view.layer.cornerRadius = 10
+		view.layer.cornerRadius = Constants.General.cellsCornerRadius
 		view.layer.masksToBounds = false
 		view.backgroundColor = .mainImageColor
 		view.layer.shadowOpacity = 0.8
@@ -86,6 +87,7 @@ class MenuItemCell: UITableViewCell {
 		return view
 	}()
 
+	// MARK: - Inits
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		addSubview(backView)
@@ -107,7 +109,7 @@ class MenuItemCell: UITableViewCell {
 	}
 }
 
-
+// MARK: - Private
 private extension MenuItemCell {
 	func addViewToBackView(){
 		backView.addSubview(nameLabel)

@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 
+/// Representable struct to embed in SwiftUI
 struct UIList: UIViewRepresentable {
 
 	var dataSource: MenuModel
@@ -31,13 +32,14 @@ struct UIList: UIViewRepresentable {
 	}
 }
 
+/// Table for using in SwiftUI
 struct MenuViewRepresentable: View {
 	@Binding var menuIsShowing: Bool
 	var body: some View {
 		NavigationView {
-			UIList(dataSource: menuDataSource).navigationBarTitle("Menu")
+			UIList(dataSource: menuDataSource).navigationBarTitle(TextLibrary.AppTexts.menuText)
 				.navigationBarTitleDisplayMode(.inline)
-				.navigationBarItems(leading: Button(action: { menuIsShowing = false}) {
+				.navigationBarItems(leading: Button(action: { menuIsShowing = false }) {
 					Text("Done")
 				})
 				.background(Color.mainBackgroundColor)

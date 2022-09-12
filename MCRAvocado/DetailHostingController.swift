@@ -7,11 +7,16 @@
 
 import SwiftUI
 
+/// UIViewController from SwiftUI View to present in UIKit table
 class DetailHostingController: UIViewController {
-	
+
+	/// Source of data
 	var menuItem: MenuItem
+
 	var menuDetailView = UIHostingController(rootView: MenuDetailView())
-	
+
+	/// Init
+	/// - Parameter menuItem: source of data
 	init(menuItem: MenuItem) {
 		self.menuItem = menuItem
 		super.init(nibName: nil, bundle: nil)
