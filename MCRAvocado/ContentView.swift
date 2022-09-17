@@ -8,17 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+	@State private var menuIsShowing: Bool = false
+	@State private var orderIsShowing: Bool = false
 	var body: some View {
 		ZStack {
 			Color.mainBackgroundColor
 				.edgesIgnoringSafeArea(.all)
 			LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.2), Color.clear]),
-						   startPoint: .top,
-						   endPoint: .bottom).edgesIgnoringSafeArea(.all)
+										 startPoint: .top,
+										 endPoint: .bottom).edgesIgnoringSafeArea(.all)
 			ZStack {
 				MainImageView(systemName: "avocado")
 				VStack {
 					HeaderView()
+					Spacer()
+					HStack {
+						BottomButton(text: TextLibrary.AppTexts.menuText, color: .buttonColor) {
+							menuIsShowing = true
+						}.fullScreenCover(isPresented: $menuIsShowing) {
+							MenuViewRepresentable(menuIsShowing: $menuIsShowing)
+						}
+						BottomButton(text: TextLibrary.AppTexts.cartText, color: .buttonColor) {
+							orderIsShowing = true
+						}.fullScreenCover(isPresented: $orderIsShowing) {
+							OrderView(orderIsShowing: $orderIsShowing)
+						}.padding()
+					}
 				}
 			}
 		}
@@ -27,22 +42,21 @@ struct ContentView: View {
 
 
 struct HeaderView: View {
-	@State private var isOnboardingIsShowing: Bool = false
+	@State private var onboardingIsShowing: Bool = false
 	var body: some View {
 		HStack {
 			VStack {
-				WelcomeText(text: TextLibrary.ViewTexts.welcomeText)
-				UserNameText(text: TextLibrary.ViewTexts.userNameText)
+				WelcomeText(text: TextLibrary.AppTexts.welcomeText)
+				UserNameText(text: TextLibrary.AppTexts.userNameText)
 			}
 			Spacer()
 			Button(action: {
-				isOnboardingIsShowing = true
+				onboardingIsShowing = true
 			}) {
 				RoundImageViewStrokedFilled(systemName: "questionmark.circle")
 				
-			}.sheet(isPresented: $isOnboardingIsShowing, onDismiss: {} , content: {OnboardingView(isOnboardingIsShowing: $isOnboardingIsShowing)})
+			}.sheet(isPresented: $onboardingIsShowing, onDismiss: {} , content: {OnboardingView(onboardingIsShowing: $onboardingIsShowing)})
 		}.padding()
-		Spacer()
 	}
 }
 

@@ -49,14 +49,38 @@ struct OnboardingLineText: View {
 	}
 }
 
+struct DetailTitleText: View {
+	let lineText: String
+	var body: some View {
+		Text(lineText)
+			.foregroundColor(.black)
+			.kerning(3.0)
+			.font(.title)
+			.fontWeight(.medium).frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
+	}
+}
+
+struct DetailDescriptionText: View {
+	let lineText: String
+	var body: some View {
+		Text(lineText)
+			.foregroundColor(.black)
+			.kerning(1.5)
+			.font(.title2)
+			.fontWeight(.medium)
+			.frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
+	}
+}
+
+
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
 			VStack() {
 				OnboardingTitleText(text: "Avocado")
 				OnboardingLineText(lineText: "Some text")
-				WelcomeText(text: TextLibrary.ViewTexts.welcomeText)
-				UserNameText(text: TextLibrary.ViewTexts.userNameText)
+				WelcomeText(text: TextLibrary.AppTexts.welcomeText).background(.black)
+				UserNameText(text: TextLibrary.AppTexts.userNameText).background(.black)
 			}
 		}
 	}

@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import SwiftUI
 
 enum Constants {
+
 	enum General {
 		public static let imageWidthHeight = CGFloat(200.0)
 		public static let roundImageViewWidthHeight = CGFloat(56.0)
+		public static let cellsCornerRadius = CGFloat(10)
+		public static let cellsImageWidthHeight = CGFloat(75.0)
 	}
 	
 	enum Onboarding {
