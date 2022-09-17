@@ -21,6 +21,7 @@ struct UIList: UIViewRepresentable {
 		collectionView.separatorStyle = .none
 		collectionView.register(MenuItemCell.self, forCellReuseIdentifier: MenuItemCell.reuseID)
 		collectionView.backgroundColor = .mainBackgroundColor
+		collectionView.addSubview(context.coordinator.view) 
 		return collectionView
 	}
 
