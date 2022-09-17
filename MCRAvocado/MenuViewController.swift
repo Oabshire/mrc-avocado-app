@@ -67,10 +67,9 @@ class MenuViewController: UITableViewController {
 
 		//this way №2
 		// Screen dismiss on button "Back"
-		//		navigationController?.pushViewController(detailViewController, animated: true)
+		//navigationController?.pushViewController(detailViewController, animated: true)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
-
 
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		dataSource.section[section].name.rawValue.uppercased()
