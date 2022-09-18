@@ -9,17 +9,17 @@ import Foundation
 
 /// Category of menu items
 enum MenuItemType: String {
-	case scramble
-	case omelets
-	case eggsBenedict
-	case oatmeal
-	case pancake
-	case waffle
-	case bagel
-	case dessert
-	case side
-	case coldDrinks
-	case hotDrinks
+	case scrambles = "Scrambles"
+	case omeletes = "Omelettes"
+	case eggsBenedict = "Eggs Benedict"
+	case oatmeal = "Oatmeal"
+	case pancakes = "Pancakes"
+	case waffles = "Waffles"
+	case bagel = "Bagels"
+	case dessert = "Desserts"
+	case side = "Sides"
+	case coldDrinks = "Cold drinks"
+	case hotDrinks = "Hot drinks"
 	case other
 }
 
@@ -79,12 +79,8 @@ struct MenuItem {
 	}
 }
 
-// MARK: - Hashable
-extension MenuItem: Hashable {
-	static func == (lhs: MenuItem, rhs: MenuItem) -> Bool {
-		return lhs.name == rhs.name && lhs.name == rhs.name
-	}
-}
+// MARK: - Hashable, Identifiable
+extension MenuItem: Hashable, Identifiable {}
 
 // MARK: - Comparable
 extension MenuItem: Comparable {

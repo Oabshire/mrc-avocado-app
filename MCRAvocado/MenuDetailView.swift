@@ -20,26 +20,32 @@ struct MenuDetailView: View {
 	var menuItem: MenuItem?
 
 	var body: some View {
-		let isPortrait = (verticalSizeClass == .regular && horizontalSizeClass == .compact)
-		if isPortrait {
-			ZStack{
-				Color.mainBackgroundColor
-					.edgesIgnoringSafeArea(.all)
-				VStack {
-					Image("pancake")
-						.resizable()
-						.frame(width: 150, height: 150)
+		GeometryReader { geometry in
+			let isPortrait = (verticalSizeClass == .regular && horizontalSizeClass == .compact)
+			if isPortrait {
+				ZStack{
+					Color.mainBackgroundColor
+						.edgesIgnoringSafeArea(.all)
+					VStack {
+						Image(menuItem?.name ?? "")
+							.resizable()
+							.scaledToFill()
+							.edgesIgnoringSafeArea(.all)
+							.frame(width: geometry.size.width,
+										 height: geometry.size.height/3)
+
+						if let menuItem = menuItem {
+							DetailView(amountToAdd: $amountToAdd, menuItem: menuItem, donePressed: donePressed)
+						}
+					}
+				}
+			} else {
+				ZStack{
+					Color.mainImageColor
+						.edgesIgnoringSafeArea(.all)
 					if let menuItem = menuItem {
 						DetailView(amountToAdd: $amountToAdd, menuItem: menuItem, donePressed: donePressed)
 					}
-				}
-			}
-		} else {
-			ZStack{
-				Color.mainImageColor
-					.edgesIgnoringSafeArea(.all)
-				if let menuItem = menuItem {
-					DetailView(amountToAdd: $amountToAdd, menuItem: menuItem, donePressed: donePressed)
 				}
 			}
 		}

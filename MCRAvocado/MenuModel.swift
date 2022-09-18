@@ -13,3 +13,8 @@ struct Section {
 	let name: MenuItemType
 	let menuItems: [MenuItem]
 }
+
+// MARK: - Hashable, Identifiable
+extension Section: Hashable, Identifiable {
+	var id: some Hashable { name }
+}

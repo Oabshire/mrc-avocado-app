@@ -7,47 +7,75 @@
 
 /// Sorce of menu data
 let menuDataSource = MenuModel(section:
-																[Section(name: .waffle,
+																[Section(name: .waffles,
 																				 menuItems: [MenuItem(name: "Waffle with butter",
 																															price: 12.79,
 																															isInStock: false,
 																															calories: 570,
 																															description: TextLibrary.MenuItemDescription.butterWaffle,
-																															type: .waffle),
-																										 MenuItem(name: "Waffle with eggs and bacon",
+																															type: .waffles),
+																										 MenuItem(name: "Waffle with bacon",
 																															price: 14.99,
 																															isInStock: true,
 																															calories: 1000,
 																															description: TextLibrary.MenuItemDescription.eggsBaconWaffle,
-																															type: .waffle)
+																															type: .waffles)
 																				 ]
 																				),
-																 Section(name: .pancake,
+																 Section(name: .pancakes,
 																				 menuItems: [MenuItem(name: "Blueberry pancakes",
 																															price: 11.99,
 																															isInStock: true,
 																															calories: 610,
 																															description: TextLibrary.MenuItemDescription.blueberryPancake,
-																															type: .pancake),
+																															type: .pancakes),
 																										 MenuItem(name: "Banana pancakes",
 																															price: 11.99,
 																															isInStock: true,
 																															calories: 650,
 																															description: TextLibrary.MenuItemDescription.blueberryPancake,
-																															type: .pancake),
+																															type: .pancakes),
 																										 MenuItem(name: "Pumpkin spice pancakes",
 																															price: 11.99,
 																															isInStock: true,
 																															calories: 610,
 																															description: TextLibrary.MenuItemDescription.pumpkinPancake,
-																															type: .pancake),
+																															type: .pancakes),
 																										 MenuItem(name: "Chocolate pancakes",
 																															price: 11.99,
 																															isInStock: true,
 																															calories: 610,
 																															description: TextLibrary.MenuItemDescription.pumpkinPancake,
-																															type: .pancake)
+																															type: .pancakes)
 																				 ]),
+
+																 Section(name: .bagel,
+																				 menuItems: [MenuItem(name: "Bagel",
+																															price: 10.99,
+																															isInStock: true,
+																															calories: 600,
+																															type: .bagel)
+																				 ]),
+																 Section(name: .oatmeal,
+																				 menuItems: [MenuItem(name: "Oatmeal",
+																															price: 7.99,
+																															isInStock: true,
+																															calories: 300,
+																															type: .oatmeal)
+																				 ]),
+																 Section(name: .eggsBenedict,
+																				 menuItems: [MenuItem(name: "Eggs Benedict",
+																															price: 9.99,
+																															isInStock: true,
+																															calories: 350,
+																															type: .eggsBenedict)
+																				 ]),
+																 Section(name: .omeletes,
+																				 menuItems: [MenuItem(name: "Omelette",
+																															price: 5.79,
+																															isInStock: true,
+																															calories: 375,
+																															type: .omeletes)]),
 																 Section(name: .coldDrinks,
 																				 menuItems: [MenuItem(name: "Iced coffee",
 																															price: 5.99,
@@ -105,5 +133,12 @@ let menuDataSource = MenuModel(section:
 																															typeOfMilk: nil,
 																															cupSize: nil)
 
+																				 ]),
+																 Section(name: .dessert,
+																				 menuItems: [MenuItem(name: "Cupcake",
+																															price: 2.99,
+																															isInStock: true,
+																															calories: 250,
+																															type: .dessert)
 																				 ])
 																])
