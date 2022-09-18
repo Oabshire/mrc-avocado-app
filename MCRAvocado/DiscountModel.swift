@@ -6,17 +6,17 @@
 //
 
 
-enum Discount {
-	case newYear
-	case martinLutherKing
-	case washingtons
-	case memorialDay
-	case nationalIndependenceDay
-	case laborDay
-	case columbusDay
-	case veteransDay
-	case thanksgivingDay
-	case christmasDay
+enum Discount: String {
+	case newYear = "New Year's Day"
+	case martinLutherKing = "Martin Luther King B-day"
+	case washingtons = "Washington’s B-day"
+	case nationalIndependenceDay = "Independence Day"
+	case halloween = "Halloween"
+	case laborDay = "Labor Day"
+	case columbusDay = "Columbus Day"
+	case veteransDay = "Veterans Day"
+	case thanksgivingDay = "Thanksgiving Day"
+	case christmasDay = "X-mas"
 	case none
 	
 	var percentageValue: Int {
@@ -25,7 +25,7 @@ enum Discount {
 			return 25
 		case .thanksgivingDay, .nationalIndependenceDay, .christmasDay:
 			return 20
-		case .memorialDay, .veteransDay:
+		case .veteransDay, .halloween:
 			return 15
 		case .martinLutherKing, .washingtons, .laborDay, .columbusDay:
 			return 5
@@ -33,4 +33,8 @@ enum Discount {
 			return 0
 		}
 	}
+}
+
+extension Discount: Hashable, Identifiable {
+	var id: some Hashable { self }
 }

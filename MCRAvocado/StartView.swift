@@ -9,23 +9,32 @@ import SwiftUI
 
 struct StartView: View {
 	@AppStorage("FlightStatusCurrentTab") var selectedTab = 1
+	@State var menuIsShowing = true
+
+	init() {
+		let opaqueAppearence = UITabBarAppearance()
+		opaqueAppearence.configureWithOpaqueBackground()
+		UITabBar.appearance().scrollEdgeAppearance = opaqueAppearence
+	}
 
 	var body: some View {
 		TabView(selection: $selectedTab) {
-			Text("Hello, World 0!")
+			MenuListView()
 				.tabItem {
 					Image(systemName: "menucard")
 						.resizable()
 					Text("Menu")
 				}
+				.badge("9")
 				.tag(0)
 
-			Text("Hello, World! 1")
+			Text("Hello, World!2")
 				.tabItem {
-					Image(systemName: "percent")
+					Image(systemName: "house")
 						.resizable()
-					Text("Discounts")
+					Text("Home")
 				}
+				.badge("8")
 				.tag(1)
 
 
@@ -35,6 +44,7 @@ struct StartView: View {
 						.resizable()
 					Text("Home")
 				}
+				.badge("52")
 				.tag(2)
 		}
 	}
