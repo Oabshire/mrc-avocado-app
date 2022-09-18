@@ -11,10 +11,10 @@ import Foundation
 class Order: ObservableObject {
 	
 	// MARK: - Properties
-	var orderedItems: [MenuItem: Int] = [:]
-	var numberOfPersons: Int
+	@Published var orderedItems: [MenuItem: Int] = [:]
+	var numberOfPersons: Int = 1
 	var discount: Discount = .none
-	let tableNumber: Int
+	let tableNumber: Int = 1
 	let dateOfCreation: Date = Date()
 	
 	var amountWithoutDiscount: Double {
@@ -29,19 +29,12 @@ class Order: ObservableObject {
 		let amountAfterDiscount = amountWithoutDiscount - amountWithoutDiscount * Double(discount.percentageValue) / 100.0
 		return  amountAfterDiscount.roundTwoAfterPoint
 	}
-
+	
 	/// Init
 	/// - Parameters:
 	///   - orderedItems: ordered menu items and it amount
-	///   - numberOfPersons: number of persons
-	///   - tableNumber: table number
-	init(orderedItems: [MenuItem: Int],
-			 numberOfPersons: Int,
-			 tableNumber: Int) {
-		self.orderedItems = orderedItems
-		self.numberOfPersons = numberOfPersons
-		self.tableNumber = tableNumber
-	}
+	init(orderedItems: [MenuItem: Int]) {
+		self.orderedItems = orderedItems	}
 	
 	// MARK: - Functions
 	
@@ -68,6 +61,7 @@ class Order: ObservableObject {
 	
 	/// Print Name and amount of ordered items
 	func printOrderedItemsNameAndAmount() {
+		print("---- Order ----")
 		for (item, amount) in orderedItems {
 			print("\(item.name) : \(amount)")
 		}

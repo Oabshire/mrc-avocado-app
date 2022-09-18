@@ -9,15 +9,12 @@ import SwiftUI
 
 /// View for Detail information about menu item
 struct MenuDetailView: View {
+	@EnvironmentObject var order: Order
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
-	@State var amountToAdd: Int = 1
-
-	/// Action for bottom button
-	var donePressed: (() -> Void)?
 
 	/// Source of data
-	var menuItem: MenuItem?
+	var menuItem: MenuItem
 
 	var body: some View {
 		GeometryReader { geometry in
@@ -27,7 +24,7 @@ struct MenuDetailView: View {
 					Color.mainBackgroundColor
 						.edgesIgnoringSafeArea(.all)
 					VStack {
-						Image(menuItem?.name ?? "")
+						Image(menuItem.name)
 							.resizable()
 							.scaledToFill()
 							.edgesIgnoringSafeArea(.all)
@@ -35,16 +32,25 @@ struct MenuDetailView: View {
 										 height: geometry.size.height/3)
 
 						if let menuItem = menuItem {
-							DetailView(amountToAdd: $amountToAdd, menuItem: menuItem, donePressed: donePressed)
+							VerticalDetailView(order: _order,menuItem: menuItem)
 						}
 					}
 				}
 			} else {
 				ZStack{
-					Color.mainImageColor
+					Color.mainBackgroundColor
 						.edgesIgnoringSafeArea(.all)
-					if let menuItem = menuItem {
-						DetailView(amountToAdd: $amountToAdd, menuItem: menuItem, donePressed: donePressed)
+					HStack {
+						Image(menuItem.name)
+							.resizable()
+							.scaledToFill()
+							.edgesIgnoringSafeArea(.all)
+							.frame(width: geometry.size.width/3,
+										 height: geometry.size.height)
+
+						if let menuItem = menuItem {
+							VerticalDetailView(order: _order,menuItem: menuItem)
+						}
 					}
 				}
 			}

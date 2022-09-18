@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct MenuListView: View {
+	@EnvironmentObject var order: Order
 	var dataSource: MenuModel = menuDataSource
 
 	var body: some View {
 		NavigationView {
-
 			let allItems = dataSource.section.flatMap {
 				$0.menuItems
 			}
 			List(allItems) { item in
 				NavigationLink(
-					destination: MenuDetailView(menuItem: item)) {
-						MenuCellView(menuItem: item)
+					destination: MenuDetailView(order: _order, menuItem: item)) {
+						MenuRowView(menuItem: item)
 					}
 			}
 			.navigationBarTitle("Menu")

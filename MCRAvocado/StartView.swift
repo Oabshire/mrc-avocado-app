@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StartView: View {
+	@EnvironmentObject var order: Order
 	@AppStorage("FlightStatusCurrentTab") var selectedTab = 1
 	@State var menuIsShowing = true
 
@@ -19,7 +20,7 @@ struct StartView: View {
 
 	var body: some View {
 		TabView(selection: $selectedTab) {
-			MenuListView()
+			MenuListView(order: _order)
 				.tabItem {
 					Image(systemName: "menucard")
 						.resizable()

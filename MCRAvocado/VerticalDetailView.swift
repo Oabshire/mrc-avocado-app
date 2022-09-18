@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  VerticalDetailView.swift
 //  MCRAvocado
 //
 //  Created by Onie on 11.09.2022.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct DetailView: View {
-	@Binding var amountToAdd: Int
+struct VerticalDetailView: View {
+	@EnvironmentObject var order: Order
+	@State var amountToAdd: Int = 1
 
 	/// Source of data
 	var menuItem: MenuItem
@@ -22,7 +23,7 @@ struct DetailView: View {
 			DetailDescriptionText(lineText: menuItem.description ?? "")
 				.padding(.trailing)
 				.padding(.leading)
-
+			
 			HStack{
 				DetailTitleText(lineText: "$ " + String((menuItem.price * Double(amountToAdd)).roundTwoAfterPoint))
 					.frame(maxWidth: 200)
@@ -33,7 +34,9 @@ struct DetailView: View {
 			}
 			Spacer()
 			BottomButton(text: "Add to Order", color: .buttonColor) {
-				donePressed?()
+				if order.addMenuItem(item: menuItem, amount: amountToAdd) {
+					order.printOrderedItemsNameAndAmount()
+				}
 			}
 			.padding()
 		}.background(Color.mainImageColor)

@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct MCRAvocadoApp: App {
+	@StateObject var order: Order = Order(orderedItems: [:])
 	var body: some Scene {
 		WindowGroup {
-			StartView()
+			StartView().environmentObject(order)
 		}
 	}
 }

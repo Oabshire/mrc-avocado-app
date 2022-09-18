@@ -26,7 +26,7 @@ struct ContentView: View {
 						BottomButton(text: TextLibrary.AppTexts.menuText, color: .buttonColor) {
 							menuIsShowing = true
 						}.fullScreenCover(isPresented: $menuIsShowing) {
-							MenuViewRepresentable(menuIsShowing: $menuIsShowing)
+							MenuListView()
 						}
 						BottomButton(text: TextLibrary.AppTexts.cartText, color: .buttonColor) {
 							orderIsShowing = true
