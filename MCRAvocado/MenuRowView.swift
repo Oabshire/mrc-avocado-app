@@ -1,5 +1,5 @@
 //
-//  MenuCellView.swift
+//  MenuRowView.swift
 //  MCRAvocado
 //
 //  Created by Onie on 18.09.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuCellView: View {
+struct MenuRowView: View {
 	var menuItem: MenuItem
 	var body: some View {
 		HStack (alignment: .top) {
@@ -18,7 +18,7 @@ struct MenuCellView: View {
 			VStack(alignment: .leading,spacing: 10) {
 				HStack(alignment: .top) {
 					Text(menuItem.name)
-						.font(.title)
+						.font(.title2)
 					Spacer()
 					VStack(alignment:.trailing) {
 						Text("$ " + String(menuItem.price))
@@ -32,15 +32,15 @@ struct MenuCellView: View {
 	}
 }
 
-struct MenuCellView_Previews: PreviewProvider {
+struct MenuRowView_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
 			Color(red: 0.55, green: 0.45, blue: 0.75)
-			MenuCellView(menuItem: MenuItem(name: "Pumpkin spice pancakes",
-																			price: 11.99,
-																			isInStock: true,
-																			calories: 610,
-																			description: TextLibrary.MenuItemDescription.pumpkinPancake, type: .pancakes))
+			MenuRowView(menuItem: MenuItem(name: "Pumpkin spice pancakes",
+																		 price: 11.99,
+																		 isInStock: true,
+																		 calories: 610,
+																		 description: TextLibrary.MenuItemDescription.pumpkinPancake, type: .pancakes))
 			
 		}
 		.edgesIgnoringSafeArea(.all)
