@@ -7,7 +7,7 @@
 
 /// Sorce of menu data
 let menuDataSource = MenuModel(section:
-																[Section(name: .waffles,
+																[DishCategory(name: .waffles,
 																				 menuItems: [MenuItem(name: "Waffle with butter",
 																															price: 12.79,
 																															isInStock: false,
@@ -24,7 +24,7 @@ let menuDataSource = MenuModel(section:
 																															imageName: "waffle_with_bacon")
 																				 ]
 																				),
-																 Section(name: .pancakes,
+																 DishCategory(name: .pancakes,
 																				 menuItems: [MenuItem(name: "Blueberry pancakes",
 																															price: 11.99,
 																															isInStock: true,
@@ -54,7 +54,7 @@ let menuDataSource = MenuModel(section:
 																															type: .pancakes,
 																															imageName: "chocolate_pancakes")
 																				 ]),
-																 Section(name: .bagel,
+																 DishCategory(name: .bagel,
 																				 menuItems: [MenuItem(name: "Bagel BLT",
 																															price: 10.99,
 																															isInStock: true,
@@ -62,7 +62,7 @@ let menuDataSource = MenuModel(section:
 																															description: TextLibrary.MenuItemDescription.bagel,
 																															type: .bagel, imageName: "blt_bagel")
 																				 ]),
-																 Section(name: .oatmeal,
+																 DishCategory(name: .oatmeal,
 																				 menuItems: [MenuItem(name: "Oatmeal",
 																															price: 7.99,
 																															isInStock: true,
@@ -71,7 +71,7 @@ let menuDataSource = MenuModel(section:
 																															type: .oatmeal,
 																															imageName: "oatmeal")
 																				 ]),
-																 Section(name: .eggsBenedict,
+																 DishCategory(name: .eggsBenedict,
 																				 menuItems: [MenuItem(name: "Eggs Benedict",
 																															price: 9.99,
 																															isInStock: true,
@@ -80,7 +80,7 @@ let menuDataSource = MenuModel(section:
 																															type: .eggsBenedict,
 																															imageName: "eggs_benedict")
 																				 ]),
-																 Section(name: .omeletes,
+																 DishCategory(name: .omeletes,
 																				 menuItems: [MenuItem(name: "Cheese omelette",
 																															price: 5.79,
 																															isInStock: true,
@@ -88,7 +88,7 @@ let menuDataSource = MenuModel(section:
 																															description: TextLibrary.MenuItemDescription.cheeseOmelette,
 																															type: .omeletes,
 																															imageName: "cheese_omelette")]),
-																 Section(name: .coldDrinks,
+																 DishCategory(name: .coldDrinks,
 																				 menuItems: [MenuItem(name: "Iced coffee",
 																															price: 5.99,
 																															isInStock: true,
@@ -120,7 +120,7 @@ let menuDataSource = MenuModel(section:
 																															imageName: "raspberry_lemonade")
 
 																				 ]),
-																 Section(name: .hotDrinks,
+																 DishCategory(name: .hotDrinks,
 																				 menuItems: [MenuItem(name: "Hot coffee",
 																															price: 2.99,
 																															isInStock: true,
@@ -152,7 +152,7 @@ let menuDataSource = MenuModel(section:
 																															imageName: "black_tea")
 
 																				 ]),
-																 Section(name: .dessert,
+																 DishCategory(name: .dessert,
 																				 menuItems: [MenuItem(name: "Vanilla cupcake",
 																															price: 2.99,
 																															isInStock: true,

@@ -11,6 +11,8 @@ struct StartView: View {
 	@EnvironmentObject var order: Order
 	@AppStorage("FlightStatusCurrentTab") var selectedTab = 1
 	@State var menuIsShowing = true
+	var menu = menuDataSource
+	var discounts = discountDataSource
 
 	init() {
 		let opaqueAppearence = UITabBarAppearance()
@@ -20,14 +22,23 @@ struct StartView: View {
 
 	var body: some View {
 		TabView(selection: $selectedTab) {
-			MenuListView(order: _order)
+			DiscountGridView(discountsDataSource: discounts)
+				.tabItem {
+					Image(systemName: "percent")
+						.resizable()
+					Text("Discounts")
+				}
+				.badge(discounts.count)
+				.tag(0)
+
+			MenuListView(order: _order, dataSource: menu)
 				.tabItem {
 					Image(systemName: "menucard")
 						.resizable()
 					Text("Menu")
 				}
-				.badge("9")
-				.tag(0)
+				.badge(menu.section.flatMap {$0.menuItems}.count)
+				.tag(1)
 
 			OrderListView(order: _order)
 				.tabItem {
@@ -35,17 +46,7 @@ struct StartView: View {
 						.resizable()
 					Text("Order")
 				}
-				.badge("8")
-				.tag(1)
-
-
-			Text("Hello, World!2")
-				.tabItem {
-					Image(systemName: "house")
-						.resizable()
-					Text("Home")
-				}
-				.badge("52")
+				.badge(order.orderedItems.count)
 				.tag(2)
 		}
 	}

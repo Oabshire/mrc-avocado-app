@@ -9,27 +9,31 @@ import SwiftUI
 
 struct MenuListView: View {
 	@EnvironmentObject var order: Order
-	var dataSource: MenuModel = menuDataSource
+	var dataSource: MenuModel
 
 	var body: some View {
 		NavigationView {
-			let allItems = dataSource.section.flatMap {
-				$0.menuItems
-			}
-			List(allItems) { item in
-				NavigationLink(
-					destination: MenuDetailView(order: _order, menuItem: item)) {
-						MenuRowView(menuItem: item)
+			List {
+				ForEach(dataSource.section, id: \.hashValue) { section in
+
+					Section(
+						header: Text(section.name.rawValue)
+					) {
+						ForEach(section.menuItems) { item in
+							NavigationLink(
+								destination: MenuDetailView(order: _order, menuItem: item)) {
+									MenuRowView(menuItem: item)
+								}
+						}
 					}
-			}
-			.navigationBarTitle("Menu")
+				}
+			}.listStyle(InsetGroupedListStyle())
+				.navigationBarTitle("Menu")
 		}.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
-
-
 struct MenuListView_Previews: PreviewProvider {
 	static var previews: some View {
-		MenuListView()
+		MenuListView(dataSource: menuDataSource)
 	}
 }
