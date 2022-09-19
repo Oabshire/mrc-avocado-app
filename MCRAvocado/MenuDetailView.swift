@@ -9,7 +9,10 @@ import SwiftUI
 
 /// View for Detail information about menu item
 struct MenuDetailView: View {
+
+	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
+	
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
 
@@ -21,16 +24,22 @@ struct MenuDetailView: View {
 			let isPortrait = (verticalSizeClass == .regular && horizontalSizeClass == .compact)
 			if isPortrait {
 				ZStack{
-					Color.mainBackgroundColor
+					Color.white
 						.edgesIgnoringSafeArea(.all)
 					VStack {
-						Image(menuItem.imageName)
-							.resizable()
-							.scaledToFill()
-							.edgesIgnoringSafeArea(.all)
-							.frame(width: geometry.size.width,
-										 height: geometry.size.height/3)
+						ZStack{
+							Image(menuItem.imageName)
+								.resizable()
+								.scaledToFill()
+							LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear]),
+														 startPoint: .top,
+														 endPoint: .bottom)
 
+							.frame(height: 200)
+						}
+						.frame(width: geometry.size.width,
+									 height: geometry.size.height/4)
+						.edgesIgnoringSafeArea(.all)
 						if let menuItem = menuItem {
 							MenuItemDetailView(order: _order,menuItem: menuItem)
 						}
@@ -38,16 +47,22 @@ struct MenuDetailView: View {
 				}
 			} else {
 				ZStack{
-					Color.mainBackgroundColor
+					Color.white
 						.edgesIgnoringSafeArea(.all)
 					HStack {
-						Image(menuItem.imageName)
-							.resizable()
-							.scaledToFill()
-							.edgesIgnoringSafeArea(.all)
-							.frame(width: geometry.size.width/3,
-										 height: geometry.size.height)
-
+						ZStack(alignment: .top) {
+							Image(menuItem.imageName)
+								.resizable()
+								.scaledToFill()
+							LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear]),
+														 startPoint: .top,
+														 endPoint: .bottom)
+							.frame(height: 200)
+						}
+						.edgesIgnoringSafeArea(.all)
+						.frame(width: geometry.size.width/3,
+									 height: geometry.size.height)
+						
 						if let menuItem = menuItem {
 							MenuItemDetailView(order: _order,menuItem: menuItem)
 						}
@@ -59,7 +74,7 @@ struct MenuDetailView: View {
 }
 
 struct MenuDetailView_Previews: PreviewProvider {
-
+	
 	static var previews: some View {
 		MenuDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!)
 		MenuDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).preferredColorScheme(.dark)

@@ -7,23 +7,29 @@
 
 import SwiftUI
 
+/// List of menu items divided into section
 struct MenuListView: View {
+
+	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
+
+	/// Menu
 	var dataSource: MenuModel
 
 	var body: some View {
 		NavigationView {
 			List {
 				ForEach(dataSource.section, id: \.hashValue) { section in
-
 					Section(
 						header: Text(section.name.rawValue)
 					) {
 						ForEach(section.menuItems) { item in
-							NavigationLink(
-								destination: MenuDetailView(order: _order, menuItem: item)) {
-									MenuRowView(menuItem: item)
-								}
+							if item.isInStock == true {
+								NavigationLink(
+									destination: MenuDetailView(order: _order, menuItem: item)) {
+										MenuRowView(menuItem: item).padding(.top)
+									}
+							}
 						}
 					}
 				}

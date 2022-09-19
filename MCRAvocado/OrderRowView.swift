@@ -9,43 +9,40 @@ import SwiftUI
 
 /// Cell for ordered items
 struct OrderRowView: View {
-	
+
+	/// Ordered menu item
 	var menuItem: MenuItem
-	
-	@State var value: Int = 1
+
+	/// Amount of ordered menu items
+	var amount: Int
 	
 	var body: some View {
 		HStack (alignment: .top) {
 			Image(menuItem.imageName)
 				.resizable()
-				.frame(width: 60, height: 60)
-				.cornerRadius(15)
+				.frame(width: Constants.General.rowImageWidthHeight,
+							 height: Constants.General.rowImageWidthHeight)
+				.cornerRadius(Constants.General.rowImageCornerRadius)
 			VStack(alignment: .leading) {
-				VStack(alignment: .leading) {
-					Text(menuItem.name)
-						.font(.title2)
+				Text(menuItem.name)
+					.font(.title2)
 
-					HStack {
-						Text("$ " + String(menuItem.price))
-						Spacer()
-						Stepper(value: $value, in: 1...99) {
-							Text("× " + String(value)).foregroundColor(.black)
-						}
-					}
-				}
-				Text(menuItem.description ?? "")
-					.frame(alignment: .leading)
+				Text("$ " + String(menuItem.price) + " × " + String(amount))
 			}
 		}
-	}}
+	}
+}
 
 struct OrderCellView_Preview: PreviewProvider {
 	
 	static var previews: some View {
-		OrderRowView(menuItem: orderDataSource.orderedItems.first!.key)
-		OrderRowView(menuItem: orderDataSource.orderedItems.first!.key).preferredColorScheme(.dark)
-		OrderRowView(menuItem: orderDataSource.orderedItems.first!.key).previewLayout(.fixed(width: 568, height: 320))
-		OrderRowView(menuItem: orderDataSource.orderedItems.first!.key).previewLayout(.fixed(width: 568, height: 320))
+		OrderRowView(menuItem: orderDataSource.orderedItems.first!.key, amount: 1)
+		OrderRowView(menuItem: orderDataSource.orderedItems.first!.key, amount: 1)
+			.preferredColorScheme(.dark)
+		OrderRowView(menuItem: orderDataSource.orderedItems.first!.key, amount: 1)
+			.previewLayout(.fixed(width: 568, height: 320))
+		OrderRowView(menuItem: orderDataSource.orderedItems.first!.key, amount: 1)
+			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}
 }

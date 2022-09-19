@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// First view that user sees
 struct StartView: View {
 	@EnvironmentObject var order: Order
 	@AppStorage("FlightStatusCurrentTab") var selectedTab = 1
@@ -15,38 +16,42 @@ struct StartView: View {
 	var discounts = discountDataSource
 
 	init() {
-		let opaqueAppearence = UITabBarAppearance()
-		opaqueAppearence.configureWithOpaqueBackground()
-		UITabBar.appearance().scrollEdgeAppearance = opaqueAppearence
+		let opaqueAppearance = UITabBarAppearance()
+		opaqueAppearance.configureWithOpaqueBackground()
+		UITabBar.appearance().scrollEdgeAppearance = opaqueAppearance
 	}
 
 	var body: some View {
 		TabView(selection: $selectedTab) {
+			// tab with discounts
 			DiscountGridView(discountsDataSource: discounts)
 				.tabItem {
 					Image(systemName: "percent")
 						.resizable()
 					Text("Discounts")
 				}
-				.badge(discounts.count)
+				.badge(discounts.count) // badge display amount of discount
 				.tag(0)
 
+			// tab with menu
 			MenuListView(order: _order, dataSource: menu)
 				.tabItem {
 					Image(systemName: "menucard")
 						.resizable()
 					Text("Menu")
 				}
-				.badge(menu.section.flatMap {$0.menuItems}.count)
+			// badge display amount of menu items
+				.badge(menu.section.flatMap {$0.menuItems}.filter{$0.isInStock}.count) // badge display amount of menu items
 				.tag(1)
 
+			// tab with ordered items
 			OrderListView(order: _order)
 				.tabItem {
 					Image(systemName: "cart")
 						.resizable()
 					Text("Order")
 				}
-				.badge(order.orderedItems.count)
+				.badge(order.orderedItems.count)  // badge display amount of ordered items
 				.tag(2)
 		}
 	}

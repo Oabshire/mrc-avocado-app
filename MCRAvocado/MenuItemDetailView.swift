@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MenuItemDetailView: View {
+
+	/// Mode for dismissing view when button "Add to Order" taped
 	@Environment(\.presentationMode) var mode: Binding<PresentationMode>
 
 	@EnvironmentObject var order: Order
@@ -15,9 +17,6 @@ struct MenuItemDetailView: View {
 
 	/// Source of data
 	var menuItem: MenuItem
-	
-	/// Action for bottom button
-	var donePressed: (() -> Void)?
 
 	var body: some View {
 		VStack {
@@ -39,9 +38,9 @@ struct MenuItemDetailView: View {
 				if order.addMenuItem(item: menuItem, amount: amountToAdd) {
 					order.printOrderedItemsNameAndAmount()
 				}
-				self.mode.wrappedValue.dismiss()
+				self.mode.wrappedValue.dismiss() // dismissing view
 			}
 			.padding()
-		}.background(Color.mainImageColor)
+		}.background(Color.white)
 	}
 }
