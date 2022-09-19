@@ -24,7 +24,7 @@ struct MenuDetailView: View {
 					Color.mainBackgroundColor
 						.edgesIgnoringSafeArea(.all)
 					VStack {
-						Image(menuItem.name)
+						Image(menuItem.imageName)
 							.resizable()
 							.scaledToFill()
 							.edgesIgnoringSafeArea(.all)
@@ -32,7 +32,7 @@ struct MenuDetailView: View {
 										 height: geometry.size.height/3)
 
 						if let menuItem = menuItem {
-							VerticalDetailView(order: _order,menuItem: menuItem)
+							MenuItemDetailView(order: _order,menuItem: menuItem)
 						}
 					}
 				}
@@ -41,7 +41,7 @@ struct MenuDetailView: View {
 					Color.mainBackgroundColor
 						.edgesIgnoringSafeArea(.all)
 					HStack {
-						Image(menuItem.name)
+						Image(menuItem.imageName)
 							.resizable()
 							.scaledToFill()
 							.edgesIgnoringSafeArea(.all)
@@ -49,7 +49,7 @@ struct MenuDetailView: View {
 										 height: geometry.size.height)
 
 						if let menuItem = menuItem {
-							VerticalDetailView(order: _order,menuItem: menuItem)
+							MenuItemDetailView(order: _order,menuItem: menuItem)
 						}
 					}
 				}

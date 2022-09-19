@@ -11,7 +11,7 @@ struct MenuRowView: View {
 	var menuItem: MenuItem
 	var body: some View {
 		HStack (alignment: .top) {
-			Image(menuItem.name)
+			Image(menuItem.imageName)
 				.resizable()
 				.frame(width: 60, height: 60)
 				.cornerRadius(15)
@@ -40,7 +40,8 @@ struct MenuRowView_Previews: PreviewProvider {
 																		 price: 11.99,
 																		 isInStock: true,
 																		 calories: 610,
-																		 description: TextLibrary.MenuItemDescription.pumpkinPancake, type: .pancakes))
+																		 description: TextLibrary.MenuItemDescription.pumpkinPancake, type: .pancakes,
+																		 imageName: "pumpkin_spice_pancakes"))
 			
 		}
 		.edgesIgnoringSafeArea(.all)

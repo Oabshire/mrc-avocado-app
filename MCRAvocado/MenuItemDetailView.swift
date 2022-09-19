@@ -1,5 +1,5 @@
 //
-//  VerticalDetailView.swift
+//  MenuItemDetailView.swift
 //  MCRAvocado
 //
 //  Created by Onie on 11.09.2022.
@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct VerticalDetailView: View {
+struct MenuItemDetailView: View {
+	@Environment(\.presentationMode) var mode: Binding<PresentationMode>
+
 	@EnvironmentObject var order: Order
 	@State var amountToAdd: Int = 1
 
@@ -37,6 +39,7 @@ struct VerticalDetailView: View {
 				if order.addMenuItem(item: menuItem, amount: amountToAdd) {
 					order.printOrderedItemsNameAndAmount()
 				}
+				self.mode.wrappedValue.dismiss()
 			}
 			.padding()
 		}.background(Color.mainImageColor)

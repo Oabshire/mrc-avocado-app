@@ -54,6 +54,7 @@ struct MenuItem {
 	let withIce: Bool?
 	let typeOfMilk: MilkType?
 	let cupSize: CupSize?
+	let imageName: String
 	
 	/// Init
 	/// - Parameters:
@@ -66,7 +67,16 @@ struct MenuItem {
 	///   - withIce: is item with ice if it is a beverage
 	///   - typeOfMilk: type of milk if item is a beverage
 	///   - cupSize: size of cup if it item is a beverage
-	init(name: String, price: Double, isInStock: Bool, calories: Int, description: String? = nil, type: MenuItemType, withIce: Bool? = nil , typeOfMilk: MilkType? = nil, cupSize: CupSize? = nil) {
+	///   - imageName: name of image for menu or order
+	init(name: String,
+			 price: Double,
+			 isInStock: Bool,
+			 calories: Int,
+			 description: String? = nil,
+			 type: MenuItemType, withIce: Bool? = nil,
+			 typeOfMilk: MilkType? = nil,
+			 cupSize: CupSize? = nil,
+			 imageName: String) {
 		self.name = name
 		self.price = price
 		self.isInStock = isInStock
@@ -76,6 +86,7 @@ struct MenuItem {
 		self.withIce = withIce
 		self.typeOfMilk = typeOfMilk
 		self.cupSize = cupSize
+		self.imageName = imageName
 	}
 }
 
