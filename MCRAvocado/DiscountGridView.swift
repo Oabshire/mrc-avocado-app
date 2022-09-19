@@ -8,26 +8,25 @@
 import SwiftUI
 
 struct DiscountGridView: View {
-	@State private var discountsDataSource = availableDiscounts
+	var discountsDataSource: [Discount]
 
 	var body: some View {
 		NavigationView {
 			ScrollView{
 				LazyVGrid(columns: .init(repeating: .init(), count: 2)) {
 					ForEach(discountsDataSource) { discountsDataSource in
-						MenuGridCell(text: discountsDataSource.rawValue)
+						MenuGridRow(text: discountsDataSource.rawValue)
 						
 					}
 				}.padding()
 			}
 			.navigationBarTitle("Discounts")
-			.background(Color.mainBackgroundColor)
-		}
+		}.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 
 struct DiscountGridView_Previews: PreviewProvider {
 	static var previews: some View {
-		MenuGridView()
+		DiscountGridView(discountsDataSource: discountDataSource)
 	}
 }

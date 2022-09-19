@@ -6,15 +6,15 @@
 //
 
 struct MenuModel {
-	let section: [Section]
+	let section: [DishCategory]
 }
 
-struct Section {
+struct DishCategory {
 	let name: MenuItemType
 	let menuItems: [MenuItem]
 }
 
 // MARK: - Hashable, Identifiable
-extension Section: Hashable, Identifiable {
+extension DishCategory: Hashable, Identifiable {
 	var id: some Hashable { name }
 }

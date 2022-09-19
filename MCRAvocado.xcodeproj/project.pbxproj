@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0940B54C28D6C6590008A387 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54B28D6C6590008A387 /* StartView.swift */; };
-		0940B54E28D6CEE10008A387 /* MenuGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54D28D6CEE10008A387 /* MenuGridView.swift */; };
-		0940B55028D6D4180008A387 /* MenuGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54F28D6D4180008A387 /* MenuGridCell.swift */; };
+		0940B55028D6D4180008A387 /* MenuGridRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54F28D6D4180008A387 /* MenuGridRow.swift */; };
 		0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55128D7A1E50008A387 /* DiscountGridView.swift */; };
-		0940B55428D7A2290008A387 /* DiscountsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55328D7A2290008A387 /* DiscountsDataSource.swift */; };
+		0940B55428D7A2290008A387 /* DiscountDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55328D7A2290008A387 /* DiscountDataSource.swift */; };
 		0940B55B28D7AB310008A387 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55A28D7AB310008A387 /* MenuRowView.swift */; };
 		094667E728CEAB5C00EAE7C6 /* MenuDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094667E628CEAB5C00EAE7C6 /* MenuDetailView.swift */; };
 		0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F43128B1AF6D000B9CE6 /* MCRAvocadoApp.swift */; };
@@ -51,10 +50,9 @@
 
 /* Begin PBXFileReference section */
 		0940B54B28D6C6590008A387 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
-		0940B54D28D6CEE10008A387 /* MenuGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGridView.swift; sourceTree = "<group>"; };
-		0940B54F28D6D4180008A387 /* MenuGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGridCell.swift; sourceTree = "<group>"; };
+		0940B54F28D6D4180008A387 /* MenuGridRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGridRow.swift; sourceTree = "<group>"; };
 		0940B55128D7A1E50008A387 /* DiscountGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountGridView.swift; sourceTree = "<group>"; };
-		0940B55328D7A2290008A387 /* DiscountsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsDataSource.swift; sourceTree = "<group>"; };
+		0940B55328D7A2290008A387 /* DiscountDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountDataSource.swift; sourceTree = "<group>"; };
 		0940B55A28D7AB310008A387 /* MenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
 		094667E628CEAB5C00EAE7C6 /* MenuDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailView.swift; sourceTree = "<group>"; };
 		0949F42E28B1AF6D000B9CE6 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,8 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				09F7AB0028C5978500262C52 /* DiscountModel.swift */,
+				0940B54F28D6D4180008A387 /* MenuGridRow.swift */,
 				0940B55128D7A1E50008A387 /* DiscountGridView.swift */,
-				0940B55328D7A2290008A387 /* DiscountsDataSource.swift */,
+				0940B55328D7A2290008A387 /* DiscountDataSource.swift */,
 			);
 			name = DiscountModule;
 			sourceTree = "<group>";
@@ -198,12 +197,12 @@
 				09C1CBFA28CD152B004548F1 /* MenuModule */,
 				09AF6FCF28CEBF0300B30F08 /* DetailModule */,
 				09C1CC2D28CE6985004548F1 /* OrderModule */,
+				0940B55528D7A3E20008A387 /* DiscountModule */,
 				0949F44928B1B4D2000B9CE6 /* Libraries */,
 				09239A0B28BABD0000B14F20 /* Extensions */,
 				0949F44C28B1B51F000B9CE6 /* App */,
 				095AD0C628BAD8B400651B36 /* Playground */,
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
-				0940B55528D7A3E20008A387 /* DiscountModule */,
 			);
 			path = MCRAvocado;
 			sourceTree = "<group>";
@@ -234,8 +233,6 @@
 				0949F44728B1B3FF000B9CE6 /* TextViews.swift */,
 				0949F44328B1B39D000B9CE6 /* ButtonViews.swift */,
 				0949F44128B1B354000B9CE6 /* ImageViews.swift */,
-				0940B54D28D6CEE10008A387 /* MenuGridView.swift */,
-				0940B54F28D6D4180008A387 /* MenuGridCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -403,7 +400,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F7AAFF28C595A400262C52 /* DoubleExtension.swift in Sources */,
-				0940B54E28D6CEE10008A387 /* MenuGridView.swift in Sources */,
 				09AF6FD128CEBF9D00B30F08 /* MenuItemDetailView.swift in Sources */,
 				0949F44628B1B3D5000B9CE6 /* TextLibrary.swift in Sources */,
 				0940B54C28D6C6590008A387 /* StartView.swift in Sources */,
@@ -415,14 +411,14 @@
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
 				0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */,
 				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
-				0940B55428D7A2290008A387 /* DiscountsDataSource.swift in Sources */,
+				0940B55428D7A2290008A387 /* DiscountDataSource.swift in Sources */,
 				094667E728CEAB5C00EAE7C6 /* MenuDetailView.swift in Sources */,
 				0949F44E28B1B802000B9CE6 /* OnboardingView.swift in Sources */,
 				09C1CC2F28CE69D1004548F1 /* OrderRowView.swift in Sources */,
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
 				0949F44028B1B30A000B9CE6 /* ColorExtension.swift in Sources */,
 				0949F45028B1C431000B9CE6 /* Constants.swift in Sources */,
-				0940B55028D6D4180008A387 /* MenuGridCell.swift in Sources */,
+				0940B55028D6D4180008A387 /* MenuGridRow.swift in Sources */,
 				09C1CC2828CD53B0004548F1 /* MenuDataSource.swift in Sources */,
 				09B6B0A628D7B827008969D0 /* MenuListView.swift in Sources */,
 				09C1CC2C28CE5417004548F1 /* OrderListView.swift in Sources */,
