@@ -29,11 +29,11 @@ struct StartView: View {
 				.badge("9")
 				.tag(0)
 
-			Text("Hello, World!2")
+			OrderListView(order: _order)
 				.tabItem {
-					Image(systemName: "house")
+					Image(systemName: "cart")
 						.resizable()
-					Text("Home")
+					Text("Order")
 				}
 				.badge("8")
 				.tag(1)

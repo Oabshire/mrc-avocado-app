@@ -23,7 +23,7 @@ struct MenuListView: View {
 					}
 			}
 			.navigationBarTitle("Menu")
-		}
+		}.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 
