@@ -10,7 +10,7 @@ import Foundation
 /// Category of menu items
 enum MenuItemType: String {
 	case scrambles = "Scrambles"
-	case omeletes = "Omelettes"
+	case omelletes = "Omelettes"
 	case eggsBenedict = "Eggs Benedict"
 	case oatmeal = "Oatmeal"
 	case pancakes = "Pancakes"

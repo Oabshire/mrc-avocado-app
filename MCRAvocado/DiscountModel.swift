@@ -6,6 +6,7 @@
 //
 
 
+/// type of discounts
 enum Discount: String {
 	case newYear = "New Year's Day"
 	case martinLutherKing = "Martin Luther King B-day"
@@ -18,7 +19,9 @@ enum Discount: String {
 	case thanksgivingDay = "Thanksgiving Day"
 	case christmasDay = "X-mas"
 	case none
-	
+
+
+	/// Persentage value of discounts
 	var percentageValue: Int {
 		switch self {
 		case .newYear:

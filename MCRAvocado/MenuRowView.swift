@@ -7,15 +7,17 @@
 
 import SwiftUI
 
+/// View of row for Menu List
 struct MenuRowView: View {
 	var menuItem: MenuItem
 	var body: some View {
 		HStack (alignment: .top) {
 			Image(menuItem.imageName)
 				.resizable()
-				.frame(width: 60, height: 60)
-				.cornerRadius(15)
-			VStack(alignment: .leading,spacing: 10) {
+				.frame(width: Constants.General.rowImageWidthHeight,
+							 height: Constants.General.rowImageWidthHeight)
+				.cornerRadius(Constants.General.rowImageCornerRadius)
+			VStack(alignment: .leading, spacing: 10) {
 				HStack(alignment: .top) {
 					Text(menuItem.name)
 						.font(.title2)
@@ -35,7 +37,7 @@ struct MenuRowView: View {
 struct MenuRowView_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
-			Color(red: 0.55, green: 0.45, blue: 0.75)
+			Color(.green)
 			MenuRowView(menuItem: MenuItem(name: "Pumpkin spice pancakes",
 																		 price: 11.99,
 																		 isInStock: true,

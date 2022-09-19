@@ -70,8 +70,6 @@ struct KcalText: View {
 	}
 }
 
-
-
 struct DetailDescriptionText: View {
 	let lineText: String
 	var body: some View {
@@ -84,7 +82,6 @@ struct DetailDescriptionText: View {
 	}
 }
 
-
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
@@ -94,7 +91,7 @@ struct TextViews_Previews: PreviewProvider {
 				WelcomeText(text: TextLibrary.AppTexts.welcomeText).background(.black)
 				UserNameText(text: TextLibrary.AppTexts.userNameText).background(.black)
 				DetailTitleText(lineText: "Pancake")
-				DetailDescriptionText(lineText: "vyjuj vyjuj vyjuj vyjijuj dehjfbsjcknlmslkdmg")
+				DetailDescriptionText(lineText: "some long text some long text")
 				KcalText(lineText: "$15,99")
 			}
 		}

@@ -104,6 +104,7 @@
 		090D179028CF031900D7BA14 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				095AD0C728BBF53000651B36 /* MenuItemModel.swift */,
 				09C1CBF628CD0C6A004548F1 /* MenuModel.swift */,
 			);
 			name = Models;
@@ -154,10 +155,9 @@
 		0940B55528D7A3E20008A387 /* DiscountModule */ = {
 			isa = PBXGroup;
 			children = (
-				09F7AB0028C5978500262C52 /* DiscountModel.swift */,
-				0940B54F28D6D4180008A387 /* MenuGridRow.swift */,
-				0940B55128D7A1E50008A387 /* DiscountGridView.swift */,
-				0940B55328D7A2290008A387 /* DiscountDataSource.swift */,
+				09B6B0AC28D81543008969D0 /* Model */,
+				09B6B0AB28D8153E008969D0 /* View */,
+				09B6B0AA28D81534008969D0 /* DataSource */,
 			);
 			name = DiscountModule;
 			sourceTree = "<group>";
@@ -193,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				0949F44B28B1B50D000B9CE6 /* Views */,
-				095AD0C928BBF53500651B36 /* Models */,
 				09C1CBFA28CD152B004548F1 /* MenuModule */,
 				09AF6FCF28CEBF0300B30F08 /* DetailModule */,
 				09C1CC2D28CE6985004548F1 /* OrderModule */,
@@ -254,14 +253,6 @@
 			name = Playground;
 			sourceTree = "<group>";
 		};
-		095AD0C928BBF53500651B36 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				095AD0C728BBF53000651B36 /* MenuItemModel.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		095AD0DE28BBFF9200651B36 /* MCRAvocadoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +268,31 @@
 				09AF6FD028CEBF9D00B30F08 /* MenuItemDetailView.swift */,
 			);
 			name = DetailModule;
+			sourceTree = "<group>";
+		};
+		09B6B0AA28D81534008969D0 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				0940B55328D7A2290008A387 /* DiscountDataSource.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		09B6B0AB28D8153E008969D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0940B54F28D6D4180008A387 /* MenuGridRow.swift */,
+				0940B55128D7A1E50008A387 /* DiscountGridView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		09B6B0AC28D81543008969D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09F7AB0028C5978500262C52 /* DiscountModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		09C1CBFA28CD152B004548F1 /* MenuModule */ = {

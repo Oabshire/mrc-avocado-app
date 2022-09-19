@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-/// SwiftUI Table for ordered items
+///List of ordered Items
 struct OrderListView: View {
+
+	/// Order with added items or empty
 	@EnvironmentObject var order: Order
 
 	var body: some View {
+		// if empty display message
 		if order.orderedItems.isEmpty {
 			VStack{
 				Image(systemName: "cart")
@@ -20,10 +23,11 @@ struct OrderListView: View {
 					.font(.title3)
 					.padding()
 			}
+			// if not empty display list of items
 		} else {
 			NavigationView {
 				List(order.orderedItems.sorted(by:<), id: \.key) { key, value in
-					OrderRowView(menuItem: key, value: value)
+					OrderRowView(menuItem: key, amount: value)
 				}
 				.navigationBarTitle("Order")
 			}.navigationViewStyle(StackNavigationViewStyle())

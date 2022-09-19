@@ -40,6 +40,6 @@ extension TextLibrary {
 		public static let oatmeal = "High in fiber and antioxidant, 100% whole grain! The best healthy breakfast ever."
 		public static let vanillaCupcake = "Vanilla cupcake with topped with creamy whipped vanilla buttercream and rainbow sprinkles"
 		public static let cheeseOmelette = "This cheese omelette is light, tender, and fluffy, made with 3 eggs and filled with buttery Emmentaler cheese"
-		public static let	eggsBenedict = "Traditional American breakfast. Two halves of an English muffin, each topped with Canadian bacon, a poached egg, and hollandaise sauce"
+		public static let eggsBenedict = "Two halves of an English muffin, each topped with Canadian bacon, a poached egg, and hollandaise sauce"
 	}
 }

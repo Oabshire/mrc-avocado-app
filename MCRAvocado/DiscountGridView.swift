@@ -7,16 +7,18 @@
 
 import SwiftUI
 
+/// Grid of  discounts
 struct DiscountGridView: View {
+
+	/// discounts to display
 	var discountsDataSource: [Discount]
 
 	var body: some View {
 		NavigationView {
 			ScrollView{
 				LazyVGrid(columns: .init(repeating: .init(), count: 2)) {
-					ForEach(discountsDataSource) { discountsDataSource in
-						MenuGridRow(text: discountsDataSource.rawValue)
-						
+					ForEach(discountsDataSource) { discount in
+						MenuGridRow(discount: discount)
 					}
 				}.padding()
 			}
