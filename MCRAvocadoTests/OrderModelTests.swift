@@ -15,12 +15,13 @@ final class OrderModelTests: XCTestCase {
 	override func setUpWithError() throws {
 		super.setUp()
 		menuItem = MenuItem(name: "Oatmeal",
-							price: 10.70,
-							isInStock: true,
-							calories: 500,
-							description: "Some description",
-							type: .oatmeal)
-		sut = Order(orderedItems: [menuItem: 2], numberOfPersons: 2, tableNumber: 7, dateOfCreation: Date())
+												price: 10.70,
+												isInStock: true,
+												calories: 500,
+												description: "Some description",
+												type: .oatmeal,
+												imageName: "oatmeal")
+		sut = Order(orderedItems: [menuItem: 2])
 	}
 	
 	override func tearDownWithError() throws {
@@ -34,12 +35,13 @@ final class OrderModelTests: XCTestCase {
 extension OrderModelTests {
 	func testAddNewMenuItemIsInStock() {
 		// arrange
-		menuItem = MenuItem(name: "Cinnamon Roll",
-							price: 4.5,
-							isInStock: true,
-							calories: 150,
-							description: "Some description",
-							type: .side)
+		menuItem = MenuItem(name: "Blueberry pancake",
+												price: 4.5,
+												isInStock: true,
+												calories: 610,
+												description:"",
+												type: .pancakes,
+												imageName: "blueberry_pancake")
 		// act
 		let result = sut.addMenuItem(item: menuItem, amount: 1)
 		
@@ -50,12 +52,13 @@ extension OrderModelTests {
 	
 	func testAddNewMenuItemIsOutStock() {
 		// arrange
-		menuItem = MenuItem(name: "Cinnamon Roll",
-							price: 4.5,
-							isInStock: false,
-							calories: 150,
-							description: "Some description",
-							type: .side)
+		menuItem = MenuItem(name: "Blueberry pancake",
+												price: 4.5,
+												isInStock: false,
+												calories: 610,
+												description:"",
+												type: .pancakes,
+												imageName: "blueberry_pancake")
 		// act
 		let result = sut.addMenuItem(item: menuItem, amount: 1)
 		
@@ -78,18 +81,20 @@ extension OrderModelTests {
 extension OrderModelTests {
 	func testAmountWithoutDiscount() {
 		// arrange
-		let menuItem0 = MenuItem(name: "Cinnamon Roll",
-								 price: 4.5,
-								 isInStock: false,
-								 calories: 150,
-								 description: "Some description",
-								 type: .side)
+		let menuItem0 = MenuItem(name: "Blueberry pancake",
+														 price: 4.5,
+														 isInStock: false,
+														 calories: 610,
+														 description:"",
+														 type: .pancakes,
+														 imageName: "blueberry_pancake")
 		let menuItem1 = MenuItem(name: "Oatmeal",
-								 price: 10.70,
-								 isInStock: true,
-								 calories: 500,
-								 description: "Some description",
-								 type: .oatmeal)
+														 price: 10.70,
+														 isInStock: true,
+														 calories: 500,
+														 description: "Some description",
+														 type: .oatmeal,
+														 imageName: "oatmeal")
 		sut.orderedItems = [menuItem0: 1, menuItem1: 2]
 		// act & assert
 		XCTAssertEqual(sut.amountWithoutDiscount, 25.9)
@@ -98,18 +103,20 @@ extension OrderModelTests {
 	
 	func testAmountWithDiscount() {
 		// arrange
-		let menuItem0 = MenuItem(name: "Cinnamon Roll",
-								 price: 4.5,
-								 isInStock: false,
-								 calories: 150,
-								 description: "Some description",
-								 type: .side)
+		let menuItem0 = MenuItem(name: "Blueberry pancake",
+														 price: 4.5,
+														 isInStock: false,
+														 calories: 610,
+														 description:"",
+														 type: .pancakes,
+														 imageName: "blueberry_pancake")
 		let menuItem1 = MenuItem(name: "Oatmeal",
-								 price: 10.70,
-								 isInStock: true,
-								 calories: 500,
-								 description: "Some description",
-								 type: .oatmeal)
+														 price: 10.70,
+														 isInStock: true,
+														 calories: 500,
+														 description: "Some description",
+														 type: .oatmeal,
+														 imageName: "oatmeal")
 		sut.orderedItems = [menuItem0: 1, menuItem1: 2]
 		sut.discount = .newYear
 
