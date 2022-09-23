@@ -41,5 +41,16 @@ struct MenuListView: View {
 struct MenuListView_Previews: PreviewProvider {
 	static var previews: some View {
 		MenuListView(dataSource: menuDataSource)
+			.environmentObject(orderDataSource)
+		MenuListView(dataSource: menuDataSource)
+			.environmentObject(orderDataSource)
+			.preferredColorScheme(.dark)
+		MenuListView(dataSource: menuDataSource)
+			.environmentObject(orderDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
+		MenuListView(dataSource: menuDataSource)
+			.environmentObject(orderDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
+			.preferredColorScheme(.dark)
 	}
 }

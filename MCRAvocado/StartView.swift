@@ -60,5 +60,16 @@ struct StartView: View {
 struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
 		StartView()
+			.environmentObject(orderDataSource)
+		StartView()
+			.environmentObject(orderDataSource)
+			.preferredColorScheme(.dark)
+		StartView()
+			.environmentObject(orderDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
+		StartView()
+			.environmentObject(orderDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
+			.preferredColorScheme(.dark)
 	}
 }
