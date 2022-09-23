@@ -11,7 +11,7 @@ import SwiftUI
 struct MenuGridRow: View {
 
 	/// Discount to display
-	var discount: Discount
+	let discount: Discount
 
 	var body: some View {
 		ZStack {

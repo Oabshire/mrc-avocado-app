@@ -16,7 +16,7 @@ struct MenuItemDetailView: View {
 	@State var amountToAdd: Int = 1
 
 	/// Source of data
-	var menuItem: MenuItem
+	let menuItem: MenuItem
 
 	var body: some View {
 		VStack {

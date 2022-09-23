@@ -17,7 +17,7 @@ struct MenuDetailView: View {
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
 
 	/// Source of data
-	var menuItem: MenuItem
+	let menuItem: MenuItem
 
 	var body: some View {
 		GeometryReader { geometry in
