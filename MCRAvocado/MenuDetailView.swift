@@ -9,37 +9,64 @@ import SwiftUI
 
 /// View for Detail information about menu item
 struct MenuDetailView: View {
+
+	/// Order to which menu items are added
+	@EnvironmentObject var order: Order
+	
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
-	@State var amountToAdd: Int = 1
-
-	/// Action for bottom button
-	var donePressed: (() -> Void)?
 
 	/// Source of data
-	var menuItem: MenuItem?
+	var menuItem: MenuItem
 
 	var body: some View {
-		let isPortrait = (verticalSizeClass == .regular && horizontalSizeClass == .compact)
-		if isPortrait {
-			ZStack{
-				Color.mainBackgroundColor
-					.edgesIgnoringSafeArea(.all)
-				VStack {
-					Image("pancake")
-						.resizable()
-						.frame(width: 150, height: 150)
-					if let menuItem = menuItem {
-						DetailView(amountToAdd: $amountToAdd, menuItem: menuItem, donePressed: donePressed)
+		GeometryReader { geometry in
+			let isPortrait = (verticalSizeClass == .regular && horizontalSizeClass == .compact)
+			if isPortrait {
+				ZStack{
+					Color.white
+						.edgesIgnoringSafeArea(.all)
+					VStack {
+						ZStack{
+							Image(menuItem.imageName)
+								.resizable()
+								.scaledToFill()
+							LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear]),
+														 startPoint: .top,
+														 endPoint: .bottom)
+
+							.frame(height: 200)
+						}
+						.frame(width: geometry.size.width,
+									 height: geometry.size.height/4)
+						.edgesIgnoringSafeArea(.all)
+						if let menuItem = menuItem {
+							MenuItemDetailView(order: _order,menuItem: menuItem)
+						}
 					}
 				}
-			}
-		} else {
-			ZStack{
-				Color.mainImageColor
-					.edgesIgnoringSafeArea(.all)
-				if let menuItem = menuItem {
-					DetailView(amountToAdd: $amountToAdd, menuItem: menuItem, donePressed: donePressed)
+			} else {
+				ZStack{
+					Color.white
+						.edgesIgnoringSafeArea(.all)
+					HStack {
+						ZStack(alignment: .top) {
+							Image(menuItem.imageName)
+								.resizable()
+								.scaledToFill()
+							LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear]),
+														 startPoint: .top,
+														 endPoint: .bottom)
+							.frame(height: 200)
+						}
+						.edgesIgnoringSafeArea(.all)
+						.frame(width: geometry.size.width/3,
+									 height: geometry.size.height)
+						
+						if let menuItem = menuItem {
+							MenuItemDetailView(order: _order,menuItem: menuItem)
+						}
+					}
 				}
 			}
 		}
@@ -47,7 +74,7 @@ struct MenuDetailView: View {
 }
 
 struct MenuDetailView_Previews: PreviewProvider {
-
+	
 	static var previews: some View {
 		MenuDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!)
 		MenuDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).preferredColorScheme(.dark)

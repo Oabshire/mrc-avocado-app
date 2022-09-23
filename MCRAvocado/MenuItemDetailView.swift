@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  MenuItemDetailView.swift
 //  MCRAvocado
 //
 //  Created by Onie on 11.09.2022.
@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct DetailView: View {
-	@Binding var amountToAdd: Int
+struct MenuItemDetailView: View {
+
+	/// Mode for dismissing view when button "Add to Order" taped
+	@Environment(\.presentationMode) var mode: Binding<PresentationMode>
+
+	@EnvironmentObject var order: Order
+	@State var amountToAdd: Int = 1
 
 	/// Source of data
 	var menuItem: MenuItem
-	
-	/// Action for bottom button
-	var donePressed: (() -> Void)?
 
 	var body: some View {
 		VStack {
@@ -22,7 +24,7 @@ struct DetailView: View {
 			DetailDescriptionText(lineText: menuItem.description ?? "")
 				.padding(.trailing)
 				.padding(.leading)
-
+			
 			HStack{
 				DetailTitleText(lineText: "$ " + String((menuItem.price * Double(amountToAdd)).roundTwoAfterPoint))
 					.frame(maxWidth: 200)
@@ -33,9 +35,12 @@ struct DetailView: View {
 			}
 			Spacer()
 			BottomButton(text: "Add to Order", color: .buttonColor) {
-				donePressed?()
+				if order.addMenuItem(item: menuItem, amount: amountToAdd) {
+					order.printOrderedItemsNameAndAmount()
+				}
+				self.mode.wrappedValue.dismiss() // dismissing view
 			}
 			.padding()
-		}.background(Color.mainImageColor)
+		}.background(Color.white)
 	}
 }

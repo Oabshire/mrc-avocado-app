@@ -9,17 +9,17 @@ import Foundation
 
 /// Category of menu items
 enum MenuItemType: String {
-	case scramble
-	case omelets
-	case eggsBenedict
-	case oatmeal
-	case pancake
-	case waffle
-	case bagel
-	case dessert
-	case side
-	case coldDrinks
-	case hotDrinks
+	case scrambles = "Scrambles"
+	case omelletes = "Omelettes"
+	case eggsBenedict = "Eggs Benedict"
+	case oatmeal = "Oatmeal"
+	case pancakes = "Pancakes"
+	case waffles = "Waffles"
+	case bagel = "Bagels"
+	case dessert = "Desserts"
+	case side = "Sides"
+	case coldDrinks = "Cold drinks"
+	case hotDrinks = "Hot drinks"
 	case other
 }
 
@@ -54,6 +54,7 @@ struct MenuItem {
 	let withIce: Bool?
 	let typeOfMilk: MilkType?
 	let cupSize: CupSize?
+	let imageName: String
 	
 	/// Init
 	/// - Parameters:
@@ -66,7 +67,16 @@ struct MenuItem {
 	///   - withIce: is item with ice if it is a beverage
 	///   - typeOfMilk: type of milk if item is a beverage
 	///   - cupSize: size of cup if it item is a beverage
-	init(name: String, price: Double, isInStock: Bool, calories: Int, description: String? = nil, type: MenuItemType, withIce: Bool? = nil , typeOfMilk: MilkType? = nil, cupSize: CupSize? = nil) {
+	///   - imageName: name of image for menu or order
+	init(name: String,
+			 price: Double,
+			 isInStock: Bool,
+			 calories: Int,
+			 description: String? = nil,
+			 type: MenuItemType, withIce: Bool? = nil,
+			 typeOfMilk: MilkType? = nil,
+			 cupSize: CupSize? = nil,
+			 imageName: String) {
 		self.name = name
 		self.price = price
 		self.isInStock = isInStock
@@ -76,15 +86,12 @@ struct MenuItem {
 		self.withIce = withIce
 		self.typeOfMilk = typeOfMilk
 		self.cupSize = cupSize
+		self.imageName = imageName
 	}
 }
 
-// MARK: - Hashable
-extension MenuItem: Hashable {
-	static func == (lhs: MenuItem, rhs: MenuItem) -> Bool {
-		return lhs.name == rhs.name && lhs.name == rhs.name
-	}
-}
+// MARK: - Hashable, Identifiable
+extension MenuItem: Hashable, Identifiable {}
 
 // MARK: - Comparable
 extension MenuItem: Comparable {

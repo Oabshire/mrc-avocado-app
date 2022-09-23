@@ -36,5 +36,10 @@ extension TextLibrary {
 
 		public static let icedCoffee = "Handcrafted, iced cold brew coffee made from 100% Arabica beans. Comes with milk for you to customize as you like."
 		public static let raspberryLemonade = "A blend of lemonade, lemon-lime soda & blue raspberry syrup. Topped with fresh blueberries."
+		public static let bagel = "Crispy bacon, fresh lettuce and tomato are served on a toasted everything bagel."
+		public static let oatmeal = "High in fiber and antioxidant, 100% whole grain! The best healthy breakfast ever."
+		public static let vanillaCupcake = "Vanilla cupcake with topped with creamy whipped vanilla buttercream and rainbow sprinkles"
+		public static let cheeseOmelette = "This cheese omelette is light, tender, and fluffy, made with 3 eggs and filled with buttery Emmentaler cheese"
+		public static let eggsBenedict = "Two halves of an English muffin, each topped with Canadian bacon, a poached egg, and hollandaise sauce"
 	}
 }

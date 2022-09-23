@@ -55,7 +55,17 @@ struct DetailTitleText: View {
 		Text(lineText)
 			.foregroundColor(.black)
 			.kerning(3.0)
-			.font(.title)
+			.font(.title2)
+			.fontWeight(.medium).frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
+	}
+}
+
+struct KcalText: View {
+	let lineText: String
+	var body: some View {
+		Text(lineText)
+			.foregroundColor(.black)
+			.font(.body)
 			.fontWeight(.medium).frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
 	}
 }
@@ -66,12 +76,11 @@ struct DetailDescriptionText: View {
 		Text(lineText)
 			.foregroundColor(.black)
 			.kerning(1.5)
-			.font(.title2)
+			.font(.title3)
 			.fontWeight(.medium)
 			.frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
 	}
 }
-
 
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
@@ -81,6 +90,9 @@ struct TextViews_Previews: PreviewProvider {
 				OnboardingLineText(lineText: "Some text")
 				WelcomeText(text: TextLibrary.AppTexts.welcomeText).background(.black)
 				UserNameText(text: TextLibrary.AppTexts.userNameText).background(.black)
+				DetailTitleText(lineText: "Pancake")
+				DetailDescriptionText(lineText: "some long text some long text")
+				KcalText(lineText: "$15,99")
 			}
 		}
 	}

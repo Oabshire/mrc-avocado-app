@@ -22,24 +22,11 @@ struct ContentView: View {
 				VStack {
 					HeaderView()
 					Spacer()
-					HStack {
-						BottomButton(text: TextLibrary.AppTexts.menuText, color: .buttonColor) {
-							menuIsShowing = true
-						}.fullScreenCover(isPresented: $menuIsShowing) {
-							MenuViewRepresentable(menuIsShowing: $menuIsShowing)
-						}
-						BottomButton(text: TextLibrary.AppTexts.cartText, color: .buttonColor) {
-							orderIsShowing = true
-						}.fullScreenCover(isPresented: $orderIsShowing) {
-							OrderView(orderIsShowing: $orderIsShowing)
-						}.padding()
-					}
 				}
 			}
 		}
 	}
 }
-
 
 struct HeaderView: View {
 	@State private var onboardingIsShowing: Bool = false
