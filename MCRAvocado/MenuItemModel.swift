@@ -47,7 +47,7 @@ struct MenuItem {
 	let id = UUID()
 	let name: String
 	let price: Double
-	var isInStock: Bool
+	let isInStock: Bool
 	let calories: Int
 	let description: String?
 	let type: MenuItemType

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeText: View {
-	var text: String
+	let text: String
 	var body: some View {
 		Text(text)
 			.bold()
@@ -19,7 +19,7 @@ struct WelcomeText: View {
 }
 
 struct UserNameText: View {
-	var text: String
+	let text: String
 	var body: some View {
 		Text(text)
 			.foregroundColor(Color.white)
@@ -29,7 +29,7 @@ struct UserNameText: View {
 }
 
 struct OnboardingTitleText: View {
-	var text: String
+	let text: String
 	var body: some View {
 		Text(text)
 			.bold()

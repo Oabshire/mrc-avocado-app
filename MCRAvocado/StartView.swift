@@ -12,8 +12,8 @@ struct StartView: View {
 	@EnvironmentObject var order: Order
 	@AppStorage("FlightStatusCurrentTab") var selectedTab = 1
 	@State var menuIsShowing = true
-	var menu = menuDataSource
-	var discounts = discountDataSource
+	let menu = menuDataSource
+	let discounts = discountDataSource
 
 	init() {
 		let opaqueAppearance = UITabBarAppearance()

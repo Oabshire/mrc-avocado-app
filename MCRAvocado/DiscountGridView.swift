@@ -11,7 +11,7 @@ import SwiftUI
 struct DiscountGridView: View {
 
 	/// discounts to display
-	var discountsDataSource: [Discount]
+	let discountsDataSource: [Discount]
 
 	var body: some View {
 		NavigationView {

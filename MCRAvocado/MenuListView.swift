@@ -14,7 +14,7 @@ struct MenuListView: View {
 	@EnvironmentObject var order: Order
 
 	/// Menu
-	var dataSource: MenuModel
+	let dataSource: MenuModel
 
 	var body: some View {
 		NavigationView {

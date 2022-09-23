@@ -9,7 +9,7 @@ import SwiftUI
 
 /// View of row for Menu List
 struct MenuRowView: View {
-	var menuItem: MenuItem
+	let menuItem: MenuItem
 	var body: some View {
 		HStack (alignment: .top) {
 			Image(menuItem.imageName)

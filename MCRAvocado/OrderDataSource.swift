@@ -5,7 +5,7 @@
 //  Created by Onie on 11.09.2022.
 //
 
-var orderDataSource = Order(orderedItems: [MenuItem(name: "Waffle with bacon",
+let orderDataSource = Order(orderedItems: [MenuItem(name: "Waffle with bacon",
 																										price: 14.99,
 																										isInStock: true,
 																										calories: 1000,

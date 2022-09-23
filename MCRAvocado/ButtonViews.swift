@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RoundImageViewStrokedFilled: View {
-	var systemName: String
+	let systemName: String
 	var body: some View {
 		Image(systemName: systemName)
 			.font(.system(size: 57))
@@ -21,9 +21,9 @@ struct RoundImageViewStrokedFilled: View {
 }
 
 struct BottomButton: View {
-	var text: String
-	var color: Color
-	var action: () -> Void
+	let text: String
+	let color: Color
+	let action: () -> Void
 	var body: some View {
 		Button(action: {
 			action()

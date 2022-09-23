@@ -11,10 +11,10 @@ import SwiftUI
 struct OrderRowView: View {
 
 	/// Ordered menu item
-	var menuItem: MenuItem
+	let menuItem: MenuItem
 
 	/// Amount of ordered menu items
-	var amount: Int
+	let amount: Int
 	
 	var body: some View {
 		HStack (alignment: .top) {
