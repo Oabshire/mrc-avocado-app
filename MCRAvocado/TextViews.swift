@@ -56,7 +56,20 @@ struct DetailTitleText: View {
 			.foregroundColor(.black)
 			.kerning(3.0)
 			.font(.title2)
-			.fontWeight(.medium).frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
+			.fontWeight(.medium)
+			.frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
+	}
+}
+
+struct DetailPriceText: View {
+	let lineText: String
+	var body: some View {
+		Text(lineText)
+			.foregroundColor(.black)
+			.kerning(3.0)
+			.font(.title2)
+			.fontWeight(.medium)
+			.frame(alignment: .leading)
 	}
 }
 

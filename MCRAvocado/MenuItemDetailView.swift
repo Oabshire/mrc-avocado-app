@@ -26,8 +26,8 @@ struct MenuItemDetailView: View {
 				.padding(.leading)
 			
 			HStack{
-				DetailTitleText(lineText: "$ " + String((menuItem.price * Double(amountToAdd)).roundTwoAfterPoint))
-					.frame(maxWidth: 200)
+				DetailPriceText(lineText: "$ " + String((menuItem.price * Double(amountToAdd)).roundTwoAfterPoint))
+					.frame(maxWidth: 125)
 				Spacer()
 				Stepper(value: $amountToAdd, in: 1...100) {
 					DetailTitleText(lineText: String(amountToAdd))
@@ -42,5 +42,22 @@ struct MenuItemDetailView: View {
 			}
 			.padding()
 		}.background(Color.white)
+	}
+}
+
+struct MenuItemDetailView_Previews: PreviewProvider {
+
+	static var previews: some View {
+		MenuItemDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!)
+			.environmentObject(orderDataSource)
+		MenuItemDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).preferredColorScheme(.dark)
+			.environmentObject(orderDataSource)
+
+		MenuItemDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).previewLayout(.fixed(width: 568, height: 320))
+			.environmentObject(orderDataSource)
+
+		MenuItemDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).previewLayout(.fixed(width: 568, height: 320))
+			.environmentObject(orderDataSource)
+			.preferredColorScheme(.dark)
 	}
 }
