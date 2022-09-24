@@ -47,12 +47,13 @@ struct MenuGridRow: View {
 
 struct MenuGridCell_Previews: PreviewProvider {
 	static var previews: some View {
-		MenuGridRow(discount: discountDataSource.first!)
-		MenuGridRow(discount: discountDataSource.first!)
+		let discount: Discount = .nationalIndependenceDay
+		MenuGridRow(discount: discount)
+		MenuGridRow(discount: discount)
 			.preferredColorScheme(.dark)
-		MenuGridRow(discount: discountDataSource.first!)
+		MenuGridRow(discount: discount)
 			.previewLayout(.fixed(width: 568, height: 320))
-		MenuGridRow(discount: discountDataSource.first!)
+		MenuGridRow(discount: discount)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}
