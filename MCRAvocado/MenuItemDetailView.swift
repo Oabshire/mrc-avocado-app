@@ -48,15 +48,27 @@ struct MenuItemDetailView: View {
 struct MenuItemDetailView_Previews: PreviewProvider {
 
 	static var previews: some View {
-		MenuItemDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!)
-			.environmentObject(orderDataSource)
-		MenuItemDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).preferredColorScheme(.dark)
+		let menuItem = MenuItem(name: "Blueberry pancakes",
+														price: 11.99,
+														isInStock: true,
+														calories: 610,
+														description: TextLibrary.MenuItemDescription.blueberryPancake,
+														type: .pancakes,
+														imageName: "blueberry_pancakes")
+
+		MenuItemDetailView(menuItem: menuItem)
 			.environmentObject(orderDataSource)
 
-		MenuItemDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).previewLayout(.fixed(width: 568, height: 320))
+		MenuItemDetailView(menuItem: menuItem)
+			.preferredColorScheme(.dark)
+			.environmentObject(orderDataSource)
+		
+		MenuItemDetailView(menuItem: menuItem)
+			.previewLayout(.fixed(width: 568, height: 320))
 			.environmentObject(orderDataSource)
 
-		MenuItemDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).previewLayout(.fixed(width: 568, height: 320))
+		MenuItemDetailView(menuItem: menuItem)
+			.previewLayout(.fixed(width: 568, height: 320))
 			.environmentObject(orderDataSource)
 			.preferredColorScheme(.dark)
 	}
