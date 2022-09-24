@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeText: View {
-	var text: String
+	let text: String
 	var body: some View {
 		Text(text)
 			.bold()
@@ -19,7 +19,7 @@ struct WelcomeText: View {
 }
 
 struct UserNameText: View {
-	var text: String
+	let text: String
 	var body: some View {
 		Text(text)
 			.foregroundColor(Color.white)
@@ -29,7 +29,7 @@ struct UserNameText: View {
 }
 
 struct OnboardingTitleText: View {
-	var text: String
+	let text: String
 	var body: some View {
 		Text(text)
 			.bold()
@@ -56,7 +56,20 @@ struct DetailTitleText: View {
 			.foregroundColor(.black)
 			.kerning(3.0)
 			.font(.title2)
-			.fontWeight(.medium).frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
+			.fontWeight(.medium)
+			.frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
+	}
+}
+
+struct DetailPriceText: View {
+	let lineText: String
+	var body: some View {
+		Text(lineText)
+			.foregroundColor(.black)
+			.kerning(3.0)
+			.font(.title2)
+			.fontWeight(.medium)
+			.frame(alignment: .leading)
 	}
 }
 

@@ -39,9 +39,16 @@ struct OrderListView_Preview: PreviewProvider {
 	
 	static var previews: some View {
 		OrderListView()
-		OrderListView().preferredColorScheme(.dark)
-		OrderListView().previewLayout(.fixed(width: 568, height: 320))
-		OrderListView().previewLayout(.fixed(width: 568, height: 320))
+			.environmentObject(orderDataSource)
+		OrderListView()
+			.environmentObject(orderDataSource)
+			.preferredColorScheme(.dark)
+		OrderListView()
+			.environmentObject(orderDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
+		OrderListView()
+			.environmentObject(orderDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}
 }

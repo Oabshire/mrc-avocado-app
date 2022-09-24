@@ -17,7 +17,7 @@ struct MenuDetailView: View {
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
 
 	/// Source of data
-	var menuItem: MenuItem
+	let menuItem: MenuItem
 
 	var body: some View {
 		GeometryReader { geometry in
@@ -74,12 +74,23 @@ struct MenuDetailView: View {
 }
 
 struct MenuDetailView_Previews: PreviewProvider {
-	
+
 	static var previews: some View {
-		MenuDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!)
-		MenuDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).preferredColorScheme(.dark)
-		MenuDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).previewLayout(.fixed(width: 568, height: 320))
-		MenuDetailView(menuItem: (menuDataSource.section.first?.menuItems.first)!).previewLayout(.fixed(width: 568, height: 320))
+		let menuItem = MenuItem(name: "Blueberry pancake",
+														price: 11.99,
+														isInStock: true,
+														calories: 610,
+														description:"",
+														type: .pancakes,
+														imageName: "blueberry_pancakes")
+
+		MenuDetailView(menuItem: menuItem)
+		MenuDetailView(menuItem: menuItem)
+			.preferredColorScheme(.dark)
+		MenuDetailView(menuItem: menuItem)
+			.previewLayout(.fixed(width: 568, height: 320))
+		MenuDetailView(menuItem: menuItem)
+			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct DiscountGridView: View {
 
 	/// discounts to display
-	var discountsDataSource: [Discount]
+	let discountsDataSource: [Discount]
 
 	var body: some View {
 		NavigationView {
@@ -30,5 +30,11 @@ struct DiscountGridView: View {
 struct DiscountGridView_Previews: PreviewProvider {
 	static var previews: some View {
 		DiscountGridView(discountsDataSource: discountDataSource)
+		DiscountGridView(discountsDataSource: discountDataSource).preferredColorScheme(.dark)
+		DiscountGridView(discountsDataSource: discountDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
+		DiscountGridView(discountsDataSource: discountDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
+			.preferredColorScheme(.dark)
 	}
 }

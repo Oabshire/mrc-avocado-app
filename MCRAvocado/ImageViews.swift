@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainImageView: View {
-	var systemName: String
+	let systemName: String
 	var body: some View {
 		Image(systemName)
 			.font(.system(size: 250))

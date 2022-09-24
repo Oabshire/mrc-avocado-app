@@ -11,7 +11,7 @@ import SwiftUI
 struct MenuGridRow: View {
 
 	/// Discount to display
-	var discount: Discount
+	let discount: Discount
 
 	var body: some View {
 		ZStack {
@@ -47,6 +47,14 @@ struct MenuGridRow: View {
 
 struct MenuGridCell_Previews: PreviewProvider {
 	static var previews: some View {
-		MenuGridRow(discount: discountDataSource.first!)
+		let discount: Discount = .nationalIndependenceDay
+		MenuGridRow(discount: discount)
+		MenuGridRow(discount: discount)
+			.preferredColorScheme(.dark)
+		MenuGridRow(discount: discount)
+			.previewLayout(.fixed(width: 568, height: 320))
+		MenuGridRow(discount: discount)
+			.previewLayout(.fixed(width: 568, height: 320))
+			.preferredColorScheme(.dark)
 	}
 }

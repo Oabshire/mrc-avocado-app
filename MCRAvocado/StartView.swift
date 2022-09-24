@@ -12,8 +12,8 @@ struct StartView: View {
 	@EnvironmentObject var order: Order
 	@AppStorage("FlightStatusCurrentTab") var selectedTab = 1
 	@State var menuIsShowing = true
-	var menu = menuDataSource
-	var discounts = discountDataSource
+	let menu = menuDataSource
+	let discounts = discountDataSource
 
 	init() {
 		let opaqueAppearance = UITabBarAppearance()
@@ -60,5 +60,16 @@ struct StartView: View {
 struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
 		StartView()
+			.environmentObject(orderDataSource)
+		StartView()
+			.environmentObject(orderDataSource)
+			.preferredColorScheme(.dark)
+		StartView()
+			.environmentObject(orderDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
+		StartView()
+			.environmentObject(orderDataSource)
+			.previewLayout(.fixed(width: 568, height: 320))
+			.preferredColorScheme(.dark)
 	}
 }
