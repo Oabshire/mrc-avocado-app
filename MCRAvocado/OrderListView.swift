@@ -14,24 +14,12 @@ struct OrderListView: View {
 	@EnvironmentObject var order: Order
 
 	var body: some View {
-		// if empty display message
-		if order.orderedItems.isEmpty {
-			VStack{
-				Image(systemName: "cart")
-					.font(.system(size: 100))
-				Text("Your Cart is empty")
-					.font(.title3)
-					.padding()
+		NavigationView {
+			List(order.orderedItems.sorted(by:<), id: \.key) { key, value in
+				OrderRowView(menuItem: key, amount: value)
 			}
-			// if not empty display list of items
-		} else {
-			NavigationView {
-				List(order.orderedItems.sorted(by:<), id: \.key) { key, value in
-					OrderRowView(menuItem: key, amount: value)
-				}
-				.navigationBarTitle("Order")
-			}.navigationViewStyle(StackNavigationViewStyle())
-		}
+			.navigationBarTitle("Order")
+		}.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 
