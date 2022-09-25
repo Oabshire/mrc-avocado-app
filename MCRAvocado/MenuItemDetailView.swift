@@ -20,18 +20,16 @@ struct MenuItemDetailView: View {
 
 	var body: some View {
 		VStack {
-			DetailTitleText(lineText: menuItem.name).padding()
+			DetailTitleText(lineText: menuItem.name)
 			DetailDescriptionText(lineText: menuItem.description ?? "")
-				.padding(.trailing)
-				.padding(.leading)
-			
+
 			HStack{
 				DetailPriceText(lineText: "$ " + String((menuItem.price * Double(amountToAdd)).roundTwoAfterPoint))
 					.frame(maxWidth: 125)
 				Spacer()
 				Stepper(value: $amountToAdd, in: 1...100) {
 					DetailTitleText(lineText: String(amountToAdd))
-				}.frame(maxWidth: 125).padding(.trailing)
+				}.frame(maxWidth: 125)
 			}
 			Spacer()
 			BottomButton(text: "Add to Order", color: .buttonColor) {
@@ -40,8 +38,8 @@ struct MenuItemDetailView: View {
 				}
 				self.mode.wrappedValue.dismiss() // dismissing view
 			}
-			.padding()
 		}.background(Color.white)
+			.padding()
 	}
 }
 
