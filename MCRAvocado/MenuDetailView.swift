@@ -37,8 +37,7 @@ struct MenuDetailView: View {
 
 							.frame(height: 200)
 						}
-						.frame(width: geometry.size.width,
-									 height: geometry.size.height/4)
+						.frame(height: geometry.size.height/4)
 						.edgesIgnoringSafeArea(.all)
 						if let menuItem = menuItem {
 							MenuItemDetailView(order: _order,menuItem: menuItem)

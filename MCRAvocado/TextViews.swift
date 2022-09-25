@@ -61,6 +61,18 @@ struct DetailTitleText: View {
 	}
 }
 
+struct DetailDescriptionText: View {
+	let lineText: String
+	var body: some View {
+		Text(lineText)
+			.foregroundColor(.black)
+			.kerning(1.5)
+			.font(.title3)
+			.fontWeight(.medium)
+			.frame(maxWidth: Constants.Onboarding.lineTextWidth)
+	}
+}
+
 struct DetailPriceText: View {
 	let lineText: String
 	var body: some View {
@@ -69,7 +81,6 @@ struct DetailPriceText: View {
 			.kerning(3.0)
 			.font(.title2)
 			.fontWeight(.medium)
-			.frame(alignment: .leading)
 	}
 }
 
@@ -83,29 +94,18 @@ struct KcalText: View {
 	}
 }
 
-struct DetailDescriptionText: View {
-	let lineText: String
-	var body: some View {
-		Text(lineText)
-			.foregroundColor(.black)
-			.kerning(1.5)
-			.font(.title3)
-			.fontWeight(.medium)
-			.frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
-	}
-}
-
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
 			VStack() {
-				OnboardingTitleText(text: "Avocado")
-				OnboardingLineText(lineText: "Some text")
 				WelcomeText(text: TextLibrary.AppTexts.welcomeText).background(.black)
 				UserNameText(text: TextLibrary.AppTexts.userNameText).background(.black)
-				DetailTitleText(lineText: "Pancake")
-				DetailDescriptionText(lineText: "some long text some long text")
-				KcalText(lineText: "$15,99")
+				OnboardingTitleText(text: "Onboarding Title Text")
+				OnboardingLineText(lineText: "Onboarding Line Text")
+				DetailTitleText(lineText: "Detail Title Text")
+				DetailDescriptionText(lineText: "Detail DescriptionText")
+				DetailPriceText(lineText: "$ 45")
+				KcalText(lineText: "123 kcal")
 			}
 		}
 	}
