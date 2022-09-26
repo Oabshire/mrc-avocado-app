@@ -69,7 +69,7 @@ struct DetailDescriptionText: View {
 			.kerning(1.5)
 			.font(.title3)
 			.fontWeight(.medium)
-			.frame(maxWidth: Constants.Onboarding.lineTextWidth)
+			.frame(alignment: .leading)
 	}
 }
 

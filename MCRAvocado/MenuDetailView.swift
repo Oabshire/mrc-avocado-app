@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// View for Detail information about menu item
+/// View for Detail information about menu item 
 struct MenuDetailView: View {
 
 	/// Order to which menu items are added
@@ -39,9 +39,7 @@ struct MenuDetailView: View {
 						}
 						.frame(height: geometry.size.height/4)
 						.edgesIgnoringSafeArea(.all)
-						if let menuItem = menuItem {
-							MenuItemDetailView(order: _order,menuItem: menuItem)
-						}
+						MenuItemDetailView(order: _order,menuItem: menuItem)
 					}
 				}
 			} else {
@@ -61,10 +59,7 @@ struct MenuDetailView: View {
 						.edgesIgnoringSafeArea(.all)
 						.frame(width: geometry.size.width/3,
 									 height: geometry.size.height)
-						
-						if let menuItem = menuItem {
-							MenuItemDetailView(order: _order,menuItem: menuItem)
-						}
+						MenuItemDetailView(order: _order,menuItem: menuItem)
 					}
 				}
 			}
@@ -79,7 +74,7 @@ struct MenuDetailView_Previews: PreviewProvider {
 														price: 11.99,
 														isInStock: true,
 														calories: 610,
-														description:"",
+														description:"Some long, very lond description, very very long  description",
 														type: .pancakes,
 														imageName: "blueberry_pancakes")
 

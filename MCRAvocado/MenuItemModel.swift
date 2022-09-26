@@ -24,22 +24,30 @@ enum MenuItemType: String {
 }
 
 /// Type of milk used for coffee, tea, and hot chocolate
-enum MilkType {
-	case whole
-	case nonFat
-	case soy
-	case almond
-	case coconut
-	case oatMilk
-	case heavyCream
+enum MilkType: String {
+	case whole = "Whole milk"
+	case nonFat = "NonFat milk"
+	case soy = "Soy milk"
+	case almond = "Almond milk"
+	case coconut = "Coconut milk"
+	case oatMilk = "Oatmilk"
+	case heavyCream =  "Heavy cream"
+}
+
+extension MilkType: Hashable, Identifiable {
+	var id: some Hashable { self }
 }
 
 
 /// Cup size for beverages
-enum CupSize {
-	case tall
-	case grande
-	case venti
+enum CupSize: String{
+	case tall = "Tall"
+	case grande = "Grande"
+	case venti = "Venti"
+}
+
+extension CupSize: Hashable, Identifiable {
+	var id: some Hashable { self }
 }
 
 /// Menu Item Model
