@@ -12,9 +12,7 @@ class Order: ObservableObject {
 	
 	// MARK: - Properties
 	@Published var orderedItems: [MenuItem: Int] = [:]
-	let numberOfPersons: Int = 1
 	var discount: Discount = .none
-	let tableNumber: Int = 1
 	let dateOfCreation: Date = Date()
 	
 	var amountWithoutDiscount: Double {

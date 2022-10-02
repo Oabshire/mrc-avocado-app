@@ -11,11 +11,13 @@ import SwiftUI
 struct StartView: View {
 	@EnvironmentObject var order: Order
 	@AppStorage("FlightStatusCurrentTab") var selectedTab = 1
-	@State var menuIsShowing = true
-	let menu = menuDataSource
-	let discounts = discountDataSource
 
-	init() {
+	let factory: ListFactory
+	let menu: MenuModel = menuDataSource
+	let discounts: [Discount] = discountDataSource
+
+	init(factory: ListFactory) {
+		self.factory = factory
 		let opaqueAppearance = UITabBarAppearance()
 		opaqueAppearance.configureWithOpaqueBackground()
 		UITabBar.appearance().scrollEdgeAppearance = opaqueAppearance
@@ -24,7 +26,7 @@ struct StartView: View {
 	var body: some View {
 		TabView(selection: $selectedTab) {
 			// tab with discounts
-			DiscountGridView(discountsDataSource: discounts)
+			factory.createDiscountGrid(discounts: discounts)
 				.tabItem {
 					Image(systemName: "percent")
 						.resizable()
@@ -34,18 +36,17 @@ struct StartView: View {
 				.tag(0)
 
 			// tab with menu
-			MenuListView(order: _order, dataSource: menu)
+			factory.createMenuList(menu: menu, order: order)
 				.tabItem {
 					Image(systemName: "menucard")
 						.resizable()
 					Text("Menu")
 				}
-			// badge display amount of menu items
 				.badge(menu.section.flatMap {$0.menuItems}.filter{$0.isInStock}.count) // badge display amount of menu items
 				.tag(1)
 
 			// tab with ordered items
-			OrderListView(order: _order)
+			factory.createOrderList(order: order)
 				.tabItem {
 					Image(systemName: "cart")
 						.resizable()
@@ -59,15 +60,16 @@ struct StartView: View {
 
 struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
-		StartView()
+		let listFactory = ListFactory()
+		StartView(factory: listFactory)
 			.environmentObject(orderDataSource)
-		StartView()
+		StartView(factory: listFactory)
 			.environmentObject(orderDataSource)
 			.preferredColorScheme(.dark)
-		StartView()
+		StartView(factory: listFactory)
 			.environmentObject(orderDataSource)
 			.previewLayout(.fixed(width: 568, height: 320))
-		StartView()
+		StartView(factory: listFactory)
 			.environmentObject(orderDataSource)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
