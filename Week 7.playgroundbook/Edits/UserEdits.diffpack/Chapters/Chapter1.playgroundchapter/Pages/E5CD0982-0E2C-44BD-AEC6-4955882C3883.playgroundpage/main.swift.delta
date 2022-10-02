@@ -8,12 +8,12 @@
 			<key>ModifiedContent</key>
 			<string>// Add appropriate QOS to show avocado toast is more important than pineapple pizza.
 
-let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1", qos:.utility)
+let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1", qos:.background)
 let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2", qos:  .userInteractive)
 
 </string>
 			<key>ModifiedRange</key>
-			<string>{100, 273}</string>
+			<string>{100, 276}</string>
 			<key>OriginalContent</key>
 			<string>//Add appropriate QOS to show avocado Toast is more important than pineapple Pizza
 
@@ -27,7 +27,7 @@ let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
 			<key>ModifiedContent</key>
 			<string>2</string>
 			<key>ModifiedRange</key>
-			<string>{419, 1}</string>
+			<string>{422, 1}</string>
 			<key>OriginalContent</key>
 			<string>1</string>
 			<key>OriginalRange</key>
@@ -37,7 +37,7 @@ let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
 			<key>ModifiedContent</key>
 			<string>2</string>
 			<key>ModifiedRange</key>
-			<string>{502, 1}</string>
+			<string>{505, 1}</string>
 			<key>OriginalContent</key>
 			<string>1</string>
 			<key>OriginalRange</key>
@@ -47,7 +47,7 @@ let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
 			<key>ModifiedContent</key>
 			<string></string>
 			<key>ModifiedRange</key>
-			<string>{542, 0}</string>
+			<string>{545, 0}</string>
 			<key>OriginalContent</key>
 			<string>
 
