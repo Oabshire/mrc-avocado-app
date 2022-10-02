@@ -107,23 +107,49 @@
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string> </string>
+			<string>
+//dataProcessQueue.addOperation {
+//    performDownload()
+//}
+//
+//dataProcessQueue.addOperation {
+//    performJSONParsing()
+//}
+//
+//dataProcessQueue.addOperation {
+//    performDBUpdate()
+//}
+
+// Using BlockOperations fix the order of data processing. 
+let downloadBlockOperation = BlockOperation()
+downloadBlockOperation.addExecutionBlock{ performDownload() }
+downloadBlockOperation.addExecutionBlock{ performJSONParsing() }
+
+let updateDBBlockOperation = BlockOperation()
+updateDBBlockOperation.addExecutionBlock{ performDBUpdate() }
+updateDBBlockOperation.addDependency(downloadBlockOperation)
+
+dataProcessQueue.addOperations([downloadBlockOperation, updateDBBlockOperation], waitUntilFinished: false)
+</string>
 			<key>ModifiedRange</key>
-			<string>{902, 1}</string>
+			<string>{726, 708}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>dataProcessQueue.addOperation {
+    performDownload()
+}
+
+dataProcessQueue.addOperation {
+    performJSONParsing()
+}
+
+dataProcessQueue.addOperation {
+    performDBUpdate()
+}
+
+//Using BlockOperations fix the order of Data processing. 
+</string>
 			<key>OriginalRange</key>
-			<string>{900, 0}</string>
-		</dict>
-		<dict>
-			<key>ModifiedContent</key>
-			<string>d</string>
-			<key>ModifiedRange</key>
-			<string>{942, 1}</string>
-			<key>OriginalContent</key>
-			<string>D</string>
-			<key>OriginalRange</key>
-			<string>{939, 1}</string>
+			<string>{724, 233}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>

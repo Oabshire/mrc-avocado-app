@@ -18,13 +18,16 @@
 		<dict>
 			<key>ModifiedContent</key>
 			<string>// Create a work item for both tasks. 
-
 // Add the getActorTask and getMovieTask to the Dispatch Work Item created. 
+let myWorkItem = DispatchWorkItem {
+    getActorTask()
+    getMovieTask()
+}
 
-// Cancel the work item after 10 seconds using the asyncAfter provided. 
+// Cancel the work item after 1DispatchWorkItem0 seconds using the asyncAfter provided. 
 </string>
 			<key>ModifiedRange</key>
-			<string>{487, 191}</string>
+			<string>{487, 282}</string>
 			<key>OriginalContent</key>
 			<string>
 // create a work item for both task 
@@ -41,20 +44,24 @@
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>.</string>
+			<string>    // Add Code to cancel workItem here.
+    myWorkItem.cancel()
+</string>
 			<key>ModifiedRange</key>
-			<string>{817, 1}</string>
+			<string>{869, 65}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>    // Add Code to cancel workItem here
+</string>
 			<key>OriginalRange</key>
-			<string>{817, 0}</string>
+			<string>{778, 40}</string>
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>// Call perform on the work item. 
+			<string>// Call perform on the work item.
+myWorkItem.perform()
 </string>
 			<key>ModifiedRange</key>
-			<string>{822, 35}</string>
+			<string>{937, 55}</string>
 			<key>OriginalContent</key>
 			<string>
 // call perform on the workitem 
@@ -68,7 +75,7 @@
 			<string>// Question: why is the Movie task completed yet the dispatch work item has been cancelled?
 </string>
 			<key>ModifiedRange</key>
-			<string>{900, 92}</string>
+			<string>{1035, 92}</string>
 			<key>OriginalContent</key>
 			<string>
 // Qestion: why is the Movie task completed yet the dispatch work item has been cancelled ?

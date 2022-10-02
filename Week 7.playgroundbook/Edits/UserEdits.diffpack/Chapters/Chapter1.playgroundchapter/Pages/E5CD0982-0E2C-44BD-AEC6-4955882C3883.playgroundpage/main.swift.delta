@@ -6,49 +6,28 @@
 	<array>
 		<dict>
 			<key>ModifiedContent</key>
-			<string> </string>
+			<string>// Add appropriate QOS to show avocado toast is more important than pineapple pizza.
+
+let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1", qos:.utility)
+let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2", qos:  .userInteractive)
+
+</string>
 			<key>ModifiedRange</key>
-			<string>{102, 1}</string>
+			<string>{100, 273}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>//Add appropriate QOS to show avocado Toast is more important than pineapple Pizza
+
+let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1")
+let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
+</string>
 			<key>OriginalRange</key>
-			<string>{102, 0}</string>
-		</dict>
-		<dict>
-			<key>ModifiedContent</key>
-			<string>t</string>
-			<key>ModifiedRange</key>
-			<string>{139, 1}</string>
-			<key>OriginalContent</key>
-			<string>T</string>
-			<key>OriginalRange</key>
-			<string>{138, 1}</string>
-		</dict>
-		<dict>
-			<key>ModifiedContent</key>
-			<string>p</string>
-			<key>ModifiedRange</key>
-			<string>{178, 1}</string>
-			<key>OriginalContent</key>
-			<string>P</string>
-			<key>OriginalRange</key>
-			<string>{177, 1}</string>
-		</dict>
-		<dict>
-			<key>ModifiedContent</key>
-			<string>.</string>
-			<key>ModifiedRange</key>
-			<string>{183, 1}</string>
-			<key>OriginalContent</key>
-			<string></string>
-			<key>OriginalRange</key>
-			<string>{182, 0}</string>
+			<string>{100, 232}</string>
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
 			<string>2</string>
 			<key>ModifiedRange</key>
-			<string>{380, 1}</string>
+			<string>{419, 1}</string>
 			<key>OriginalContent</key>
 			<string>1</string>
 			<key>OriginalRange</key>
@@ -58,7 +37,7 @@
 			<key>ModifiedContent</key>
 			<string>2</string>
 			<key>ModifiedRange</key>
-			<string>{463, 1}</string>
+			<string>{502, 1}</string>
 			<key>OriginalContent</key>
 			<string>1</string>
 			<key>OriginalRange</key>
@@ -68,7 +47,7 @@
 			<key>ModifiedContent</key>
 			<string></string>
 			<key>ModifiedRange</key>
-			<string>{503, 0}</string>
+			<string>{542, 0}</string>
 			<key>OriginalContent</key>
 			<string>
 
