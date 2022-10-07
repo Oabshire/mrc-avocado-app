@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>// Add appropriate QOS to show avocado toast is more important than pineapple pizza.
+
+let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1", qos:.background)
+let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2", qos:  .userInteractive)
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{100, 276}</string>
+			<key>OriginalContent</key>
+			<string>//Add appropriate QOS to show avocado Toast is more important than pineapple Pizza
+
+let pineapplePizzaQueue = DispatchQueue(label: "com.raywenderlich.queue1")
+let avocadoToastQueue = DispatchQueue(label: "com.raywenderlich.queue2")
+</string>
+			<key>OriginalRange</key>
+			<string>{100, 232}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>2</string>
+			<key>ModifiedRange</key>
+			<string>{422, 1}</string>
+			<key>OriginalContent</key>
+			<string>1</string>
+			<key>OriginalRange</key>
+			<string>{378, 1}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>2</string>
+			<key>ModifiedRange</key>
+			<string>{505, 1}</string>
+			<key>OriginalContent</key>
+			<string>1</string>
+			<key>OriginalRange</key>
+			<string>{461, 1}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string></string>
+			<key>ModifiedRange</key>
+			<string>{545, 0}</string>
+			<key>OriginalContent</key>
+			<string>
+
+
+</string>
+			<key>OriginalRange</key>
+			<string>{501, 3}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

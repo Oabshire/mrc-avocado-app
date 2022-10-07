@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>// The code below causes a deadlock.
+// Fix it by choosing which queues should perform a synchronous execution &amp;
+// which ones should perform an asynchronous execution.
+// N.B. The solution code must be a mix of sync &amp; async execution.
+</string>
+			<key>ModifiedRange</key>
+			<string>{143, 236}</string>
+			<key>OriginalContent</key>
+			<string>//The code below causes a deadlock
+//Fix it by choosing which queues should perform a synchronous execution &amp;
+//which ones should perform an asynchronous execution
+//N.B. The solution code must be a mix of sync &amp; async execution
+</string>
+			<key>OriginalRange</key>
+			<string>{143, 229}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>a</string>
+			<key>ModifiedRange</key>
+			<string>{470, 1}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{463, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string></string>
+			<key>ModifiedRange</key>
+			<string>{658, 0}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{650, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
