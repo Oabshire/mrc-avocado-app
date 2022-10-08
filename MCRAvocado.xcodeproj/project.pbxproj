@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		091171F428E0E11600052533 /* ListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F328E0E11600052533 /* ListFactory.swift */; };
+		091171F428E0E11600052533 /* OrderListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F328E0E11600052533 /* OrderListFactory.swift */; };
 		091171F628E0E18C00052533 /* EmptyOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F528E0E18C00052533 /* EmptyOrderView.swift */; };
 		0911720628E1286F00052533 /* MetuItemToAddBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0911720528E1286F00052533 /* MetuItemToAddBuilder.swift */; };
 		0940B54C28D6C6590008A387 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54B28D6C6590008A387 /* StartView.swift */; };
@@ -50,7 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		091171F328E0E11600052533 /* ListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFactory.swift; sourceTree = "<group>"; };
+		091171F328E0E11600052533 /* OrderListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListFactory.swift; sourceTree = "<group>"; };
 		091171F528E0E18C00052533 /* EmptyOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyOrderView.swift; sourceTree = "<group>"; };
 		0911720528E1286F00052533 /* MetuItemToAddBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetuItemToAddBuilder.swift; sourceTree = "<group>"; };
 		0940B54B28D6C6590008A387 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				0940B54B28D6C6590008A387 /* StartView.swift */,
-				091171F328E0E11600052533 /* ListFactory.swift */,
+				091171F328E0E11600052533 /* OrderListFactory.swift */,
 			);
 			name = SartModule;
 			sourceTree = "<group>";
@@ -427,7 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0911720628E1286F00052533 /* MetuItemToAddBuilder.swift in Sources */,
-				091171F428E0E11600052533 /* ListFactory.swift in Sources */,
+				091171F428E0E11600052533 /* OrderListFactory.swift in Sources */,
 				09F7AAFF28C595A400262C52 /* DoubleExtension.swift in Sources */,
 				09AF6FD128CEBF9D00B30F08 /* MenuItemDetailView.swift in Sources */,
 				0949F44628B1B3D5000B9CE6 /* TextLibrary.swift in Sources */,
