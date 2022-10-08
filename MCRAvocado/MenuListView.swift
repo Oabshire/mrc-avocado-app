@@ -13,6 +13,7 @@ struct MenuListView: View {
 
 	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
+	private var downloader = MenuLoader()
 
 	/// Menu
 	let dataSource: MenuModel
@@ -42,7 +43,20 @@ struct MenuListView: View {
 			}
 			.listStyle(InsetGroupedListStyle())
 			.navigationBarTitle("Menu")
+			.onAppear(perform: {
+				Task {
+					await downloadMenu()
+				}
+			})
 		}.navigationViewStyle(StackNavigationViewStyle())
+	}
+
+	private func downloadMenu() async {
+		do {
+			let data = try await downloader.download(menuAt: "https://foodbukka.herokuapp.com/api/v1/menu")
+		} catch let error{
+			print("ERROR: \(error)")
+		}
 	}
 }
 struct MenuListView_Previews: PreviewProvider {
