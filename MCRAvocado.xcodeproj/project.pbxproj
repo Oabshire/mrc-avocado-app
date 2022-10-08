@@ -319,8 +319,7 @@
 				090D179028CF031900D7BA14 /* Models */,
 				0940B55828D7AAE00008A387 /* Views */,
 				090D179128CF032400D7BA14 /* DataSource */,
-				09FA895D28F12F2E006F773F /* MenuLoader.swift */,
-				09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */,
+				09FA896128F215DE006F773F /* Network */,
 			);
 			name = MenuModule;
 			sourceTree = "<group>";
@@ -333,6 +332,15 @@
 				090D179328CF035E00D7BA14 /* DataSource */,
 			);
 			name = OrderModule;
+			sourceTree = "<group>";
+		};
+		09FA896128F215DE006F773F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				09FA895D28F12F2E006F773F /* MenuLoader.swift */,
+				09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
