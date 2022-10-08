@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 /// List of menu items divided into section
 struct MenuListView: View {
@@ -15,6 +16,11 @@ struct MenuListView: View {
 
 	/// Menu
 	let dataSource: MenuModel
+
+	init(dataSource: MenuModel) {
+		self.dataSource = dataSource
+		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
+	}
 
 	var body: some View {
 		NavigationView {
@@ -33,8 +39,9 @@ struct MenuListView: View {
 						}
 					}
 				}
-			}.listStyle(InsetGroupedListStyle())
-				.navigationBarTitle("Menu")
+			}
+			.listStyle(InsetGroupedListStyle())
+			.navigationBarTitle("Menu")
 		}.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
