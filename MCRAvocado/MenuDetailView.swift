@@ -34,11 +34,10 @@ struct MenuDetailView: View {
 							LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear]),
 														 startPoint: .top,
 														 endPoint: .bottom)
-
+							.edgesIgnoringSafeArea(.top)
 							.frame(height: 200)
 						}
 						.frame(height: geometry.size.height/4)
-						.edgesIgnoringSafeArea(.all)
 						MenuItemDetailView(order: _order,menuItem: menuItem)
 					}
 				}
