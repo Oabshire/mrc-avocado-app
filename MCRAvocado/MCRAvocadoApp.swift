@@ -12,7 +12,7 @@ struct MCRAvocadoApp: App {
 	@StateObject var order: Order = Order(orderedItems: [:])
 	var body: some Scene {
 		WindowGroup {
-			StartView(factory: ListFactory()).environmentObject(order)
+			StartView(factory: OrderListFactory()).environmentObject(order)
 		}
 	}
 }

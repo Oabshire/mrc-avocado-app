@@ -12,11 +12,11 @@ struct StartView: View {
 	@EnvironmentObject var order: Order
 	@AppStorage("FlightStatusCurrentTab") var selectedTab = 1
 
-	let factory: ListFactory
+	let factory: OrderListFactory
 	let menu: MenuModel = menuDataSource
 	let discounts: [Discount] = discountDataSource
 
-	init(factory: ListFactory) {
+	init(factory: OrderListFactory) {
 		self.factory = factory
 		let opaqueAppearance = UITabBarAppearance()
 		opaqueAppearance.configureWithOpaqueBackground()
@@ -26,7 +26,7 @@ struct StartView: View {
 	var body: some View {
 		TabView(selection: $selectedTab) {
 			// tab with discounts
-			factory.createDiscountGrid(discounts: discounts)
+			DiscountGridView(discountsDataSource: discounts)
 				.tabItem {
 					Image(systemName: "percent")
 						.resizable()
@@ -36,7 +36,7 @@ struct StartView: View {
 				.tag(0)
 
 			// tab with menu
-			factory.createMenuList(menu: menu, order: order)
+			MenuListView(dataSource: menu).environmentObject(order)
 				.tabItem {
 					Image(systemName: "menucard")
 						.resizable()
@@ -60,16 +60,16 @@ struct StartView: View {
 
 struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
-		let listFactory = ListFactory()
-		StartView(factory: listFactory)
+		let orderListFactory = OrderListFactory()
+		StartView(factory: orderListFactory)
 			.environmentObject(orderDataSource)
-		StartView(factory: listFactory)
+		StartView(factory: orderListFactory)
 			.environmentObject(orderDataSource)
 			.preferredColorScheme(.dark)
-		StartView(factory: listFactory)
+		StartView(factory: orderListFactory)
 			.environmentObject(orderDataSource)
 			.previewLayout(.fixed(width: 568, height: 320))
-		StartView(factory: listFactory)
+		StartView(factory: orderListFactory)
 			.environmentObject(orderDataSource)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
