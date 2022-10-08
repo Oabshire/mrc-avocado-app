@@ -89,6 +89,7 @@
 		09F7AB0028C5978500262C52 /* DiscountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountModel.swift; sourceTree = "<group>"; };
 		09FA895D28F12F2E006F773F /* MenuLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLoader.swift; sourceTree = "<group>"; };
 		09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedMenuItem.swift; sourceTree = "<group>"; };
+		09FA896228F226E6006F773F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +211,7 @@
 		0949F43028B1AF6D000B9CE6 /* MCRAvocado */ = {
 			isa = PBXGroup;
 			children = (
+				09FA896228F226E6006F773F /* Info.plist */,
 				0949F44B28B1B50D000B9CE6 /* HelpingViews */,
 				091171F728E0E9DE00052533 /* SartModule */,
 				09C1CBFA28CD152B004548F1 /* MenuModule */,
@@ -620,6 +622,7 @@
 				DEVELOPMENT_TEAM = YZ7WPJDTA7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MCRAvocado/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -650,6 +653,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MCRAvocado/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
