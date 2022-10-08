@@ -53,7 +53,7 @@ struct MenuListView: View {
 
 	private func downloadMenu() async {
 		do {
-			_ = try await downloader.download(menuAt: "https://foodbukka.herokuapp.com/api/v1/menu")
+			_ = try await downloader.download(menuAt: "http://foodbukka.herokuapp.com/api/v1/menu")
 		} catch let error{
 			print("ERROR: \(error)")
 		}
