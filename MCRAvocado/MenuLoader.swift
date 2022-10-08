@@ -11,10 +11,10 @@ import SwiftUI
 class MenuLoader: ObservableObject {
 
 	// MARK: Song Download Error
-	enum SongDownloadError: Error {
-		case documentDirectoryError
-		case failedToStoreSong
+	enum MenuLoadError: Error {
+		case invalidURL
 		case invalidResponse
+		case failedToDecode
 	}
 
 	private let session: URLSession
@@ -27,34 +27,36 @@ class MenuLoader: ObservableObject {
 	}
 
 	func download(menuAt menuURL: String) async throws {
+		// create url from string
 		guard let url = URL(string: menuURL)
 		else {
-			print("Error downloading song.")
-			return
+			throw MenuLoadError.invalidURL
 		}
 
 		typealias Download = (_ data: Data, _ response: URLResponse)
 
+		// try to get Data and URLResponse
 		async let response: Download = try session.data(from: url)
-
+		// validate responce code
 		guard let menuHTTPResponse = try await response.response as? HTTPURLResponse,
 					menuHTTPResponse.statusCode == 200
 		else {
-			print("Invalid response code.")
-			return
+			throw MenuLoadError.invalidResponse
 		}
 
 		let decoder = JSONDecoder()
 
+		// try to decode data
 		do {
 			let menuData = try await response.data
 			let menu = try decoder.decode(DownloadedMenuItems.self, from: menuData)
+			// print data and decoded object
 			await MainActor.run {
 				print(menuData)
 				print(menu)
 			}
-		} catch let error {
-			print("ERROR: \(error)")
+		} catch {
+			throw MenuLoadError.failedToDecode
 		}
 	}
 }
