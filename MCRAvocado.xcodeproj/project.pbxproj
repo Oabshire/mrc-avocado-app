@@ -38,6 +38,8 @@
 		09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */; };
 		09F7AAFF28C595A400262C52 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7AAFE28C595A400262C52 /* DoubleExtension.swift */; };
 		09F7AB0128C5978500262C52 /* DiscountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7AB0028C5978500262C52 /* DiscountModel.swift */; };
+		09FA895E28F12F2E006F773F /* MenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895D28F12F2E006F773F /* MenuLoader.swift */; };
+		09FA896028F130B6006F773F /* DownloadedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataSource.swift; sourceTree = "<group>"; };
 		09F7AAFE28C595A400262C52 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		09F7AB0028C5978500262C52 /* DiscountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountModel.swift; sourceTree = "<group>"; };
+		09FA895D28F12F2E006F773F /* MenuLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLoader.swift; sourceTree = "<group>"; };
+		09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedMenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +319,8 @@
 				090D179028CF031900D7BA14 /* Models */,
 				0940B55828D7AAE00008A387 /* Views */,
 				090D179128CF032400D7BA14 /* DataSource */,
+				09FA895D28F12F2E006F773F /* MenuLoader.swift */,
+				09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */,
 			);
 			name = MenuModule;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				0940B54C28D6C6590008A387 /* StartView.swift in Sources */,
 				09F7AB0128C5978500262C52 /* DiscountModel.swift in Sources */,
 				0949F44228B1B354000B9CE6 /* ImageViews.swift in Sources */,
+				09FA895E28F12F2E006F773F /* MenuLoader.swift in Sources */,
 				09C1CBF728CD0C6A004548F1 /* MenuModel.swift in Sources */,
 				09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
@@ -456,6 +463,7 @@
 				09C1CC2C28CE5417004548F1 /* OrderListView.swift in Sources */,
 				0940B55B28D7AB310008A387 /* MenuRowView.swift in Sources */,
 				095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */,
+				09FA896028F130B6006F773F /* DownloadedMenuItem.swift in Sources */,
 				095AD0C828BBF53000651B36 /* MenuItemModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
