@@ -20,7 +20,7 @@ struct MenuItemDetailView: View {
 	@State var selectedCupSize = 1
 	@State var withIce = false
 
-	var builder: MetuItemToAddBuilder = MetuItemToAddBuilder()
+	var builder: MenuItemToAddBuilder = MenuItemToAddBuilder()
 
 	var isDrink: Bool {
 		return menuItem.type == .hotDrinks || menuItem.type == .coldDrinks

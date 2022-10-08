@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		091171F428E0E11600052533 /* OrderListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F328E0E11600052533 /* OrderListFactory.swift */; };
 		091171F628E0E18C00052533 /* EmptyOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F528E0E18C00052533 /* EmptyOrderView.swift */; };
-		0911720628E1286F00052533 /* MetuItemToAddBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0911720528E1286F00052533 /* MetuItemToAddBuilder.swift */; };
+		0911720628E1286F00052533 /* MenuItemToAddBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */; };
 		0940B54C28D6C6590008A387 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54B28D6C6590008A387 /* StartView.swift */; };
 		0940B55028D6D4180008A387 /* MenuGridRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54F28D6D4180008A387 /* MenuGridRow.swift */; };
 		0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55128D7A1E50008A387 /* DiscountGridView.swift */; };
@@ -52,7 +52,7 @@
 /* Begin PBXFileReference section */
 		091171F328E0E11600052533 /* OrderListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListFactory.swift; sourceTree = "<group>"; };
 		091171F528E0E18C00052533 /* EmptyOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyOrderView.swift; sourceTree = "<group>"; };
-		0911720528E1286F00052533 /* MetuItemToAddBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetuItemToAddBuilder.swift; sourceTree = "<group>"; };
+		0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemToAddBuilder.swift; sourceTree = "<group>"; };
 		0940B54B28D6C6590008A387 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		0940B54F28D6D4180008A387 /* MenuGridRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGridRow.swift; sourceTree = "<group>"; };
 		0940B55128D7A1E50008A387 /* DiscountGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountGridView.swift; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 			children = (
 				094667E628CEAB5C00EAE7C6 /* MenuDetailView.swift */,
 				09AF6FD028CEBF9D00B30F08 /* MenuItemDetailView.swift */,
-				0911720528E1286F00052533 /* MetuItemToAddBuilder.swift */,
+				0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */,
 			);
 			name = DetailModule;
 			sourceTree = "<group>";
@@ -426,7 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0911720628E1286F00052533 /* MetuItemToAddBuilder.swift in Sources */,
+				0911720628E1286F00052533 /* MenuItemToAddBuilder.swift in Sources */,
 				091171F428E0E11600052533 /* OrderListFactory.swift in Sources */,
 				09F7AAFF28C595A400262C52 /* DoubleExtension.swift in Sources */,
 				09AF6FD128CEBF9D00B30F08 /* MenuItemDetailView.swift in Sources */,

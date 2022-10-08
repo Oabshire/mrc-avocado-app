@@ -1,35 +1,34 @@
 //
-//  MetuItemToAddBuilder.swift
+//  MenuItemToAddBuilder.swift
 //  MCRAvocado
 //
 //  Created by Onie on 25.09.2022.
 //
 
-
 /// Builder
-class MetuItemToAddBuilder {
+class MenuItemToAddBuilder {
 
 	public var price: Double = 0
 	public var milktype: MilkType = .whole
 	public var cupSize: CupSize = .grande
 	public var iced: Bool = false
 
-
-	/// built menu idem to add to the order (Product)
+	/// Built menu idem to add to the order (Product)
 	/// - Parameter menuItem: menu item that user picked
 	/// - Returns: customized menu item
 	func buildMenuItem(from menuItem: MenuItem) -> MenuItem {
-		if menuItem.type == .coldDrinks {
+		switch menuItem.type {
+		case .coldDrinks:
 			return buildColdDrink(from: menuItem)
-		}
-		else if menuItem.type == .hotDrinks {
+		case .hotDrinks:
 			return buildHotDrink(from: menuItem)
+		default:
+			return menuItem
 		}
-		return menuItem
 	}
 }
 
-private extension MetuItemToAddBuilder {
+private extension MenuItemToAddBuilder {
 
 	func buildHotDrink(from menuItem: MenuItem) -> MenuItem {
 		let name: String = cupSize.rawValue + " " + menuItem.name + " with " + milktype.rawValue.lowercased()
