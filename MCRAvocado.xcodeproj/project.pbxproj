@@ -40,6 +40,7 @@
 		09F7AB0128C5978500262C52 /* DiscountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7AB0028C5978500262C52 /* DiscountModel.swift */; };
 		09FA895E28F12F2E006F773F /* MenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895D28F12F2E006F773F /* MenuLoader.swift */; };
 		09FA896028F130B6006F773F /* DownloadedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */; };
+		09FA896428F22EC0006F773F /* CookieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA896328F22EC0006F773F /* CookieLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		09FA895D28F12F2E006F773F /* MenuLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLoader.swift; sourceTree = "<group>"; };
 		09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedMenuItem.swift; sourceTree = "<group>"; };
 		09FA896228F226E6006F773F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		09FA896328F22EC0006F773F /* CookieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			children = (
 				0940B54B28D6C6590008A387 /* StartView.swift */,
 				091171F328E0E11600052533 /* OrderListFactory.swift */,
+				09FA896328F22EC0006F773F /* CookieLoader.swift */,
 			);
 			name = SartModule;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				09C1CBF728CD0C6A004548F1 /* MenuModel.swift in Sources */,
 				09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
+				09FA896428F22EC0006F773F /* CookieLoader.swift in Sources */,
 				0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */,
 				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
 				09B30C9228EFB28B00161724 /* SplashView.swift in Sources */,
