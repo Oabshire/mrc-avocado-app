@@ -8,8 +8,7 @@
 import SwiftUI
 
 // MARK: Song Downloader
-class MenuLoader: ObservableObject {
-
+class MenuLoader {
 	// MARK: Song Download Error
 	enum MenuLoadError: Error {
 		case invalidURL
@@ -33,26 +32,23 @@ class MenuLoader: ObservableObject {
 			throw MenuLoadError.invalidURL
 		}
 
-		typealias Download = (_ data: Data, _ response: URLResponse)
-
 		// try to get Data and URLResponse
-		async let response: Download = try session.data(from: url)
+		let (data, response) = try await session.data(from: url)
 		// validate responce code
-		guard let menuHTTPResponse = try await response.response as? HTTPURLResponse,
+		guard let menuHTTPResponse = response as? HTTPURLResponse,
 					menuHTTPResponse.statusCode == 200
 		else {
 			throw MenuLoadError.invalidResponse
 		}
-
 		let decoder = JSONDecoder()
 
 		// try to decode data
 		do {
-			let menuData = try await response.data
-			let menu = try decoder.decode(DownloadedMenuItems.self, from: menuData)
-			// print data and decoded object
+			let menu = try decoder.decode(DownloadedMenuItems.self, from: data)
+			//			 print data and decoded object
 			await MainActor.run {
-				print(menuData)
+				print("DownloadedData: \(data)")
+				print("*-----------Menu----------*")
 				print(menu)
 			}
 		} catch {

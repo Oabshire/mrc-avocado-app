@@ -43,15 +43,18 @@ struct MenuListView: View {
 			}
 			.listStyle(InsetGroupedListStyle())
 			.navigationBarTitle("Menu")
-			.onAppear(perform: {
-				Task {
-					await downloadMenu()
-				}
-			})
-		}.navigationViewStyle(StackNavigationViewStyle())
+		}
+		.navigationViewStyle(StackNavigationViewStyle())
+		.onAppear(perform: {
+			Task {
+				await downloadMenu()
+			}
+		})
 	}
+}
 
-	private func downloadMenu() async {
+private extension MenuListView {
+	func downloadMenu() async {
 		do {
 			_ = try await downloader.download(menuAt: "http://foodbukka.herokuapp.com/api/v1/menu")
 		} catch let error{
@@ -59,6 +62,7 @@ struct MenuListView: View {
 		}
 	}
 }
+
 struct MenuListView_Previews: PreviewProvider {
 	static var previews: some View {
 		MenuListView(dataSource: menuDataSource)
