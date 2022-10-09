@@ -41,6 +41,7 @@
 		09FA895E28F12F2E006F773F /* MenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895D28F12F2E006F773F /* MenuLoader.swift */; };
 		09FA896028F130B6006F773F /* DownloadedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */; };
 		09FA896428F22EC0006F773F /* CookieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA896328F22EC0006F773F /* CookieLoader.swift */; };
+		09FA896E28F2A8D2006F773F /* CookieRWLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA896D28F2A8D2006F773F /* CookieRWLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedMenuItem.swift; sourceTree = "<group>"; };
 		09FA896228F226E6006F773F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		09FA896328F22EC0006F773F /* CookieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieLoader.swift; sourceTree = "<group>"; };
+		09FA896D28F2A8D2006F773F /* CookieRWLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieRWLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				0940B54B28D6C6590008A387 /* StartView.swift */,
 				091171F328E0E11600052533 /* OrderListFactory.swift */,
 				09FA896328F22EC0006F773F /* CookieLoader.swift */,
+				09FA896D28F2A8D2006F773F /* CookieRWLoader.swift */,
 			);
 			name = SartModule;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				09F7AB0128C5978500262C52 /* DiscountModel.swift in Sources */,
 				0949F44228B1B354000B9CE6 /* ImageViews.swift in Sources */,
 				09FA895E28F12F2E006F773F /* MenuLoader.swift in Sources */,
+				09FA896E28F2A8D2006F773F /* CookieRWLoader.swift in Sources */,
 				09C1CBF728CD0C6A004548F1 /* MenuModel.swift in Sources */,
 				09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
