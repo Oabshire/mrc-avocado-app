@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-// MARK: Song Downloader
+/// Cookie Loader with modern concurrency
 class CookieLoader {
 
-	// MARK: Song Download Error
+	// MARK: Cookie Load Error
 	enum CookieLoadError: Error {
 		case invalidURL
 		case invalidResponse
@@ -31,6 +31,7 @@ class CookieLoader {
 			throw CookieLoadError.invalidURL
 		}
 
+		// try to get fields
 		let (_, response) = try await URLSession.shared.data(from: url)
 		guard let httpResponse = response as? HTTPURLResponse,
 					let fields = httpResponse.allHeaderFields as? [String: String]
@@ -38,6 +39,7 @@ class CookieLoader {
 			throw CookieLoadError.invalidResponse
 		}
 
+		// get cookie
 		let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
 		await MainActor.run {
 			print("*-----------Cookies----------*")

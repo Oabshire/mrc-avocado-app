@@ -77,7 +77,7 @@ struct StartView: View {
 
 private extension StartView {
 	func getCoockies() async {
-		let loader = CookieLoader()
+		let loader = CookieRWLoader()
 		do {
 			try await loader.downloadCookie(from: "https://www.raywenderlich.com")
 		}
