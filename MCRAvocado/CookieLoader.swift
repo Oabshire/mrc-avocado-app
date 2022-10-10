@@ -32,8 +32,11 @@ struct CookieLoader {
 				if let fields  = fields {
 					let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
 					DispatchQueue.main.async {
+
 						print("*-----------Cookies----------*")
-						print(cookies)
+						for a in cookies {
+							print("\(a.name) : \(a.value)")
+						}
 					}
 				}
 

@@ -56,3 +56,20 @@ class MenuLoader {
 		}
 	}
 }
+
+
+extension MenuLoader.MenuLoadError: LocalizedError {
+		public var errorDescription: String? {
+				switch self {
+				case .invalidURL:
+					return NSLocalizedString("Provided url string is not convertible to URL type",
+																	 comment: "invalid URL")
+				case .invalidResponse:
+					return NSLocalizedString("The response received has an invalid status code.",
+																	 comment: "invalidResponse")
+				case .failedToDecode:
+					return NSLocalizedString("Something went wrong while decoding. Make sure the keys and types are correct.",
+																	 comment: "failed To Decode")
+				}
+		}
+}
