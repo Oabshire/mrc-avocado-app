@@ -1,5 +1,5 @@
 //
-//  SplashView.swift
+//  AdditionalLaunchScreenView.swift
 //  MCRAvocado
 //
 //  Created by Onie on 06.10.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SplashView: View {
+struct AdditionalLaunchScreenView: View {
 	struct Leaf: View {
 
 		let isCurrent: Bool
@@ -16,7 +16,7 @@ struct SplashView: View {
 
 		var body: some View {
 			Capsule()
-				.foregroundColor(isCurrent ? .white : Color.mainBackgroundColor)
+				.foregroundColor(isCurrent ? .white : Color.defaultBackgroundColor)
 				.frame(width: 20, height: isCurrent ? 50 : 20)
 				.offset(
 					isCurrent
@@ -25,7 +25,7 @@ struct SplashView: View {
 				)
 
 				.scaleEffect(isZooming ? 1000 : 1 )
-
+				.opacity(isCurrent ? 0 : 1)
 				.animation(.easeIn(duration: 0.75), value: isCompleting)
 				.animation(.easeIn(duration: 1.5), value: isZooming)
 				.animation(.easeIn(duration: 0.75), value: isCurrent)
@@ -41,8 +41,9 @@ struct SplashView: View {
 		.animation(.easeIn(duration: 1))
 
 	var body: some View {
-		VStack {
-
+		ZStack {
+			Color.mainBackgroundColor
+				.edgesIgnoringSafeArea(.all)
 			HStack(spacing: completed ? -20 : 10) {
 				ForEach(0..<leavesCount, id: \.self) { index in
 					Leaf(
@@ -79,6 +80,6 @@ struct SplashView: View {
 
 struct SplashView_Previews: PreviewProvider {
 	static var previews: some View {
-		SplashView()
+		AdditionalLaunchScreenView()
 	}
 }

@@ -13,6 +13,7 @@ extension Color {
 	public static let mainBackgroundColor = Color("MainBackgroundColor")
 	public static let mainImageColor = Color("MainImageColor")
 	public static let onboardingAccentColor = Color("OnboardingAccentColor")
+	public static let defaultBackgroundColor = Color("DefaultBackgroundColor")
 }
 
 extension UIColor {

@@ -29,19 +29,22 @@
 		095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0CA28BBF75900651B36 /* OrderModel.swift */; };
 		095AD0E028BBFF9200651B36 /* OrderModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */; };
 		09AF6FD128CEBF9D00B30F08 /* MenuItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AF6FD028CEBF9D00B30F08 /* MenuItemDetailView.swift */; };
-		09B30C9228EFB28B00161724 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B30C9128EFB28B00161724 /* SplashView.swift */; };
+		09B30C9228EFB28B00161724 /* AdditionalLaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B30C9128EFB28B00161724 /* AdditionalLaunchScreenView.swift */; };
 		09B6B0A628D7B827008969D0 /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B6B0A528D7B827008969D0 /* MenuListView.swift */; };
 		09C1CBF728CD0C6A004548F1 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CBF628CD0C6A004548F1 /* MenuModel.swift */; };
 		09C1CC2828CD53B0004548F1 /* MenuDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2728CD53B0004548F1 /* MenuDataSource.swift */; };
 		09C1CC2C28CE5417004548F1 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2B28CE5417004548F1 /* OrderListView.swift */; };
 		09C1CC2F28CE69D1004548F1 /* OrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2E28CE69D1004548F1 /* OrderRowView.swift */; };
 		09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */; };
+		09E5768428F3834300AB24DB /* MainLaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5768328F3834300AB24DB /* MainLaunchScreenView.swift */; };
+		09E5768628F3887500AB24DB /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5768528F3887500AB24DB /* LaunchScreenManager.swift */; };
+		09E5768A28F3AADE00AB24DB /* CookieDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5768928F3AADE00AB24DB /* CookieDownloader.swift */; };
 		09F7AAFF28C595A400262C52 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7AAFE28C595A400262C52 /* DoubleExtension.swift */; };
 		09F7AB0128C5978500262C52 /* DiscountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7AB0028C5978500262C52 /* DiscountModel.swift */; };
 		09FA895E28F12F2E006F773F /* MenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895D28F12F2E006F773F /* MenuLoader.swift */; };
 		09FA896028F130B6006F773F /* DownloadedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */; };
-		09FA896428F22EC0006F773F /* CookieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA896328F22EC0006F773F /* CookieLoader.swift */; };
-		09FA896E28F2A8D2006F773F /* CookieRWLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA896D28F2A8D2006F773F /* CookieRWLoader.swift */; };
+		09FA896428F22EC0006F773F /* ModernCookieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA896328F22EC0006F773F /* ModernCookieLoader.swift */; };
+		09FA896E28F2A8D2006F773F /* CookieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA896D28F2A8D2006F773F /* CookieLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,20 +83,23 @@
 		095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCRAvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModelTests.swift; sourceTree = "<group>"; };
 		09AF6FD028CEBF9D00B30F08 /* MenuItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailView.swift; sourceTree = "<group>"; };
-		09B30C9128EFB28B00161724 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		09B30C9128EFB28B00161724 /* AdditionalLaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalLaunchScreenView.swift; sourceTree = "<group>"; };
 		09B6B0A528D7B827008969D0 /* MenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
 		09C1CBF628CD0C6A004548F1 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		09C1CC2728CD53B0004548F1 /* MenuDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDataSource.swift; sourceTree = "<group>"; };
 		09C1CC2B28CE5417004548F1 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		09C1CC2E28CE69D1004548F1 /* OrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRowView.swift; sourceTree = "<group>"; };
 		09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataSource.swift; sourceTree = "<group>"; };
+		09E5768328F3834300AB24DB /* MainLaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLaunchScreenView.swift; sourceTree = "<group>"; };
+		09E5768528F3887500AB24DB /* LaunchScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
+		09E5768928F3AADE00AB24DB /* CookieDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieDownloader.swift; sourceTree = "<group>"; };
 		09F7AAFE28C595A400262C52 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		09F7AB0028C5978500262C52 /* DiscountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountModel.swift; sourceTree = "<group>"; };
 		09FA895D28F12F2E006F773F /* MenuLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLoader.swift; sourceTree = "<group>"; };
 		09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedMenuItem.swift; sourceTree = "<group>"; };
 		09FA896228F226E6006F773F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		09FA896328F22EC0006F773F /* CookieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieLoader.swift; sourceTree = "<group>"; };
-		09FA896D28F2A8D2006F773F /* CookieRWLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieRWLoader.swift; sourceTree = "<group>"; };
+		09FA896328F22EC0006F773F /* ModernCookieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernCookieLoader.swift; sourceTree = "<group>"; };
+		09FA896D28F2A8D2006F773F /* CookieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +168,7 @@
 			children = (
 				0940B54B28D6C6590008A387 /* StartView.swift */,
 				091171F328E0E11600052533 /* OrderListFactory.swift */,
-				09FA896328F22EC0006F773F /* CookieLoader.swift */,
-				09FA896D28F2A8D2006F773F /* CookieRWLoader.swift */,
+				09E5768828F3A5DD00AB24DB /* Network */,
 			);
 			name = SartModule;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			children = (
 				09FA896228F226E6006F773F /* Info.plist */,
 				0949F44B28B1B50D000B9CE6 /* HelpingViews */,
+				09E5768728F3A4BF00AB24DB /* LaunchScreenModule */,
 				091171F728E0E9DE00052533 /* SartModule */,
 				09C1CBFA28CD152B004548F1 /* MenuModule */,
 				09AF6FCF28CEBF0300B30F08 /* DetailModule */,
@@ -229,7 +235,6 @@
 				0949F44C28B1B51F000B9CE6 /* App */,
 				095AD0C628BAD8B400651B36 /* Playground */,
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
-				09B30C9128EFB28B00161724 /* SplashView.swift */,
 			);
 			path = MCRAvocado;
 			sourceTree = "<group>";
@@ -340,6 +345,26 @@
 				090D179328CF035E00D7BA14 /* DataSource */,
 			);
 			name = OrderModule;
+			sourceTree = "<group>";
+		};
+		09E5768728F3A4BF00AB24DB /* LaunchScreenModule */ = {
+			isa = PBXGroup;
+			children = (
+				09B30C9128EFB28B00161724 /* AdditionalLaunchScreenView.swift */,
+				09E5768328F3834300AB24DB /* MainLaunchScreenView.swift */,
+				09E5768528F3887500AB24DB /* LaunchScreenManager.swift */,
+			);
+			name = LaunchScreenModule;
+			sourceTree = "<group>";
+		};
+		09E5768828F3A5DD00AB24DB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				09FA896328F22EC0006F773F /* ModernCookieLoader.swift */,
+				09FA896D28F2A8D2006F773F /* CookieLoader.swift */,
+				09E5768928F3AADE00AB24DB /* CookieDownloader.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		09FA896128F215DE006F773F /* Network */ = {
@@ -459,21 +484,24 @@
 				0940B54C28D6C6590008A387 /* StartView.swift in Sources */,
 				09F7AB0128C5978500262C52 /* DiscountModel.swift in Sources */,
 				0949F44228B1B354000B9CE6 /* ImageViews.swift in Sources */,
+				09E5768428F3834300AB24DB /* MainLaunchScreenView.swift in Sources */,
 				09FA895E28F12F2E006F773F /* MenuLoader.swift in Sources */,
-				09FA896E28F2A8D2006F773F /* CookieRWLoader.swift in Sources */,
+				09FA896E28F2A8D2006F773F /* CookieLoader.swift in Sources */,
 				09C1CBF728CD0C6A004548F1 /* MenuModel.swift in Sources */,
 				09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
-				09FA896428F22EC0006F773F /* CookieLoader.swift in Sources */,
+				09FA896428F22EC0006F773F /* ModernCookieLoader.swift in Sources */,
 				0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */,
 				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
-				09B30C9228EFB28B00161724 /* SplashView.swift in Sources */,
+				09B30C9228EFB28B00161724 /* AdditionalLaunchScreenView.swift in Sources */,
 				0940B55428D7A2290008A387 /* DiscountDataSource.swift in Sources */,
 				094667E728CEAB5C00EAE7C6 /* MenuDetailView.swift in Sources */,
+				09E5768628F3887500AB24DB /* LaunchScreenManager.swift in Sources */,
 				09C1CC2F28CE69D1004548F1 /* OrderRowView.swift in Sources */,
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
 				0949F44028B1B30A000B9CE6 /* ColorExtension.swift in Sources */,
 				0949F45028B1C431000B9CE6 /* Constants.swift in Sources */,
+				09E5768A28F3AADE00AB24DB /* CookieDownloader.swift in Sources */,
 				0940B55028D6D4180008A387 /* MenuGridRow.swift in Sources */,
 				091171F628E0E18C00052533 /* EmptyOrderView.swift in Sources */,
 				09C1CC2828CD53B0004548F1 /* MenuDataSource.swift in Sources */,
@@ -633,7 +661,6 @@
 				INFOPLIST_FILE = MCRAvocado/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -664,7 +691,6 @@
 				INFOPLIST_FILE = MCRAvocado/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

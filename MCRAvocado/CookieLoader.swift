@@ -7,43 +7,61 @@
 
 import SwiftUI
 
-/// Cookie Loader with modern concurrency
-class CookieLoader {
-
+/// Cookie Loader without modern concurrency
+struct CookieLoader {
+	
 	// MARK: Cookie Load Error
 	enum CookieLoadError: Error {
-		case invalidURL
 		case invalidResponse
+		case invalidURL
+		
 	}
-
-	private let session: URLSession
-	private let sessionConfiguration: URLSessionConfiguration
-
-	// MARK: Initialization
-	init() {
-		self.sessionConfiguration = URLSessionConfiguration.default
-		self.session = URLSession(configuration: sessionConfiguration)
-	}
-
-	func downloadCookie(from cookieURL: String) async throws {
+	
+	func downloadCookie(from cookieURL: String) throws {
 		// create url from string
-		guard let url = URL(string: "https://www.raywenderlich.com") else {
+		guard let url = URL(string: cookieURL) else {
 			throw CookieLoadError.invalidURL
 		}
+		let request = URLRequest(url: url)
 
-		// try to get fields
-		let (_, response) = try await URLSession.shared.data(from: url)
-		guard let httpResponse = response as? HTTPURLResponse,
-					let fields = httpResponse.allHeaderFields as? [String: String]
-		else {
-			throw CookieLoadError.invalidResponse
-		}
+		// perform task
+		performTask(with: request) { result in
+			switch result {
+				// if success print cookie on main thread
+			case .success(let fields):
+				if let fields  = fields {
+					let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
+					DispatchQueue.main.async {
+						print("*-----------Cookies----------*")
+						print(cookies)
+					}
+				}
 
-		// get cookie
-		let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
-		await MainActor.run {
-			print("*-----------Cookies----------*")
-			print(cookies)
+				// if failure print error
+			case .failure(let error):
+				print(error)
+			}
 		}
+	}
+
+	private func performTask(with request: URLRequest, completion: @escaping (Result<[String : String]?, Error>) -> Void) {
+
+		URLSession.shared.dataTask(with: request) { _, response, error in
+			// error checking
+			if let error = error {
+				completion(.failure(error))
+				return
+			}
+
+			// try to get fields
+			guard  let httpResponse = response as? HTTPURLResponse,
+						 let fields = httpResponse.allHeaderFields as? [String: String]
+			else {
+				completion(.failure( CookieLoadError.invalidResponse))
+				return
+			}
+
+			completion(.success(fields))
+		}.resume()
 	}
 }
