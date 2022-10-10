@@ -9,21 +9,34 @@ import SwiftUI
 
 /// Grid of  discounts
 struct DiscountGridView: View {
+	@State var isActive = false
 
 	/// discounts to display
 	let discountsDataSource: [Discount]
 
 	var body: some View {
-		NavigationView {
-			ScrollView{
-				LazyVGrid(columns: .init(repeating: .init(), count: 2)) {
-					ForEach(discountsDataSource) { discount in
-						MenuGridRow(discount: discount)
-					}
-				}.padding()
+		ZStack{
+			NavigationView {
+				ScrollView{
+					LazyVGrid(columns: .init(repeating: .init(), count: 2)) {
+						ForEach(discountsDataSource) { discount in
+							MenuGridRow(discount: discount)
+						}
+					}.padding()
+				}
+				.navigationBarTitle("Discounts")
 			}
-			.navigationBarTitle("Discounts")
-		}.navigationViewStyle(StackNavigationViewStyle())
+			.navigationViewStyle(StackNavigationViewStyle())
+			if !isActive {
+				AdditionalLaunchScreenView()
+			}
+		}.onAppear{
+			DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
+				withAnimation{
+					isActive.toggle()
+				}
+			}
+		}
 	}
 }
 
