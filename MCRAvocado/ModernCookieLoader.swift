@@ -43,7 +43,9 @@ class ModernCookieLoader {
 		let cookies = HTTPCookie.cookies(withResponseHeaderFields: fields, for: url)
 		await MainActor.run {
 			print("*-----------MODERN Cookies----------*")
-			print(cookies)
+			for a in cookies {
+				print("\(a.name) : \(a.value)")
+			}
 		}
 	}
 }
