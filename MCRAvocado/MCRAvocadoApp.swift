@@ -15,7 +15,7 @@ struct MCRAvocadoApp: App {
 		WindowGroup {
 			ZStack {
 			StartView(factory: OrderListFactory()).environmentObject(order)
-				if launchScreenManager.state != .complete{
+				if launchScreenManager.state != .complete {
 				MainLaunchScreenView()
 				}
 			}.environmentObject(launchScreenManager)

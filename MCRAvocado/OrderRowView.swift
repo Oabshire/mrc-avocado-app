@@ -9,15 +9,15 @@ import SwiftUI
 
 /// Cell for ordered items
 struct OrderRowView: View {
-	
+
 	/// Ordered menu item
 	let menuItem: MenuItem
-	
+
 	/// Amount of ordered menu items
 	let amount: Int
-	
+
 	var body: some View {
-		HStack (alignment: .top) {
+		HStack(alignment: .top) {
 			Image(menuItem.imageName)
 				.resizable()
 				.frame(width: Constants.General.rowImageWidthHeight,
@@ -26,7 +26,7 @@ struct OrderRowView: View {
 			VStack(alignment: .leading) {
 				Text(menuItem.name)
 					.font(.title2)
-				
+
 				Text("$ " + String(menuItem.price) + " × " + String(amount))
 			}
 		}
@@ -34,13 +34,13 @@ struct OrderRowView: View {
 }
 
 struct OrderCellView_Preview: PreviewProvider {
-	
+
 	static var previews: some View {
 		let menuItem = MenuItem(name: "Blueberry pancake",
 														price: 11.99,
 														isInStock: true,
 														calories: 610,
-														description:"",
+														description: "",
 														type: .pancakes,
 														imageName: "blueberry_pancakes")
 		OrderRowView(menuItem: menuItem, amount: 1)

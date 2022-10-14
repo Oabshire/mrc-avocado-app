@@ -44,7 +44,6 @@ struct MenuGridRow: View {
 	}
 }
 
-
 struct MenuGridCell_Previews: PreviewProvider {
 	static var previews: some View {
 		let discount: Discount = .nationalIndependenceDay

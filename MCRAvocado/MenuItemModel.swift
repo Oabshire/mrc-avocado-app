@@ -38,9 +38,8 @@ extension MilkType: Hashable, Identifiable {
 	var id: some Hashable { self }
 }
 
-
 /// Cup size for beverages
-enum CupSize: String{
+enum CupSize: String {
 	case tall = "Tall"
 	case grande = "Grande"
 	case venti = "Venti"
@@ -63,7 +62,7 @@ struct MenuItem {
 	let typeOfMilk: MilkType?
 	let cupSize: CupSize?
 	let imageName: String
-	
+
 	/// Init
 	/// - Parameters:
 	///   - name: Name of the item
@@ -81,7 +80,8 @@ struct MenuItem {
 			 isInStock: Bool,
 			 calories: Int,
 			 description: String? = nil,
-			 type: MenuItemType, withIce: Bool? = nil,
+			 type: MenuItemType,
+			 withIce: Bool? = nil,
 			 typeOfMilk: MilkType? = nil,
 			 cupSize: CupSize? = nil,
 			 imageName: String) {

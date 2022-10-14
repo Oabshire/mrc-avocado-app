@@ -26,38 +26,36 @@ struct MenuItemDetailView: View {
 		return menuItem.type == .hotDrinks || menuItem.type == .coldDrinks
 	}
 
-	let milkTypes:[MilkType] = [ .whole, .nonFat, .soy, .almond, .coconut, .oatMilk,. heavyCream]
-	let cupSizes:[CupSize] = [ .tall, .grande, .venti]
+	let milkTypes: [MilkType] = [ .whole, .nonFat, .soy, .almond, .coconut, .oatMilk, .heavyCream]
+	let cupSizes: [CupSize] = [ .tall, .grande, .venti]
 	/// Source of data
 	let menuItem: MenuItem
-
 
 	var body: some View {
 		VStack {
 			DetailTitleText(lineText: menuItem.name)
 			if isDrink {
-				HStack{
+				HStack {
 					Text("Size of cup")
 					Spacer()
-					Picker(selection: $selectedCupSize, label: Text("size of cup")){
+					Picker(selection: $selectedCupSize, label: Text("size of cup")) {
 						ForEach(0 ..< cupSizes.count, id: \.self) {index in
 							Text(self.cupSizes[index].rawValue).tag(index)
 						}
 					}
 				}
 				if menuItem.type == .hotDrinks {
-					HStack{
+					HStack {
 						Text("Type of milk")
 						Spacer()
-						Picker(selection: $selectedMilkType, label: Text("Type of Milk")){
+						Picker(selection: $selectedMilkType, label: Text("Type of Milk")) {
 							ForEach(0 ..< milkTypes.count, id: \.self) {index in
 								Text(self.milkTypes[index].rawValue).tag(index)
 							}
 						}
 					}
-				}
-				else {
-					HStack{
+				} else {
+					HStack {
 						Text("With ice")
 						Spacer()
 						Toggle(isOn: $withIce) {}
@@ -66,7 +64,7 @@ struct MenuItemDetailView: View {
 			} else {
 				DetailDescriptionText(lineText: menuItem.description ?? "")
 			}
-			HStack{
+			HStack {
 				DetailPriceText(lineText: "$ " + String((menuItem.price * Double(amountToAdd)).roundTwoAfterPoint))
 					.frame(alignment: .leading)
 				Spacer()
@@ -77,7 +75,7 @@ struct MenuItemDetailView: View {
 			Spacer()
 			BottomButton(text: "Add to Order", color: .buttonColor) {
 				builder.cupSize = cupSizes[selectedCupSize]
-				builder.milktype = milkTypes[selectedMilkType]
+				builder.milkType = milkTypes[selectedMilkType]
 				builder.iced = withIce
 				builder.price = menuItem.price
 
@@ -107,15 +105,12 @@ struct MenuItemDetailView_Previews: PreviewProvider {
 
 		MenuItemDetailView(menuItem: menuItem)
 			.environmentObject(orderDataSource)
-		
 		MenuItemDetailView(menuItem: menuItem)
 			.preferredColorScheme(.dark)
 			.environmentObject(orderDataSource)
-		
 		MenuItemDetailView(menuItem: menuItem)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.environmentObject(orderDataSource)
-
 		MenuItemDetailView(menuItem: menuItem)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.environmentObject(orderDataSource)

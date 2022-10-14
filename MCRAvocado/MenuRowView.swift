@@ -11,7 +11,7 @@ import SwiftUI
 struct MenuRowView: View {
 	let menuItem: MenuItem
 	var body: some View {
-		HStack (alignment: .top) {
+		HStack(alignment: .top) {
 			Image(menuItem.imageName)
 				.resizable()
 				.frame(width: Constants.General.rowImageWidthHeight,
@@ -22,7 +22,7 @@ struct MenuRowView: View {
 					Text(menuItem.name)
 						.font(.title2)
 					Spacer()
-					VStack(alignment:.trailing) {
+					VStack(alignment: .trailing) {
 						Text("$ " + String(menuItem.price))
 						Text("Kcal " + String(menuItem.calories))
 					}
@@ -44,7 +44,6 @@ struct MenuRowView_Previews: PreviewProvider {
 																		 calories: 610,
 																		 description: TextLibrary.MenuItemDescription.pumpkinPancake, type: .pancakes,
 																		 imageName: "pumpkin_spice_pancakes"))
-			
 		}
 		.edgesIgnoringSafeArea(.all)
 	}

@@ -38,13 +38,10 @@
 		09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */; };
 		09E5768428F3834300AB24DB /* MainLaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5768328F3834300AB24DB /* MainLaunchScreenView.swift */; };
 		09E5768628F3887500AB24DB /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5768528F3887500AB24DB /* LaunchScreenManager.swift */; };
-		09E5768A28F3AADE00AB24DB /* CookieDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5768928F3AADE00AB24DB /* CookieDownloader.swift */; };
 		09F7AAFF28C595A400262C52 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7AAFE28C595A400262C52 /* DoubleExtension.swift */; };
 		09F7AB0128C5978500262C52 /* DiscountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7AB0028C5978500262C52 /* DiscountModel.swift */; };
 		09FA895E28F12F2E006F773F /* MenuLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895D28F12F2E006F773F /* MenuLoader.swift */; };
 		09FA896028F130B6006F773F /* DownloadedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */; };
-		09FA896428F22EC0006F773F /* ModernCookieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA896328F22EC0006F773F /* ModernCookieLoader.swift */; };
-		09FA896E28F2A8D2006F773F /* CookieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA896D28F2A8D2006F773F /* CookieLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +74,6 @@
 		0949F44528B1B3D5000B9CE6 /* TextLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLibrary.swift; sourceTree = "<group>"; };
 		0949F44728B1B3FF000B9CE6 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		0949F44F28B1C431000B9CE6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		095AD0C528BAD88700651B36 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		095AD0C728BBF53000651B36 /* MenuItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemModel.swift; sourceTree = "<group>"; };
 		095AD0CA28BBF75900651B36 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCRAvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,14 +88,11 @@
 		09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataSource.swift; sourceTree = "<group>"; };
 		09E5768328F3834300AB24DB /* MainLaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLaunchScreenView.swift; sourceTree = "<group>"; };
 		09E5768528F3887500AB24DB /* LaunchScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
-		09E5768928F3AADE00AB24DB /* CookieDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieDownloader.swift; sourceTree = "<group>"; };
 		09F7AAFE28C595A400262C52 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		09F7AB0028C5978500262C52 /* DiscountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountModel.swift; sourceTree = "<group>"; };
 		09FA895D28F12F2E006F773F /* MenuLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLoader.swift; sourceTree = "<group>"; };
 		09FA895F28F130B6006F773F /* DownloadedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedMenuItem.swift; sourceTree = "<group>"; };
 		09FA896228F226E6006F773F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		09FA896328F22EC0006F773F /* ModernCookieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernCookieLoader.swift; sourceTree = "<group>"; };
-		09FA896D28F2A8D2006F773F /* CookieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +161,6 @@
 			children = (
 				0940B54B28D6C6590008A387 /* StartView.swift */,
 				091171F328E0E11600052533 /* OrderListFactory.swift */,
-				09E5768828F3A5DD00AB24DB /* Network */,
 			);
 			name = SartModule;
 			sourceTree = "<group>";
@@ -233,7 +225,6 @@
 				0949F44928B1B4D2000B9CE6 /* Libraries */,
 				09239A0B28BABD0000B14F20 /* Extensions */,
 				0949F44C28B1B51F000B9CE6 /* App */,
-				095AD0C628BAD8B400651B36 /* Playground */,
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
 			);
 			path = MCRAvocado;
@@ -273,14 +264,6 @@
 				0949F43528B1AF70000B9CE6 /* Assets.xcassets */,
 			);
 			name = App;
-			sourceTree = "<group>";
-		};
-		095AD0C628BAD8B400651B36 /* Playground */ = {
-			isa = PBXGroup;
-			children = (
-				095AD0C528BAD88700651B36 /* MyPlayground.playground */,
-			);
-			name = Playground;
 			sourceTree = "<group>";
 		};
 		095AD0DE28BBFF9200651B36 /* MCRAvocadoTests */ = {
@@ -357,16 +340,6 @@
 			name = AnimationModule;
 			sourceTree = "<group>";
 		};
-		09E5768828F3A5DD00AB24DB /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				09FA896328F22EC0006F773F /* ModernCookieLoader.swift */,
-				09FA896D28F2A8D2006F773F /* CookieLoader.swift */,
-				09E5768928F3AADE00AB24DB /* CookieDownloader.swift */,
-			);
-			name = Network;
-			sourceTree = "<group>";
-		};
 		09FA896128F215DE006F773F /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +359,7 @@
 				0949F42A28B1AF6D000B9CE6 /* Sources */,
 				0949F42B28B1AF6D000B9CE6 /* Frameworks */,
 				0949F42C28B1AF6D000B9CE6 /* Resources */,
+				097AB5DC28F9197100C670CC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -471,6 +445,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		097AB5DC28F9197100C670CC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0949F42A28B1AF6D000B9CE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -486,11 +480,9 @@
 				0949F44228B1B354000B9CE6 /* ImageViews.swift in Sources */,
 				09E5768428F3834300AB24DB /* MainLaunchScreenView.swift in Sources */,
 				09FA895E28F12F2E006F773F /* MenuLoader.swift in Sources */,
-				09FA896E28F2A8D2006F773F /* CookieLoader.swift in Sources */,
 				09C1CBF728CD0C6A004548F1 /* MenuModel.swift in Sources */,
 				09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
-				09FA896428F22EC0006F773F /* ModernCookieLoader.swift in Sources */,
 				0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */,
 				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
 				09B30C9228EFB28B00161724 /* AdditionalLaunchScreenView.swift in Sources */,
@@ -501,7 +493,6 @@
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
 				0949F44028B1B30A000B9CE6 /* ColorExtension.swift in Sources */,
 				0949F45028B1C431000B9CE6 /* Constants.swift in Sources */,
-				09E5768A28F3AADE00AB24DB /* CookieDownloader.swift in Sources */,
 				0940B55028D6D4180008A387 /* MenuGridRow.swift in Sources */,
 				091171F628E0E18C00052533 /* EmptyOrderView.swift in Sources */,
 				09C1CC2828CD53B0004548F1 /* MenuDataSource.swift in Sources */,

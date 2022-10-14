@@ -43,7 +43,7 @@ struct StartView: View {
 						.resizable()
 					Text("Menu")
 				}
-				.badge(menu.section.flatMap {$0.menuItems}.filter{$0.isInStock}.count) // badge display amount of menu items
+				.badge(menu.section.flatMap { $0.menuItems }.filter { $0.isInStock }.count) // badge display amount of menu items
 				.tag(1)
 
 			// tab with ordered items
@@ -56,18 +56,11 @@ struct StartView: View {
 				.badge(order.orderedItems.count)  // badge display amount of ordered items
 				.tag(2)
 		}
-		.onAppear{
+		.onAppear {
 			DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
 				launchScreenManager.dismiss()
 			}
 		}
-		.onAppear(perform: {
-			Task {
-				let loader = CookieDownloader()
-				await loader.downloadCookie()
-				await	loader.downloadModernCookie()
-			}
-		})
 	}
 }
 
