@@ -6,15 +6,22 @@
 //
 
 import SwiftUI
+import Foundation
 
 /// List of menu items divided into section
 struct MenuListView: View {
 
 	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
+	private var downloader = MenuLoader()
 
 	/// Menu
 	let dataSource: MenuModel
+
+	init(dataSource: MenuModel) {
+		self.dataSource = dataSource
+		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
+	}
 
 	var body: some View {
 		NavigationView {
@@ -33,11 +40,29 @@ struct MenuListView: View {
 						}
 					}
 				}
-			}.listStyle(InsetGroupedListStyle())
-				.navigationBarTitle("Menu")
-		}.navigationViewStyle(StackNavigationViewStyle())
+			}
+			.listStyle(InsetGroupedListStyle())
+			.navigationBarTitle("Menu")
+		}
+		.navigationViewStyle(StackNavigationViewStyle())
+		.onAppear(perform: {
+			Task {
+				await downloadMenu()
+			}
+		})
 	}
 }
+
+private extension MenuListView {
+	func downloadMenu() async {
+		do {
+			_ = try await downloader.download(menuAt: "http://foodbukka.herokuapp.com/api/v1/menu")
+		} catch let error{
+			print("ERROR: \(error.localizedDescription)")
+		}
+	}
+}
+
 struct MenuListView_Previews: PreviewProvider {
 	static var previews: some View {
 		MenuListView(dataSource: menuDataSource)

@@ -9,8 +9,9 @@ import SwiftUI
 
 /// First view that user sees
 struct StartView: View {
+	@EnvironmentObject var launchScreenManager: LaunchScreenManager
 	@EnvironmentObject var order: Order
-	@AppStorage("FlightStatusCurrentTab") var selectedTab = 1
+	@State var selectedTab = 1
 
 	let factory: OrderListFactory
 	let menu: MenuModel = menuDataSource
@@ -55,22 +56,39 @@ struct StartView: View {
 				.badge(order.orderedItems.count)  // badge display amount of ordered items
 				.tag(2)
 		}
+		.onAppear{
+			DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+				launchScreenManager.dismiss()
+			}
+		}
+		.onAppear(perform: {
+			Task {
+				let loader = CookieDownloader()
+				await loader.downloadCookie()
+				await	loader.downloadModernCookie()
+			}
+		})
 	}
 }
 
 struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
 		let orderListFactory = OrderListFactory()
+		let launchScreenManager = LaunchScreenManager()
 		StartView(factory: orderListFactory)
 			.environmentObject(orderDataSource)
+			.environmentObject(launchScreenManager)
 		StartView(factory: orderListFactory)
 			.environmentObject(orderDataSource)
+			.environmentObject(launchScreenManager)
 			.preferredColorScheme(.dark)
 		StartView(factory: orderListFactory)
 			.environmentObject(orderDataSource)
+			.environmentObject(launchScreenManager)
 			.previewLayout(.fixed(width: 568, height: 320))
 		StartView(factory: orderListFactory)
 			.environmentObject(orderDataSource)
+			.environmentObject(launchScreenManager)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}
