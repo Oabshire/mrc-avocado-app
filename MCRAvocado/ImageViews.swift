@@ -32,12 +32,11 @@ struct ImageViews_Previews: PreviewProvider {
 		ZStack {
 			Color("MainBackgroundColor").edgesIgnoringSafeArea(.all)
 			MainImageView(systemName: "avocado")
-			
+
 		}
 		ZStack {
 			Color("MainBackgroundColor").edgesIgnoringSafeArea(.all)
 			MainImageView(systemName: "avocado").preferredColorScheme(.dark)
-			
 		}
 	}
 }

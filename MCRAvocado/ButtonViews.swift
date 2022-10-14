@@ -25,9 +25,9 @@ struct BottomButton: View {
 	let color: Color
 	let action: () -> Void
 	var body: some View {
-		Button(action: {
+		Button {
 			action()
-		}) {
+		} label: {
 			Text(text.uppercased()).fontWeight(.bold).font(.title3)
 				.frame(maxWidth: Constants.Onboarding.buttonWidth)
 		}
@@ -44,6 +44,6 @@ struct BottomButton: View {
 
 struct ButtonViews_Previews: PreviewProvider {
 	static var previews: some View {
-		RoundImageViewStrokedFilled(systemName:"questionmark.circle")
+		RoundImageViewStrokedFilled(systemName: "questionmark.circle")
 	}
 }

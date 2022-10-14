@@ -57,7 +57,7 @@ private extension MenuListView {
 	func downloadMenu() async {
 		do {
 			_ = try await downloader.download(menuAt: "http://foodbukka.herokuapp.com/api/v1/menu")
-		} catch let error{
+		} catch let error {
 			print("ERROR: \(error.localizedDescription)")
 		}
 	}

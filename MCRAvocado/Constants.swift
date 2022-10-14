@@ -18,7 +18,7 @@ enum Constants {
 		public static let rowImageWidthHeight = CGFloat(60.0)
 		public static let rowImageCornerRadius = CGFloat(15)
 	}
-	
+
 	enum Onboarding {
 		public static let lineTextWidth = CGFloat(568.0)
 		public static let iconWidthHeight = CGFloat(30.0)

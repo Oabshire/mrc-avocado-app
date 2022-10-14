@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Factory to create screens for StartView
 struct OrderListFactory {
-	
+
 	/// Create screen for order tab
 	/// - Parameter order: order
 	/// - Returns: view with list of ordered items or screen with message if ordered items are empty

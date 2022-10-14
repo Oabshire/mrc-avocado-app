@@ -12,7 +12,7 @@ struct MenuDetailView: View {
 
 	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
-	
+
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
 
@@ -23,11 +23,11 @@ struct MenuDetailView: View {
 		GeometryReader { geometry in
 			let isPortrait = (verticalSizeClass == .regular && horizontalSizeClass == .compact)
 			if isPortrait {
-				ZStack{
+				ZStack {
 					Color.white
 						.edgesIgnoringSafeArea(.all)
 					VStack {
-						ZStack{
+						ZStack {
 							Image(menuItem.imageName)
 								.resizable()
 								.scaledToFill()
@@ -38,11 +38,11 @@ struct MenuDetailView: View {
 							.frame(height: 200)
 						}
 						.frame(height: geometry.size.height/4)
-						MenuItemDetailView(order: _order,menuItem: menuItem)
+						MenuItemDetailView(order: _order, menuItem: menuItem)
 					}
 				}
 			} else {
-				ZStack{
+				ZStack {
 					Color.white
 						.edgesIgnoringSafeArea(.all)
 					HStack {
@@ -58,7 +58,7 @@ struct MenuDetailView: View {
 						.edgesIgnoringSafeArea(.all)
 						.frame(width: geometry.size.width/3,
 									 height: geometry.size.height)
-						MenuItemDetailView(order: _order,menuItem: menuItem)
+						MenuItemDetailView(order: _order, menuItem: menuItem)
 					}
 				}
 			}
@@ -73,7 +73,7 @@ struct MenuDetailView_Previews: PreviewProvider {
 														price: 11.99,
 														isInStock: true,
 														calories: 610,
-														description:"Some long, very lond description, very very long  description",
+														description: "Some long, very long description, very very long  description",
 														type: .pancakes,
 														imageName: "blueberry_pancakes")
 

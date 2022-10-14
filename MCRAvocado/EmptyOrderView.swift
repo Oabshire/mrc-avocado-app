@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EmptyOrderView: View {
 	var body: some View {
-		VStack{
+		VStack {
 			Image(systemName: "cart")
 				.font(.system(size: 100))
 			Text("Your Cart is empty")

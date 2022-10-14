@@ -9,7 +9,7 @@
 class MenuItemToAddBuilder {
 
 	public var price: Double = 0
-	public var milktype: MilkType = .whole
+	public var milkType: MilkType = .whole
 	public var cupSize: CupSize = .grande
 	public var iced: Bool = false
 
@@ -31,7 +31,7 @@ class MenuItemToAddBuilder {
 private extension MenuItemToAddBuilder {
 
 	func buildHotDrink(from menuItem: MenuItem) -> MenuItem {
-		let name: String = cupSize.rawValue + " " + menuItem.name + " with " + milktype.rawValue.lowercased()
+		let name: String = cupSize.rawValue + " " + menuItem.name + " with " + milkType.rawValue.lowercased()
 
 		return MenuItem(name: name,
 										price: price,
@@ -40,7 +40,7 @@ private extension MenuItemToAddBuilder {
 										description: menuItem.description,
 										type: menuItem.type,
 										withIce: nil,
-										typeOfMilk: milktype,
+										typeOfMilk: milkType,
 										cupSize: cupSize,
 										imageName: menuItem.imageName)
 	}
@@ -50,7 +50,7 @@ private extension MenuItemToAddBuilder {
 		if iced {
 			name += " with ice"
 		}
-		
+
 		return MenuItem(name: name,
 										price: price,
 										isInStock: menuItem.isInStock,

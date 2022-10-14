@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-///List of ordered Items
+/// List of ordered Items
 struct OrderListView: View {
 
 	/// Order with added items or empty
@@ -15,7 +15,7 @@ struct OrderListView: View {
 
 	var body: some View {
 		NavigationView {
-			List(order.orderedItems.sorted(by:<), id: \.key) { key, value in
+			List(order.orderedItems.sorted(by: <), id: \.key) { key, value in
 				OrderRowView(menuItem: key, amount: value)
 			}
 			.navigationBarTitle("Order")
@@ -24,7 +24,6 @@ struct OrderListView: View {
 }
 
 struct OrderListView_Preview: PreviewProvider {
-	
 	static var previews: some View {
 		OrderListView()
 			.environmentObject(orderDataSource)

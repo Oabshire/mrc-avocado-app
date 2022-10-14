@@ -5,7 +5,6 @@
 //  Created by Onie on 04.09.2022.
 //
 
-
 /// type of discounts
 enum Discount: String {
 	case newYear = "New Year's Day"
@@ -19,7 +18,6 @@ enum Discount: String {
 	case thanksgivingDay = "Thanksgiving Day"
 	case christmasDay = "X-mas"
 	case none
-
 
 	/// Persentage value of discounts
 	var percentageValue: Int {
