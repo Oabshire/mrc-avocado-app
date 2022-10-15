@@ -12,22 +12,22 @@ class  SaveDataManager {
 	let dataJSONURL = URL(fileURLWithPath: "AllMenu",
 												relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
 
-	let dataPListURL = URL(fileURLWithPath: "PrioritizedTasks",
+	let dataPListURL = URL(fileURLWithPath: "Menu",
 												 relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("plist")
 
 	var menu: [MenuContainer] = [] {
 		didSet {
-			saveJSONPrioritizedTasks()
-			savePListPrioritizedTasks()
+			saveJSONMenu()
+			savePListMenu()
 		}
 	}
 
 	init() {
-    loadJSONPrioritizedTasks()
-		loadPListPrioritizedTasks()
+    loadJSONMenu()
+		loadPListMenu()
 	}
 
-	private func saveJSONPrioritizedTasks() {
+	private func saveJSONMenu() {
 		let encoder = JSONEncoder()
 		encoder.outputFormatting = .prettyPrinted
 
@@ -39,7 +39,7 @@ class  SaveDataManager {
 		}
 	}
 
-	private func savePListPrioritizedTasks() {
+	private func savePListMenu() {
 		let encoder = PropertyListEncoder()
 		encoder.outputFormat = .xml
 
@@ -51,7 +51,7 @@ class  SaveDataManager {
 		}
 	}
 
-	private func loadJSONPrioritizedTasks() {
+	private func loadJSONMenu() {
 		guard FileManager.default.fileExists(atPath: dataJSONURL.path) else {
 			return
 		}
@@ -68,7 +68,7 @@ class  SaveDataManager {
 		}
 	}
 
-	private func loadPListPrioritizedTasks() {
+	private func loadPListMenu() {
 		guard FileManager.default.fileExists(atPath: dataPListURL.path) else {
 			return
 		}

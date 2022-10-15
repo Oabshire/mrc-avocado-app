@@ -9,7 +9,7 @@ import SwiftUI
 
 /// First view that user sees
 struct StartView: View {
-	
+
 	@EnvironmentObject var launchScreenManager: LaunchScreenManager
 	@EnvironmentObject var order: Order
 	@State var selectedTab = 1

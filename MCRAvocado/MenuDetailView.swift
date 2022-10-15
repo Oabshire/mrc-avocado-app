@@ -9,7 +9,6 @@ import SwiftUI
 
 /// View for Detail information about menu item 
 struct MenuDetailView: View {
-	
 	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
