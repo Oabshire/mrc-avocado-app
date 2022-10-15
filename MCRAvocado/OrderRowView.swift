@@ -18,15 +18,10 @@ struct OrderRowView: View {
 
 	var body: some View {
 		HStack(alignment: .top) {
-			Image(menuItem.imageName)
-				.resizable()
-				.frame(width: Constants.General.rowImageWidthHeight,
-							 height: Constants.General.rowImageWidthHeight)
-				.cornerRadius(Constants.General.rowImageCornerRadius)
+			MenuImage(animalPicture: URL(string: menuItem.imageUrl))
 			VStack(alignment: .leading) {
 				Text(menuItem.name)
 					.font(.title2)
-
 				Text("$ " + String(menuItem.price) + " × " + String(amount))
 			}
 		}

@@ -8,19 +8,35 @@
 import Foundation
 
 /// Category of menu items
-enum MenuItemType: String {
-	case scrambles = "Scrambles"
-	case omelletes = "Omelettes"
-	case eggsBenedict = "Eggs Benedict"
-	case oatmeal = "Oatmeal"
-	case pancakes = "Pancakes"
-	case waffles = "Waffles"
-	case bagel = "Bagels"
-	case dessert = "Desserts"
-	case side = "Sides"
-	case coldDrinks = "Cold drinks"
-	case hotDrinks = "Hot drinks"
+enum MenuItemType: String, Codable {
+	case scrambles = "scrambles"
+	case omelletes = "omelettes"
+	case eggsBenedict = "eggs benedict"
+	case oatmeal = "oatmeal"
+	case pancakes = "pancakes"
+	case waffles = "waffles"
+	case bagel = "bagels"
+	case dessert = "desserts"
+	case side = "sides"
+	case coldDrinks = "cold drinks"
+	case hotDrinks = "hot drinks"
 	case other
+
+	init(from decoder: Decoder) throws {
+		// 1
+		let container = try decoder.singleValueContainer()
+		// 2
+		let rawString = try container.decode(String.self)
+
+		// 3
+		if let userType = MenuItemType(rawValue: rawString.lowercased()) {
+			self = userType
+		} else {
+			// 4
+			throw DecodingError.dataCorruptedError(in: container,
+																						 debugDescription: "Cannot initialize UserType from invalid String value \(rawString)")
+		}
+	}
 }
 
 /// Type of milk used for coffee, tea, and hot chocolate
@@ -61,7 +77,7 @@ struct MenuItem {
 	let withIce: Bool?
 	let typeOfMilk: MilkType?
 	let cupSize: CupSize?
-	let imageName: String
+	let imageUrl: String
 
 	/// Init
 	/// - Parameters:
@@ -94,7 +110,7 @@ struct MenuItem {
 		self.withIce = withIce
 		self.typeOfMilk = typeOfMilk
 		self.cupSize = cupSize
-		self.imageName = imageName
+		self.imageUrl = imageName
 	}
 }
 
