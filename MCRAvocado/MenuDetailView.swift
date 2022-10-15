@@ -14,10 +14,10 @@ struct MenuDetailView: View {
 	@EnvironmentObject var order: Order
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
-	
+
 	/// Source of data
 	let menuItem: MenuItemContainer
-	
+
 	var body: some View {
 		GeometryReader { geometry in
 			let isPortrait = (verticalSizeClass == .regular && horizontalSizeClass == .compact)

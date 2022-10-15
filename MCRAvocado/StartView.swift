@@ -9,11 +9,13 @@ import SwiftUI
 
 /// First view that user sees
 struct StartView: View {
+	
 	@EnvironmentObject var launchScreenManager: LaunchScreenManager
 	@EnvironmentObject var order: Order
 	@State var selectedTab = 1
 	@State var isLoading = true
 	private let requestManager = RequestManager()
+	private let saveDataManager = SaveDataManager()
 
 	let factory: OrderListFactory
 	@State var menu: [MenuContainer] = []
@@ -70,6 +72,7 @@ private extension StartView {
 		do {
 			let menuContainer: [MenuContainer] = try await requestManager.perform(MenuRequest.getAllMenu)
 			self.menu = menuContainer
+			saveDataManager.menu = menu
 			await stopLoading()
 		} catch let error {
 			print(error.localizedDescription)
