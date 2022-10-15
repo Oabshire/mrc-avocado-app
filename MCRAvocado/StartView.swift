@@ -59,11 +59,9 @@ struct StartView: View {
 				.badge(order.orderedItems.count)  // badge display amount of ordered items
 				.tag(2)
 		}
-		.onAppear(perform: {
-			Task {
-				await fetchMenu()
-			}
-		})
+		.task {
+			await fetchMenu()
+		}
 	}
 }
 
