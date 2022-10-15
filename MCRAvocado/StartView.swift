@@ -12,9 +12,12 @@ struct StartView: View {
 	@EnvironmentObject var launchScreenManager: LaunchScreenManager
 	@EnvironmentObject var order: Order
 	@State var selectedTab = 1
+	@State var isLoading = true
+	private let requestManager = RequestManager()
 
 	let factory: OrderListFactory
-	let menu: MenuModel = menuDataSource
+	@State var menu: [MenuContainer] = []
+
 	let discounts: [Discount] = discountDataSource
 
 	init(factory: OrderListFactory) {
@@ -43,7 +46,7 @@ struct StartView: View {
 						.resizable()
 					Text("Menu")
 				}
-				.badge(menu.section.flatMap {$0.menuItems}.filter{$0.isInStock}.count) // badge display amount of menu items
+				.badge(menu.flatMap { $0.menuItems }.filter { $0.isInStock }.count) // badge display amount of menu items
 				.tag(1)
 
 			// tab with ordered items
@@ -56,18 +59,27 @@ struct StartView: View {
 				.badge(order.orderedItems.count)  // badge display amount of ordered items
 				.tag(2)
 		}
-		.onAppear{
-			DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-				launchScreenManager.dismiss()
-			}
+		.task {
+			await fetchMenu()
 		}
-		.onAppear(perform: {
-			Task {
-				let loader = CookieDownloader()
-				await loader.downloadCookie()
-				await	loader.downloadModernCookie()
-			}
-		})
+	}
+}
+
+private extension StartView {
+	func fetchMenu() async {
+		do {
+			let menuContainer: [MenuContainer] = try await requestManager.perform(MenuRequest.getAllMenu)
+			self.menu = menuContainer
+			await stopLoading()
+		} catch let error {
+			print(error.localizedDescription)
+		}
+	}
+
+	@MainActor
+	func stopLoading() async {
+		isLoading = false
+		launchScreenManager.dismiss()
 	}
 }
 

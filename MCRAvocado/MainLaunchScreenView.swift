@@ -16,11 +16,11 @@ struct MainLaunchScreenView: View {
 																		on: .main,
 																		in: .common).autoconnect()
 	var body: some View {
-		ZStack{
+		ZStack {
 			background
 			logo
 			seed
-		}.onReceive(timer) { input in
+		}.onReceive(timer) { _ in
 			withAnimation(.spring()) {
 				switch launchScreenManager.state {
 				case .first:
@@ -60,17 +60,17 @@ private extension MainLaunchScreenView {
 	}
 
 	var seed: some View {
-		ZStack{
+		ZStack {
 			Circle()
 				.frame(width: 55, height: 55)
 				.foregroundColor(.mainBackgroundColor)
 
 			Circle()
 				.trim(from: 0.6, to: 0.8)
-				.stroke(style:  StrokeStyle(lineWidth: 2, lineCap: .round))
+				.stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round))
 				.foregroundColor(.white.opacity(0.8))
 
-				.frame(width: 45,height: 45)
+				.frame(width: 45, height: 45)
 		}
 		.scaleEffect(firstPhaseIsAnimating ? 1.5: 1)
 		.scaleEffect(secondPhaseIsAnimating ? UIScreen.main.bounds.height/4 : 1)

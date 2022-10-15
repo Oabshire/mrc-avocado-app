@@ -9,29 +9,29 @@
 class MenuItemToAddBuilder {
 
 	public var price: Double = 0
-	public var milktype: MilkType = .whole
+	public var milkType: MilkType = .whole
 	public var cupSize: CupSize = .grande
 	public var iced: Bool = false
 
 	/// Built menu idem to add to the order (Product)
 	/// - Parameter menuItem: menu item that user picked
 	/// - Returns: customized menu item
-	func buildMenuItem(from menuItem: MenuItem) -> MenuItem {
+	func buildMenuItem(from menuItem: MenuItemContainer) -> MenuItem {
 		switch menuItem.type {
 		case .coldDrinks:
 			return buildColdDrink(from: menuItem)
 		case .hotDrinks:
 			return buildHotDrink(from: menuItem)
 		default:
-			return menuItem
+			return buildDefaultMenuItem(from: menuItem)
 		}
 	}
 }
 
 private extension MenuItemToAddBuilder {
 
-	func buildHotDrink(from menuItem: MenuItem) -> MenuItem {
-		let name: String = cupSize.rawValue + " " + menuItem.name + " with " + milktype.rawValue.lowercased()
+	func buildHotDrink(from menuItem: MenuItemContainer) -> MenuItem {
+		let name: String = cupSize.rawValue + " " + menuItem.name + " with " + milkType.rawValue.lowercased()
 
 		return MenuItem(name: name,
 										price: price,
@@ -40,17 +40,17 @@ private extension MenuItemToAddBuilder {
 										description: menuItem.description,
 										type: menuItem.type,
 										withIce: nil,
-										typeOfMilk: milktype,
+										typeOfMilk: milkType,
 										cupSize: cupSize,
-										imageName: menuItem.imageName)
+										imageName: menuItem.imageUrl )
 	}
 
-	func buildColdDrink(from menuItem: MenuItem) -> MenuItem {
+	func buildColdDrink(from menuItem: MenuItemContainer) -> MenuItem {
 		var name: String = cupSize.rawValue + " " + menuItem.name
 		if iced {
 			name += " with ice"
 		}
-		
+
 		return MenuItem(name: name,
 										price: price,
 										isInStock: menuItem.isInStock,
@@ -60,6 +60,16 @@ private extension MenuItemToAddBuilder {
 										withIce: iced,
 										typeOfMilk: nil,
 										cupSize: cupSize,
-										imageName: menuItem.imageName)
+										imageName: menuItem.imageUrl)
+	}
+
+	func buildDefaultMenuItem(from menuItem: MenuItemContainer) -> MenuItem {
+		return MenuItem(name: menuItem.name,
+										price: menuItem.price,
+										isInStock: menuItem.isInStock,
+										calories: menuItem.calories,
+										description: menuItem.description,
+										type: menuItem.type,
+										imageName: menuItem.imageUrl)
 	}
 }

@@ -9,7 +9,7 @@
 enum TextLibrary { }
 
 extension TextLibrary {
-	
+
 	/// Texts used in views
 	enum AppTexts {
 		public static let menuText = "Menu"
@@ -23,8 +23,8 @@ extension TextLibrary {
 	}
 }
 
+// swiftlint:disable: line_length
 extension TextLibrary {
-	
 	/// Texts used as descriptions of MenuItem struct
 	enum MenuItemDescription {
 		public static let butterWaffle = "Our house-made Belgian Waffle topped with whipped real butter"

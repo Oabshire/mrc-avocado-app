@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// MARK: Song Downloader
+// MARK: Menu Downloader
 class MenuLoader {
 	// MARK: Song Download Error
 	enum MenuLoadError: Error {
@@ -56,7 +56,6 @@ class MenuLoader {
 		}
 	}
 }
-
 
 extension MenuLoader.MenuLoadError: LocalizedError {
 		public var errorDescription: String? {

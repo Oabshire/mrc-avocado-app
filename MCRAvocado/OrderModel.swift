@@ -9,39 +9,39 @@ import Foundation
 
 /// Order Model
 class Order: ObservableObject {
-	
+
 	// MARK: - Properties
 	@Published var orderedItems: [MenuItem: Int] = [:]
 	var discount: Discount = .none
 	let dateOfCreation: Date = Date()
-	
+
 	var amountWithoutDiscount: Double {
 		var totalPrice = 0.0
-		for a in orderedItems {
-			totalPrice += (a.key.price * Double(a.value))
+		for item in orderedItems {
+			totalPrice += (item.key.price * Double(item.value))
 		}
 		return totalPrice
 	}
-	
+
 	var discountedAmount: Double {
 		let amountAfterDiscount = amountWithoutDiscount - amountWithoutDiscount * Double(discount.percentageValue) / 100.0
 		return  amountAfterDiscount.roundTwoAfterPoint
 	}
-	
+
 	/// Init
 	/// - Parameters:
 	///   - orderedItems: ordered menu items and it amount
 	init(orderedItems: [MenuItem: Int]) {
 		self.orderedItems = orderedItems	}
-	
+
 	// MARK: - Functions
-	
+
 	/// Add menu item to existing order
 	/// - Parameters:
 	///   - item: menu item to add
 	///   - amount: amount of items
 	/// - Returns: True - if item added, false - if not.
-	func addMenuItem(item: MenuItem, amount: Int) -> Bool{
+	func addMenuItem(item: MenuItem, amount: Int) -> Bool {
 		guard item.isInStock else {
 			print("Sorry! Out of Stock :(")
 			return false
@@ -50,13 +50,12 @@ class Order: ObservableObject {
 		orderedItems[item] = existingAmount + amount
 		return true
 	}
-	
-	
+
 	/// Full print ordered items with amount
 	func printOrderedItems() {
 		orderedItems.forEach { print("\(createStringForPrint(from: ($0))): \($1)") }
 	}
-	
+
 	/// Print Name and amount of ordered items
 	func printOrderedItemsNameAndAmount() {
 		print("---- Order ----")
@@ -70,7 +69,12 @@ class Order: ObservableObject {
 
 private extension Order {
 	func createStringForPrint(from menuItem: MenuItem) -> String {
-		var result = "Name: \(menuItem.name), Price: \(menuItem.price), Is in stock: \(menuItem.isInStock), Calories: \(menuItem.calories), Type: \(menuItem.type)"
+		var result = """
+				Name: \(menuItem.name),
+				Price: \(menuItem.price),
+				Is in stock: \(menuItem.isInStock),
+				Calories: \(menuItem.calories), Type: \(menuItem.type)
+		"""
 		if let description = menuItem.description {
 			result += ", Description: \(description)"
 		}
@@ -84,7 +88,7 @@ private extension Order {
 			result += ", Cup Size: \(cupSize)"
 		}
 		result += ", Type: \(menuItem.type)"
-		
+
 		return result
 	}
 }

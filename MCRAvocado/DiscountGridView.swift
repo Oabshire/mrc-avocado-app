@@ -15,9 +15,9 @@ struct DiscountGridView: View {
 	let discountsDataSource: [Discount]
 
 	var body: some View {
-		ZStack{
+		ZStack {
 			NavigationView {
-				ScrollView{
+				ScrollView {
 					LazyVGrid(columns: .init(repeating: .init(), count: 2)) {
 						ForEach(discountsDataSource) { discount in
 							MenuGridRow(discount: discount)
@@ -30,9 +30,9 @@ struct DiscountGridView: View {
 			if !isActive {
 				AdditionalLaunchScreenView()
 			}
-		}.onAppear{
+		}.onAppear {
 			DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
-				withAnimation{
+				withAnimation {
 					isActive.toggle()
 				}
 			}

@@ -65,7 +65,6 @@ struct DetailDescriptionText: View {
 	let lineText: String
 	var body: some View {
 		Text(lineText)
-			.foregroundColor(.black)
 			.kerning(1.5)
 			.font(.title3)
 			.fontWeight(.medium)
@@ -97,7 +96,7 @@ struct KcalText: View {
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
-			VStack() {
+			VStack {
 				WelcomeText(text: TextLibrary.AppTexts.welcomeText).background(.black)
 				UserNameText(text: TextLibrary.AppTexts.userNameText).background(.black)
 				OnboardingTitleText(text: "Onboarding Title Text")

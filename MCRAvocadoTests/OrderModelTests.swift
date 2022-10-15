@@ -11,7 +11,7 @@ import XCTest
 final class OrderModelTests: XCTestCase {
 	private var sut: Order!
 	private var menuItem: MenuItem!
-	
+
 	override func setUpWithError() throws {
 		super.setUp()
 		menuItem = MenuItem(name: "Oatmeal",
@@ -23,7 +23,7 @@ final class OrderModelTests: XCTestCase {
 												imageName: "oatmeal")
 		sut = Order(orderedItems: [menuItem: 2])
 	}
-	
+
 	override func tearDownWithError() throws {
 		menuItem = nil
 		sut = nil
@@ -39,38 +39,38 @@ extension OrderModelTests {
 												price: 4.5,
 												isInStock: true,
 												calories: 610,
-												description:"",
+												description: "",
 												type: .pancakes,
 												imageName: "blueberry_pancake")
 		// act
 		let result = sut.addMenuItem(item: menuItem, amount: 1)
-		
+
 		// assert
 		XCTAssertTrue(result)
 		XCTAssertEqual(sut.orderedItems[menuItem], 1)
 	}
-	
+
 	func testAddNewMenuItemIsOutStock() {
 		// arrange
 		menuItem = MenuItem(name: "Blueberry pancake",
 												price: 4.5,
 												isInStock: false,
 												calories: 610,
-												description:"",
+												description: "",
 												type: .pancakes,
 												imageName: "blueberry_pancake")
 		// act
 		let result = sut.addMenuItem(item: menuItem, amount: 1)
-		
+
 		// assert
 		XCTAssertFalse(result)
 		XCTAssertNil(sut.orderedItems[menuItem])
 	}
-	
+
 	func testAddExistingMenuItemIsOutStock() {
 		// arrange & act
 		let result = sut.addMenuItem(item: menuItem, amount: 1)
-		
+
 		// assert
 		XCTAssertTrue(result)
 		XCTAssertEqual(sut.orderedItems[menuItem], 3)
@@ -85,7 +85,7 @@ extension OrderModelTests {
 														 price: 4.5,
 														 isInStock: false,
 														 calories: 610,
-														 description:"",
+														 description: "",
 														 type: .pancakes,
 														 imageName: "blueberry_pancake")
 		let menuItem1 = MenuItem(name: "Oatmeal",
@@ -100,14 +100,14 @@ extension OrderModelTests {
 		XCTAssertEqual(sut.amountWithoutDiscount, 25.9)
 		XCTAssertEqual(sut.discountedAmount, 25.9)
 	}
-	
+
 	func testAmountWithDiscount() {
 		// arrange
 		let menuItem0 = MenuItem(name: "Blueberry pancake",
 														 price: 4.5,
 														 isInStock: false,
 														 calories: 610,
-														 description:"",
+														 description: "",
 														 type: .pancakes,
 														 imageName: "blueberry_pancake")
 		let menuItem1 = MenuItem(name: "Oatmeal",

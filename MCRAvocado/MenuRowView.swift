@@ -9,20 +9,16 @@ import SwiftUI
 
 /// View of row for Menu List
 struct MenuRowView: View {
-	let menuItem: MenuItem
+	let menuItem: MenuItemContainer
 	var body: some View {
-		HStack (alignment: .top) {
-			Image(menuItem.imageName)
-				.resizable()
-				.frame(width: Constants.General.rowImageWidthHeight,
-							 height: Constants.General.rowImageWidthHeight)
-				.cornerRadius(Constants.General.rowImageCornerRadius)
+		HStack(alignment: .top) {
+			MenuImage(animalPicture: URL(string: menuItem.imageUrl))
 			VStack(alignment: .leading, spacing: 10) {
 				HStack(alignment: .top) {
 					Text(menuItem.name)
 						.font(.title2)
 					Spacer()
-					VStack(alignment:.trailing) {
+					VStack(alignment: .trailing) {
 						Text("$ " + String(menuItem.price))
 						Text("Kcal " + String(menuItem.calories))
 					}
@@ -35,16 +31,18 @@ struct MenuRowView: View {
 }
 
 struct MenuRowView_Previews: PreviewProvider {
+	// swiftlint:disable: line_length
 	static var previews: some View {
 		ZStack {
 			Color(.green)
-			MenuRowView(menuItem: MenuItem(name: "Pumpkin spice pancakes",
-																		 price: 11.99,
-																		 isInStock: true,
-																		 calories: 610,
-																		 description: TextLibrary.MenuItemDescription.pumpkinPancake, type: .pancakes,
-																		 imageName: "pumpkin_spice_pancakes"))
-			
+			MenuRowView(menuItem:	MenuItemContainer(menuId: UUID(),
+																							name: "Blueberry pancakes",
+																							price: 11.99,
+																							isInStock: true,
+																							calories: 610,
+																							description: TextLibrary.MenuItemDescription.blueberryPancake,
+																							type: .hotDrinks,
+																							imageUrl: "https://res.cloudinary.com/jobizil/image/upload/v1602768183/images/menus/xnurgo60mme1ewupfbin.jpg"))
 		}
 		.edgesIgnoringSafeArea(.all)
 	}

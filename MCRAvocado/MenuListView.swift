@@ -13,12 +13,11 @@ struct MenuListView: View {
 
 	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
-	private var downloader = MenuLoader()
 
 	/// Menu
-	let dataSource: MenuModel
+	let dataSource: [MenuContainer]
 
-	init(dataSource: MenuModel) {
+	init(dataSource: [MenuContainer]) {
 		self.dataSource = dataSource
 		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
 	}
@@ -26,11 +25,11 @@ struct MenuListView: View {
 	var body: some View {
 		NavigationView {
 			List {
-				ForEach(dataSource.section, id: \.hashValue) { section in
+				ForEach(dataSource, id: \.name) { section in
 					Section(
-						header: Text(section.name.rawValue)
+						header: Text(section.name)
 					) {
-						ForEach(section.menuItems) { item in
+						ForEach(section.menuItems ,id: \.name) { item in
 							if item.isInStock == true {
 								NavigationLink(
 									destination: MenuDetailView(order: _order, menuItem: item)) {
@@ -45,35 +44,30 @@ struct MenuListView: View {
 			.navigationBarTitle("Menu")
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
-		.onAppear(perform: {
-			Task {
-				await downloadMenu()
-			}
-		})
-	}
-}
-
-private extension MenuListView {
-	func downloadMenu() async {
-		do {
-			_ = try await downloader.download(menuAt: "http://foodbukka.herokuapp.com/api/v1/menu")
-		} catch let error{
-			print("ERROR: \(error.localizedDescription)")
-		}
 	}
 }
 
 struct MenuListView_Previews: PreviewProvider {
 	static var previews: some View {
-		MenuListView(dataSource: menuDataSource)
+		// swiftlint:disable: line_length
+		let menuItem = MenuItemContainer(menuId: UUID(),
+																		 name: "Blueberry pancakes",
+																		 price: 11.99,
+																		 isInStock: true,
+																		 calories: 610,
+																		 description: TextLibrary.MenuItemDescription.blueberryPancake,
+																		 type: .hotDrinks,
+																		 imageUrl: "https://res.cloudinary.com/jobizil/image/upload/v1602768183/images/menus/xnurgo60mme1ewupfbin.jpg")
+		let menuSource = [MenuContainer(name: "hot drinks", menuItems: [menuItem])]
+		MenuListView(dataSource: menuSource)
 			.environmentObject(orderDataSource)
-		MenuListView(dataSource: menuDataSource)
+		MenuListView(dataSource: menuSource)
 			.environmentObject(orderDataSource)
 			.preferredColorScheme(.dark)
-		MenuListView(dataSource: menuDataSource)
+		MenuListView(dataSource: menuSource)
 			.environmentObject(orderDataSource)
 			.previewLayout(.fixed(width: 568, height: 320))
-		MenuListView(dataSource: menuDataSource)
+		MenuListView(dataSource: menuSource)
 			.environmentObject(orderDataSource)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
