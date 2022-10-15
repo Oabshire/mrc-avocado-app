@@ -8,13 +8,13 @@
 import Foundation
 
 /// Container of all menu
-struct MenuContainer: Decodable {
+struct MenuContainer: Codable {
 	let name: String
 	let menuItems: [MenuItemContainer]
 }
 
 /// Container of  menu items
-struct MenuItemContainer: Decodable {
+struct MenuItemContainer: Codable {
 	let menuId: UUID
 	let name: String
 	let price: Double

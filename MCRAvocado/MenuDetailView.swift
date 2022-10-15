@@ -9,15 +9,14 @@ import SwiftUI
 
 /// View for Detail information about menu item 
 struct MenuDetailView: View {
-	
 	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
-	
+
 	/// Source of data
 	let menuItem: MenuItemContainer
-	
+
 	var body: some View {
 		GeometryReader { geometry in
 			let isPortrait = (verticalSizeClass == .regular && horizontalSizeClass == .compact)

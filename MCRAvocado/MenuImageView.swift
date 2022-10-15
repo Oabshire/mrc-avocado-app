@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuImage: View {
 	let animalPicture: URL?
-	
+
 	var body: some View {
 		AsyncImage(url:animalPicture) { image in
 			image
