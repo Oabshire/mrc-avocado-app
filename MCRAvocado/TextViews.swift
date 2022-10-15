@@ -65,7 +65,6 @@ struct DetailDescriptionText: View {
 	let lineText: String
 	var body: some View {
 		Text(lineText)
-			.foregroundColor(.black)
 			.kerning(1.5)
 			.font(.title3)
 			.fontWeight(.medium)

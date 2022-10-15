@@ -9,16 +9,15 @@ import SwiftUI
 
 /// View for Detail information about menu item 
 struct MenuDetailView: View {
-
+	
 	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
-
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
-
+	
 	/// Source of data
-	let menuItem: MenuItem
-
+	let menuItem: MenuItemContainer
+	
 	var body: some View {
 		GeometryReader { geometry in
 			let isPortrait = (verticalSizeClass == .regular && horizontalSizeClass == .compact)
@@ -28,9 +27,7 @@ struct MenuDetailView: View {
 						.edgesIgnoringSafeArea(.all)
 					VStack {
 						ZStack {
-							Image(menuItem.imageName)
-								.resizable()
-								.scaledToFill()
+							DetailImageView(menuItemPicture: URL(string: menuItem.imageUrl))
 							LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear]),
 														 startPoint: .top,
 														 endPoint: .bottom)
@@ -47,9 +44,7 @@ struct MenuDetailView: View {
 						.edgesIgnoringSafeArea(.all)
 					HStack {
 						ZStack(alignment: .top) {
-							Image(menuItem.imageName)
-								.resizable()
-								.scaledToFill()
+							DetailImageView(menuItemPicture: URL(string: menuItem.imageUrl))
 							LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), Color.clear]),
 														 startPoint: .top,
 														 endPoint: .bottom)
@@ -67,16 +62,16 @@ struct MenuDetailView: View {
 }
 
 struct MenuDetailView_Previews: PreviewProvider {
-
 	static var previews: some View {
-		let menuItem = MenuItem(name: "Blueberry pancake",
-														price: 11.99,
-														isInStock: true,
-														calories: 610,
-														description: "Some long, very long description, very very long  description",
-														type: .pancakes,
-														imageName: "blueberry_pancakes")
-
+		// swiftlint:disable: line_length
+		let menuItem = MenuItemContainer(menuId: UUID(),
+																		 name: "Blueberry pancakes",
+																		 price: 11.99,
+																		 isInStock: true,
+																		 calories: 610,
+																		 description: TextLibrary.MenuItemDescription.blueberryPancake,
+																		 type: .hotDrinks,
+																		 imageUrl: "https://res.cloudinary.com/jobizil/image/upload/v1602768183/images/menus/xnurgo60mme1ewupfbin.jpg")
 		MenuDetailView(menuItem: menuItem)
 		MenuDetailView(menuItem: menuItem)
 			.preferredColorScheme(.dark)

@@ -29,7 +29,7 @@ struct MenuItemDetailView: View {
 	let milkTypes: [MilkType] = [ .whole, .nonFat, .soy, .almond, .coconut, .oatMilk, .heavyCream]
 	let cupSizes: [CupSize] = [ .tall, .grande, .venti]
 	/// Source of data
-	let menuItem: MenuItem
+	let menuItem: MenuItemContainer
 
 	var body: some View {
 		VStack {
@@ -88,20 +88,21 @@ struct MenuItemDetailView: View {
 			}
 		}
 		.padding()
-		.background(Color.white)
+		.background(Color.defaultBackgroundColor)
 	}
 }
 
+// swiftlint:disable: line_length
 struct MenuItemDetailView_Previews: PreviewProvider {
-
 	static var previews: some View {
-		let menuItem = MenuItem(name: "Blueberry pancakes",
-														price: 11.99,
-														isInStock: true,
-														calories: 610,
-														description: TextLibrary.MenuItemDescription.blueberryPancake,
-														type: .hotDrinks,
-														imageName: "blueberry_pancakes")
+		let menuItem = MenuItemContainer(menuId: UUID(),
+																		 name: "Blueberry pancakes",
+																		 price: 11.99,
+																		 isInStock: true,
+																		 calories: 610,
+																		 description: TextLibrary.MenuItemDescription.blueberryPancake,
+																		 type: .hotDrinks,
+																		 imageUrl: "https://res.cloudinary.com/jobizil/image/upload/v1602768183/images/menus/xnurgo60mme1ewupfbin.jpg")
 
 		MenuItemDetailView(menuItem: menuItem)
 			.environmentObject(orderDataSource)
