@@ -28,6 +28,7 @@
 		0954C5EA28FA6AAC00ECD2C0 /* DetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0954C5E928FA6AAC00ECD2C0 /* DetailImageView.swift */; };
 		09573CB528FB475D00775985 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09573CB428FB475D00775985 /* FileManager.swift */; };
 		09573CB728FB47CD00775985 /* SaveDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09573CB628FB47CD00775985 /* SaveDataManager.swift */; };
+		09573CF928FC842000775985 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09573CF828FC842000775985 /* DataManager.swift */; };
 		095AD0C828BBF53000651B36 /* MenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0C728BBF53000651B36 /* MenuItemModel.swift */; };
 		095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0CA28BBF75900651B36 /* OrderModel.swift */; };
 		095AD0E028BBFF9200651B36 /* OrderModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */; };
@@ -90,6 +91,7 @@
 		0954C5E928FA6AAC00ECD2C0 /* DetailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageView.swift; sourceTree = "<group>"; };
 		09573CB428FB475D00775985 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		09573CB628FB47CD00775985 /* SaveDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataManager.swift; sourceTree = "<group>"; };
+		09573CF828FC842000775985 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		095AD0C728BBF53000651B36 /* MenuItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemModel.swift; sourceTree = "<group>"; };
 		095AD0CA28BBF75900651B36 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCRAvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,8 +256,7 @@
 				0949F44C28B1B51F000B9CE6 /* App */,
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
 				09928FEF28FA224A00AEFF21 /* NetworkLayer */,
-				09573CB428FB475D00775985 /* FileManager.swift */,
-				09573CB628FB47CD00775985 /* SaveDataManager.swift */,
+				09573CF728FC83EF00775985 /* SaveData */,
 			);
 			path = MCRAvocado;
 			sourceTree = "<group>";
@@ -296,6 +297,15 @@
 			name = App;
 			sourceTree = "<group>";
 		};
+		09573CF728FC83EF00775985 /* SaveData */ = {
+			isa = PBXGroup;
+			children = (
+				09573CB428FB475D00775985 /* FileManager.swift */,
+				09573CB628FB47CD00775985 /* SaveDataManager.swift */,
+			);
+			name = SaveData;
+			sourceTree = "<group>";
+		};
 		095AD0DE28BBFF9200651B36 /* MCRAvocadoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,9 +320,9 @@
 				09928FF728FA289900AEFF21 /* Network */,
 				09928FF028FA225D00AEFF21 /* Request */,
 				09928FF828FA28AB00AEFF21 /* MenuContainer.swift */,
-				09928FFC28FA30AF00AEFF21 /* NetworkError.swift */,
 				09928FFE28FA33F700AEFF21 /* DataParser.swift */,
 				0992900028FA350B00AEFF21 /* APIConstants.swift */,
+				09573CF828FC842000775985 /* DataManager.swift */,
 			);
 			name = NetworkLayer;
 			sourceTree = "<group>";
@@ -330,6 +340,7 @@
 		09928FF728FA289900AEFF21 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				09928FFC28FA30AF00AEFF21 /* NetworkError.swift */,
 				09928FF128FA233100AEFF21 /* RequestManager.swift */,
 				09928FED28FA222D00AEFF21 /* APIManager.swift */,
 			);
@@ -538,6 +549,7 @@
 				09F7AAFF28C595A400262C52 /* DoubleExtension.swift in Sources */,
 				09AF6FD128CEBF9D00B30F08 /* MenuItemDetailView.swift in Sources */,
 				0949F44628B1B3D5000B9CE6 /* TextLibrary.swift in Sources */,
+				09573CF928FC842000775985 /* DataManager.swift in Sources */,
 				0954C5EA28FA6AAC00ECD2C0 /* DetailImageView.swift in Sources */,
 				0940B54C28D6C6590008A387 /* StartView.swift in Sources */,
 				09573CB528FB475D00775985 /* FileManager.swift in Sources */,
