@@ -11,12 +11,15 @@ import SwiftUI
 struct MCRAvocadoApp: App {
 	@StateObject var order = Order(orderedItems: [:])
 	@StateObject var launchScreenManager = LaunchScreenManager()
+	@StateObject var dataManager = DataManager()
 	var body: some Scene {
 		WindowGroup {
 			ZStack {
-			StartView(factory: OrderListFactory()).environmentObject(order)
+				StartView(factory: OrderListFactory())
+					.environmentObject(order)
+					.environmentObject(dataManager)
 				if launchScreenManager.state != .complete {
-				MainLaunchScreenView()
+					MainLaunchScreenView()
 				}
 			}.environmentObject(launchScreenManager)
 		}

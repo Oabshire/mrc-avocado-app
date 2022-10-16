@@ -12,13 +12,12 @@ struct StartView: View {
 
 	@EnvironmentObject var launchScreenManager: LaunchScreenManager
 	@EnvironmentObject var order: Order
+	@EnvironmentObject var dataManager: DataManager
 	@State var selectedTab = 1
 	@State var isLoading = true
-	private let requestManager = RequestManager()
-	private let saveDataManager = SaveDataManager()
+	//	private let saveDataManager = SaveDataManager()
 
 	let factory: OrderListFactory
-	@State var menu: [MenuContainer] = []
 
 	let discounts: [Discount] = discountDataSource
 
@@ -38,17 +37,19 @@ struct StartView: View {
 						.resizable()
 					Text("Discounts")
 				}
-				.badge(discounts.count) // badge display amount of discount
+			// badge display amount of discount
+				.badge(discounts.count)
 				.tag(0)
 
 			// tab with menu
-			MenuListView(dataSource: menu).environmentObject(order)
+			MenuListView(dataSource: dataManager.menu).environmentObject(order)
 				.tabItem {
 					Image(systemName: "menucard")
 						.resizable()
 					Text("Menu")
 				}
-				.badge(menu.flatMap { $0.menuItems }.filter { $0.isInStock }.count) // badge display amount of menu items
+			// badge display amount of menu items
+				.badge(dataManager.menu.flatMap { $0.menuItems }.filter { $0.isInStock }.count)
 				.tag(1)
 
 			// tab with ordered items
@@ -58,31 +59,16 @@ struct StartView: View {
 						.resizable()
 					Text("Order")
 				}
-				.badge(order.orderedItems.count)  // badge display amount of ordered items
+			// badge display amount of ordered items
+				.badge(order.orderedItems.count)
 				.tag(2)
 		}
 		.task {
-			await fetchMenu()
+			await dataManager.fetchMenu()
+			if !dataManager.isLoading {
+				launchScreenManager.dismiss()
+			}
 		}
-	}
-}
-
-private extension StartView {
-	func fetchMenu() async {
-		do {
-			let menuContainer: [MenuContainer] = try await requestManager.perform(MenuRequest.getAllMenu)
-			self.menu = menuContainer
-			saveDataManager.menu = menu
-			await stopLoading()
-		} catch let error {
-			print(error.localizedDescription)
-		}
-	}
-
-	@MainActor
-	func stopLoading() async {
-		isLoading = false
-		launchScreenManager.dismiss()
 	}
 }
 
