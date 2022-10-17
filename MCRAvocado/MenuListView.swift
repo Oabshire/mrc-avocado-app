@@ -21,6 +21,8 @@ struct MenuListView: View {
 	@FetchRequest(sortDescriptors: [])
 	var menuSections: FetchedResults<SectionEntity>
 
+	private let saveDataManager = SaveDataManager()
+
 	init(isLoading: Binding<Bool>) {
 		self._isLoading = isLoading
 		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
@@ -89,6 +91,7 @@ private extension MenuListView {
 	func fetchMenu() async {
 		let  dataManager = DataManager()
 		let menuContainer: [MenuSectionContainer] = await dataManager.getMenu()
+		saveDataManager.menu = menuContainer
 		if !menuContainer.isEmpty {
 			for section in menuSections {
 				do {
