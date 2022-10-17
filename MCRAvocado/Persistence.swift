@@ -14,8 +14,6 @@ struct PersistenceController {
 		let result = PersistenceController(inMemory: true)
 		let viewContext = result.container.viewContext
 
-		// Dummy data will go here later
-
 		do {
 			try viewContext.save()
 		} catch {
