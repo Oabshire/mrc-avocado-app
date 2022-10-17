@@ -26,6 +26,19 @@ struct MenuListView: View {
 		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
 	}
 
+	let predicatesTypes = [
+		(name: "ALL", predicate: nil),
+		(name: "Waffles", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.waffles.rawValue)),
+		(name: "Eggs Benedict", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.eggsBenedict.rawValue)),
+		(name: "Oatmeal", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.oatmeal.rawValue)),
+		(name: "Omelletes", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.omelletes.rawValue)),
+		(name: "Bagels", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.bagel.rawValue)),
+		(name: "Pancackes", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.pancakes.rawValue)),
+		(name: "Desserts", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.dessert.rawValue)),
+		(name: "Cold Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.coldDrinks.rawValue)),
+		(name: "Hot Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.hotDrinks.rawValue))
+	 ]
+
 	var body: some View {
 		NavigationView {
 			List {
@@ -45,6 +58,25 @@ struct MenuListView: View {
 			}
 			.listStyle(InsetGroupedListStyle())
 			.navigationBarTitle("Menu")
+			   .onChange(of: activeFilterIndex) { _ in
+					 menuSections.nsPredicate = predicatesTypes[activeFilterIndex].predicate
+			   }
+			   .toolbar {
+			    Menu(content: {
+			     Picker(
+			      selection: $activeFilterIndex,
+			      content: {
+			       ForEach(0..<predicatesTypes.count, id: \.self) { index in
+			        let sortType = predicatesTypes[index]
+			        Text(sortType.name)
+			       }
+			      },
+			      label: {}
+			     )
+			    }, label: {
+			     Image(systemName: "line.3.horizontal.decrease.circle.fill")
+			    })
+			   }
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
 		.task {
