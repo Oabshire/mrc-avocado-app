@@ -92,7 +92,6 @@ struct MenuItemDetailView: View {
 	}
 }
 
-// swiftlint:disable: line_length
 struct MenuItemDetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		let menuItem = MenuItemContainer(menuId: UUID(),
@@ -102,7 +101,7 @@ struct MenuItemDetailView_Previews: PreviewProvider {
 																		 calories: 610,
 																		 description: TextLibrary.MenuItemDescription.blueberryPancake,
 																		 type: .hotDrinks,
-																		 imageUrl: "https://res.cloudinary.com/jobizil/image/upload/v1602768183/images/menus/xnurgo60mme1ewupfbin.jpg")
+																		 imageUrl: nil)
 
 		MenuItemDetailView(menuItem: menuItem)
 			.environmentObject(orderDataSource)

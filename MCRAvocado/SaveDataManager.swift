@@ -15,7 +15,7 @@ class  SaveDataManager {
 	let dataPListURL = URL(fileURLWithPath: "Menu",
 												 relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("plist")
 
-	var menu: [MenuContainer] = [] {
+	var menu: [MenuSectionContainer] = [] {
 		didSet {
 			saveJSONMenu()
 			savePListMenu()
@@ -60,7 +60,7 @@ class  SaveDataManager {
 
 		do {
 			let menuData = try Data(contentsOf: dataJSONURL)
-			menu = try decoder.decode([MenuContainer].self, from: menuData)
+			menu = try decoder.decode([MenuSectionContainer].self, from: menuData)
 			print("-------JSON DATA --------")
 			print(menu)
 		} catch let error {
@@ -77,7 +77,7 @@ class  SaveDataManager {
 
 		do {
 			let menuData = try Data(contentsOf: dataPListURL)
-			menu = try decoder.decode([MenuContainer].self, from: menuData)
+			menu = try decoder.decode([MenuSectionContainer].self, from: menuData)
 			print("-------Plist DATA --------")
 			print(menu)
 		} catch let error {

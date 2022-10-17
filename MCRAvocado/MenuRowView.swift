@@ -12,7 +12,7 @@ struct MenuRowView: View {
 	let menuItem: MenuItemContainer
 	var body: some View {
 		HStack(alignment: .top) {
-			MenuImage(animalPicture: URL(string: menuItem.imageUrl))
+			MenuImage(url: menuItem.imageUrl)
 			VStack(alignment: .leading, spacing: 10) {
 				HStack(alignment: .top) {
 					Text(menuItem.name)
@@ -31,7 +31,6 @@ struct MenuRowView: View {
 }
 
 struct MenuRowView_Previews: PreviewProvider {
-	// swiftlint:disable: line_length
 	static var previews: some View {
 		ZStack {
 			Color(.green)
@@ -42,7 +41,7 @@ struct MenuRowView_Previews: PreviewProvider {
 																							calories: 610,
 																							description: TextLibrary.MenuItemDescription.blueberryPancake,
 																							type: .hotDrinks,
-																							imageUrl: "https://res.cloudinary.com/jobizil/image/upload/v1602768183/images/menus/xnurgo60mme1ewupfbin.jpg"))
+																							imageUrl:nil))
 		}
 		.edgesIgnoringSafeArea(.all)
 	}

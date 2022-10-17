@@ -77,7 +77,7 @@ struct MenuItem {
 	let withIce: Bool?
 	let typeOfMilk: MilkType?
 	let cupSize: CupSize?
-	let imageUrl: String
+	let imageUrl: URL?
 
 	/// Init
 	/// - Parameters:
@@ -100,7 +100,7 @@ struct MenuItem {
 			 withIce: Bool? = nil,
 			 typeOfMilk: MilkType? = nil,
 			 cupSize: CupSize? = nil,
-			 imageName: String) {
+			 imageUrl: URL? = nil) {
 		self.name = name
 		self.price = price
 		self.isInStock = isInStock
@@ -110,7 +110,7 @@ struct MenuItem {
 		self.withIce = withIce
 		self.typeOfMilk = typeOfMilk
 		self.cupSize = cupSize
-		self.imageUrl = imageName
+		self.imageUrl = imageUrl
 	}
 }
 

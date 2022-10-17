@@ -7,33 +7,36 @@
 
 import SwiftUI
 import Foundation
+import CoreData
 
 /// List of menu items divided into section
 struct MenuListView: View {
+	@Environment(\.managedObjectContext) var viewContext
 
-	/// Order to which menu items are added
 	@EnvironmentObject var order: Order
 
-	/// Menu
-	let dataSource: [MenuContainer]
+	@State var activeFilterIndex = 0
+	@Binding var isLoading: Bool
 
-	init(dataSource: [MenuContainer]) {
-		self.dataSource = dataSource
+	@FetchRequest(sortDescriptors: [])
+	var menuSections: FetchedResults<SectionEntity>
+
+	init(isLoading: Binding<Bool>) {
+		self._isLoading = isLoading
 		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
 	}
 
 	var body: some View {
 		NavigationView {
 			List {
-				ForEach(dataSource, id: \.name) { section in
-					Section(
-						header: Text(section.name)
-					) {
-						ForEach(section.menuItems ,id: \.name) { item in
+				ForEach(menuSections, id: \.name) { section in
+					Section(section.name ?? "") {
+						ForEach(section.menuItems ?? [] ,id: \.name) { item in
 							if item.isInStock == true {
+								let itemContainer = createItemContainer(from: item)
 								NavigationLink(
-									destination: MenuDetailView(order: _order, menuItem: item)) {
-										MenuRowView(menuItem: item).padding(.top)
+									destination: MenuDetailView(order: _order, menuItem:itemContainer)) {
+										MenuRowView(menuItem: itemContainer).padding(.top)
 									}
 							}
 						}
@@ -44,30 +47,73 @@ struct MenuListView: View {
 			.navigationBarTitle("Menu")
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
+		.task {
+			await fetchMenu()
+		}
+	}
+}
+
+private extension MenuListView {
+	func fetchMenu() async {
+		let  dataManager = DataManager()
+		let menuContainer: [MenuSectionContainer] = await dataManager.getMenu()
+		if !menuContainer.isEmpty {
+			for section in menuSections {
+				do {
+					try PersistenceController.deleteSection(section: section)
+				} catch {
+					print("Error deleting list")
+				}
+			}
+			for section in menuContainer {
+				let sectionEntity = SectionEntity.create(withTitle: section.name , in: self.viewContext)
+				for item in section.menuItems {
+					ItemEntity.createWith(item: item,
+																in: sectionEntity,
+																using: self.viewContext)
+				}
+			}
+		}
+		await stopLoading()
+	}
+
+	@MainActor
+	func stopLoading() async {
+		isLoading = false
+	}
+
+	func createItemsArray(from entities: FetchedResults<ItemEntity>) -> [MenuItemContainer] {
+		var resultArray: [MenuItemContainer] = []
+		for item in entities {
+			resultArray.append(createItemContainer(from: item))
+		}
+		print(resultArray)
+		return resultArray
+	}
+
+	func 	createItemContainer (from entity: FetchedResults<ItemEntity>.Element ) -> MenuItemContainer {
+		MenuItemContainer(menuId: entity.id,
+											name: entity.name,
+											price: entity.price,
+											isInStock: entity.isInStock,
+											calories: Int(entity.calories),
+											description: entity.descript,
+											type: MenuItemType(rawValue: entity.type) ?? .other,
+											imageUrl: entity.imageUrl)
 	}
 }
 
 struct MenuListView_Previews: PreviewProvider {
 	static var previews: some View {
-		// swiftlint:disable: line_length
-		let menuItem = MenuItemContainer(menuId: UUID(),
-																		 name: "Blueberry pancakes",
-																		 price: 11.99,
-																		 isInStock: true,
-																		 calories: 610,
-																		 description: TextLibrary.MenuItemDescription.blueberryPancake,
-																		 type: .hotDrinks,
-																		 imageUrl: "https://res.cloudinary.com/jobizil/image/upload/v1602768183/images/menus/xnurgo60mme1ewupfbin.jpg")
-		let menuSource = [MenuContainer(name: "hot drinks", menuItems: [menuItem])]
-		MenuListView(dataSource: menuSource)
+		MenuListView(isLoading: .constant(true))
 			.environmentObject(orderDataSource)
-		MenuListView(dataSource: menuSource)
+		MenuListView(isLoading: .constant(true))
 			.environmentObject(orderDataSource)
 			.preferredColorScheme(.dark)
-		MenuListView(dataSource: menuSource)
+		MenuListView(isLoading: .constant(true))
 			.environmentObject(orderDataSource)
 			.previewLayout(.fixed(width: 568, height: 320))
-		MenuListView(dataSource: menuSource)
+		MenuListView(isLoading: .constant(true))
 			.environmentObject(orderDataSource)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
