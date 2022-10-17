@@ -6,19 +6,17 @@
 //
 
 import SwiftUI
+import CoreData
 
 /// First view that user sees
 struct StartView: View {
-
 	@EnvironmentObject var launchScreenManager: LaunchScreenManager
 	@EnvironmentObject var order: Order
-	@EnvironmentObject var dataManager: DataManager
 	@State var selectedTab = 1
 	@State var isLoading = true
-	//	private let saveDataManager = SaveDataManager()
+	@State var menu: [MenuSectionContainer] = []
 
 	let factory: OrderListFactory
-
 	let discounts: [Discount] = discountDataSource
 
 	init(factory: OrderListFactory) {
@@ -42,14 +40,14 @@ struct StartView: View {
 				.tag(0)
 
 			// tab with menu
-			MenuListView(dataSource: dataManager.menu).environmentObject(order)
+			MenuListView(isLoading: $isLoading).environmentObject(order)
 				.tabItem {
 					Image(systemName: "menucard")
 						.resizable()
 					Text("Menu")
 				}
 			// badge display amount of menu items
-				.badge(dataManager.menu.flatMap { $0.menuItems }.filter { $0.isInStock }.count)
+				.badge(menu.flatMap { $0.menuItems }.filter { $0.isInStock }.count)
 				.tag(1)
 
 			// tab with ordered items
@@ -62,12 +60,8 @@ struct StartView: View {
 			// badge display amount of ordered items
 				.badge(order.orderedItems.count)
 				.tag(2)
-		}
-		.task {
-			await dataManager.fetchMenu()
-			if !dataManager.isLoading {
-				launchScreenManager.dismiss()
-			}
+		}.onChange(of: isLoading) { _ in
+			launchScreenManager.dismiss()
 		}
 	}
 }

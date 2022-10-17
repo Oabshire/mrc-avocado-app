@@ -18,7 +18,7 @@ struct OrderRowView: View {
 
 	var body: some View {
 		HStack(alignment: .top) {
-			MenuImage(animalPicture: URL(string: menuItem.imageUrl))
+			MenuImage(url:menuItem.imageUrl)
 			VStack(alignment: .leading) {
 				Text(menuItem.name)
 					.font(.title2)
@@ -36,8 +36,7 @@ struct OrderCellView_Preview: PreviewProvider {
 														isInStock: true,
 														calories: 610,
 														description: "",
-														type: .pancakes,
-														imageName: "blueberry_pancakes")
+														type: .pancakes)
 		OrderRowView(menuItem: menuItem, amount: 1)
 		OrderRowView(menuItem: menuItem, amount: 1)
 			.preferredColorScheme(.dark)

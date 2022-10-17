@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MenuImage: View {
-	let animalPicture: URL?
+	let url: URL?
 
 	var body: some View {
-		AsyncImage(url:animalPicture) { image in
+		AsyncImage(url:url) { image in
 			image
 				.resizable()
 		} placeholder: {
@@ -19,7 +19,7 @@ struct MenuImage: View {
 				.resizable()
 				.aspectRatio(contentMode: .fit)
 				.overlay {
-					if animalPicture != nil {
+					if url != nil {
 						ProgressView()
 							.frame(maxWidth: .infinity, maxHeight: .infinity)
 							.background(.gray.opacity(0.4))

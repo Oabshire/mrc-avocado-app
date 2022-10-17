@@ -11,13 +11,15 @@ import SwiftUI
 struct MCRAvocadoApp: App {
 	@StateObject var order = Order(orderedItems: [:])
 	@StateObject var launchScreenManager = LaunchScreenManager()
-	@StateObject var dataManager = DataManager()
+
+	let persistenceController = PersistenceController.shared
+
 	var body: some Scene {
 		WindowGroup {
 			ZStack {
 				StartView(factory: OrderListFactory())
 					.environmentObject(order)
-					.environmentObject(dataManager)
+					.environment(\.managedObjectContext, persistenceController.container.viewContext)
 				if launchScreenManager.state != .complete {
 					MainLaunchScreenView()
 				}

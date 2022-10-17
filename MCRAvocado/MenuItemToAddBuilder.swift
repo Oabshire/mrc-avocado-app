@@ -42,7 +42,7 @@ private extension MenuItemToAddBuilder {
 										withIce: nil,
 										typeOfMilk: milkType,
 										cupSize: cupSize,
-										imageName: menuItem.imageUrl )
+										imageUrl: menuItem.imageUrl )
 	}
 
 	func buildColdDrink(from menuItem: MenuItemContainer) -> MenuItem {
@@ -60,7 +60,7 @@ private extension MenuItemToAddBuilder {
 										withIce: iced,
 										typeOfMilk: nil,
 										cupSize: cupSize,
-										imageName: menuItem.imageUrl)
+										imageUrl: menuItem.imageUrl)
 	}
 
 	func buildDefaultMenuItem(from menuItem: MenuItemContainer) -> MenuItem {
@@ -70,6 +70,6 @@ private extension MenuItemToAddBuilder {
 										calories: menuItem.calories,
 										description: menuItem.description,
 										type: menuItem.type,
-										imageName: menuItem.imageUrl)
+										imageUrl: menuItem.imageUrl)
 	}
 }
