@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 /// First view that user sees
 struct StartView: View {
@@ -13,11 +14,9 @@ struct StartView: View {
 	@EnvironmentObject var order: Order
 	@State var selectedTab = 1
 	@State var isLoading = true
-	private let requestManager = RequestManager()
+	@State var menu: [MenuSectionContainer] = []
 
 	let factory: OrderListFactory
-	@State var menu: [MenuContainer] = []
-
 	let discounts: [Discount] = discountDataSource
 
 	init(factory: OrderListFactory) {
@@ -36,17 +35,19 @@ struct StartView: View {
 						.resizable()
 					Text("Discounts")
 				}
-				.badge(discounts.count) // badge display amount of discount
+			// badge display amount of discount
+				.badge(discounts.count)
 				.tag(0)
 
 			// tab with menu
-			MenuListView(dataSource: menu).environmentObject(order)
+			MenuListView(isLoading: $isLoading).environmentObject(order)
 				.tabItem {
 					Image(systemName: "menucard")
 						.resizable()
 					Text("Menu")
 				}
-				.badge(menu.flatMap { $0.menuItems }.filter { $0.isInStock }.count) // badge display amount of menu items
+			// badge display amount of menu items
+				.badge(menu.flatMap { $0.menuItems }.filter { $0.isInStock }.count)
 				.tag(1)
 
 			// tab with ordered items
@@ -56,30 +57,12 @@ struct StartView: View {
 						.resizable()
 					Text("Order")
 				}
-				.badge(order.orderedItems.count)  // badge display amount of ordered items
+			// badge display amount of ordered items
+				.badge(order.orderedItems.count)
 				.tag(2)
+		}.onChange(of: isLoading) { _ in
+			launchScreenManager.dismiss()
 		}
-		.task {
-			await fetchMenu()
-		}
-	}
-}
-
-private extension StartView {
-	func fetchMenu() async {
-		do {
-			let menuContainer: [MenuContainer] = try await requestManager.perform(MenuRequest.getAllMenu)
-			self.menu = menuContainer
-			await stopLoading()
-		} catch let error {
-			print(error.localizedDescription)
-		}
-	}
-
-	@MainActor
-	func stopLoading() async {
-		isLoading = false
-		launchScreenManager.dismiss()
 	}
 }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ItemEntity" representedClassName="ItemEntity" syncable="YES">
+        <attribute name="calories" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="descript" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageUrl" optional="YES" attributeType="URI"/>
+        <attribute name="isInStock" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="type" attributeType="String"/>
+        <relationship name="section" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="SectionEntity" inverseName="menuItems" inverseEntity="SectionEntity"/>
+    </entity>
+    <entity name="SectionEntity" representedClassName="SectionEntity" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemEntity" inverseName="section" inverseEntity="ItemEntity"/>
+    </entity>
+    <elements>
+        <element name="ItemEntity" positionX="-27" positionY="18" width="128" height="164"/>
+        <element name="SectionEntity" positionX="18" positionY="126" width="128" height="59"/>
+    </elements>
+</model>
