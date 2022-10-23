@@ -80,10 +80,7 @@ struct MenuItemDetailView: View {
 				builder.price = menuItem.price
 
 				let itemToAdd = builder.buildMenuItem(from: menuItem)
-
-				if order.addMenuItem(item: itemToAdd, amount: amountToAdd) {
-					order.printOrderedItemsNameAndAmount()
-				}
+				_ = order.addMenuItem(item: itemToAdd, amount: amountToAdd)
 				self.mode.wrappedValue.dismiss() // dismissing view
 			}
 		}
@@ -94,7 +91,7 @@ struct MenuItemDetailView: View {
 
 struct MenuItemDetailView_Previews: PreviewProvider {
 	static var previews: some View {
-		let menuItem = MenuItemContainer(menuId: UUID(),
+		let menuItem = MenuItemContainer(id: UUID(),
 																		 name: "Blueberry pancakes",
 																		 price: 11.99,
 																		 isInStock: true,

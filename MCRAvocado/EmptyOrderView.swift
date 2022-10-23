@@ -15,7 +15,7 @@ struct EmptyOrderView: View {
 			Text("Your Cart is empty")
 				.font(.title3)
 				.padding()
-		}
+		}.foregroundColor(.onboardingAccentColor)
 	}
 }
 

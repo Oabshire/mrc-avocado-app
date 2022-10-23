@@ -13,11 +13,12 @@ struct OrderListFactory {
 	/// Create screen for order tab
 	/// - Parameter order: order
 	/// - Returns: view with list of ordered items or screen with message if ordered items are empty
-	func createOrderList(order: Order) -> some View {
-		if order.orderedItems.isEmpty {
-			return AnyView(EmptyOrderView())
-		} else {
-			return  AnyView(OrderListView().environmentObject(order))
+	@ViewBuilder func createOrderList(order: Order) -> some View {
+		switch order.orderedItems.isEmpty {
+		case true :
+			EmptyOrderView()
+		case false:
+			OrderListView().environmentObject(order)
 		}
 	}
 }

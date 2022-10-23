@@ -34,7 +34,7 @@ struct MenuRowView_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
 			Color(.green)
-			MenuRowView(menuItem:	MenuItemContainer(menuId: UUID(),
+			MenuRowView(menuItem:	MenuItemContainer(id: UUID(),
 																							name: "Blueberry pancakes",
 																							price: 11.99,
 																							isInStock: true,

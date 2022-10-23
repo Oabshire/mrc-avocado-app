@@ -8,6 +8,7 @@
 import CoreData
 
 struct PersistenceController {
+
 	static let shared = PersistenceController()
 
 	static var preview: PersistenceController = {
@@ -21,6 +22,11 @@ struct PersistenceController {
 			fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
 		}
 		return result
+	}()
+
+	static let unitTest: PersistenceController = {
+			let result = PersistenceController(inMemory: true)
+			return result
 	}()
 
 	let container: NSPersistentContainer
@@ -45,10 +51,8 @@ struct PersistenceController {
 		container.viewContext.shouldDeleteInaccessibleFaults = true
 	}
 
-	static func deleteSection(section: SectionEntity) throws {
-		let taskContext = shared.container.viewContext
-		taskContext.delete(section)
-		try taskContext.save()
+	static func deleteSection(section: SectionEntity, in context: NSManagedObjectContext) throws {
+		context.delete(section)
+		try context.save()
 	}
-
 }

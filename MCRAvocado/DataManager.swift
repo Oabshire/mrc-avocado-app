@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 class DataManager {
 	private let requestManager = RequestManager()
