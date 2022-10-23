@@ -23,16 +23,12 @@ enum MenuItemType: String, Codable {
 	case other
 
 	init(from decoder: Decoder) throws {
-		// 1
 		let container = try decoder.singleValueContainer()
-		// 2
 		let rawString = try container.decode(String.self)
 
-		// 3
 		if let userType = MenuItemType(rawValue: rawString.lowercased()) {
 			self = userType
 		} else {
-			// 4
 			throw DecodingError.dataCorruptedError(in: container,
 																						 debugDescription: "Cannot initialize UserType from invalid String value \(rawString)")
 		}

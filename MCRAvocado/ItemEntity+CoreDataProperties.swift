@@ -24,7 +24,7 @@ extension ItemEntity {
 												 using managedObjectContext: NSManagedObjectContext) {
 		let itemEntity = ItemEntity(context: managedObjectContext)
 		itemEntity.name = item.name
-		itemEntity.id = item.menuId
+		itemEntity.id = item.id
 		itemEntity.imageUrl = item.imageUrl
 		itemEntity.descript = item.description
 		itemEntity.price = item.price
@@ -38,15 +38,5 @@ extension ItemEntity {
 			let nserror = error as NSError
 			fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
 		}
-	}
-
-	static func basicFetchRequest() -> FetchRequest<ItemEntity> {
-	 return FetchRequest<ItemEntity>(entity: ItemEntity.entity(), sortDescriptors: [])
- }
-
-	static func typeItemsFetchRequest(with type: MenuItemType) -> FetchRequest<ItemEntity> {
-		let nameSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-		let typePredicate = NSPredicate(format: "%K == %@", "type", type.rawValue )
-		return FetchRequest(entity: ItemEntity.entity(), sortDescriptors: [nameSortDescriptor], predicate: typePredicate)
 	}
 }

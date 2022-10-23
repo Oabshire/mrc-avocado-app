@@ -7,48 +7,6 @@
 
 import SwiftUI
 
-struct WelcomeText: View {
-	let text: String
-	var body: some View {
-		Text(text)
-			.bold()
-			.font(.title)
-			.kerning(3.5)
-			.foregroundColor(Color.white)
-	}
-}
-
-struct UserNameText: View {
-	let text: String
-	var body: some View {
-		Text(text)
-			.foregroundColor(Color.white)
-			.kerning(2.0)
-			.font(.title)
-	}
-}
-
-struct OnboardingTitleText: View {
-	let text: String
-	var body: some View {
-		Text(text)
-			.bold()
-			.foregroundColor(Color.onboardingAccentColor)
-			.kerning(3.0)
-			.font(.largeTitle)
-	}
-}
-
-struct OnboardingLineText: View {
-	let lineText: String
-	var body: some View {
-		Text(lineText)
-			.fontWeight(.medium).frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .leading)
-			.font(.title3)
-			.padding(.leading)
-	}
-}
-
 struct DetailTitleText: View {
 	let lineText: String
 	var body: some View {
@@ -83,28 +41,13 @@ struct DetailPriceText: View {
 	}
 }
 
-struct KcalText: View {
-	let lineText: String
-	var body: some View {
-		Text(lineText)
-			.foregroundColor(.black)
-			.font(.body)
-			.fontWeight(.medium).frame(maxWidth: Constants.Onboarding.lineTextWidth, alignment: .center)
-	}
-}
-
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
 			VStack {
-				WelcomeText(text: TextLibrary.AppTexts.welcomeText).background(.black)
-				UserNameText(text: TextLibrary.AppTexts.userNameText).background(.black)
-				OnboardingTitleText(text: "Onboarding Title Text")
-				OnboardingLineText(lineText: "Onboarding Line Text")
 				DetailTitleText(lineText: "Detail Title Text")
 				DetailDescriptionText(lineText: "Detail DescriptionText")
 				DetailPriceText(lineText: "$ 45")
-				KcalText(lineText: "123 kcal")
 			}
 		}
 	}

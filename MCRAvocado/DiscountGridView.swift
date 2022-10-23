@@ -9,7 +9,6 @@ import SwiftUI
 
 /// Grid of  discounts
 struct DiscountGridView: View {
-	@State var isActive = false
 
 	/// discounts to display
 	let discountsDataSource: [Discount]
@@ -20,22 +19,13 @@ struct DiscountGridView: View {
 				ScrollView {
 					LazyVGrid(columns: .init(repeating: .init(), count: 2)) {
 						ForEach(discountsDataSource) { discount in
-							MenuGridRow(discount: discount)
+							DiscountGridRow(discount: discount)
 						}
 					}.padding()
 				}
 				.navigationBarTitle("Discounts")
 			}
 			.navigationViewStyle(StackNavigationViewStyle())
-			if !isActive {
-				AdditionalLaunchScreenView()
-			}
-		}.onAppear {
-			DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
-				withAnimation {
-					isActive.toggle()
-				}
-			}
 		}
 	}
 }

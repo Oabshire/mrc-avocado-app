@@ -1,5 +1,5 @@
 //
-//  MenuGridRow.swift
+//  DiscountGridRow.swift
 //  MCRAvocado
 //
 //  Created by Onie on 17.09.2022.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// View for Discount Grid
-struct MenuGridRow: View {
+struct DiscountGridRow: View {
 
 	/// Discount to display
 	let discount: Discount
@@ -44,15 +44,15 @@ struct MenuGridRow: View {
 	}
 }
 
-struct MenuGridCell_Previews: PreviewProvider {
+struct DiscountGridRow_Previews: PreviewProvider {
 	static var previews: some View {
 		let discount: Discount = .nationalIndependenceDay
-		MenuGridRow(discount: discount)
-		MenuGridRow(discount: discount)
+		DiscountGridRow(discount: discount)
+		DiscountGridRow(discount: discount)
 			.preferredColorScheme(.dark)
-		MenuGridRow(discount: discount)
+		DiscountGridRow(discount: discount)
 			.previewLayout(.fixed(width: 568, height: 320))
-		MenuGridRow(discount: discount)
+		DiscountGridRow(discount: discount)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}

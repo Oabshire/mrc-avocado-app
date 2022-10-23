@@ -9,7 +9,7 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="type" attributeType="String"/>
-        <relationship name="section" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="SectionEntity" inverseName="menuItems" inverseEntity="SectionEntity"/>
+        <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SectionEntity" inverseName="menuItems" inverseEntity="SectionEntity"/>
     </entity>
     <entity name="SectionEntity" representedClassName="SectionEntity" syncable="YES">
         <attribute name="name" attributeType="String"/>

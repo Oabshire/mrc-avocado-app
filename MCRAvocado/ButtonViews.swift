@@ -7,19 +7,6 @@
 
 import SwiftUI
 
-struct RoundImageViewStrokedFilled: View {
-	let systemName: String
-	var body: some View {
-		Image(systemName: systemName)
-			.font(.system(size: 57))
-			.foregroundColor(Color.white)
-			.frame(width: Constants.General.roundImageViewWidthHeight,
-						 height: Constants.General.roundImageViewWidthHeight)
-			.background(
-				Circle().fill(Color.buttonColor))
-	}
-}
-
 struct BottomButton: View {
 	let text: String
 	let color: Color
@@ -44,6 +31,7 @@ struct BottomButton: View {
 
 struct ButtonViews_Previews: PreviewProvider {
 	static var previews: some View {
-		RoundImageViewStrokedFilled(systemName: "questionmark.circle")
+		BottomButton(text: "My bottom button",
+								 color: .accentColor) {}
 	}
 }

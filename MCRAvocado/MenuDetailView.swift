@@ -62,7 +62,7 @@ struct MenuDetailView: View {
 
 struct MenuDetailView_Previews: PreviewProvider {
 	static var previews: some View {
-		let menuItem = MenuItemContainer(menuId: UUID(),
+		let menuItem = MenuItemContainer(id: UUID(),
 																		 name: "Blueberry pancakes",
 																		 price: 11.99,
 																		 isInStock: true,
