@@ -1,5 +1,5 @@
 //
-//  OrderRowView.swift
+//  CartRowView.swift
 //  MCRAvocado
 //
 //  Created by Onie on 11.09.2022.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Cell for ordered items
-struct OrderRowView: View {
+struct CartRowView: View {
 
 	/// Ordered menu item
 	let menuItem: MenuItem
@@ -28,7 +28,7 @@ struct OrderRowView: View {
 	}
 }
 
-struct OrderCellView_Preview: PreviewProvider {
+struct CartRowView_Preview: PreviewProvider {
 
 	static var previews: some View {
 		let menuItem = MenuItem(name: "Blueberry pancake",
@@ -37,12 +37,12 @@ struct OrderCellView_Preview: PreviewProvider {
 														calories: 610,
 														description: "",
 														type: .pancakes)
-		OrderRowView(menuItem: menuItem, amount: 1)
-		OrderRowView(menuItem: menuItem, amount: 1)
+		CartRowView(menuItem: menuItem, amount: 1)
+		CartRowView(menuItem: menuItem, amount: 1)
 			.preferredColorScheme(.dark)
-		OrderRowView(menuItem: menuItem, amount: 1)
+		CartRowView(menuItem: menuItem, amount: 1)
 			.previewLayout(.fixed(width: 568, height: 320))
-		OrderRowView(menuItem: menuItem, amount: 1)
+		CartRowView(menuItem: menuItem, amount: 1)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}
