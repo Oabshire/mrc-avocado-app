@@ -41,7 +41,7 @@ class TestCoreDataStack: XCTestCase {
 	
 	
 	
-	func testAddSectionWithItem() throws {
+	func testAddAndFetchSectionWithItem() throws {
 		
 		// arrange & act
 		expectation(forNotification: .NSManagedObjectContextDidSave, object: context) { _ in
@@ -66,7 +66,7 @@ class TestCoreDataStack: XCTestCase {
 		}
 	}
 	
-	func testDeleteSectionWithItem() throws {
+	func testFetchAndDeleteSectionWithItem() throws {
 		
 		// arrange & act
 		let menuItemsContaitem = MenuItemContainer(id: UUID(),

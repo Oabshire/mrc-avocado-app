@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		091171F428E0E11600052533 /* OrderListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F328E0E11600052533 /* OrderListFactory.swift */; };
-		091171F628E0E18C00052533 /* EmptyOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F528E0E18C00052533 /* EmptyOrderView.swift */; };
+		091171F628E0E18C00052533 /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F528E0E18C00052533 /* EmptyCartView.swift */; };
 		0911720628E1286F00052533 /* MenuItemToAddBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */; };
 		0940B54C28D6C6590008A387 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54B28D6C6590008A387 /* StartView.swift */; };
 		0940B55028D6D4180008A387 /* DiscountGridRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54F28D6D4180008A387 /* DiscountGridRow.swift */; };
 		0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55128D7A1E50008A387 /* DiscountGridView.swift */; };
 		0940B55428D7A2290008A387 /* DiscountDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55328D7A2290008A387 /* DiscountDataSource.swift */; };
 		0940B55B28D7AB310008A387 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55A28D7AB310008A387 /* MenuRowView.swift */; };
+		09439A792905EFE10098917D /* AvocadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09439A782905EFE10098917D /* AvocadoUITests.swift */; };
 		094667E728CEAB5C00EAE7C6 /* MenuDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094667E628CEAB5C00EAE7C6 /* MenuDetailView.swift */; };
 		0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949F43128B1AF6D000B9CE6 /* MCRAvocadoApp.swift */; };
 		0949F43628B1AF70000B9CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0949F43528B1AF70000B9CE6 /* Assets.xcassets */; };
@@ -47,8 +48,8 @@
 		0992FF6A2904F6A300083B20 /* MenuMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 09D32A6A29047C9A0001DF31 /* MenuMock.json */; };
 		09AF6FD128CEBF9D00B30F08 /* MenuItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AF6FD028CEBF9D00B30F08 /* MenuItemDetailView.swift */; };
 		09B6B0A628D7B827008969D0 /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B6B0A528D7B827008969D0 /* MenuListView.swift */; };
-		09C1CC2C28CE5417004548F1 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2B28CE5417004548F1 /* OrderListView.swift */; };
-		09C1CC2F28CE69D1004548F1 /* OrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2E28CE69D1004548F1 /* OrderRowView.swift */; };
+		09C1CC2C28CE5417004548F1 /* CartListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2B28CE5417004548F1 /* CartListView.swift */; };
+		09C1CC2F28CE69D1004548F1 /* CartRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC2E28CE69D1004548F1 /* CartRowView.swift */; };
 		09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */; };
 		09D32A62290464DA0001DF31 /* MenuItemToAddBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32A61290464DA0001DF31 /* MenuItemToAddBuilderTests.swift */; };
 		09D32A64290478510001DF31 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D32A63290478510001DF31 /* APIManagerMock.swift */; };
@@ -64,6 +65,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		09439A7C2905EFE10098917D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0949F42628B1AF6D000B9CE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0949F42D28B1AF6D000B9CE6;
+			remoteInfo = MCRAvocado;
+		};
 		095AD0E128BBFF9200651B36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0949F42628B1AF6D000B9CE6 /* Project object */;
@@ -75,13 +83,15 @@
 
 /* Begin PBXFileReference section */
 		091171F328E0E11600052533 /* OrderListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListFactory.swift; sourceTree = "<group>"; };
-		091171F528E0E18C00052533 /* EmptyOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyOrderView.swift; sourceTree = "<group>"; };
+		091171F528E0E18C00052533 /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemToAddBuilder.swift; sourceTree = "<group>"; };
 		0940B54B28D6C6590008A387 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		0940B54F28D6D4180008A387 /* DiscountGridRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountGridRow.swift; sourceTree = "<group>"; };
 		0940B55128D7A1E50008A387 /* DiscountGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountGridView.swift; sourceTree = "<group>"; };
 		0940B55328D7A2290008A387 /* DiscountDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountDataSource.swift; sourceTree = "<group>"; };
 		0940B55A28D7AB310008A387 /* MenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
+		09439A762905EFE10098917D /* AvocadoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvocadoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09439A782905EFE10098917D /* AvocadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoUITests.swift; sourceTree = "<group>"; };
 		094667E628CEAB5C00EAE7C6 /* MenuDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailView.swift; sourceTree = "<group>"; };
 		0949F42E28B1AF6D000B9CE6 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0949F43128B1AF6D000B9CE6 /* MCRAvocadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCRAvocadoApp.swift; sourceTree = "<group>"; };
@@ -114,8 +124,8 @@
 		0992900028FA350B00AEFF21 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		09AF6FD028CEBF9D00B30F08 /* MenuItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailView.swift; sourceTree = "<group>"; };
 		09B6B0A528D7B827008969D0 /* MenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
-		09C1CC2B28CE5417004548F1 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
-		09C1CC2E28CE69D1004548F1 /* OrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRowView.swift; sourceTree = "<group>"; };
+		09C1CC2B28CE5417004548F1 /* CartListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListView.swift; sourceTree = "<group>"; };
+		09C1CC2E28CE69D1004548F1 /* CartRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRowView.swift; sourceTree = "<group>"; };
 		09C1CC3028CE8BDD004548F1 /* OrderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataSource.swift; sourceTree = "<group>"; };
 		09D32A61290464DA0001DF31 /* MenuItemToAddBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemToAddBuilderTests.swift; sourceTree = "<group>"; };
 		09D32A63290478510001DF31 /* APIManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
@@ -133,6 +143,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		09439A732905EFE10098917D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0949F42B28B1AF6D000B9CE6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -161,9 +178,9 @@
 		090D179228CF035700D7BA14 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				09C1CC2B28CE5417004548F1 /* OrderListView.swift */,
-				091171F528E0E18C00052533 /* EmptyOrderView.swift */,
-				09C1CC2E28CE69D1004548F1 /* OrderRowView.swift */,
+				09C1CC2B28CE5417004548F1 /* CartListView.swift */,
+				091171F528E0E18C00052533 /* EmptyCartView.swift */,
+				09C1CC2E28CE69D1004548F1 /* CartRowView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -222,11 +239,20 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		09439A772905EFE10098917D /* AvocadoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				09439A782905EFE10098917D /* AvocadoUITests.swift */,
+			);
+			path = AvocadoUITests;
+			sourceTree = "<group>";
+		};
 		0949F42528B1AF6D000B9CE6 = {
 			isa = PBXGroup;
 			children = (
 				0949F43028B1AF6D000B9CE6 /* MCRAvocado */,
 				095AD0DE28BBFF9200651B36 /* MCRAvocadoTests */,
+				09439A772905EFE10098917D /* AvocadoUITests */,
 				0949F42F28B1AF6D000B9CE6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -236,6 +262,7 @@
 			children = (
 				0949F42E28B1AF6D000B9CE6 /* Avocado.app */,
 				095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */,
+				09439A762905EFE10098917D /* AvocadoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,7 +276,7 @@
 				091171F728E0E9DE00052533 /* SartModule */,
 				09C1CBFA28CD152B004548F1 /* MenuModule */,
 				09AF6FCF28CEBF0300B30F08 /* DetailModule */,
-				09C1CC2D28CE6985004548F1 /* OrderModule */,
+				09C1CC2D28CE6985004548F1 /* CartModule */,
 				0940B55528D7A3E20008A387 /* DiscountModule */,
 				0949F44928B1B4D2000B9CE6 /* Libraries */,
 				09239A0B28BABD0000B14F20 /* Extensions */,
@@ -323,12 +350,28 @@
 			children = (
 				095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */,
 				09D32A61290464DA0001DF31 /* MenuItemToAddBuilderTests.swift */,
-				09D32A63290478510001DF31 /* APIManagerMock.swift */,
-				09D32A65290478A60001DF31 /* MenuRequestMock.swift */,
-				09D32A67290478F50001DF31 /* RequestManagerTests.swift */,
+				098B79882906500F0041EB4C /* NetworkingTests */,
 				09D32A722904AECD0001DF31 /* CoreDataTests.swift */,
 			);
 			path = MCRAvocadoTests;
+			sourceTree = "<group>";
+		};
+		098B79882906500F0041EB4C /* NetworkingTests */ = {
+			isa = PBXGroup;
+			children = (
+				098B7989290650210041EB4C /* Mocks */,
+				09D32A67290478F50001DF31 /* RequestManagerTests.swift */,
+			);
+			path = NetworkingTests;
+			sourceTree = "<group>";
+		};
+		098B7989290650210041EB4C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				09D32A63290478510001DF31 /* APIManagerMock.swift */,
+				09D32A65290478A60001DF31 /* MenuRequestMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		09928FEF28FA224A00AEFF21 /* NetworkLayer */ = {
@@ -409,14 +452,14 @@
 			name = MenuModule;
 			sourceTree = "<group>";
 		};
-		09C1CC2D28CE6985004548F1 /* OrderModule */ = {
+		09C1CC2D28CE6985004548F1 /* CartModule */ = {
 			isa = PBXGroup;
 			children = (
 				090D179528CF037900D7BA14 /* Models */,
 				090D179228CF035700D7BA14 /* Views */,
 				090D179328CF035E00D7BA14 /* DataSource */,
 			);
-			name = OrderModule;
+			name = CartModule;
 			sourceTree = "<group>";
 		};
 		09E5768728F3A4BF00AB24DB /* AnimationModule */ = {
@@ -431,6 +474,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		09439A752905EFE10098917D /* AvocadoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09439A802905EFE10098917D /* Build configuration list for PBXNativeTarget "AvocadoUITests" */;
+			buildPhases = (
+				09439A722905EFE10098917D /* Sources */,
+				09439A732905EFE10098917D /* Frameworks */,
+				09439A742905EFE10098917D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09439A7D2905EFE10098917D /* PBXTargetDependency */,
+			);
+			name = AvocadoUITests;
+			productName = AvocadoUITests;
+			productReference = 09439A762905EFE10098917D /* AvocadoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		0949F42D28B1AF6D000B9CE6 /* MCRAvocado */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0949F43C28B1AF70000B9CE6 /* Build configuration list for PBXNativeTarget "MCRAvocado" */;
@@ -477,6 +538,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					09439A752905EFE10098917D = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 0949F42D28B1AF6D000B9CE6;
+					};
 					0949F42D28B1AF6D000B9CE6 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -501,11 +566,19 @@
 			targets = (
 				0949F42D28B1AF6D000B9CE6 /* MCRAvocado */,
 				095AD0DC28BBFF9200651B36 /* MCRAvocadoTests */,
+				09439A752905EFE10098917D /* AvocadoUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		09439A742905EFE10098917D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0949F42C28B1AF6D000B9CE6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,6 +620,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		09439A722905EFE10098917D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09439A792905EFE10098917D /* AvocadoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0949F42A28B1AF6D000B9CE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -577,7 +658,7 @@
 				094667E728CEAB5C00EAE7C6 /* MenuDetailView.swift in Sources */,
 				09573D1028FCF9DD00775985 /* ItemEntity+CoreDataProperties.swift in Sources */,
 				09E5768628F3887500AB24DB /* LaunchScreenManager.swift in Sources */,
-				09C1CC2F28CE69D1004548F1 /* OrderRowView.swift in Sources */,
+				09C1CC2F28CE69D1004548F1 /* CartRowView.swift in Sources */,
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
 				09928FF928FA28AB00AEFF21 /* MenuSectionContainer.swift in Sources */,
 				09928FFF28FA33F700AEFF21 /* DataParser.swift in Sources */,
@@ -585,13 +666,13 @@
 				0949F45028B1C431000B9CE6 /* Constants.swift in Sources */,
 				09573D1628FD249600775985 /* SectionEntity+CoreDataProperties.swift in Sources */,
 				0940B55028D6D4180008A387 /* DiscountGridRow.swift in Sources */,
-				091171F628E0E18C00052533 /* EmptyOrderView.swift in Sources */,
+				091171F628E0E18C00052533 /* EmptyCartView.swift in Sources */,
 				09573D1528FD249600775985 /* SectionEntity+CoreDataClass.swift in Sources */,
 				09928FEE28FA222D00AEFF21 /* APIManager.swift in Sources */,
 				09F50C5528F9EBF9008E0E92 /* RequestType.swift in Sources */,
 				09928FFB28FA2C7A00AEFF21 /* MenuImageView.swift in Sources */,
 				09B6B0A628D7B827008969D0 /* MenuListView.swift in Sources */,
-				09C1CC2C28CE5417004548F1 /* OrderListView.swift in Sources */,
+				09C1CC2C28CE5417004548F1 /* CartListView.swift in Sources */,
 				0940B55B28D7AB310008A387 /* MenuRowView.swift in Sources */,
 				095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */,
 				095AD0C828BBF53000651B36 /* MenuItemModel.swift in Sources */,
@@ -614,6 +695,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		09439A7D2905EFE10098917D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0949F42D28B1AF6D000B9CE6 /* MCRAvocado */;
+			targetProxy = 09439A7C2905EFE10098917D /* PBXContainerItemProxy */;
+		};
 		095AD0E228BBFF9200651B36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0949F42D28B1AF6D000B9CE6 /* MCRAvocado */;
@@ -622,6 +708,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		09439A7E2905EFE10098917D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YZ7WPJDTA7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anastasiiaTereshchenko.AvocadoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MCRAvocado;
+			};
+			name = Debug;
+		};
+		09439A7F2905EFE10098917D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YZ7WPJDTA7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anastasiiaTereshchenko.AvocadoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MCRAvocado;
+			};
+			name = Release;
+		};
 		0949F43A28B1AF70000B9CE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -837,6 +959,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		09439A802905EFE10098917D /* Build configuration list for PBXNativeTarget "AvocadoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09439A7E2905EFE10098917D /* Debug */,
+				09439A7F2905EFE10098917D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0949F42928B1AF6D000B9CE6 /* Build configuration list for PBXProject "MCRAvocado" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

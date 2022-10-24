@@ -55,7 +55,7 @@ struct StartView: View {
 				.tabItem {
 					Image(systemName: "cart")
 						.resizable()
-					Text("Order")
+					Text("Cart")
 				}
 			// badge display amount of ordered items
 				.badge(order.orderedItems.count)
