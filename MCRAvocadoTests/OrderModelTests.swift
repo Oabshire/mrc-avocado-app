@@ -19,8 +19,7 @@ final class OrderModelTests: XCTestCase {
 												isInStock: true,
 												calories: 500,
 												description: "Some description",
-												type: .oatmeal,
-												imageName: "oatmeal")
+												type: .oatmeal)
 		sut = Order(orderedItems: [menuItem: 2])
 	}
 
@@ -40,8 +39,7 @@ extension OrderModelTests {
 												isInStock: true,
 												calories: 610,
 												description: "",
-												type: .pancakes,
-												imageName: "blueberry_pancake")
+												type: .pancakes)
 		// act
 		let result = sut.addMenuItem(item: menuItem, amount: 1)
 
@@ -57,8 +55,7 @@ extension OrderModelTests {
 												isInStock: false,
 												calories: 610,
 												description: "",
-												type: .pancakes,
-												imageName: "blueberry_pancake")
+												type: .pancakes)
 		// act
 		let result = sut.addMenuItem(item: menuItem, amount: 1)
 
@@ -86,15 +83,13 @@ extension OrderModelTests {
 														 isInStock: false,
 														 calories: 610,
 														 description: "",
-														 type: .pancakes,
-														 imageName: "blueberry_pancake")
+														 type: .pancakes)
 		let menuItem1 = MenuItem(name: "Oatmeal",
 														 price: 10.70,
 														 isInStock: true,
 														 calories: 500,
 														 description: "Some description",
-														 type: .oatmeal,
-														 imageName: "oatmeal")
+														 type: .oatmeal)
 		sut.orderedItems = [menuItem0: 1, menuItem1: 2]
 		// act & assert
 		XCTAssertEqual(sut.amountWithoutDiscount, 25.9)
@@ -108,15 +103,13 @@ extension OrderModelTests {
 														 isInStock: false,
 														 calories: 610,
 														 description: "",
-														 type: .pancakes,
-														 imageName: "blueberry_pancake")
+														 type: .pancakes)
 		let menuItem1 = MenuItem(name: "Oatmeal",
 														 price: 10.70,
 														 isInStock: true,
 														 calories: 500,
 														 description: "Some description",
-														 type: .oatmeal,
-														 imageName: "oatmeal")
+														 type: .oatmeal)
 		sut.orderedItems = [menuItem0: 1, menuItem1: 2]
 		sut.discount = .newYear
 

@@ -21,8 +21,6 @@ struct MenuListView: View {
 	@FetchRequest(sortDescriptors: [])
 	var menuSections: FetchedResults<SectionEntity>
 
-	private let saveDataManager = SaveDataManager()
-
 	init(isLoading: Binding<Bool>) {
 		self._isLoading = isLoading
 		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
@@ -91,11 +89,10 @@ private extension MenuListView {
 	func fetchMenu() async {
 		let  dataManager = DataManager()
 		let menuContainer: [MenuSectionContainer] = await dataManager.getMenu()
-		saveDataManager.menu = menuContainer
 		if !menuContainer.isEmpty {
 			for section in menuSections {
 				do {
-					try PersistenceController.deleteSection(section: section)
+					try PersistenceController.deleteSection(section: section, in: self.viewContext)
 				} catch {
 					print("Error deleting list")
 				}
@@ -117,17 +114,8 @@ private extension MenuListView {
 		isLoading = false
 	}
 
-	func createItemsArray(from entities: FetchedResults<ItemEntity>) -> [MenuItemContainer] {
-		var resultArray: [MenuItemContainer] = []
-		for item in entities {
-			resultArray.append(createItemContainer(from: item))
-		}
-		print(resultArray)
-		return resultArray
-	}
-
 	func 	createItemContainer (from entity: FetchedResults<ItemEntity>.Element ) -> MenuItemContainer {
-		MenuItemContainer(menuId: entity.id,
+		MenuItemContainer(id: entity.id,
 											name: entity.name,
 											price: entity.price,
 											isInStock: entity.isInStock,

@@ -1,5 +1,5 @@
 //
-//  EmptyOrderView.swift
+//  EmptyCartView.swift
 //  MCRAvocado
 //
 //  Created by Onie on 25.09.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmptyOrderView: View {
+struct EmptyCartView: View {
 	var body: some View {
 		VStack {
 			Image(systemName: "cart")
@@ -15,12 +15,13 @@ struct EmptyOrderView: View {
 			Text("Your Cart is empty")
 				.font(.title3)
 				.padding()
-		}
+		}.foregroundColor(.onboardingAccentColor)
+			.navigationBarTitle("Cart")
 	}
 }
 
-struct EmptyOrderView_Previews: PreviewProvider {
+struct EmptyCartView_Previews: PreviewProvider {
 	static var previews: some View {
-		EmptyOrderView()
+		EmptyCartView()
 	}
 }

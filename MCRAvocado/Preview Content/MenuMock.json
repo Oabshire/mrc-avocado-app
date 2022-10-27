@@ -1,0 +1,36 @@
+[{
+	"_id":"634a2d597f6d04364bdc52ad",
+	"name":"waffles",
+	"menuItems":[
+		{
+			"_id":"634a2c247f6d04364bdc5290",
+			"menuId":"d27640f7-17b9-4979-b4b7-4b28849bac0a",
+			"name":"Waffle with bacon",
+			"price":14.99,
+			"isInStock":true,
+			"calories":1000,
+			"description":"Our house-made Belgian waffle is served with 2 eggs your way and 2 custom-cured hickory-smoked bacon strips.",
+			"type":"waffles",
+			"imageUrl":"https://res.cloudinary.com/dxpekf2ih/image/upload/v1665803016/mcr-avocado-onie/menuItems/Waffle_with_eggs_and_bacon_qc5ahd.jpg",
+			"__v":0}
+	],
+	"__v":0
+},
+ {
+	"_id":"634a2d597f6d04364bdc52b2",
+	"name":"cold drinks",
+	"menuItems":[
+		{
+			"_id":"634a2c887f6d04364bdc52a4",
+			"menuId":"8e866cad-506c-43c1-98ff-43c4c92919a2",
+			"name":"Iced coffee",
+			"price":5.99,
+			"isInStock":true,
+			"calories":20,
+			"description":"Handcrafted, iced cold brew coffee made from 100% Arabica beans. Comes with milk for you to customize as you like.",
+			"type":"cold drinks",
+			"imageUrl":"https://res.cloudinary.com/dxpekf2ih/image/upload/v1665803015/mcr-avocado-onie/menuItems/Iced_coffee_oe1dxs.jpg",
+			"__v":0}
+	],
+	"__v":0}
+]
