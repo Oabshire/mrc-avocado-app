@@ -13,11 +13,22 @@ struct CartListView: View {
 	/// Order with added items or empty
 	@EnvironmentObject var order: Order
 
+//	init() {
+//		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
+//	}
+
 	var body: some View {
-		List(order.orderedItems.sorted(by: <), id: \.key) { key, value in
-			CartRowView(menuItem: key, amount: value)
+		List {
+			ForEach(order.orderedItems.sorted(by: <), id: \.key) {key, value in
+				CartRowView(menuItem: key, amount: value)
+			}
+			.onDelete(perform: delete)
 		}
 		.navigationBarTitle("Cart")
+	}
+
+	func delete(at offsets: IndexSet) {
+		order.removeItem(at: offsets)
 	}
 }
 

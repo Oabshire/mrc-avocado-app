@@ -21,10 +21,10 @@ struct MenuListView: View {
 	@FetchRequest(sortDescriptors: [])
 	var menuSections: FetchedResults<SectionEntity>
 
-	init(isLoading: Binding<Bool>) {
-		self._isLoading = isLoading
-		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
-	}
+	//	init(isLoading: Binding<Bool>) {
+	//		self._isLoading = isLoading
+	//		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
+	//	}
 
 	let predicatesTypes = [
 		(name: "ALL", predicate: nil),
@@ -37,13 +37,13 @@ struct MenuListView: View {
 		(name: "Desserts", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.dessert.rawValue)),
 		(name: "Cold Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.coldDrinks.rawValue)),
 		(name: "Hot Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.hotDrinks.rawValue))
-	 ]
+	]
 
 	var body: some View {
 		NavigationView {
 			List {
 				ForEach(menuSections, id: \.name) { section in
-					Section(section.name ?? "") {
+					Section(content: {
 						ForEach(section.menuItems ?? [] ,id: \.name) { item in
 							if item.isInStock == true {
 								let itemContainer = createItemContainer(from: item)
@@ -53,30 +53,34 @@ struct MenuListView: View {
 									}
 							}
 						}
-					}
+					}, header: {
+						SectionHeader(text: section.name ?? "")
+					})
 				}
+				.listRowInsets(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
 			}
-			.listStyle(InsetGroupedListStyle())
+			.listStyle(.grouped)
 			.navigationBarTitle("Menu")
-			   .onChange(of: activeFilterIndex) { _ in
-					 menuSections.nsPredicate = predicatesTypes[activeFilterIndex].predicate
-			   }
-			   .toolbar {
-			    Menu(content: {
-			     Picker(
-			      selection: $activeFilterIndex,
-			      content: {
-			       ForEach(0..<predicatesTypes.count, id: \.self) { index in
-			        let sortType = predicatesTypes[index]
-			        Text(sortType.name)
-			       }
-			      },
-			      label: {}
-			     )
-			    }, label: {
-			     Image(systemName: "line.3.horizontal.decrease.circle.fill")
-			    })
-			   }
+			.onChange(of: activeFilterIndex) { _ in
+				menuSections.nsPredicate = predicatesTypes[activeFilterIndex].predicate
+			}
+			.toolbar {
+				Menu(content: {
+					Picker(
+						selection: $activeFilterIndex,
+						content: {
+							ForEach(0..<predicatesTypes.count, id: \.self) { index in
+								let sortType = predicatesTypes[index]
+								Text(sortType.name)
+							}
+						},
+						label: {}
+					)
+				}, label: {
+					Image(systemName: "line.3.horizontal.decrease.circle.fill")
+						.font(.title2)
+				})
+			}
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
 		.task {

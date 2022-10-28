@@ -11,7 +11,6 @@ struct DetailTitleText: View {
 	let lineText: String
 	var body: some View {
 		Text(lineText)
-			.foregroundColor(.black)
 			.kerning(3.0)
 			.font(.title2)
 			.fontWeight(.medium)
@@ -31,13 +30,30 @@ struct DetailDescriptionText: View {
 }
 
 struct DetailPriceText: View {
-	let lineText: String
+	let symbol: String
+	let price: String
 	var body: some View {
-		Text(lineText)
-			.foregroundColor(.black)
-			.kerning(3.0)
-			.font(.title2)
-			.fontWeight(.medium)
+		HStack {
+			Text(symbol)
+				.foregroundColor(.onboardingAccentColor)
+				.kerning(3.0)
+				.font(.title2)
+				.fontWeight(.medium)
+			Text(price)
+				.kerning(3.0)
+				.font(.title2)
+				.fontWeight(.medium)
+		}
+	}
+}
+
+struct SectionHeader: View {
+	let text: String
+	var body: some View {
+		Text(text)
+			.font(.headline)
+			.padding(5)
+			.foregroundColor(.onboardingAccentColor)
 	}
 }
 
@@ -47,7 +63,8 @@ struct TextViews_Previews: PreviewProvider {
 			VStack {
 				DetailTitleText(lineText: "Detail Title Text")
 				DetailDescriptionText(lineText: "Detail DescriptionText")
-				DetailPriceText(lineText: "$ 45")
+				DetailPriceText(symbol: "$", price: "45")
+				SectionHeader(text: "OATMEAL")
 			}
 		}
 	}

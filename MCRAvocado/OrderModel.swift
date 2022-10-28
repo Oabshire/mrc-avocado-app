@@ -11,7 +11,7 @@ import Foundation
 class Order: ObservableObject {
 
 	// MARK: - Properties
-	@Published var orderedItems: [MenuItem: Int] = [:]
+	@Published private(set) var orderedItems: [MenuItem: Int] = [:]
 	var discount: Discount = .none
 	let dateOfCreation: Date = Date()
 
@@ -32,7 +32,8 @@ class Order: ObservableObject {
 	/// - Parameters:
 	///   - orderedItems: ordered menu items and it amount
 	init(orderedItems: [MenuItem: Int]) {
-		self.orderedItems = orderedItems	}
+		self.orderedItems = orderedItems
+	}
 
 	// MARK: - Functions
 
@@ -49,5 +50,12 @@ class Order: ObservableObject {
 		let existingAmount: Int = orderedItems[item] ?? 0
 		orderedItems[item] = existingAmount + amount
 		return true
+	}
+
+	func removeItem(at offsets: IndexSet) {
+		if let ndx = offsets.first {
+			let item = orderedItems.sorted(by: >)[ndx]
+			orderedItems.removeValue(forKey: item.key)
+		}
 	}
 }

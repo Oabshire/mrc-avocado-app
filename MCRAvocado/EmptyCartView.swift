@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmptyCartView: View {
+
 	var body: some View {
 		VStack {
 			Image(systemName: "cart")
@@ -15,8 +16,9 @@ struct EmptyCartView: View {
 			Text("Your Cart is empty")
 				.font(.title3)
 				.padding()
-		}.foregroundColor(.onboardingAccentColor)
-			.navigationBarTitle("Cart")
+		}
+		.foregroundColor(.onboardingAccentColor)
+		.navigationBarTitle("Cart")
 	}
 }
 

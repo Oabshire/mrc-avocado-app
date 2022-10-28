@@ -36,6 +36,7 @@
 		095AD0C828BBF53000651B36 /* MenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0C728BBF53000651B36 /* MenuItemModel.swift */; };
 		095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0CA28BBF75900651B36 /* OrderModel.swift */; };
 		095AD0E028BBFF9200651B36 /* OrderModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */; };
+		098B7991290B8D060041EB4C /* AvocadoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B7990290B8D060041EB4C /* AvocadoStepper.swift */; };
 		09928FEE28FA222D00AEFF21 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09928FED28FA222D00AEFF21 /* APIManager.swift */; };
 		09928FF228FA233100AEFF21 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09928FF128FA233100AEFF21 /* RequestManager.swift */; };
 		09928FF628FA271000AEFF21 /* MenuRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09928FF528FA271000AEFF21 /* MenuRequest.swift */; };
@@ -114,6 +115,7 @@
 		095AD0CA28BBF75900651B36 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCRAvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModelTests.swift; sourceTree = "<group>"; };
+		098B7990290B8D060041EB4C /* AvocadoStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoStepper.swift; sourceTree = "<group>"; };
 		09928FED28FA222D00AEFF21 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		09928FF128FA233100AEFF21 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		09928FF528FA271000AEFF21 /* MenuRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRequest.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				0949F44728B1B3FF000B9CE6 /* TextViews.swift */,
 				0949F44328B1B39D000B9CE6 /* ButtonViews.swift */,
+				098B7990290B8D060041EB4C /* AvocadoStepper.swift */,
 			);
 			name = HelpingViews;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
 				09928FF928FA28AB00AEFF21 /* MenuSectionContainer.swift in Sources */,
 				09928FFF28FA33F700AEFF21 /* DataParser.swift in Sources */,
+				098B7991290B8D060041EB4C /* AvocadoStepper.swift in Sources */,
 				0949F44028B1B30A000B9CE6 /* ColorExtension.swift in Sources */,
 				0949F45028B1C431000B9CE6 /* Constants.swift in Sources */,
 				09573D1628FD249600775985 /* SectionEntity+CoreDataProperties.swift in Sources */,
