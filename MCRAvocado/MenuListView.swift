@@ -33,7 +33,7 @@ struct MenuListView: View {
 		(name: "Oatmeal", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.oatmeal.rawValue)),
 		(name: "Omelletes", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.omelletes.rawValue)),
 		(name: "Bagels", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.bagel.rawValue)),
-		(name: "Pancackes", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.pancakes.rawValue)),
+		(name: "Pancakes", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.pancakes.rawValue)),
 		(name: "Desserts", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.dessert.rawValue)),
 		(name: "Cold Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.coldDrinks.rawValue)),
 		(name: "Hot Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.hotDrinks.rawValue))

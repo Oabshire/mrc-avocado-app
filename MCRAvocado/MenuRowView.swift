@@ -25,6 +25,7 @@ struct MenuRowView: View {
 				}
 				Text(menuItem.description ?? "")
 					.frame(alignment: .leading)
+					.padding(.bottom, 10)
 			}
 		}
 	}
