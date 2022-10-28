@@ -22,11 +22,14 @@ struct DiscountGridRow: View {
 						.resizable()
 						.scaledToFit()
 				)
-				.overlay(Color.black.opacity(0.5))
+				.overlay(
+					LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.5), .clear]),
+												 startPoint: .topLeading,
+												 endPoint: .bottomTrailing).edgesIgnoringSafeArea(.all)
+				)
 				.cornerRadius(30)
-				.shadow(color: .gray, radius: 2, x: 2, y: 2)
 			Text(discount.rawValue)
-				.foregroundColor(.white.opacity(0.8))
+				.foregroundColor(.white.opacity(0.9))
 				.font(.title2)
 				.bold()
 				.padding()
@@ -37,7 +40,7 @@ struct DiscountGridRow: View {
 			.foregroundColor(.white)
 			.padding(.horizontal, 10)
 			.padding(.vertical, 4)
-			.background(.red)
+			.background(Color.onboardingAccentColor)
 			.clipShape( Capsule() )
 			.padding()
 						 , alignment: .bottomTrailing)
