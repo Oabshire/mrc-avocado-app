@@ -33,7 +33,8 @@ private extension MenuItemToAddBuilder {
 	func buildHotDrink(from menuItem: MenuItemContainer) -> MenuItem {
 		let name: String = cupSize.rawValue + " " + menuItem.name + " with " + milkType.rawValue.lowercased()
 
-		return MenuItem(name: name,
+		return MenuItem(id: menuItem.id,
+										name: name,
 										price: price,
 										isInStock: menuItem.isInStock,
 										calories: menuItem.calories,
@@ -51,7 +52,8 @@ private extension MenuItemToAddBuilder {
 			name += " with ice"
 		}
 
-		return MenuItem(name: name,
+		return MenuItem(id: menuItem.id,
+										name: name,
 										price: price,
 										isInStock: menuItem.isInStock,
 										calories: menuItem.calories,
@@ -64,7 +66,8 @@ private extension MenuItemToAddBuilder {
 	}
 
 	func buildDefaultMenuItem(from menuItem: MenuItemContainer) -> MenuItem {
-		return MenuItem(name: menuItem.name,
+		return MenuItem(id: menuItem.id,
+										name: menuItem.name,
 										price: menuItem.price,
 										isInStock: menuItem.isInStock,
 										calories: menuItem.calories,

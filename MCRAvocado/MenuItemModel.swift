@@ -63,7 +63,7 @@ extension CupSize: Hashable, Identifiable {
 
 /// Menu Item Model
 struct MenuItem {
-	let id = UUID()
+	let id: UUID
 	let name: String
 	let price: Double
 	let isInStock: Bool
@@ -87,7 +87,8 @@ struct MenuItem {
 	///   - typeOfMilk: type of milk if item is a beverage
 	///   - cupSize: size of cup if it item is a beverage
 	///   - imageName: name of image for menu or order
-	init(name: String,
+	init(id: UUID = UUID(),
+			 name: String,
 			 price: Double,
 			 isInStock: Bool,
 			 calories: Int,
@@ -97,6 +98,7 @@ struct MenuItem {
 			 typeOfMilk: MilkType? = nil,
 			 cupSize: CupSize? = nil,
 			 imageUrl: URL? = nil) {
+		self.id = id
 		self.name = name
 		self.price = price
 		self.isInStock = isInStock

@@ -2,7 +2,7 @@
 //  DetailImageView.swift
 //  MCRAvocado
 //
-//  Created by Onie on 14.10.2022.
+//  Created by Onie on 14.10.2022.`
 //
 
 import SwiftUI
@@ -14,7 +14,8 @@ struct DetailImageView: View {
 		AsyncImage(url:menuItemPicture) { image in
 			image
 				.resizable()
-				.scaledToFill()
+				.aspectRatio(contentMode: .fill)
+				.edgesIgnoringSafeArea(.all)
 		} placeholder: {
 			Image("onboardingAvocado")
 				.resizable()

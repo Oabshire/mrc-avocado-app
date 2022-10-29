@@ -34,7 +34,7 @@ struct MenuItemDetailView: View {
 	var body: some View {
 		VStack(alignment: .leading) {
 			DetailTitleText(lineText: menuItem.name)
-				.padding(5)
+				.padding(.bottom, 5)
 			if isDrink {
 				HStack {
 					Text("Size of cup")
@@ -53,7 +53,7 @@ struct MenuItemDetailView: View {
 							ForEach(0 ..< milkTypes.count, id: \.self) {index in
 								Text(self.milkTypes[index].rawValue).tag(index)
 							}
-						}
+						}.accentColor(.onboardingAccentColor)
 					}
 				} else {
 					HStack {
@@ -67,10 +67,10 @@ struct MenuItemDetailView: View {
 				DetailDescriptionText(lineText: menuItem.description ?? "")
 			}
 			HStack {
-				DetailPriceText(symbol: "$", price: String((menuItem.price * Double(amountToAdd)).roundTwoAfterPoint))
+				DetailPriceText(price: (menuItem.price * Double(amountToAdd)).roundTwoAfterPoint ?? "")
 					.frame(alignment: .leading)
 				Spacer()
-				AvocadoStepper(value: $amountToAdd, in:  1...100)
+				AvocadoStepper(value: $amountToAdd, in:  1...99)
 			}
 
 			Spacer()

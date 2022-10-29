@@ -48,8 +48,8 @@ struct MenuDetailView: View {
 														 startPoint: .top,
 														 endPoint: .bottom)
 							.frame(height: 200)
+							.edgesIgnoringSafeArea(.all)
 						}
-						.edgesIgnoringSafeArea(.all)
 						.frame(width: geometry.size.width/3,
 									 height: geometry.size.height)
 						MenuItemDetailView(order: _order, menuItem: menuItem)
