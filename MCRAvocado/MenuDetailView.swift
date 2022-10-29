@@ -59,7 +59,7 @@ struct MenuDetailView: View {
 		}
 	}
 }
-
+//
 struct MenuDetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		let menuItem = MenuItemContainer(id: UUID(),
@@ -69,7 +69,10 @@ struct MenuDetailView_Previews: PreviewProvider {
 																		 calories: 610,
 																		 description: TextLibrary.MenuItemDescription.blueberryPancake,
 																		 type: .hotDrinks,
-																		 imageUrl: nil)
+																		 imageUrl: nil,
+																		 withIce: nil,
+																		 typeOfMilk: nil,
+																		 cupSize: nil)
 		MenuDetailView(menuItem: menuItem)
 		MenuDetailView(menuItem: menuItem)
 			.preferredColorScheme(.dark)

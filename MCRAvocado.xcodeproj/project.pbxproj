@@ -33,7 +33,6 @@
 		09573D1228FCFC2F00775985 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09573D1128FCFC2F00775985 /* Persistence.swift */; };
 		09573D1528FD249600775985 /* SectionEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09573D1328FD249600775985 /* SectionEntity+CoreDataClass.swift */; };
 		09573D1628FD249600775985 /* SectionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09573D1428FD249600775985 /* SectionEntity+CoreDataProperties.swift */; };
-		095AD0C828BBF53000651B36 /* MenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0C728BBF53000651B36 /* MenuItemModel.swift */; };
 		095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0CA28BBF75900651B36 /* OrderModel.swift */; };
 		095AD0E028BBFF9200651B36 /* OrderModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */; };
 		098B7991290B8D060041EB4C /* AvocadoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B7990290B8D060041EB4C /* AvocadoStepper.swift */; };
@@ -111,7 +110,6 @@
 		09573D1128FCFC2F00775985 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		09573D1328FD249600775985 /* SectionEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		09573D1428FD249600775985 /* SectionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		095AD0C728BBF53000651B36 /* MenuItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemModel.swift; sourceTree = "<group>"; };
 		095AD0CA28BBF75900651B36 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCRAvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModelTests.swift; sourceTree = "<group>"; };
@@ -169,14 +167,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		090D179028CF031900D7BA14 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				095AD0C728BBF53000651B36 /* MenuItemModel.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		090D179228CF035700D7BA14 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,7 +439,6 @@
 		09C1CBFA28CD152B004548F1 /* MenuModule */ = {
 			isa = PBXGroup;
 			children = (
-				090D179028CF031900D7BA14 /* Models */,
 				0940B55828D7AAE00008A387 /* Views */,
 			);
 			name = MenuModule;
@@ -679,7 +668,6 @@
 				09C1CC2C28CE5417004548F1 /* CartListView.swift in Sources */,
 				0940B55B28D7AB310008A387 /* MenuRowView.swift in Sources */,
 				095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */,
-				095AD0C828BBF53000651B36 /* MenuItemModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

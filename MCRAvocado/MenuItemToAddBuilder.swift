@@ -13,10 +13,10 @@ class MenuItemToAddBuilder {
 	public var cupSize: CupSize = .grande
 	public var iced: Bool = false
 
-	/// Built menu idem to add to the order (Product)
+	/// Built menu item to add to the order (Product)
 	/// - Parameter menuItem: menu item that user picked
 	/// - Returns: customized menu item
-	func buildMenuItem(from menuItem: MenuItemContainer) -> MenuItem {
+	func buildMenuItem(from menuItem: MenuItemContainer) -> MenuItemContainer {
 		switch menuItem.type {
 		case .coldDrinks:
 			return buildColdDrink(from: menuItem)
@@ -30,49 +30,52 @@ class MenuItemToAddBuilder {
 
 private extension MenuItemToAddBuilder {
 
-	func buildHotDrink(from menuItem: MenuItemContainer) -> MenuItem {
+	func buildHotDrink(from menuItem: MenuItemContainer) -> MenuItemContainer {
 		let name: String = cupSize.rawValue + " " + menuItem.name + " with " + milkType.rawValue.lowercased()
 
-		return MenuItem(id: menuItem.id,
-										name: name,
-										price: price,
-										isInStock: menuItem.isInStock,
-										calories: menuItem.calories,
-										description: menuItem.description,
-										type: menuItem.type,
-										withIce: nil,
-										typeOfMilk: milkType,
-										cupSize: cupSize,
-										imageUrl: menuItem.imageUrl )
+		return MenuItemContainer(id: menuItem.id,
+														 name: name,
+														 price: price,
+														 isInStock: menuItem.isInStock,
+														 calories: menuItem.calories,
+														 description: menuItem.description,
+														 type: menuItem.type,
+														 imageUrl: menuItem.imageUrl,
+														 withIce: nil,
+														 typeOfMilk: milkType,
+														 cupSize: cupSize )
 	}
 
-	func buildColdDrink(from menuItem: MenuItemContainer) -> MenuItem {
+	func buildColdDrink(from menuItem: MenuItemContainer) -> MenuItemContainer {
 		var name: String = cupSize.rawValue + " " + menuItem.name
 		if iced {
 			name += " with ice"
 		}
 
-		return MenuItem(id: menuItem.id,
-										name: name,
-										price: price,
-										isInStock: menuItem.isInStock,
-										calories: menuItem.calories,
-										description: menuItem.description,
-										type: menuItem.type,
-										withIce: iced,
-										typeOfMilk: nil,
-										cupSize: cupSize,
-										imageUrl: menuItem.imageUrl)
+		return MenuItemContainer(id: menuItem.id,
+														 name: name,
+														 price: price,
+														 isInStock: menuItem.isInStock,
+														 calories: menuItem.calories,
+														 description: menuItem.description,
+														 type: menuItem.type,
+														 imageUrl: menuItem.imageUrl,
+														 withIce: iced,
+														 typeOfMilk: nil,
+														 cupSize: cupSize)
 	}
 
-	func buildDefaultMenuItem(from menuItem: MenuItemContainer) -> MenuItem {
-		return MenuItem(id: menuItem.id,
-										name: menuItem.name,
-										price: menuItem.price,
-										isInStock: menuItem.isInStock,
-										calories: menuItem.calories,
-										description: menuItem.description,
-										type: menuItem.type,
-										imageUrl: menuItem.imageUrl)
+	func buildDefaultMenuItem(from menuItem: MenuItemContainer) -> MenuItemContainer {
+		return MenuItemContainer(id: menuItem.id,
+														 name: menuItem.name,
+														 price: menuItem.price,
+														 isInStock: menuItem.isInStock,
+														 calories: menuItem.calories,
+														 description: menuItem.description,
+														 type: menuItem.type,
+														 imageUrl: menuItem.imageUrl,
+														 withIce: nil,
+														 typeOfMilk: nil,
+														 cupSize: nil)
 	}
 }

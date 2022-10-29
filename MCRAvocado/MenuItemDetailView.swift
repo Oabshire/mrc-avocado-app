@@ -99,7 +99,10 @@ struct MenuItemDetailView_Previews: PreviewProvider {
 																		 calories: 610,
 																		 description: TextLibrary.MenuItemDescription.blueberryPancake,
 																		 type: .coldDrinks,
-																		 imageUrl: nil)
+																		 imageUrl: nil,
+																		 withIce: nil,
+																		 typeOfMilk: nil,
+																		 cupSize: nil)
 
 		MenuItemDetailView(menuItem: menuItem)
 			.environmentObject(orderDataSource)

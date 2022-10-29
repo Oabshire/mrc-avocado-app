@@ -11,7 +11,7 @@ import SwiftUI
 struct CartRowView: View {
 
 	/// Ordered menu item
-	let menuItem: MenuItem
+	let menuItem: MenuItemContainer
 
 	/// Amount of ordered menu items
 	let amount: Int
@@ -29,14 +29,18 @@ struct CartRowView: View {
 }
 
 struct CartRowView_Preview: PreviewProvider {
-
 	static var previews: some View {
-		let menuItem = MenuItem(name: "Blueberry pancake",
-														price: 11.99,
-														isInStock: true,
-														calories: 610,
-														description: "",
-														type: .pancakes)
+		let menuItem = MenuItemContainer(id: UUID(),
+																		 name: "Blueberry pancake",
+																		 price: 11.99,
+																		 isInStock: true,
+																		 calories: 610,
+																		 description: "",
+																		 type: .pancakes,
+																		 imageUrl: nil,
+																		 withIce: nil,
+																		 typeOfMilk: nil,
+																		 cupSize: nil)
 		CartRowView(menuItem: menuItem, amount: 1)
 		CartRowView(menuItem: menuItem, amount: 1)
 			.preferredColorScheme(.dark)
