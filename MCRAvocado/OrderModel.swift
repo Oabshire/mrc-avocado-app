@@ -25,7 +25,7 @@ class Order: ObservableObject {
 
 	var discountedAmount: Double {
 		let amountAfterDiscount = amountWithoutDiscount - amountWithoutDiscount * Double(discount.percentageValue) / 100.0
-		return  amountAfterDiscount.roundTwoAfterPoint
+		return  amountAfterDiscount
 	}
 
 	/// Init
@@ -53,8 +53,8 @@ class Order: ObservableObject {
 	}
 
 	func removeItem(at offsets: IndexSet) {
-		if let ndx = offsets.first {
-			let item = orderedItems.sorted(by: >)[ndx]
+		if let indx = offsets.first {
+			let item = orderedItems.sorted(by: <)[indx]
 			orderedItems.removeValue(forKey: item.key)
 		}
 	}

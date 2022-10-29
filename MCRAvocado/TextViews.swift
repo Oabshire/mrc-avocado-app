@@ -30,15 +30,9 @@ struct DetailDescriptionText: View {
 }
 
 struct DetailPriceText: View {
-	let symbol: String
 	let price: String
 	var body: some View {
 		HStack {
-			Text(symbol)
-				.foregroundColor(.onboardingAccentColor)
-				.kerning(3.0)
-				.font(.title2)
-				.fontWeight(.medium)
 			Text(price)
 				.kerning(3.0)
 				.font(.title2)
@@ -63,7 +57,7 @@ struct TextViews_Previews: PreviewProvider {
 			VStack {
 				DetailTitleText(lineText: "Detail Title Text")
 				DetailDescriptionText(lineText: "Detail DescriptionText")
-				DetailPriceText(symbol: "$", price: "45")
+				DetailPriceText(price: "45")
 				SectionHeader(text: "OATMEAL")
 			}
 		}
