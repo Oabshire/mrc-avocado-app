@@ -12,15 +12,17 @@ import CoreData
 struct StartView: View {
 	@EnvironmentObject var launchScreenManager: LaunchScreenManager
 	@EnvironmentObject var order: Order
-	@State var selectedTab = 1
+	@Binding var selectedTab: Int
 	@State var isLoading = true
 	@State var menu: [MenuSectionContainer] = []
 
 	let factory: OrderListFactory
 	let discounts: [Discount] = discountDataSource
 
-	init(factory: OrderListFactory) {
+	init(factory: OrderListFactory,
+			 selectedTab: Binding<Int>) {
 		self.factory = factory
+		_selectedTab = selectedTab
 		let opaqueAppearance = UITabBarAppearance()
 		opaqueAppearance.configureWithOpaqueBackground()
 		UITabBar.appearance().scrollEdgeAppearance = opaqueAppearance
@@ -68,20 +70,20 @@ struct StartView: View {
 
 struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
-		let orderListFactory = OrderListFactory()
+		let orderListFactory = OrderListFactory(selectedTab: .constant(1))
 		let launchScreenManager = LaunchScreenManager()
-		StartView(factory: orderListFactory)
+		StartView(factory: orderListFactory, selectedTab: .constant(1))
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
-		StartView(factory: orderListFactory)
+		StartView(factory: orderListFactory, selectedTab: .constant(1))
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
 			.preferredColorScheme(.dark)
-		StartView(factory: orderListFactory)
+		StartView(factory: orderListFactory, selectedTab: .constant(1))
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
 			.previewLayout(.fixed(width: 568, height: 320))
-		StartView(factory: orderListFactory)
+		StartView(factory: orderListFactory, selectedTab: .constant(1))
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
 			.previewLayout(.fixed(width: 568, height: 320))

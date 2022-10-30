@@ -13,7 +13,6 @@ class Order: ObservableObject {
 	// MARK: - Properties
 	@Published private(set) var orderedItems: [MenuItemContainer: Int] = [:]
 	var discount: Discount = .none
-	let dateOfCreation: Date = Date()
 
 	var amountWithoutDiscount: Double {
 		var totalPrice = 0.0
@@ -57,5 +56,10 @@ class Order: ObservableObject {
 			let item = orderedItems.sorted(by: <)[indx]
 			orderedItems.removeValue(forKey: item.key)
 		}
+	}
+
+	func clearOrder() {
+		orderedItems = [:]
+		discount = .none
 	}
 }

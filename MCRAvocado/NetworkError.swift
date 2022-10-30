@@ -11,7 +11,7 @@ public enum NetworkError: Error {
 	case invalidServerResponse
 	case failedToDecode
 
-	public var errorDescription: String? {
+	public var localizedDescription: String? {
 		switch self {
 		case .invalidServerResponse:
 			return "The server returned an invalid response."

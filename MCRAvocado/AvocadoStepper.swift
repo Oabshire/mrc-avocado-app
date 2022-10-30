@@ -47,6 +47,6 @@ struct AvocadoStepper: View {
 
 struct AvocadoStepper_Previews: PreviewProvider {
 	static var previews: some View {
-		AvocadoStepper(value: .constant(3), in: 1...100)
+		AvocadoStepper(value: .constant(2), in: 1...100)
 	}
 }
