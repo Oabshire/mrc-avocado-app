@@ -13,11 +13,6 @@ struct DiscountGridView: View {
 	/// discounts to display
 	let discountsDataSource: [Discount]
 
-//	init(discountsDataSource: [Discount]) {
-//		self.discountsDataSource = discountsDataSource
-//		UIScrollView.appearance().backgroundColor = UIColor.mainBackgroundColor
-//	}
-
 	var body: some View {
 		NavigationView {
 			ScrollView {

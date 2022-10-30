@@ -21,11 +21,6 @@ struct MenuListView: View {
 	@FetchRequest(sortDescriptors: [])
 	var menuSections: FetchedResults<SectionEntity>
 
-	//	init(isLoading: Binding<Bool>) {
-	//		self._isLoading = isLoading
-	//		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
-	//	}
-
 	let predicatesTypes = [
 		(name: "ALL", predicate: nil),
 		(name: "Waffles", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.waffles.rawValue)),
@@ -126,7 +121,10 @@ private extension MenuListView {
 											calories: Int(entity.calories),
 											description: entity.descript,
 											type: MenuItemType(rawValue: entity.type) ?? .other,
-											imageUrl: entity.imageUrl)
+											imageUrl: entity.imageUrl,
+											withIce: nil,
+											typeOfMilk: nil,
+											cupSize: nil)
 	}
 }
 

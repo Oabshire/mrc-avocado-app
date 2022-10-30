@@ -11,7 +11,7 @@ import Foundation
 class Order: ObservableObject {
 
 	// MARK: - Properties
-	@Published private(set) var orderedItems: [MenuItem: Int] = [:]
+	@Published private(set) var orderedItems: [MenuItemContainer: Int] = [:]
 	var discount: Discount = .none
 	let dateOfCreation: Date = Date()
 
@@ -31,7 +31,7 @@ class Order: ObservableObject {
 	/// Init
 	/// - Parameters:
 	///   - orderedItems: ordered menu items and it amount
-	init(orderedItems: [MenuItem: Int]) {
+	init(orderedItems: [MenuItemContainer: Int]) {
 		self.orderedItems = orderedItems
 	}
 
@@ -42,7 +42,7 @@ class Order: ObservableObject {
 	///   - item: menu item to add
 	///   - amount: amount of items
 	/// - Returns: True - if item added, false - if not.
-	func addMenuItem(item: MenuItem, amount: Int) -> Bool {
+	func addMenuItem(item: MenuItemContainer, amount: Int) -> Bool {
 		guard item.isInStock else {
 			print("Sorry! Out of Stock :(")
 			return false

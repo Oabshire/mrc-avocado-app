@@ -13,10 +13,6 @@ struct CartListView: View {
 	/// Order with added items or empty
 	@EnvironmentObject var order: Order
 
-//	init() {
-//		UITableView.appearance().backgroundColor = UIColor.mainBackgroundColor
-//	}
-
 	var body: some View {
 		List {
 			ForEach(order.orderedItems.sorted(by: <), id: \.key) {key, value in

@@ -55,7 +55,10 @@ class TestCoreDataStack: XCTestCase {
 																							 calories: 610,
 																							 description: TextLibrary.MenuItemDescription.blueberryPancake,
 																							 type: .hotDrinks,
-																							 imageUrl: nil)
+																							 imageUrl: nil,
+																							 withIce: nil,
+																							 typeOfMilk: nil,
+																							 cupSize: nil)
 		let sectionEnity = SectionEntity.create(withTitle: "Test section name" , in: context)
 		let _ = ItemEntity.createWith(item: menuItemsContaitem,
 																	in: sectionEnity,
@@ -76,7 +79,10 @@ class TestCoreDataStack: XCTestCase {
 																							 calories: 610,
 																							 description: TextLibrary.MenuItemDescription.blueberryPancake,
 																							 type: .hotDrinks,
-																							 imageUrl: nil)
+																							 imageUrl: nil,
+																							 withIce: nil,
+																							 typeOfMilk: nil,
+																							 cupSize: nil)
 		let sectionEnity = SectionEntity.create(withTitle: "Test section name" , in: context)
 		let _ = ItemEntity.createWith(item: menuItemsContaitem,
 																	in: sectionEnity,
@@ -92,10 +98,10 @@ class TestCoreDataStack: XCTestCase {
 		XCTAssertEqual(sectionsResult.count, 0)
 		XCTAssertNil(sectionsResult.first)
 	}
-
+	
 	func testPredicatesType() throws {
-
-
+		
+		
 		let menuItemsContaitem0 = MenuItemContainer(id: UUID(),
 																								name: "Blueberry pancakes",
 																								price: 11.99,
@@ -103,12 +109,15 @@ class TestCoreDataStack: XCTestCase {
 																								calories: 610,
 																								description: TextLibrary.MenuItemDescription.blueberryPancake,
 																								type: .pancakes,
-																								imageUrl: nil)
+																								imageUrl: nil,
+																								withIce: nil,
+																								typeOfMilk: nil,
+																								cupSize: nil)
 		let sectionEnity0 = SectionEntity.create(withTitle: "pancakes" , in: context)
 		let _ = ItemEntity.createWith(item: menuItemsContaitem0,
 																	in: sectionEnity0,
 																	using: context)
-
+		
 		let menuItemsContaitem1 = MenuItemContainer(id: UUID(),
 																								name: "Waffles",
 																								price: 11.99,
@@ -116,16 +125,19 @@ class TestCoreDataStack: XCTestCase {
 																								calories: 610,
 																								description: TextLibrary.MenuItemDescription.blueberryPancake,
 																								type: .waffles,
-																								imageUrl: nil)
+																								imageUrl: nil,
+																								withIce: nil,
+																								typeOfMilk: nil,
+																								cupSize: nil)
 		let sectionEnity1 = SectionEntity.create(withTitle: "Waffles" , in: context)
 		let _ = ItemEntity.createWith(item: menuItemsContaitem1,
 																	in: sectionEnity1,
 																	using: context)
-
-
+		
+		
 		sectionFetchRequest.predicate = NSPredicate(format: "%K == %@", "name", MenuItemType.pancakes.rawValue)
 		let sectionsResult = try context.fetch(sectionFetchRequest)
-
+		
 		XCTAssertEqual(sectionsResult.count, 1)
 		let firstSection = try XCTUnwrap(sectionsResult.first)
 		XCTAssertEqual(firstSection.name, "pancakes")
