@@ -10,6 +10,8 @@ import SwiftUI
 /// Factory to create screens for StartView
 struct OrderListFactory {
 
+	@Binding var selectedTab: Int
+
 	/// Create screen for order tab
 	/// - Parameter order: order
 	/// - Returns: view with list of ordered items or screen with message if ordered items are empty
@@ -19,7 +21,7 @@ struct OrderListFactory {
 			case true :
 				EmptyCartView()
 			case false:
-				CartListView().environmentObject(order)
+				CartListView(selectedTab: $selectedTab).environmentObject(order)
 			}
 		}.navigationViewStyle(StackNavigationViewStyle())
 	}

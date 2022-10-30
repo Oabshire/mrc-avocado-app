@@ -18,10 +18,12 @@ class DataParser: DataParserProtocol {
 
 	init(jsonDecoder: JSONDecoder = JSONDecoder()) {
 		self.jsonDecoder = jsonDecoder
+		self.jsonDecoder.dateDecodingStrategy = .iso8601
 		self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 	}
 
 	func parse<T: Decodable>(data: Data) throws -> T {
-		return try jsonDecoder.decode(T.self, from: data)
+		guard let data = try? jsonDecoder.decode(T.self, from: data) else { throw NetworkError.failedToDecode }
+		return data
 	}
 }

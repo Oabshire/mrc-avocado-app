@@ -35,6 +35,10 @@
 		09573D1628FD249600775985 /* SectionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09573D1428FD249600775985 /* SectionEntity+CoreDataProperties.swift */; };
 		095AD0CB28BBF75900651B36 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0CA28BBF75900651B36 /* OrderModel.swift */; };
 		095AD0E028BBFF9200651B36 /* OrderModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */; };
+		0976F426290E0B82007AC31D /* OrderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0976F425290E0B82007AC31D /* OrderContainer.swift */; };
+		0976F428290E0DA8007AC31D /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0976F427290E0DA8007AC31D /* EncodableExtension.swift */; };
+		0976F42A290E0FF2007AC31D /* OrderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0976F429290E0FF2007AC31D /* OrderAdapter.swift */; };
+		0976F42C290E49A1007AC31D /* OrderConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0976F42B290E49A1007AC31D /* OrderConfirmationView.swift */; };
 		098B7991290B8D060041EB4C /* AvocadoStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B7990290B8D060041EB4C /* AvocadoStepper.swift */; };
 		09928FEE28FA222D00AEFF21 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09928FED28FA222D00AEFF21 /* APIManager.swift */; };
 		09928FF228FA233100AEFF21 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09928FF128FA233100AEFF21 /* RequestManager.swift */; };
@@ -113,6 +117,10 @@
 		095AD0CA28BBF75900651B36 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		095AD0DD28BBFF9200651B36 /* MCRAvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCRAvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModelTests.swift; sourceTree = "<group>"; };
+		0976F425290E0B82007AC31D /* OrderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderContainer.swift; sourceTree = "<group>"; };
+		0976F427290E0DA8007AC31D /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		0976F429290E0FF2007AC31D /* OrderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAdapter.swift; sourceTree = "<group>"; };
+		0976F42B290E49A1007AC31D /* OrderConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView.swift; sourceTree = "<group>"; };
 		098B7990290B8D060041EB4C /* AvocadoStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoStepper.swift; sourceTree = "<group>"; };
 		09928FED28FA222D00AEFF21 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		09928FF128FA233100AEFF21 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
@@ -207,6 +215,7 @@
 			children = (
 				0949F43F28B1B30A000B9CE6 /* ColorExtension.swift */,
 				09F7AAFE28C595A400262C52 /* DoubleExtension.swift */,
+				0976F427290E0DA8007AC31D /* EncodableExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -275,6 +284,7 @@
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
 				09928FEF28FA224A00AEFF21 /* NetworkLayer */,
 				09573D0C28FCF99400775985 /* CoreDataLayer */,
+				0976F42B290E49A1007AC31D /* OrderConfirmationView.swift */,
 			);
 			path = MCRAvocado;
 			sourceTree = "<group>";
@@ -373,6 +383,7 @@
 				09928FF728FA289900AEFF21 /* Network */,
 				09928FF028FA225D00AEFF21 /* Request */,
 				09928FF828FA28AB00AEFF21 /* MenuSectionContainer.swift */,
+				0976F425290E0B82007AC31D /* OrderContainer.swift */,
 				09928FFE28FA33F700AEFF21 /* DataParser.swift */,
 				0992900028FA350B00AEFF21 /* APIConstants.swift */,
 				09573CF828FC842000775985 /* DataManager.swift */,
@@ -450,6 +461,7 @@
 				090D179528CF037900D7BA14 /* Models */,
 				090D179228CF035700D7BA14 /* Views */,
 				090D179328CF035E00D7BA14 /* DataSource */,
+				0976F429290E0FF2007AC31D /* OrderAdapter.swift */,
 			);
 			name = CartModule;
 			sourceTree = "<group>";
@@ -594,6 +606,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		097AB5DC28F9197100C670CC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -639,17 +652,21 @@
 				09E5768428F3834300AB24DB /* MainLaunchScreenView.swift in Sources */,
 				09C1CC3128CE8BDD004548F1 /* OrderDataSource.swift in Sources */,
 				09573D1228FCFC2F00775985 /* Persistence.swift in Sources */,
+				0976F428290E0DA8007AC31D /* EncodableExtension.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
 				0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */,
 				0992900128FA350B00AEFF21 /* APIConstants.swift in Sources */,
 				09928FF228FA233100AEFF21 /* RequestManager.swift in Sources */,
 				09928FFD28FA30AF00AEFF21 /* NetworkError.swift in Sources */,
 				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
+				0976F42C290E49A1007AC31D /* OrderConfirmationView.swift in Sources */,
 				09573D0E28FCF9BB00775985 /* ItemEntity+CoreDataClass.swift in Sources */,
 				0940B55428D7A2290008A387 /* DiscountDataSource.swift in Sources */,
 				094667E728CEAB5C00EAE7C6 /* MenuDetailView.swift in Sources */,
+				0976F426290E0B82007AC31D /* OrderContainer.swift in Sources */,
 				09573D1028FCF9DD00775985 /* ItemEntity+CoreDataProperties.swift in Sources */,
 				09E5768628F3887500AB24DB /* LaunchScreenManager.swift in Sources */,
+				0976F42A290E0FF2007AC31D /* OrderAdapter.swift in Sources */,
 				09C1CC2F28CE69D1004548F1 /* CartRowView.swift in Sources */,
 				0949F44828B1B3FF000B9CE6 /* TextViews.swift in Sources */,
 				09928FF928FA28AB00AEFF21 /* MenuSectionContainer.swift in Sources */,

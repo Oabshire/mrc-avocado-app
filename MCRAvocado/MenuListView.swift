@@ -15,6 +15,11 @@ struct MenuListView: View {
 
 	@EnvironmentObject var order: Order
 
+	@State var lastErrorMessage = "" {
+		didSet { isDisplayingError = true }
+	}
+	@State var isDisplayingError = false
+
 	@State var activeFilterIndex = 0
 	@Binding var isLoading: Bool
 
@@ -76,6 +81,11 @@ struct MenuListView: View {
 						.font(.title2)
 				})
 			}
+			.alert("Error", isPresented: $isDisplayingError, actions: {
+				Button("Try again", role: .cancel) { Task { 	await fetchMenu() } }
+			}, message: {
+				Text(lastErrorMessage)
+			})
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
 		.task {
@@ -87,23 +97,29 @@ struct MenuListView: View {
 private extension MenuListView {
 	func fetchMenu() async {
 		let  dataManager = DataManager()
-		let menuContainer: [MenuSectionContainer] = await dataManager.getMenu()
-		if !menuContainer.isEmpty {
-			for section in menuSections {
-				do {
-					try PersistenceController.deleteSection(section: section, in: self.viewContext)
-				} catch {
-					print("Error deleting list")
+
+		do {
+			let menuContainer: [MenuSectionContainer] = try await dataManager.getMenu()
+
+			if !menuContainer.isEmpty {
+				for section in menuSections {
+					do {
+						try PersistenceController.deleteSection(section: section, in: self.viewContext)
+					} catch {
+						print("Error deleting list")
+					}
+				}
+				for section in menuContainer {
+					let sectionEntity = SectionEntity.create(withTitle: section.name , in: self.viewContext)
+					for item in section.menuItems {
+						ItemEntity.createWith(item: item,
+																	in: sectionEntity,
+																	using: self.viewContext)
+					}
 				}
 			}
-			for section in menuContainer {
-				let sectionEntity = SectionEntity.create(withTitle: section.name , in: self.viewContext)
-				for item in section.menuItems {
-					ItemEntity.createWith(item: item,
-																in: sectionEntity,
-																using: self.viewContext)
-				}
-			}
+		} catch {
+			lastErrorMessage = error.localizedDescription
 		}
 		await stopLoading()
 	}
