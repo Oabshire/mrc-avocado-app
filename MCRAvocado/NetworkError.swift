@@ -5,13 +5,15 @@
 //  Created by Onie on 14.10.2022.
 //
 
+import Foundation
+
 /// Network errors
-public enum NetworkError: Error {
+public enum NetworkError: LocalizedError {
 	case invalidURL
 	case invalidServerResponse
 	case failedToDecode
 
-	public var localizedDescription: String? {
+	public var errorDescription: String? {
 		switch self {
 		case .invalidServerResponse:
 			return "The server returned an invalid response."

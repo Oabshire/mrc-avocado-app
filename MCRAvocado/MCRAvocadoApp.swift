@@ -19,7 +19,7 @@ struct MCRAvocadoApp: App {
 	var body: some Scene {
 		WindowGroup {
 			ZStack {
-				StartView(factory: OrderListFactory(selectedTab: $selectedTab), selectedTab: $selectedTab)
+				StartView(factory: CartListFactory(selectedTab: $selectedTab), selectedTab: $selectedTab)
 					.environmentObject(order)
 					.environment(\.managedObjectContext, persistenceController.container.viewContext)
 				if launchScreenManager.state != .complete {

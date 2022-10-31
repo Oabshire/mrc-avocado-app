@@ -34,7 +34,7 @@ struct DetailPriceText: View {
 	var body: some View {
 		HStack {
 			Text(price)
-				.kerning(3.0)
+				.kerning(2.0)
 				.font(.title2)
 				.fontWeight(.medium)
 		}
