@@ -16,10 +16,10 @@ struct StartView: View {
 	@State var isLoading = true
 	@State var menu: [MenuSectionContainer] = []
 
-	let factory: OrderListFactory
+	let factory: CartListFactory
 	let discounts: [Discount] = discountDataSource
 
-	init(factory: OrderListFactory,
+	init(factory: CartListFactory,
 			 selectedTab: Binding<Int>) {
 		self.factory = factory
 		_selectedTab = selectedTab
@@ -53,7 +53,7 @@ struct StartView: View {
 				.tag(1)
 
 			// tab with ordered items
-			factory.createOrderList(order: order)
+			factory.createCartList(order: order)
 				.tabItem {
 					Image(systemName: "cart")
 						.resizable()
@@ -62,6 +62,15 @@ struct StartView: View {
 			// badge display amount of ordered items
 				.badge(order.orderedItems.count)
 				.tag(2)
+
+			OrdersListView()
+				.tabItem {
+					Image(systemName: "clock")
+						.resizable()
+					Text("Orders")
+				}
+			// badge display amount of discount
+				.tag(3)
 		}.onChange(of: isLoading) { _ in
 			launchScreenManager.dismiss()
 		}
@@ -70,7 +79,7 @@ struct StartView: View {
 
 struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
-		let orderListFactory = OrderListFactory(selectedTab: .constant(1))
+		let orderListFactory = CartListFactory(selectedTab: .constant(1))
 		let launchScreenManager = LaunchScreenManager()
 		StartView(factory: orderListFactory, selectedTab: .constant(1))
 			.environmentObject(orderDataSource)

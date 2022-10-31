@@ -1,5 +1,5 @@
 //
-//  OrderListFactory.swift
+//  CartListFactory.swift
 //  MCRAvocado
 //
 //  Created by Onie on 25.09.2022.
@@ -8,14 +8,14 @@
 import SwiftUI
 
 /// Factory to create screens for StartView
-struct OrderListFactory {
+struct CartListFactory {
 
 	@Binding var selectedTab: Int
 
 	/// Create screen for order tab
 	/// - Parameter order: order
 	/// - Returns: view with list of ordered items or screen with message if ordered items are empty
-	@ViewBuilder func createOrderList(order: Order) -> some View {
+	@ViewBuilder func createCartList(order: Order) -> some View {
 		NavigationView {
 			switch order.orderedItems.isEmpty {
 			case true :
