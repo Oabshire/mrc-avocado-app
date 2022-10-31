@@ -11,9 +11,8 @@ import Foundation
 class Order: ObservableObject {
 
 	// MARK: - Properties
-	@Published var orderedItems: [MenuItem: Int] = [:]
+	@Published private(set) var orderedItems: [MenuItemContainer: Int] = [:]
 	var discount: Discount = .none
-	let dateOfCreation: Date = Date()
 
 	var amountWithoutDiscount: Double {
 		var totalPrice = 0.0
@@ -25,14 +24,15 @@ class Order: ObservableObject {
 
 	var discountedAmount: Double {
 		let amountAfterDiscount = amountWithoutDiscount - amountWithoutDiscount * Double(discount.percentageValue) / 100.0
-		return  amountAfterDiscount.roundTwoAfterPoint
+		return  amountAfterDiscount
 	}
 
 	/// Init
 	/// - Parameters:
 	///   - orderedItems: ordered menu items and it amount
-	init(orderedItems: [MenuItem: Int]) {
-		self.orderedItems = orderedItems	}
+	init(orderedItems: [MenuItemContainer: Int]) {
+		self.orderedItems = orderedItems
+	}
 
 	// MARK: - Functions
 
@@ -41,7 +41,7 @@ class Order: ObservableObject {
 	///   - item: menu item to add
 	///   - amount: amount of items
 	/// - Returns: True - if item added, false - if not.
-	func addMenuItem(item: MenuItem, amount: Int) -> Bool {
+	func addMenuItem(item: MenuItemContainer, amount: Int) -> Bool {
 		guard item.isInStock else {
 			print("Sorry! Out of Stock :(")
 			return false
@@ -49,5 +49,17 @@ class Order: ObservableObject {
 		let existingAmount: Int = orderedItems[item] ?? 0
 		orderedItems[item] = existingAmount + amount
 		return true
+	}
+
+	func removeItem(at offsets: IndexSet) {
+		if let indx = offsets.first {
+			let item = orderedItems.sorted(by: <)[indx]
+			orderedItems.removeValue(forKey: item.key)
+		}
+	}
+
+	func clearOrder() {
+		orderedItems = [:]
+		discount = .none
 	}
 }

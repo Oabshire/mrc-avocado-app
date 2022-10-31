@@ -32,8 +32,9 @@ struct MenuItemDetailView: View {
 	let menuItem: MenuItemContainer
 
 	var body: some View {
-		VStack {
+		VStack(alignment: .leading) {
 			DetailTitleText(lineText: menuItem.name)
+				.padding(.bottom, 5)
 			if isDrink {
 				HStack {
 					Text("Size of cup")
@@ -42,7 +43,7 @@ struct MenuItemDetailView: View {
 						ForEach(0 ..< cupSizes.count, id: \.self) {index in
 							Text(self.cupSizes[index].rawValue).tag(index)
 						}
-					}
+					}.accentColor(.onboardingAccentColor)
 				}
 				if menuItem.type == .hotDrinks {
 					HStack {
@@ -52,26 +53,26 @@ struct MenuItemDetailView: View {
 							ForEach(0 ..< milkTypes.count, id: \.self) {index in
 								Text(self.milkTypes[index].rawValue).tag(index)
 							}
-						}
+						}.accentColor(.onboardingAccentColor)
 					}
 				} else {
 					HStack {
 						Text("With ice")
 						Spacer()
 						Toggle(isOn: $withIce) {}
+							.tint(Color.onboardingAccentColor)
 					}
 				}
 			} else {
 				DetailDescriptionText(lineText: menuItem.description ?? "")
 			}
 			HStack {
-				DetailPriceText(lineText: "$ " + String((menuItem.price * Double(amountToAdd)).roundTwoAfterPoint))
+				DetailPriceText(price: (menuItem.price * Double(amountToAdd)).roundTwoAfterPoint ?? "")
 					.frame(alignment: .leading)
 				Spacer()
-				Stepper(value: $amountToAdd, in: 1...100) {
-					DetailTitleText(lineText: String(amountToAdd))
-				}.frame(maxWidth: 125)
+				AvocadoStepper(value: $amountToAdd, in:  1...99)
 			}
+
 			Spacer()
 			BottomButton(text: "Add to Order", color: .buttonColor) {
 				builder.cupSize = cupSizes[selectedCupSize]
@@ -97,8 +98,11 @@ struct MenuItemDetailView_Previews: PreviewProvider {
 																		 isInStock: true,
 																		 calories: 610,
 																		 description: TextLibrary.MenuItemDescription.blueberryPancake,
-																		 type: .hotDrinks,
-																		 imageUrl: nil)
+																		 type: .coldDrinks,
+																		 imageUrl: nil,
+																		 withIce: nil,
+																		 typeOfMilk: nil,
+																		 cupSize: nil)
 
 		MenuItemDetailView(menuItem: menuItem)
 			.environmentObject(orderDataSource)

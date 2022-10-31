@@ -33,8 +33,10 @@ extension MenuItemToAddBuilderTests {
 																		 calories: 30,
 																		 description: nil,
 																		 type: .coldDrinks,
-																		 imageUrl: nil)
-
+																		 imageUrl: nil,
+																		 withIce: nil,
+																		 typeOfMilk: nil,
+																		 cupSize: nil)
 		sut.price = 3.5
 		sut.milkType = .whole
 		sut.cupSize = .venti
@@ -61,7 +63,10 @@ extension MenuItemToAddBuilderTests {
 																		 calories: 30,
 																		 description: nil,
 																		 type: .hotDrinks,
-																		 imageUrl: nil)
+																		 imageUrl: nil,
+																		 withIce: nil,
+																		 typeOfMilk: nil,
+																		 cupSize: nil)
 
 		sut.price = 5
 		sut.milkType = .nonFat
@@ -90,7 +95,10 @@ extension MenuItemToAddBuilderTests {
 																		 calories: 610,
 																		 description: nil,
 																		 type: .pancakes,
-																		 imageUrl: nil)
+																		 imageUrl: nil,
+																		 withIce: nil,
+																		 typeOfMilk: nil,
+																		 cupSize: nil)
 
 		sut.price = 5
 		sut.milkType = .nonFat

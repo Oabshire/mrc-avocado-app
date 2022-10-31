@@ -25,6 +25,7 @@ struct MenuRowView: View {
 				}
 				Text(menuItem.description ?? "")
 					.frame(alignment: .leading)
+					.padding(.bottom, 10)
 			}
 		}
 	}
@@ -41,7 +42,10 @@ struct MenuRowView_Previews: PreviewProvider {
 																							calories: 610,
 																							description: TextLibrary.MenuItemDescription.blueberryPancake,
 																							type: .hotDrinks,
-																							imageUrl:nil))
+																							imageUrl: nil,
+																							withIce: nil,
+																							typeOfMilk: nil,
+																							cupSize: nil))
 		}
 		.edgesIgnoringSafeArea(.all)
 	}

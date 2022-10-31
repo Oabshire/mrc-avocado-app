@@ -5,7 +5,7 @@
 //  Created by Onie on 14.10.2022.
 //
 
-/// Available requests
+/// Available Menu requests
 enum MenuRequest: RequestProtocol {
 	case getAllMenu
 

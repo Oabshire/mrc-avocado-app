@@ -14,19 +14,17 @@ struct DiscountGridView: View {
 	let discountsDataSource: [Discount]
 
 	var body: some View {
-		ZStack {
-			NavigationView {
-				ScrollView {
-					LazyVGrid(columns: .init(repeating: .init(), count: 2)) {
-						ForEach(discountsDataSource) { discount in
-							DiscountGridRow(discount: discount)
-						}
-					}.padding()
-				}
-				.navigationBarTitle("Discounts")
+		NavigationView {
+			ScrollView {
+				LazyVGrid(columns: .init(repeating: .init(), count: 2)) {
+					ForEach(discountsDataSource) { discount in
+						DiscountGridRow(discount: discount)
+					}
+				}.padding()
 			}
-			.navigationViewStyle(StackNavigationViewStyle())
+			.navigationBarTitle("Discounts")
 		}
+		.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 
