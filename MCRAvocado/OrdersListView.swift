@@ -22,16 +22,16 @@ struct OrdersListView: View {
 		NavigationView {
 			if !orders.isEmpty {
 				List {
-					ForEach(orders.sorted(by: { $0.first > $1.first}), id: \.monthYearString) { section in
+					ForEach(orders.sorted(by: { $0.dateOfFirstOrder > $1.dateOfFirstOrder}), id: \.sectionName) { section in
 						Section(content: {
-							ForEach(section.orders, id: \.id) { item in
+							ForEach(section.orders.sorted(by: >), id: \.id) { item in
 								NavigationLink(
 									destination: OrderDetailView(order: item)) {
 										OrderRowView(order: item)
 									}
 							}
 						}, header: {
-							SectionHeader(text: section.monthYearString)
+							SectionHeader(text: section.sectionName)
 						})
 					}
 				}

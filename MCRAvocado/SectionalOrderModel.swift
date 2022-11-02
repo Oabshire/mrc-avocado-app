@@ -9,8 +9,8 @@ import Foundation
 
 struct SectionalOrderModel {
 	let orders: [OrderContainer]
-	let monthYearString: String
-	var first: Date {
+	let sectionName: String
+	var dateOfFirstOrder: Date {
 		orders.first?.dateOfCreation ?? Date()
 	}
 }
