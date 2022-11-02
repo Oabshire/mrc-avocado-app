@@ -10,6 +10,7 @@
 		091171F428E0E11600052533 /* CartListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F328E0E11600052533 /* CartListFactory.swift */; };
 		091171F628E0E18C00052533 /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F528E0E18C00052533 /* EmptyCartView.swift */; };
 		0911720628E1286F00052533 /* MenuItemToAddBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */; };
+		0929B7912912E84B004C2231 /* BottomCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929B7902912E84B004C2231 /* BottomCartView.swift */; };
 		0940B54C28D6C6590008A387 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54B28D6C6590008A387 /* StartView.swift */; };
 		0940B55028D6D4180008A387 /* DiscountGridRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54F28D6D4180008A387 /* DiscountGridRow.swift */; };
 		0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55128D7A1E50008A387 /* DiscountGridView.swift */; };
@@ -100,6 +101,7 @@
 		091171F328E0E11600052533 /* CartListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListFactory.swift; sourceTree = "<group>"; };
 		091171F528E0E18C00052533 /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemToAddBuilder.swift; sourceTree = "<group>"; };
+		0929B7902912E84B004C2231 /* BottomCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCartView.swift; sourceTree = "<group>"; };
 		0940B54B28D6C6590008A387 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		0940B54F28D6D4180008A387 /* DiscountGridRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountGridRow.swift; sourceTree = "<group>"; };
 		0940B55128D7A1E50008A387 /* DiscountGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountGridView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				09C1CC2B28CE5417004548F1 /* CartListView.swift */,
+				0929B7902912E84B004C2231 /* BottomCartView.swift */,
 				091171F528E0E18C00052533 /* EmptyCartView.swift */,
 				09C1CC2E28CE69D1004548F1 /* CartRowView.swift */,
 			);
@@ -783,6 +786,7 @@
 				09573D1528FD249600775985 /* SectionEntity+CoreDataClass.swift in Sources */,
 				09928FEE28FA222D00AEFF21 /* APIManager.swift in Sources */,
 				096D5E4F290F75E300FA94B8 /* OrdersListView.swift in Sources */,
+				0929B7912912E84B004C2231 /* BottomCartView.swift in Sources */,
 				096D5E5C290FAB1F00FA94B8 /* OrderRequest.swift in Sources */,
 				09F50C5528F9EBF9008E0E92 /* RequestType.swift in Sources */,
 				09928FFB28FA2C7A00AEFF21 /* MenuImageView.swift in Sources */,

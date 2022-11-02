@@ -9,12 +9,12 @@ import SwiftUI
 
 /// List of ordered Items
 struct OrderDetailView: View {
-	
+
 	@Environment(\.verticalSizeClass ) var verticalSizeClass
 	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
-	
+
 	let order: OrderContainer
-	
+
 	var body: some View {
 		GeometryReader { geometry in
 			VStack {
