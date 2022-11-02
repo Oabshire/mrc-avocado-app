@@ -19,15 +19,6 @@ struct StartView: View {
 	let factory: CartListFactory
 	let discounts: [Discount] = discountDataSource
 
-	init(factory: CartListFactory,
-			 selectedTab: Binding<Int>) {
-		self.factory = factory
-		_selectedTab = selectedTab
-		let opaqueAppearance = UITabBarAppearance()
-		opaqueAppearance.configureWithOpaqueBackground()
-		UITabBar.appearance().scrollEdgeAppearance = opaqueAppearance
-	}
-
 	var body: some View {
 		TabView(selection: $selectedTab) {
 			// tab with discounts
@@ -47,10 +38,7 @@ struct StartView: View {
 					Image(systemName: "menucard")
 						.resizable()
 					Text("Menu")
-				}
-			// badge display amount of menu items
-				.badge(menu.flatMap { $0.menuItems }.filter { $0.isInStock }.count)
-				.tag(1)
+				}				.tag(1)
 
 			// tab with ordered items
 			factory.createCartList(order: order)
@@ -60,16 +48,16 @@ struct StartView: View {
 					Text("Cart")
 				}
 			// badge display amount of ordered items
-				.badge(order.orderedItems.count)
+				.badge(order.orderedItems.compactMap { $0.value }.reduce(0, +))
 				.tag(2)
 
+			// tab with orders
 			OrdersListView()
 				.tabItem {
 					Image(systemName: "clock")
 						.resizable()
 					Text("Orders")
 				}
-			// badge display amount of discount
 				.tag(3)
 		}.onChange(of: isLoading) { _ in
 			launchScreenManager.dismiss()
@@ -81,18 +69,18 @@ struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
 		let orderListFactory = CartListFactory(selectedTab: .constant(1))
 		let launchScreenManager = LaunchScreenManager()
-		StartView(factory: orderListFactory, selectedTab: .constant(1))
+		StartView(selectedTab: .constant(1), factory: orderListFactory)
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
-		StartView(factory: orderListFactory, selectedTab: .constant(1))
+		StartView(selectedTab: .constant(1), factory: orderListFactory)
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
 			.preferredColorScheme(.dark)
-		StartView(factory: orderListFactory, selectedTab: .constant(1))
+		StartView(selectedTab: .constant(1), factory: orderListFactory)
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
 			.previewLayout(.fixed(width: 568, height: 320))
-		StartView(factory: orderListFactory, selectedTab: .constant(1))
+		StartView(selectedTab: .constant(1), factory: orderListFactory)
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
 			.previewLayout(.fixed(width: 568, height: 320))

@@ -23,23 +23,11 @@ struct CartListView: View {
 			.onDelete(perform: delete)
 		}
 		.safeAreaInset(edge: .bottom) {
-			ZStack {
-				LinearGradient(gradient: Gradient(colors:[Color.clear, Color.defaultBackgroundColor, Color.defaultBackgroundColor]),
-											 startPoint: .top,
-											 endPoint: .bottom)
-				.frame(height: 100)
-
-				BottomButton(text: "Place order", color: .onboardingAccentColor) {
-					let orderToPost = OrderAdapter.adaptToPost(from: order)
-					isOrderConfShows = true
-					Task {
-						await postOrder(orderToPost)
-					}
-				}
-				.padding()
-				.fullScreenCover(isPresented: $isOrderConfShows) {
-					OrderConfirmationView(isOrderPlaced: $isOrderConfShows, selectedTab: $selectedTab).environmentObject(order)
-				}
+			let orderToPost = OrderAdapter.adaptToPost(from: order)
+			BottomCartView(order: _order,
+										 isOrderConfShows: $isOrderConfShows,
+										 selectedTab: $selectedTab) {
+				await postOrder(orderToPost)
 			}
 		}
 		.navigationBarTitle("Cart")

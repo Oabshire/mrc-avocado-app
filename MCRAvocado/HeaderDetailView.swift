@@ -25,34 +25,20 @@ struct HeaderDetailView: View {
 			.edgesIgnoringSafeArea(.all)
 			VStack {
 				HStack {
-					Text(order.status == .completed ? "Completion time:" : "Estimated completion time: ")
-						.font(.title3)
-						.bold()
+					HeaderLargeText(text: order.status == .completed ? "Completion time:" : "Estimated completion time: ")
 						.foregroundColor(.defaultBackgroundColor)
-						.listSectionSeparator(.hidden)
 					Spacer()
-					Text(order.estimatedCompletionTime?.toMinutesHoursString ?? "")
-						.font(.title3)
-						.fontWeight(.semibold)
+					HeaderLargeText(text: order.estimatedCompletionTime?.toMinutesHoursString ?? "")
 						.foregroundColor(.defaultBackgroundColor)
-						.listSectionSeparator(.hidden)
 				}
 				.padding(.bottom, 5)
 				.padding(.top, 5)
 				HStack {
-					Text("Total: ")
-						.font(.title2)
-						.bold()
+					HeaderText(text: "Total: ")
 						.foregroundColor(.defaultBackgroundColor)
-						.frame(alignment: .center)
-						.listSectionSeparator(.hidden)
 					Spacer()
-					Text(String(order.totalAmount.roundTwoAfterPoint ?? ""))
-						.font(.title3)
-						.fontWeight(.semibold)
+					HeaderLargeText(text:String(order.totalAmount.roundTwoAfterPoint ?? ""))
 						.foregroundColor(.defaultBackgroundColor)
-						.frame(alignment: .center)
-						.listSectionSeparator(.hidden)
 				}
 			}.padding()
 		}

@@ -51,6 +51,23 @@ struct SectionHeader: View {
 	}
 }
 
+struct HeaderText: View {
+	let text: String
+	var body: some View {
+		Text(text)
+			.font(.title2)
+			.bold()
+			.frame(alignment: .center)
+	}
+}
+struct HeaderLargeText: View {
+	let text: String
+	var body: some View {
+		Text(text)
+			.font(.title3)
+			.fontWeight(.semibold)
+			.frame(alignment: .center)	}
+}
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
