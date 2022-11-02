@@ -43,6 +43,8 @@
 		096D5E5A290F9A5800FA94B8 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D5E59290F9A5800FA94B8 /* OrderDetailView.swift */; };
 		096D5E5C290FAB1F00FA94B8 /* OrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D5E5B290FAB1F00FA94B8 /* OrderRequest.swift */; };
 		096D5E61290FABCC00FA94B8 /* EmptyOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D5E60290FABCC00FA94B8 /* EmptyOrdersView.swift */; };
+		096D5E682912305A00FA94B8 /* SectionalOrdersAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D5E672912305A00FA94B8 /* SectionalOrdersAdapterTests.swift */; };
+		096D5E6A2912310900FA94B8 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096D5E692912310900FA94B8 /* DateExtension.swift */; };
 		0976F426290E0B82007AC31D /* OrderContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0976F425290E0B82007AC31D /* OrderContainer.swift */; };
 		0976F428290E0DA8007AC31D /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0976F427290E0DA8007AC31D /* EncodableExtension.swift */; };
 		0976F42A290E0FF2007AC31D /* OrderAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0976F429290E0FF2007AC31D /* OrderAdapter.swift */; };
@@ -133,6 +135,8 @@
 		096D5E59290F9A5800FA94B8 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		096D5E5B290FAB1F00FA94B8 /* OrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRequest.swift; sourceTree = "<group>"; };
 		096D5E60290FABCC00FA94B8 /* EmptyOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyOrdersView.swift; sourceTree = "<group>"; };
+		096D5E672912305A00FA94B8 /* SectionalOrdersAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionalOrdersAdapterTests.swift; sourceTree = "<group>"; };
+		096D5E692912310900FA94B8 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		0976F425290E0B82007AC31D /* OrderContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderContainer.swift; sourceTree = "<group>"; };
 		0976F427290E0DA8007AC31D /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
 		0976F429290E0FF2007AC31D /* OrderAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAdapter.swift; sourceTree = "<group>"; };
@@ -297,6 +301,7 @@
 				09C1CC2D28CE6985004548F1 /* CartModule */,
 				096D5E62290FB04B00FA94B8 /* PlaceorderModule */,
 				096D5E56290F910800FA94B8 /* OrdersModule */,
+				096D5E6529122FB800FA94B8 /* OrderDeteilModule */,
 				0940B55528D7A3E20008A387 /* DiscountModule */,
 				0949F44928B1B4D2000B9CE6 /* Libraries */,
 				09239A0B28BABD0000B14F20 /* Extensions */,
@@ -369,8 +374,10 @@
 		095AD0DE28BBFF9200651B36 /* MCRAvocadoTests */ = {
 			isa = PBXGroup;
 			children = (
+				096D5E6B2912310D00FA94B8 /* Helpers */,
 				095AD0DF28BBFF9200651B36 /* OrderModelTests.swift */,
 				09D32A61290464DA0001DF31 /* MenuItemToAddBuilderTests.swift */,
+				096D5E672912305A00FA94B8 /* SectionalOrdersAdapterTests.swift */,
 				098B79882906500F0041EB4C /* NetworkingTests */,
 				09D32A722904AECD0001DF31 /* CoreDataTests.swift */,
 			);
@@ -380,11 +387,9 @@
 		096D5E56290F910800FA94B8 /* OrdersModule */ = {
 			isa = PBXGroup;
 			children = (
-				096D5E59290F9A5800FA94B8 /* OrderDetailView.swift */,
-				096D5E4E290F75E300FA94B8 /* OrdersListView.swift */,
-				096D5E60290FABCC00FA94B8 /* EmptyOrdersView.swift */,
-				096D5E52290F844000FA94B8 /* SectionalOrderModel.swift */,
-				096D5E57290F912100FA94B8 /* OrderRowView.swift */,
+				096D5E662912303900FA94B8 /* Helper */,
+				096D5E6429122FA000FA94B8 /* Views */,
+				096D5E6329122F9500FA94B8 /* Model */,
 			);
 			name = OrdersModule;
 			sourceTree = "<group>";
@@ -402,9 +407,50 @@
 			isa = PBXGroup;
 			children = (
 				0976F42B290E49A1007AC31D /* OrderConfirmationView.swift */,
-				096D5E54290F889D00FA94B8 /* SectionalOrdersAdapter.swift */,
 			);
 			name = PlaceorderModule;
+			sourceTree = "<group>";
+		};
+		096D5E6329122F9500FA94B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				096D5E52290F844000FA94B8 /* SectionalOrderModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		096D5E6429122FA000FA94B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				096D5E57290F912100FA94B8 /* OrderRowView.swift */,
+				096D5E4E290F75E300FA94B8 /* OrdersListView.swift */,
+				096D5E60290FABCC00FA94B8 /* EmptyOrdersView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		096D5E6529122FB800FA94B8 /* OrderDeteilModule */ = {
+			isa = PBXGroup;
+			children = (
+				096D5E59290F9A5800FA94B8 /* OrderDetailView.swift */,
+			);
+			name = OrderDeteilModule;
+			sourceTree = "<group>";
+		};
+		096D5E662912303900FA94B8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				096D5E54290F889D00FA94B8 /* SectionalOrdersAdapter.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		096D5E6B2912310D00FA94B8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				096D5E692912310900FA94B8 /* DateExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		098B79882906500F0041EB4C /* NetworkingTests */ = {
@@ -749,10 +795,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				09D32A66290478A60001DF31 /* MenuRequestMock.swift in Sources */,
+				096D5E6A2912310900FA94B8 /* DateExtension.swift in Sources */,
 				09D32A732904AECD0001DF31 /* CoreDataTests.swift in Sources */,
 				09D32A68290478F50001DF31 /* RequestManagerTests.swift in Sources */,
 				09D32A64290478510001DF31 /* APIManagerMock.swift in Sources */,
 				09D32A62290464DA0001DF31 /* MenuItemToAddBuilderTests.swift in Sources */,
+				096D5E682912305A00FA94B8 /* SectionalOrdersAdapterTests.swift in Sources */,
 				095AD0E028BBFF9200651B36 /* OrderModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

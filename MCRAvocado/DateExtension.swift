@@ -18,21 +18,21 @@ extension Date {
 	var toMonthDayYearString: String {
 		let dateFormatter = DateFormatter()
 
-		dateFormatter.dateFormat = "MMMM dd YYYY"
+		dateFormatter.dateFormat = "MMM dd YYYY"
 		return dateFormatter.string(from: self)
 	}
 
 	var toMinutesHoursString: String {
 		let dateFormatter = DateFormatter()
 
-		dateFormatter.dateFormat = "hh:mm"
+		dateFormatter.dateFormat = "hh:mm a"
 		return dateFormatter.string(from: self)
 	}
 
 	var fullDateString: String {
 		let dateFormatter = DateFormatter()
 
-		dateFormatter.dateFormat = "yyyy.MM.dd hh:mm"
+		dateFormatter.dateFormat = "yyyy.MM.dd hh:mm a"
 		return dateFormatter.string(from: self)
 	}
 }

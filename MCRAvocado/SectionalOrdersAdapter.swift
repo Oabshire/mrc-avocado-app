@@ -23,7 +23,7 @@ struct SectionalOrdersAdapter {
 			for order in section.value {
 				orders.append(order)
 			}
-			result.append(SectionalOrderModel(orders: orders, monthYearString: section.key))
+			result.append(SectionalOrderModel(orders: orders, sectionName: section.key))
 		}
 		return result
 	}

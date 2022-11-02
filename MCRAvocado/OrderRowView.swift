@@ -14,7 +14,6 @@ struct OrderRowView: View {
 	let order: OrderContainer
 	var body: some View {
 		HStack(alignment: .top) {
-
 			if order.status  == .completed {
 				Image(systemName: "checkmark.circle.fill")
 					.font(.system(size: 30))
