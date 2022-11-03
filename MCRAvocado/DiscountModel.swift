@@ -87,7 +87,7 @@ enum Discount: String, CaseIterable {
 	}
 
 	static func getAvailableDiscounts(for date: Date) -> [Discount] {
-		var result: [Discount] = []
+		var result: [Discount] = [.none]
 		let currentDate = date
 		let currentYear: Int = Int(currentDate.get(.year))
 		for discount in Self.allCases {

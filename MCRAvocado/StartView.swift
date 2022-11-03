@@ -62,6 +62,9 @@ struct StartView: View {
 		}.onChange(of: isLoading) { _ in
 			launchScreenManager.dismiss()
 		}
+		.onAppear(perform: {
+			order.loadJSONOrder()
+		})
 	}
 }
 
