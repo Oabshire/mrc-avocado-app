@@ -22,7 +22,7 @@ struct DiscountGridView: View {
 					}
 				}.padding()
 			}
-			.navigationBarTitle("Discounts")
+			.navigationTitle("Discounts")
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
 	}

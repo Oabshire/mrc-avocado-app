@@ -13,11 +13,6 @@ struct OrdersListView: View {
 	@State var isOrderConfShows = false
 	@State var orders: [SectionalOrderModel] = []
 
-	@State var lastErrorMessage = "" {
-		didSet { isDisplayingError = true }
-	}
-	@State var isDisplayingError = false
-
 	var body: some View {
 		NavigationView {
 			if !orders.isEmpty {
@@ -35,19 +30,14 @@ struct OrdersListView: View {
 						})
 					}
 				}
-				.navigationBarTitle("Orders")
+				.navigationTitle("Orders")
 			} else {
 				EmptyOrdersView()
-					.navigationBarTitle("Orders")
+					.navigationTitle("Orders")
 			}
 		}
-
+		.navigationViewStyle(StackNavigationViewStyle())
 		.task { await getOrders() }
-		.alert("Error", isPresented: $isDisplayingError, actions: {
-			Button("Try again", role: .cancel) { Task { await getOrders() } }
-		}, message: {
-			Text(lastErrorMessage)
-		})
 	}
 }
 
@@ -58,7 +48,7 @@ private extension OrdersListView {
 			let orders: [OrderContainer] = try await dataManager.getOrders()
 			await stopLoading(with: orders)
 		} catch {
-			lastErrorMessage = error.localizedDescription
+			print(error.localizedDescription)
 		}
 	}
 

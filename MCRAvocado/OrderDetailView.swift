@@ -30,7 +30,7 @@ struct OrderDetailView: View {
 					})
 				}
 				.listStyle(.grouped)
-			}.navigationBarTitle(order.status?.rawValue.capitalized ?? "")
+			}.navigationTitle(order.status?.rawValue.capitalized ?? "")
 		}
 	}
 }

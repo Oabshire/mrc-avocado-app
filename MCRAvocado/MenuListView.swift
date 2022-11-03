@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Foundation
-import CoreData
 
 /// List of menu items divided into section
 struct MenuListView: View {
@@ -15,29 +14,13 @@ struct MenuListView: View {
 
 	@EnvironmentObject var order: Order
 
-	@State var lastErrorMessage = "" {
-		didSet { isDisplayingError = true }
-	}
-	@State var isDisplayingError = false
-
 	@State var activeFilterIndex = 0
 	@Binding var isLoading: Bool
 
 	@FetchRequest(sortDescriptors: [])
 	var menuSections: FetchedResults<SectionEntity>
 
-	let predicatesTypes = [
-		(name: "ALL", predicate: nil),
-		(name: "Waffles", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.waffles.rawValue)),
-		(name: "Eggs Benedict", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.eggsBenedict.rawValue)),
-		(name: "Oatmeal", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.oatmeal.rawValue)),
-		(name: "Omelletes", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.omelletes.rawValue)),
-		(name: "Bagels", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.bagel.rawValue)),
-		(name: "Pancakes", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.pancakes.rawValue)),
-		(name: "Desserts", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.dessert.rawValue)),
-		(name: "Cold Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.coldDrinks.rawValue)),
-		(name: "Hot Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.hotDrinks.rawValue))
-	]
+	let predicatesTypes = predicatesDataSource
 
 	var body: some View {
 		NavigationView {
@@ -60,7 +43,7 @@ struct MenuListView: View {
 				.listRowInsets(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
 			}
 			.listStyle(.grouped)
-			.navigationBarTitle("Menu")
+			.navigationTitle("Menu")
 			.onChange(of: activeFilterIndex) { _ in
 				menuSections.nsPredicate = predicatesTypes[activeFilterIndex].predicate
 			}
@@ -81,16 +64,12 @@ struct MenuListView: View {
 						.font(.title2)
 				})
 			}
-			.alert("Error", isPresented: $isDisplayingError, actions: {
-				Button("Try again", role: .cancel) { Task { 	await fetchMenu() } }
-			}, message: {
-				Text(lastErrorMessage)
-			})
 		}
-		.navigationViewStyle(StackNavigationViewStyle())
 		.task {
+			print("Called")
 			await fetchMenu()
 		}
+		.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 
@@ -106,7 +85,7 @@ private extension MenuListView {
 					do {
 						try PersistenceController.deleteSection(section: section, in: self.viewContext)
 					} catch {
-						print("Error deleting list")
+						print(error.localizedDescription)
 					}
 				}
 				for section in menuContainer {
@@ -119,7 +98,7 @@ private extension MenuListView {
 				}
 			}
 		} catch {
-			lastErrorMessage = error.localizedDescription
+			print(error.localizedDescription)
 		}
 		await stopLoading()
 	}
