@@ -70,8 +70,7 @@ private extension BottomCartView {
 
 	@MainActor
 	func stopLoading(with date: Date) async {
-		let availableDiscounts = Discount.getAvailableDiscounts(for: date)
-		self.discounts.append(contentsOf: availableDiscounts)
+		discounts = Discount.getAvailableDiscounts(for: date)
 	}
 }
 

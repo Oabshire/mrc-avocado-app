@@ -8,7 +8,7 @@
 import Foundation
 
 /// Order Model
-class Order: ObservableObject {
+class Order: ObservableObject, Codable {
 
 	// MARK: - Properties
 	@Published private(set) var orderedItems: [MenuItemContainer: Int] = [:]
@@ -32,6 +32,23 @@ class Order: ObservableObject {
 	///   - orderedItems: ordered menu items and it amount
 	init(orderedItems: [MenuItemContainer: Int]) {
 		self.orderedItems = orderedItems
+		loadJSONOrder()
+	}
+
+	// MARK: - Codable
+	required init(from decoder: Decoder) throws {
+		let values = try decoder.container(keyedBy: CodingKeys.self)
+
+		orderedItems = try values.decode([MenuItemContainer: Int].self, forKey: .orderedItems)
+	}
+
+	func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(orderedItems, forKey: .orderedItems)
+	}
+
+	enum CodingKeys: String, CodingKey {
+		case orderedItems
 	}
 
 	// MARK: - Functions
@@ -48,6 +65,7 @@ class Order: ObservableObject {
 		}
 		let existingAmount: Int = orderedItems[item] ?? 0
 		orderedItems[item] = existingAmount + amount
+		saveJSONOrder()
 		return true
 	}
 
@@ -56,10 +74,49 @@ class Order: ObservableObject {
 			let item = orderedItems.sorted(by: <)[indx]
 			orderedItems.removeValue(forKey: item.key)
 		}
+		saveJSONOrder()
 	}
 
 	func clearOrder() {
 		orderedItems = [:]
 		discount = .none
+		saveJSONOrder()
+	}
+}
+
+// MARK: - Save Order to JSON
+extension Order {
+	private var dataJSONURL: URL {
+		URL(fileURLWithPath: "Order",
+				relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+	}
+
+	private func saveJSONOrder() {
+		orderedItems = self.orderedItems
+		let encoder = JSONEncoder()
+		encoder.outputFormatting = .prettyPrinted
+
+		do {
+			let orderData = try encoder.encode(self)
+			try orderData.write(to: dataJSONURL, options: .atomicWrite)
+		} catch let error {
+			print(error)
+		}
+	}
+
+	func loadJSONOrder() {
+		guard FileManager.default.fileExists(atPath: dataJSONURL.path) else {
+			return
+		}
+
+		let decoder = JSONDecoder()
+
+		do {
+			let orderData = try Data(contentsOf: dataJSONURL)
+			let jsonOrder = try decoder.decode(Order.self, from: orderData)
+			orderedItems = jsonOrder.orderedItems
+		} catch let error {
+			print(error)
+		}
 	}
 }
