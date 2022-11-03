@@ -23,6 +23,9 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
 analyzer_rules: # Rules run by `swiftlint analyze`
   - explicit_self
 
+cyclomatic_complexity:
+  ignores_case_statements: true
+
 # configurable rules can be customized from this configuration file
 # binary rules can set their severity level
 force_cast: warning # implicitly

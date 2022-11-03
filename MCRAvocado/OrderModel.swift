@@ -12,7 +12,7 @@ class Order: ObservableObject {
 
 	// MARK: - Properties
 	@Published private(set) var orderedItems: [MenuItemContainer: Int] = [:]
-	var discount: Discount = .none
+	@Published var discount: Discount = .none
 
 	var amountWithoutDiscount: Double {
 		var totalPrice = 0.0

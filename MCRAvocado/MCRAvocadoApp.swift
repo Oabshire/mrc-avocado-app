@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct MCRAvocadoApp: App {
-
 	@StateObject var order = Order(orderedItems: [:])
 	@StateObject var launchScreenManager = LaunchScreenManager()
 	@State var selectedTab: Int = 1
