@@ -11,10 +11,12 @@
 		091171F628E0E18C00052533 /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F528E0E18C00052533 /* EmptyCartView.swift */; };
 		0911720628E1286F00052533 /* MenuItemToAddBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */; };
 		0929B7912912E84B004C2231 /* BottomCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929B7902912E84B004C2231 /* BottomCartView.swift */; };
+		0929B79329132C0C004C2231 /* DateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929B79229132C0C004C2231 /* DateRequest.swift */; };
+		0929B79529132D0F004C2231 /* DateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929B79429132D0F004C2231 /* DateContainer.swift */; };
+		0929B7972913316C004C2231 /* DateHolidayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929B7962913316C004C2231 /* DateHolidayExtension.swift */; };
 		0940B54C28D6C6590008A387 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54B28D6C6590008A387 /* StartView.swift */; };
 		0940B55028D6D4180008A387 /* DiscountGridRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B54F28D6D4180008A387 /* DiscountGridRow.swift */; };
 		0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55128D7A1E50008A387 /* DiscountGridView.swift */; };
-		0940B55428D7A2290008A387 /* DiscountDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55328D7A2290008A387 /* DiscountDataSource.swift */; };
 		0940B55B28D7AB310008A387 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940B55A28D7AB310008A387 /* MenuRowView.swift */; };
 		09439A792905EFE10098917D /* AvocadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09439A782905EFE10098917D /* AvocadoUITests.swift */; };
 		094667E728CEAB5C00EAE7C6 /* MenuDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094667E628CEAB5C00EAE7C6 /* MenuDetailView.swift */; };
@@ -102,10 +104,12 @@
 		091171F528E0E18C00052533 /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemToAddBuilder.swift; sourceTree = "<group>"; };
 		0929B7902912E84B004C2231 /* BottomCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCartView.swift; sourceTree = "<group>"; };
+		0929B79229132C0C004C2231 /* DateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRequest.swift; sourceTree = "<group>"; };
+		0929B79429132D0F004C2231 /* DateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateContainer.swift; sourceTree = "<group>"; };
+		0929B7962913316C004C2231 /* DateHolidayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolidayExtension.swift; sourceTree = "<group>"; };
 		0940B54B28D6C6590008A387 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		0940B54F28D6D4180008A387 /* DiscountGridRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountGridRow.swift; sourceTree = "<group>"; };
 		0940B55128D7A1E50008A387 /* DiscountGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountGridView.swift; sourceTree = "<group>"; };
-		0940B55328D7A2290008A387 /* DiscountDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountDataSource.swift; sourceTree = "<group>"; };
 		0940B55A28D7AB310008A387 /* MenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
 		09439A762905EFE10098917D /* AvocadoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvocadoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09439A782905EFE10098917D /* AvocadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoUITests.swift; sourceTree = "<group>"; };
@@ -242,6 +246,7 @@
 				09F7AAFE28C595A400262C52 /* DoubleExtension.swift */,
 				0976F427290E0DA8007AC31D /* EncodableExtension.swift */,
 				096D5E50290F78E100FA94B8 /* DateExtension.swift */,
+				0929B7962913316C004C2231 /* DateHolidayExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -251,7 +256,6 @@
 			children = (
 				09B6B0AC28D81543008969D0 /* Model */,
 				09B6B0AB28D8153E008969D0 /* View */,
-				09B6B0AA28D81534008969D0 /* DataSource */,
 			);
 			name = DiscountModule;
 			sourceTree = "<group>";
@@ -404,6 +408,7 @@
 			children = (
 				096D5E5B290FAB1F00FA94B8 /* OrderRequest.swift */,
 				09928FF528FA271000AEFF21 /* MenuRequest.swift */,
+				0929B79229132C0C004C2231 /* DateRequest.swift */,
 			);
 			path = AvailableRequests;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				09928FF028FA225D00AEFF21 /* Request */,
 				09928FF828FA28AB00AEFF21 /* MenuSectionContainer.swift */,
 				0976F425290E0B82007AC31D /* OrderContainer.swift */,
+				0929B79429132D0F004C2231 /* DateContainer.swift */,
 				09928FFE28FA33F700AEFF21 /* DataParser.swift */,
 				0992900028FA350B00AEFF21 /* APIConstants.swift */,
 				09573CF828FC842000775985 /* DataManager.swift */,
@@ -520,14 +526,6 @@
 				0954C5E928FA6AAC00ECD2C0 /* DetailImageView.swift */,
 			);
 			name = DetailModule;
-			sourceTree = "<group>";
-		};
-		09B6B0AA28D81534008969D0 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				0940B55328D7A2290008A387 /* DiscountDataSource.swift */,
-			);
-			name = DataSource;
 			sourceTree = "<group>";
 		};
 		09B6B0AB28D8153E008969D0 /* View */ = {
@@ -743,6 +741,7 @@
 				09F7AAFF28C595A400262C52 /* DoubleExtension.swift in Sources */,
 				09AF6FD128CEBF9D00B30F08 /* MenuItemDetailView.swift in Sources */,
 				0949F44628B1B3D5000B9CE6 /* TextLibrary.swift in Sources */,
+				0929B7972913316C004C2231 /* DateHolidayExtension.swift in Sources */,
 				09573CF928FC842000775985 /* DataManager.swift in Sources */,
 				0954C5EA28FA6AAC00ECD2C0 /* DetailImageView.swift in Sources */,
 				0940B54C28D6C6590008A387 /* StartView.swift in Sources */,
@@ -758,14 +757,15 @@
 				0976F428290E0DA8007AC31D /* EncodableExtension.swift in Sources */,
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
 				0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */,
+				0929B79529132D0F004C2231 /* DateContainer.swift in Sources */,
 				0992900128FA350B00AEFF21 /* APIConstants.swift in Sources */,
 				09928FF228FA233100AEFF21 /* RequestManager.swift in Sources */,
+				0929B79329132C0C004C2231 /* DateRequest.swift in Sources */,
 				09928FFD28FA30AF00AEFF21 /* NetworkError.swift in Sources */,
 				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
 				0976F42C290E49A1007AC31D /* OrderConfirmationView.swift in Sources */,
 				09573D0E28FCF9BB00775985 /* ItemEntity+CoreDataClass.swift in Sources */,
 				096D5E5A290F9A5800FA94B8 /* OrderDetailView.swift in Sources */,
-				0940B55428D7A2290008A387 /* DiscountDataSource.swift in Sources */,
 				094667E728CEAB5C00EAE7C6 /* MenuDetailView.swift in Sources */,
 				0976F426290E0B82007AC31D /* OrderContainer.swift in Sources */,
 				09573D1028FCF9DD00775985 /* ItemEntity+CoreDataProperties.swift in Sources */,

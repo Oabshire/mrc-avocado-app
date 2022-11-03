@@ -17,7 +17,7 @@ struct StartView: View {
 	@State var menu: [MenuSectionContainer] = []
 
 	let factory: CartListFactory
-	let discounts: [Discount] = discountDataSource
+	let discounts: [Discount] = Discount.getAllDiscounts
 
 	var body: some View {
 		TabView(selection: $selectedTab) {

@@ -28,4 +28,9 @@ class DataManager {
 	func getOrders() async throws -> [OrderContainer] {
 		return try await requestManager.perform(OrderRequest.getOrder)
 	}
+
+	func getCurrentDate() async throws -> Date {
+		let dateContainer: DateContainer = try await requestManager.perform(DateRequest.getCurrentDate)
+		return dateContainer.currentDate
+	}
 }
