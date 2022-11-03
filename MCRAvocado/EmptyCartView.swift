@@ -18,7 +18,7 @@ struct EmptyCartView: View {
 				.padding()
 		}
 		.foregroundColor(.onboardingAccentColor)
-		.navigationBarTitle("Cart")
+		.navigationTitle("Cart")
 	}
 }
 

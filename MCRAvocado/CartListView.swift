@@ -30,7 +30,7 @@ struct CartListView: View {
 				await postOrder(orderToPost)
 			}
 		}
-		.navigationBarTitle("Cart")
+		.navigationTitle("Cart")
 	}
 }
 

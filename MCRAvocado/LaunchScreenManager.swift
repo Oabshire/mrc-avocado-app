@@ -18,8 +18,14 @@ final class LaunchScreenManager: ObservableObject {
 
 	func dismiss() {
 		self.state = .second
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-			self.state = .complete
+		Task {
+			try await Task.sleep(nanoseconds: 1_000_000_000)
+			await complete()
 		}
+	}
+
+	@MainActor
+	private func complete() {
+		self.state = .complete
 	}
 }
