@@ -70,6 +70,22 @@ struct HeaderLargeText: View {
 		.frame(alignment: .center)	}
 }
 
+struct ICErrorView: View {
+	@Binding var isPresented: Bool
+	var body: some View {
+		if isPresented {
+			Text("No internet connection")
+				.font(.title3)
+				.fontWeight(.bold)
+				.foregroundColor(.white)
+				.padding(.horizontal, 10)
+				.padding(.vertical, 4)
+				.background(Color.accentColor)
+				.clipShape( Capsule() )
+				.padding()
+		}
+	}
+}
 // MARK: - Preview
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {

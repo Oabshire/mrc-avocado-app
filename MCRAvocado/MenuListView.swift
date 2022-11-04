@@ -10,11 +10,13 @@ import Foundation
 
 /// List of menu items divided into section
 struct MenuListView: View {
-
 	/// viewContext for working with CoreData
 	@Environment(\.managedObjectContext) var viewContext
 	/// Order that contains ordered items and discounts
 	@EnvironmentObject var order: Order
+	/// NetworkReachability to check network connection
+	@EnvironmentObject var network: NetworkReachability
+
 	/// Is menu Loading
 	@Binding var isLoading: Bool
 	/// Index of choosen filter
@@ -24,11 +26,12 @@ struct MenuListView: View {
 	/// Menu Sections with items
 	@FetchRequest(sortDescriptors: [])
 	var menuSections: FetchedResults<SectionEntity>
+	@State private var refreshedID = UUID()
 
 	var body: some View {
 		NavigationView {
 			List {
-				ForEach(menuSections, id: \.name) { section in
+				ForEach(menuSections.sorted(), id: \.name) { section in
 					Section(content: {
 						ForEach(section.menuItems ?? [] ,id: \.name) { item in
 							if item.isInStock == true {
@@ -36,11 +39,12 @@ struct MenuListView: View {
 								NavigationLink(
 									destination: MenuItemDetailView(order: _order, menuItem:itemContainer)) {
 										MenuRowView(menuItem: itemContainer).padding(.top)
+											.id(refreshedID)
 									}
 							}
 						}
 					}, header: {
-						SectionHeader(text: section.name ?? "")
+						SectionHeader(text: section.name)
 					})
 				}
 				.listRowInsets(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
@@ -66,6 +70,14 @@ struct MenuListView: View {
 					Image(systemName: "line.3.horizontal.decrease.circle.fill")
 						.font(.title2)
 				})
+			}
+		}
+		.onChange(of: network.isConnected) { _ in
+			if network.isConnected {
+				refreshedID = UUID()
+				Task {
+					await fetchMenu()
+				}
 			}
 		}
 		.task {

@@ -11,6 +11,7 @@ import SwiftUI
 enum LaunchScreenPhase {
 	case first
 	case second
+	case alert
 	case complete
 }
 
@@ -27,9 +28,23 @@ final class LaunchScreenManager: ObservableObject {
 		}
 	}
 
+	/// Transfer the animation into the second phase, and after 1 second - into the third.
+	func showAlertMassage() {
+		self.state = .second
+		Task {
+			try await Task.sleep(nanoseconds: 1_000_000_000)
+			await complete()
+		}
+	}
+
 	// MARK: - Private
 	@MainActor
 	private func complete() {
 		self.state = .complete
+	}
+
+	@MainActor
+	private func alertMessage() {
+		self.state = .alert
 	}
 }

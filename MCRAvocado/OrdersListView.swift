@@ -9,6 +9,8 @@ import SwiftUI
 
 /// List of Orders
 struct OrdersListView: View {
+	/// NetworkReachability to check network connection
+	@EnvironmentObject var network: NetworkReachability
 /// Is order confirmation view shows
 	@State var isOrderConfShows = false
 	/// All orders
@@ -36,6 +38,13 @@ struct OrdersListView: View {
 			} else {
 				EmptyOrdersView()
 					.navigationTitle("Orders")
+			}
+		}
+		.onChange(of: network.isConnected) { _ in
+			if network.isConnected {
+				Task {
+					await getOrders()
+				}
 			}
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
