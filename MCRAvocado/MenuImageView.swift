@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuImage: View {
+
 	/// Image URL
 	let url: URL?
 

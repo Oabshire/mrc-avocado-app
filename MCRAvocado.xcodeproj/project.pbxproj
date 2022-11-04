@@ -79,6 +79,8 @@
 		09DBDCE729148A0C0022E28E /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DBDCE629148A0C0022E28E /* DateExtensionTests.swift */; };
 		09DBDCEA29148D1C0022E28E /* DoubleExtesnsionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DBDCE929148D1C0022E28E /* DoubleExtesnsionsTests.swift */; };
 		09DBDCEC29148E230022E28E /* EncodableExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DBDCEB29148E230022E28E /* EncodableExtensionTests.swift */; };
+		09DFE374291492CD0022243E /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DFE373291492CD0022243E /* NetworkReachability.swift */; };
+		09DFE3762914B4F00022243E /* FetchedResultsSectionEntityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DFE3752914B4F00022243E /* FetchedResultsSectionEntityExtension.swift */; };
 		09E5768428F3834300AB24DB /* MainLaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5768328F3834300AB24DB /* MainLaunchScreenView.swift */; };
 		09E5768628F3887500AB24DB /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E5768528F3887500AB24DB /* LaunchScreenManager.swift */; };
 		09F50C5328F9EA97008E0E92 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F50C5228F9EA97008E0E92 /* RequestProtocol.swift */; };
@@ -179,6 +181,8 @@
 		09DBDCE629148A0C0022E28E /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		09DBDCE929148D1C0022E28E /* DoubleExtesnsionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtesnsionsTests.swift; sourceTree = "<group>"; };
 		09DBDCEB29148E230022E28E /* EncodableExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtensionTests.swift; sourceTree = "<group>"; };
+		09DFE373291492CD0022243E /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		09DFE3752914B4F00022243E /* FetchedResultsSectionEntityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedResultsSectionEntityExtension.swift; sourceTree = "<group>"; };
 		09E5768328F3834300AB24DB /* MainLaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLaunchScreenView.swift; sourceTree = "<group>"; };
 		09E5768528F3887500AB24DB /* LaunchScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
 		09F50C5228F9EA97008E0E92 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				0976F427290E0DA8007AC31D /* EncodableExtension.swift */,
 				09DBDCE329147F020022E28E /* DateExtensions */,
 				09DBDCD029137FAF0022E28E /* FileManagerExtension.swift */,
+				09DFE3752914B4F00022243E /* FetchedResultsSectionEntityExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 				09928FF728FA289900AEFF21 /* Network */,
 				09928FF028FA225D00AEFF21 /* Request */,
 				09DBDCE5291484150022E28E /* Managers */,
+				09DFE373291492CD0022243E /* NetworkReachability.swift */,
 			);
 			name = NetworkLayer;
 			sourceTree = "<group>";
@@ -845,8 +851,10 @@
 				0949F44428B1B39D000B9CE6 /* ButtonViews.swift in Sources */,
 				0940B55228D7A1E50008A387 /* DiscountGridView.swift in Sources */,
 				0929B79529132D0F004C2231 /* DateContainer.swift in Sources */,
+				09DFE374291492CD0022243E /* NetworkReachability.swift in Sources */,
 				0992900128FA350B00AEFF21 /* APIConstants.swift in Sources */,
 				09928FF228FA233100AEFF21 /* RequestManager.swift in Sources */,
+				09DFE3762914B4F00022243E /* FetchedResultsSectionEntityExtension.swift in Sources */,
 				0929B79329132C0C004C2231 /* DateRequest.swift in Sources */,
 				09928FFD28FA30AF00AEFF21 /* NetworkError.swift in Sources */,
 				0949F43228B1AF6D000B9CE6 /* MCRAvocadoApp.swift in Sources */,
