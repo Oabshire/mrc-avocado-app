@@ -39,7 +39,7 @@ enum QuoteRequest: RequestProtocol {
 	}
 
 	var path: String {
-		"/Quotes/random/250"
+		"/Quotes/random/"
 	}
 
 	var urlParams: [String: String?] {
