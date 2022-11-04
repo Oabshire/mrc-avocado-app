@@ -12,9 +12,12 @@ struct CartListView: View {
 
 	/// Order with added items or empty
 	@EnvironmentObject var order: Order
+	/// is Order Confirmation view shows
 	@State var isOrderConfShows = false
+	/// Selected tab
 	@Binding var selectedTab: Int
 
+	// MARK: - Body
 	var body: some View {
 		List {
 			ForEach(order.orderedItems.sorted(by: <), id: \.key) {key, value in
@@ -34,6 +37,7 @@ struct CartListView: View {
 	}
 }
 
+// MARK: - Private
 private extension CartListView {
 	func delete(at offsets: IndexSet) {
 		order.removeItem(at: offsets)
@@ -47,6 +51,7 @@ private extension CartListView {
 	}
 }
 
+// MARK: - Preview
 struct CartListView_Preview: PreviewProvider {
 	static var previews: some View {
 		CartListView(selectedTab: .constant(2))

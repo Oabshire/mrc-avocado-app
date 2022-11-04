@@ -7,20 +7,29 @@
 
 import SwiftUI
 
+/// Bottom View for CartListView
 struct BottomCartView: View {
-	@EnvironmentObject var order: Order
-	@Binding var isOrderConfShows: Bool
-	@Binding var selectedTab: Int
-	@State var discounts: [Discount] = [.none]
-	@State var selectedDiscount: Int = 0
-	var buttonAction: () async -> Void
-	var body: some View {
 
+	/// Order that contains ordered items and discounts
+	@EnvironmentObject var order: Order
+	/// Is Order confirmation view shows
+	@Binding var isOrderConfShows: Bool
+	/// Selected tabs
+	@Binding var selectedTab: Int
+	/// Available discounts
+	@State var discounts: [Discount] = [.none]
+	/// Selected Discount
+	@State var selectedDiscount: Int = 0
+	/// "Place order" button Action
+	var buttonAction: () async -> Void
+
+	// MARK: - Body
+	var body: some View {
 		VStack {
 			HStack {
 				Text("Subtotal: ")
 				Spacer()
-				Text(String(order.amountWithoutDiscount.roundTwoAfterPoint ?? ""))
+				Text(String(order.amountWithoutDiscount.toCurrencyString ?? ""))
 					.padding(.trailing)
 			}
 			HStack {
@@ -35,7 +44,7 @@ struct BottomCartView: View {
 			HStack {
 				HeaderText(text: "Total: ")
 				Spacer()
-				HeaderLargeText(text:String(order.discountedAmount.roundTwoAfterPoint ?? ""))
+				HeaderLargeText(text:String(order.discountedAmount.toCurrencyString ?? ""))
 					.padding(.trailing)
 			}
 			BottomButton(text: "Place order", color: .onboardingAccentColor) {
@@ -45,7 +54,9 @@ struct BottomCartView: View {
 				}
 			}
 			.fullScreenCover(isPresented: $isOrderConfShows) {
-				OrderConfirmationView(isOrderPlaced: $isOrderConfShows, selectedTab: $selectedTab).environmentObject(order)
+				OrderConfirmationView(selectedTab: $selectedTab,
+															isOrderPlaced: $isOrderConfShows)
+				.environmentObject(order)
 			}
 		}
 		.padding(Constants.Onboarding.buttonPadding)
@@ -57,6 +68,7 @@ struct BottomCartView: View {
 	}
 }
 
+// MARK: - Private
 private extension BottomCartView {
 	func getCurrentDate() async {
 		do {
@@ -74,6 +86,7 @@ private extension BottomCartView {
 	}
 }
 
+// MARK: - Preview
 struct BottomCartView_Previews: PreviewProvider {
 	static var previews: some View {
 		BottomCartView(isOrderConfShows: .constant(false),

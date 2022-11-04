@@ -5,7 +5,7 @@
 //  Created by Onie on 02.11.2022.
 //
 
-/// Available Menu requests
+/// Available Date requests
 enum DateRequest: RequestProtocol {
 	case getCurrentDate
 

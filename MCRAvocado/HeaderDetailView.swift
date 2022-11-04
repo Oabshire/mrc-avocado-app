@@ -7,8 +7,13 @@
 
 import SwiftUI
 
+/// Header view for OrderDetailView
 struct HeaderDetailView: View {
+
+	/// Order that contains information to display
 	let order: OrderContainer
+
+	// MARK: - Body
 	var body: some View {
 		ZStack {
 			if order.status == .completed {
@@ -37,13 +42,15 @@ struct HeaderDetailView: View {
 					HeaderText(text: "Total: ")
 						.foregroundColor(.defaultBackgroundColor)
 					Spacer()
-					HeaderLargeText(text:String(order.totalAmount.roundTwoAfterPoint ?? ""))
+					HeaderLargeText(text:String(order.totalAmount.toCurrencyString ?? ""))
 						.foregroundColor(.defaultBackgroundColor)
 				}
 			}.padding()
 		}
 	}
 }
+
+// MARK: - Preview
 struct InProgressView_Previews: PreviewProvider {
 	static var previews: some View {
 		HeaderDetailView(order: OrderContainer(id: UUID(),

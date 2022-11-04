@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Cell for ordered items
+/// Row for ordered items
 struct CartRowView: View {
 
 	/// Ordered menu item
@@ -16,6 +16,7 @@ struct CartRowView: View {
 	/// Amount of ordered menu items
 	let amount: Int
 
+	// MARK: - Body
 	var body: some View {
 		HStack(alignment: .top) {
 			MenuImage(url:menuItem.imageUrl)
@@ -28,6 +29,7 @@ struct CartRowView: View {
 	}
 }
 
+// MARK: - Preview
 struct CartRowView_Preview: PreviewProvider {
 	static var previews: some View {
 		let menuItem = MenuItemContainer(id: UUID(),

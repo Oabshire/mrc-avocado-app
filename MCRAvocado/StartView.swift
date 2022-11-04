@@ -10,13 +10,20 @@ import CoreData
 
 /// First view that user sees
 struct StartView: View {
-	@EnvironmentObject var launchScreenManager: LaunchScreenManager
-	@EnvironmentObject var order: Order
-	@Binding var selectedTab: Int
-	@State var isLoading = true
-	@State var menu: [MenuSectionContainer] = []
 
+	/// Manager of lunchScreen to control AnimationView
+	@EnvironmentObject var launchScreenManager: LaunchScreenManager
+	/// Order that contains ordered items and discounts
+	@EnvironmentObject var order: Order
+	/// Selected tab
+	@Binding var selectedTab: Int
+	/// State of Menu loading (Dismiss animation if false)
+	@State var isLoading = true
+
+	/// Factory of Cart tab View
 	let factory: CartListFactory
+
+	/// All discounts for DiscountView
 	let discounts: [Discount] = Discount.getAllDiscounts
 
 	var body: some View {
@@ -68,25 +75,15 @@ struct StartView: View {
 	}
 }
 
+// MARK: - Preview
 struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
 		let orderListFactory = CartListFactory(selectedTab: .constant(1))
 		let launchScreenManager = LaunchScreenManager()
-		StartView(selectedTab: .constant(1), factory: orderListFactory)
+		//		let context = PersistenceController.preview.container.viewContext
+		StartView(selectedTab: .constant(3), factory: orderListFactory)
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
-		StartView(selectedTab: .constant(1), factory: orderListFactory)
-			.environmentObject(orderDataSource)
-			.environmentObject(launchScreenManager)
-			.preferredColorScheme(.dark)
-		StartView(selectedTab: .constant(1), factory: orderListFactory)
-			.environmentObject(orderDataSource)
-			.environmentObject(launchScreenManager)
-			.previewLayout(.fixed(width: 568, height: 320))
-		StartView(selectedTab: .constant(1), factory: orderListFactory)
-			.environmentObject(orderDataSource)
-			.environmentObject(launchScreenManager)
-			.previewLayout(.fixed(width: 568, height: 320))
-			.preferredColorScheme(.dark)
+		//			.environment(\.managedObjectContext, context)
 	}
 }

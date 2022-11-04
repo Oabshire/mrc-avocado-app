@@ -13,6 +13,7 @@ struct DiscountGridView: View {
 	/// discounts to display
 	let discountsDataSource: [Discount]
 
+	// MARK: - Body
 	var body: some View {
 		NavigationView {
 			ScrollView {
@@ -28,6 +29,7 @@ struct DiscountGridView: View {
 	}
 }
 
+// MARK: - Preview
 struct DiscountGridView_Previews: PreviewProvider {
 	static var previews: some View {
 		DiscountGridView(discountsDataSource: Discount.getAllDiscounts)

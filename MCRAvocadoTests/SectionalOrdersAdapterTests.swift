@@ -9,20 +9,7 @@ import XCTest
 @testable import Avocado
 
 final class SectionalOrdersAdapterTests: XCTestCase {
-	private var sut: SectionalOrdersAdapter!
 
-	override func setUpWithError() throws {
-		super.setUp()
-		sut = SectionalOrdersAdapter()
-	}
-
-	override func tearDownWithError() throws {
-		sut = nil
-		super.tearDown()
-	}
-}
-
-extension SectionalOrdersAdapterTests {
 	func test() {
 		// arrange
 		let firstOrder = OrderContainer(id: UUID(),
@@ -46,7 +33,7 @@ extension SectionalOrdersAdapterTests {
 		let orders = [firstOrder, secondOrder, thirdOrder]
 
 		// act
-		let result = sut.sectionOrders(from: orders)
+		let result = SectionalOrdersAdapter.sectionOrders(from: orders)
 
 		// assert
 		XCTAssertEqual(result.first?.sectionName, secondOrder.dateOfCreation?.toMonthYearString)

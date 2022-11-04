@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// type of discounts
+/// types of discounts
 enum Discount: String, CaseIterable {
 	case newYear = "New Year's Day"
 	case nationalIndependenceDay = "Independence Day"
@@ -25,8 +25,9 @@ enum Discount: String, CaseIterable {
 	case everyDay = "Every Day"
 	case none = "None"
 
+	/// Get all Discounts exept "none"
 	static var getAllDiscounts:[Discount] {
-		var result:[Discount] = []
+		var result: [Discount] = []
 		for discount in self.allCases where discount != .none {
 			result.append(discount)
 		}
@@ -51,7 +52,10 @@ enum Discount: String, CaseIterable {
 		}
 	}
 
-	func datesOfDiscount(for year: Int) -> Date? {
+	/// Date when Discount available
+	/// - Parameter year: year
+	/// - Returns: date when Discount available
+	func dateOfDiscount(for year: Int) -> Date? {
 		switch self {
 		case .newYear:
 			return Date.newYearDay(year: year)
@@ -86,12 +90,15 @@ enum Discount: String, CaseIterable {
 		}
 	}
 
+	/// Get available discounts for date
+	/// - Parameter date: date
+	/// - Returns: array of available discounts
 	static func getAvailableDiscounts(for date: Date) -> [Discount] {
 		var result: [Discount] = [.none]
 		let currentDate = date
 		let currentYear: Int = Int(currentDate.get(.year))
 		for discount in Self.allCases {
-			let discountsDate = discount.datesOfDiscount(for: currentYear)
+			let discountsDate = discount.dateOfDiscount(for: currentYear)
 			if discountsDate?.get(.day) == currentDate.get(.day),
 				 discountsDate?.get(.month) == currentDate.get(.month) {
 				result.append(discount)
@@ -101,6 +108,7 @@ enum Discount: String, CaseIterable {
 	}
 }
 
+// MARK: - Hashable, Identifiable
 extension Discount: Hashable, Identifiable {
 	var id: some Hashable { self }
 }
