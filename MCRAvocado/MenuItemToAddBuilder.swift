@@ -28,6 +28,7 @@ class MenuItemToAddBuilder {
 	}
 }
 
+// MARK: - Private
 private extension MenuItemToAddBuilder {
 
 	func buildHotDrink(from menuItem: MenuItemContainer) -> MenuItemContainer {

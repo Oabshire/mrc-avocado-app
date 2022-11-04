@@ -13,7 +13,8 @@ struct OrderedItemContainer: Codable {
 	let amount: Int
 }
 
-struct OrderContainer: Codable {
+/// Container of  Order
+struct OrderContainer: Codable, Identifiable {
 	let id: UUID
 	let orderedItems: [OrderedItemContainer]
 	let totalAmount: Double
@@ -29,7 +30,16 @@ struct OrderContainer: Codable {
 		case estimatedCompletionTime
 		case status
 	}
+}
 
+extension OrderContainer: Comparable {
+	static func < (lhs: OrderContainer, rhs: OrderContainer) -> Bool {
+		lhs.dateOfCreation ?? Date() < rhs.dateOfCreation ?? Date()
+	}
+
+	static func == (lhs: OrderContainer, rhs: OrderContainer) -> Bool {
+		lhs.id == rhs.id
+	}
 }
 /// Category of menu items
 enum OrderStatus: String, Codable {

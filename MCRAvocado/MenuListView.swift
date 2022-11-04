@@ -7,60 +7,50 @@
 
 import SwiftUI
 import Foundation
-import CoreData
 
 /// List of menu items divided into section
 struct MenuListView: View {
+	/// viewContext for working with CoreData
 	@Environment(\.managedObjectContext) var viewContext
-
+	/// Order that contains ordered items and discounts
 	@EnvironmentObject var order: Order
+	/// NetworkReachability to check network connection
+	@EnvironmentObject var network: NetworkReachability
 
-	@State var lastErrorMessage = "" {
-		didSet { isDisplayingError = true }
-	}
-	@State var isDisplayingError = false
-
-	@State var activeFilterIndex = 0
+	/// Is menu Loading
 	@Binding var isLoading: Bool
-
+	/// Index of choosen filter
+	@State var activeFilterIndex = 0
+	/// Prdedicates for filtering menu
+	let predicatesTypes = predicatesDataSource
+	/// Menu Sections with items
 	@FetchRequest(sortDescriptors: [])
 	var menuSections: FetchedResults<SectionEntity>
-
-	let predicatesTypes = [
-		(name: "ALL", predicate: nil),
-		(name: "Waffles", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.waffles.rawValue)),
-		(name: "Eggs Benedict", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.eggsBenedict.rawValue)),
-		(name: "Oatmeal", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.oatmeal.rawValue)),
-		(name: "Omelletes", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.omelletes.rawValue)),
-		(name: "Bagels", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.bagel.rawValue)),
-		(name: "Pancakes", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.pancakes.rawValue)),
-		(name: "Desserts", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.dessert.rawValue)),
-		(name: "Cold Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.coldDrinks.rawValue)),
-		(name: "Hot Drink", predicate: NSPredicate(format: "%K == %@", "name", MenuItemType.hotDrinks.rawValue))
-	]
+	@State private var refreshedID = UUID()
 
 	var body: some View {
 		NavigationView {
 			List {
-				ForEach(menuSections, id: \.name) { section in
+				ForEach(menuSections.sorted(), id: \.name) { section in
 					Section(content: {
 						ForEach(section.menuItems ?? [] ,id: \.name) { item in
 							if item.isInStock == true {
-								let itemContainer = createItemContainer(from: item)
+								let itemContainer = ItemEntityAdapter.createItemContainer(from: item)
 								NavigationLink(
-									destination: MenuDetailView(order: _order, menuItem:itemContainer)) {
+									destination: MenuItemDetailView(order: _order, menuItem:itemContainer)) {
 										MenuRowView(menuItem: itemContainer).padding(.top)
+											.id(refreshedID)
 									}
 							}
 						}
 					}, header: {
-						SectionHeader(text: section.name ?? "")
+						SectionHeader(text: section.name)
 					})
 				}
 				.listRowInsets(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 0))
 			}
 			.listStyle(.grouped)
-			.navigationBarTitle("Menu")
+			.navigationTitle("Menu")
 			.onChange(of: activeFilterIndex) { _ in
 				menuSections.nsPredicate = predicatesTypes[activeFilterIndex].predicate
 			}
@@ -81,32 +71,36 @@ struct MenuListView: View {
 						.font(.title2)
 				})
 			}
-			.alert("Error", isPresented: $isDisplayingError, actions: {
-				Button("Try again", role: .cancel) { Task { 	await fetchMenu() } }
-			}, message: {
-				Text(lastErrorMessage)
-			})
 		}
-		.navigationViewStyle(StackNavigationViewStyle())
+		.onChange(of: network.isConnected) { _ in
+			if network.isConnected {
+				refreshedID = UUID()
+				Task {
+					await fetchMenu()
+				}
+			}
+		}
 		.task {
 			await fetchMenu()
 		}
+		.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 
+// MARK: - Private
 private extension MenuListView {
+
+	/// Gets menu  from api, saves to coreData, fetchs menu from CoreData
 	func fetchMenu() async {
 		let  dataManager = DataManager()
-
 		do {
 			let menuContainer: [MenuSectionContainer] = try await dataManager.getMenu()
-
 			if !menuContainer.isEmpty {
 				for section in menuSections {
 					do {
 						try PersistenceController.deleteSection(section: section, in: self.viewContext)
 					} catch {
-						print("Error deleting list")
+						print(error.localizedDescription)
 					}
 				}
 				for section in menuContainer {
@@ -119,44 +113,24 @@ private extension MenuListView {
 				}
 			}
 		} catch {
-			lastErrorMessage = error.localizedDescription
+			print(error.localizedDescription)
 		}
 		await stopLoading()
 	}
 
+	/// Set isLoading to false (Dismis loading View)
 	@MainActor
 	func stopLoading() async {
 		isLoading = false
 	}
-
-	func 	createItemContainer (from entity: FetchedResults<ItemEntity>.Element ) -> MenuItemContainer {
-		MenuItemContainer(id: entity.id,
-											name: entity.name,
-											price: entity.price,
-											isInStock: entity.isInStock,
-											calories: Int(entity.calories),
-											description: entity.descript,
-											type: MenuItemType(rawValue: entity.type) ?? .other,
-											imageUrl: entity.imageUrl,
-											withIce: nil,
-											typeOfMilk: nil,
-											cupSize: nil)
-	}
 }
 
+// MARK: - Preview
 struct MenuListView_Previews: PreviewProvider {
 	static var previews: some View {
-		MenuListView(isLoading: .constant(true))
-			.environmentObject(orderDataSource)
-		MenuListView(isLoading: .constant(true))
-			.environmentObject(orderDataSource)
-			.preferredColorScheme(.dark)
-		MenuListView(isLoading: .constant(true))
-			.environmentObject(orderDataSource)
-			.previewLayout(.fixed(width: 568, height: 320))
-		MenuListView(isLoading: .constant(true))
-			.environmentObject(orderDataSource)
-			.previewLayout(.fixed(width: 568, height: 320))
-			.preferredColorScheme(.dark)
+		let context = PersistenceController.preview.container.viewContext
+		let section = SectionEntity(context: context)
+		section.name = "New Section"
+		return MenuListView(isLoading: .constant(false)).environment(\.managedObjectContext, context)
 	}
 }

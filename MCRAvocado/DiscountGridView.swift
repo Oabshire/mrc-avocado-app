@@ -13,6 +13,7 @@ struct DiscountGridView: View {
 	/// discounts to display
 	let discountsDataSource: [Discount]
 
+	// MARK: - Body
 	var body: some View {
 		NavigationView {
 			ScrollView {
@@ -22,19 +23,20 @@ struct DiscountGridView: View {
 					}
 				}.padding()
 			}
-			.navigationBarTitle("Discounts")
+			.navigationTitle("Discounts")
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 
+// MARK: - Preview
 struct DiscountGridView_Previews: PreviewProvider {
 	static var previews: some View {
-		DiscountGridView(discountsDataSource: discountDataSource)
-		DiscountGridView(discountsDataSource: discountDataSource).preferredColorScheme(.dark)
-		DiscountGridView(discountsDataSource: discountDataSource)
+		DiscountGridView(discountsDataSource: Discount.getAllDiscounts)
+		DiscountGridView(discountsDataSource: Discount.getAllDiscounts).preferredColorScheme(.dark)
+		DiscountGridView(discountsDataSource: Discount.getAllDiscounts)
 			.previewLayout(.fixed(width: 568, height: 320))
-		DiscountGridView(discountsDataSource: discountDataSource)
+		DiscountGridView(discountsDataSource: Discount.getAllDiscounts)
 			.previewLayout(.fixed(width: 568, height: 320))
 			.preferredColorScheme(.dark)
 	}

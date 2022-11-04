@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-/// View for Discount Grid
+/// Row for Discount Grid
 struct DiscountGridRow: View {
 
 	/// Discount to display
 	let discount: Discount
 
+	// MARK: - Body
 	var body: some View {
 		ZStack {
 			Rectangle()
@@ -47,6 +48,7 @@ struct DiscountGridRow: View {
 	}
 }
 
+// MARK: - Preview
 struct DiscountGridRow_Previews: PreviewProvider {
 	static var previews: some View {
 		let discount: Discount = .nationalIndependenceDay

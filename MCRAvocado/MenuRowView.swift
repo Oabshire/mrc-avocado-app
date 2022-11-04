@@ -9,7 +9,10 @@ import SwiftUI
 
 /// View of row for Menu List
 struct MenuRowView: View {
+
+	/// Item with information to display
 	let menuItem: MenuItemContainer
+
 	var body: some View {
 		HStack(alignment: .top) {
 			MenuImage(url: menuItem.imageUrl)
@@ -30,17 +33,17 @@ struct MenuRowView: View {
 		}
 	}
 }
-
+// MARK: - Preview
 struct MenuRowView_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
-			Color(.green)
+			Color(.lightGray)
 			MenuRowView(menuItem:	MenuItemContainer(id: UUID(),
 																							name: "Blueberry pancakes",
 																							price: 11.99,
 																							isInStock: true,
 																							calories: 610,
-																							description: TextLibrary.MenuItemDescription.blueberryPancake,
+																							description: "Some description",
 																							type: .hotDrinks,
 																							imageUrl: nil,
 																							withIce: nil,

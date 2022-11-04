@@ -18,7 +18,7 @@ struct DetailTitleText: View {
 	}
 }
 
-struct DetailDescriptionText: View {
+struct LargeDescriptionText: View {
 	let lineText: String
 	var body: some View {
 		Text(lineText)
@@ -51,12 +51,48 @@ struct SectionHeader: View {
 	}
 }
 
+struct HeaderText: View {
+	let text: String
+	var body: some View {
+		Text(text)
+			.font(.title2)
+			.bold()
+			.frame(alignment: .center)
+	}
+}
+
+struct HeaderLargeText: View {
+	let text: String
+	var body: some View {
+		Text(text)
+			.font(.title3)
+			.fontWeight(.semibold)
+		.frame(alignment: .center)	}
+}
+
+struct ICErrorView: View {
+	@Binding var isPresented: Bool
+	var body: some View {
+		if isPresented {
+			Text("No internet connection")
+				.font(.title3)
+				.fontWeight(.bold)
+				.foregroundColor(.white)
+				.padding(.horizontal, 10)
+				.padding(.vertical, 4)
+				.background(Color.accentColor)
+				.clipShape( Capsule() )
+				.padding()
+		}
+	}
+}
+// MARK: - Preview
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
 			VStack {
 				DetailTitleText(lineText: "Detail Title Text")
-				DetailDescriptionText(lineText: "Detail DescriptionText")
+				LargeDescriptionText(lineText: "Detail DescriptionText")
 				DetailPriceText(price: "45")
 				SectionHeader(text: "OATMEAL")
 			}

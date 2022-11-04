@@ -8,6 +8,10 @@
 import Foundation
 
 struct OrderAdapter {
+
+	/// Take object of Order type and transom it to OrderContainer type
+	/// - Parameter order: object of Order type
+	/// - Returns: object of OrderContainer type
 	static func adaptToPost(from order: Order) -> OrderContainer {
 		var orderedItemContainer: [OrderedItemContainer] = []
 		for item in order.orderedItems {

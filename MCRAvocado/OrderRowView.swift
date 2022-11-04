@@ -9,12 +9,12 @@ import SwiftUI
 
 /// Cell for ordered items
 struct OrderRowView: View {
-
 	/// Ordered menu item
 	let order: OrderContainer
+
+	// MARK: - Body
 	var body: some View {
 		HStack(alignment: .top) {
-
 			if order.status  == .completed {
 				Image(systemName: "checkmark.circle.fill")
 					.font(.system(size: 30))
@@ -32,13 +32,14 @@ struct OrderRowView: View {
 					.bold()
 			}
 			Spacer()
-			Text(order.totalAmount.roundTwoAfterPoint ?? "")
+			Text(order.totalAmount.toCurrencyString ?? "")
 				.font(.title3)
 				.bold()
 		}
 	}
 }
 
+// MARK: - Preview
 struct OrderRowView_Preview: PreviewProvider {
 	static var previews: some View {
 
@@ -61,12 +62,5 @@ struct OrderRowView_Preview: PreviewProvider {
 															 estimatedCompletionTime: Date(),
 															 status: .completed)
 		OrderRowView(order: order)
-		OrderRowView(order: order)
-			.preferredColorScheme(.dark)
-		OrderRowView(order: order)
-			.previewLayout(.fixed(width: 568, height: 320))
-		OrderRowView(order: order)
-			.previewLayout(.fixed(width: 568, height: 320))
-			.preferredColorScheme(.dark)
 	}
 }

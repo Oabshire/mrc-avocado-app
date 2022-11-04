@@ -29,7 +29,7 @@ extension SectionEntity {
 		return NSFetchRequest<SectionEntity>(entityName: "SectionEntity")
 	}
 
-	@NSManaged public var name: String?
+	@NSManaged public var name: String
 	@NSManaged public var menuItems: [ItemEntity]?
 
 }

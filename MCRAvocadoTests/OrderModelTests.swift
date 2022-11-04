@@ -14,18 +14,7 @@ final class OrderModelTests: XCTestCase {
 
 	override func setUpWithError() throws {
 		super.setUp()
-		menuItem = MenuItemContainer(id: UUID(),
-																 name: "Oatmeal",
-																 price: 10.70,
-																 isInStock: true,
-																 calories: 500,
-																 description: "Some description",
-																 type: .oatmeal,
-																 imageUrl: nil,
-																 withIce: nil,
-																 typeOfMilk: nil,
-																 cupSize: nil)
-		sut = Order(orderedItems: [menuItem: 2])
+		sut = Order(orderedItems: [:])
 	}
 
 	override func tearDownWithError() throws {
@@ -78,15 +67,6 @@ extension OrderModelTests {
 		XCTAssertFalse(result)
 		XCTAssertNil(sut.orderedItems[menuItem])
 	}
-
-	func testAddExistingMenuItemIsOutStock() {
-		// arrange & act
-		let result = sut.addMenuItem(item: menuItem, amount: 1)
-
-		// assert
-		XCTAssertTrue(result)
-		XCTAssertEqual(sut.orderedItems[menuItem], 3)
-	}
 }
 
 // MARK: - Test amountWithoutDiscount
@@ -105,7 +85,7 @@ extension OrderModelTests {
 																			typeOfMilk: nil,
 																			cupSize: nil)
 		let menuItem1 = MenuItemContainer(id: UUID(),
-																			name: "Oatmeal",
+																			name: "Waffle",
 																			price: 10.70,
 																			isInStock: true,
 																			calories: 500,

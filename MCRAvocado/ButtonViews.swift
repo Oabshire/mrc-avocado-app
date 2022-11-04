@@ -29,6 +29,7 @@ struct BottomButton: View {
 	}
 }
 
+// MARK: - Preview
 struct ButtonViews_Previews: PreviewProvider {
 	static var previews: some View {
 		BottomButton(text: "My bottom button",

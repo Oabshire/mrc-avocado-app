@@ -8,11 +8,13 @@
 import Foundation
 
 extension Double {
-	var roundTwoAfterPoint: String? {
+
+	/// Transform Double into  String with 2 decimal places after point
+	var toCurrencyString: String? {
 		let currencyFormatter = NumberFormatter()
 		currencyFormatter.usesGroupingSeparator = true
 		currencyFormatter.numberStyle = .currency
-		currencyFormatter.locale = Locale.current
+		currencyFormatter.locale = Locale(identifier: "en_us")
 		return currencyFormatter.string(from: NSNumber(value: self))
 	}
 }

@@ -53,7 +53,7 @@ extension MenuItemContainer: Comparable {
 }
 
 /// Category of menu items
-enum MenuItemType: String, Codable {
+enum MenuItemType: String, Codable, Comparable {
 	case scrambles = "scrambles"
 	case omelletes = "omelettes"
 	case eggsBenedict = "eggs benedict"
@@ -77,6 +77,43 @@ enum MenuItemType: String, Codable {
 			throw DecodingError.dataCorruptedError(in: container,
 																						 debugDescription: "Cannot initialize UserType from invalid String value \(rawString)")
 		}
+	}
+
+	private var sortOrder: Int {
+		switch self {
+		case .scrambles:
+			return 0
+		case .omelletes:
+			return 1
+		case .eggsBenedict:
+			return 2
+		case .oatmeal:
+			return 3
+		case .pancakes:
+			return 4
+		case .waffles:
+			return 5
+		case .bagel:
+			return 6
+		case .dessert:
+			return 7
+		case .side:
+			return 8
+		case .coldDrinks:
+			return 9
+		case .hotDrinks:
+			return 10
+		case .other:
+			return 11
+		}
+	}
+
+	static func == (lhs: MenuItemType, rhs: MenuItemType) -> Bool {
+		return lhs.sortOrder == rhs.sortOrder
+	}
+
+	static func < (lhs: MenuItemType, rhs: MenuItemType) -> Bool {
+		return lhs.sortOrder < rhs.sortOrder
 	}
 }
 

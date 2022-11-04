@@ -10,23 +10,21 @@ import CoreData
 
 /// First view that user sees
 struct StartView: View {
+
+	/// Manager of lunchScreen to control AnimationView
 	@EnvironmentObject var launchScreenManager: LaunchScreenManager
+	/// Order that contains ordered items and discounts
 	@EnvironmentObject var order: Order
+	/// Selected tab
 	@Binding var selectedTab: Int
+	/// State of Menu loading (Dismiss animation if false)
 	@State var isLoading = true
-	@State var menu: [MenuSectionContainer] = []
 
+	/// Factory of Cart tab View
 	let factory: CartListFactory
-	let discounts: [Discount] = discountDataSource
 
-	init(factory: CartListFactory,
-			 selectedTab: Binding<Int>) {
-		self.factory = factory
-		_selectedTab = selectedTab
-		let opaqueAppearance = UITabBarAppearance()
-		opaqueAppearance.configureWithOpaqueBackground()
-		UITabBar.appearance().scrollEdgeAppearance = opaqueAppearance
-	}
+	/// All discounts for DiscountView
+	let discounts: [Discount] = Discount.getAllDiscounts
 
 	var body: some View {
 		TabView(selection: $selectedTab) {
@@ -47,10 +45,7 @@ struct StartView: View {
 					Image(systemName: "menucard")
 						.resizable()
 					Text("Menu")
-				}
-			// badge display amount of menu items
-				.badge(menu.flatMap { $0.menuItems }.filter { $0.isInStock }.count)
-				.tag(1)
+				}				.tag(1)
 
 			// tab with ordered items
 			factory.createCartList(order: order)
@@ -60,42 +55,35 @@ struct StartView: View {
 					Text("Cart")
 				}
 			// badge display amount of ordered items
-				.badge(order.orderedItems.count)
+				.badge(order.orderedItems.compactMap { $0.value }.reduce(0, +))
 				.tag(2)
 
+			// tab with orders
 			OrdersListView()
 				.tabItem {
 					Image(systemName: "clock")
 						.resizable()
 					Text("Orders")
 				}
-			// badge display amount of discount
 				.tag(3)
 		}.onChange(of: isLoading) { _ in
 			launchScreenManager.dismiss()
 		}
+		.onAppear(perform: {
+			order.loadJSONOrder()
+		})
 	}
 }
 
+// MARK: - Preview
 struct StartView_Previews: PreviewProvider {
 	static var previews: some View {
 		let orderListFactory = CartListFactory(selectedTab: .constant(1))
 		let launchScreenManager = LaunchScreenManager()
-		StartView(factory: orderListFactory, selectedTab: .constant(1))
+		//		let context = PersistenceController.preview.container.viewContext
+		StartView(selectedTab: .constant(3), factory: orderListFactory)
 			.environmentObject(orderDataSource)
 			.environmentObject(launchScreenManager)
-		StartView(factory: orderListFactory, selectedTab: .constant(1))
-			.environmentObject(orderDataSource)
-			.environmentObject(launchScreenManager)
-			.preferredColorScheme(.dark)
-		StartView(factory: orderListFactory, selectedTab: .constant(1))
-			.environmentObject(orderDataSource)
-			.environmentObject(launchScreenManager)
-			.previewLayout(.fixed(width: 568, height: 320))
-		StartView(factory: orderListFactory, selectedTab: .constant(1))
-			.environmentObject(orderDataSource)
-			.environmentObject(launchScreenManager)
-			.previewLayout(.fixed(width: 568, height: 320))
-			.preferredColorScheme(.dark)
+		//			.environment(\.managedObjectContext, context)
 	}
 }

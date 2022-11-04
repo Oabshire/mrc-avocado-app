@@ -7,10 +7,14 @@
 
 import Foundation
 
+/// Section with Orders groubt by Month and Year
 struct SectionalOrderModel {
+	/// Orders
 	let orders: [OrderContainer]
-	let monthYearString: String
-	var first: Date {
+	///  Name of section
+	let sectionName: String
+	/// Date of first order in section
+	var dateOfFirstOrder: Date {
 		orders.first?.dateOfCreation ?? Date()
 	}
 }

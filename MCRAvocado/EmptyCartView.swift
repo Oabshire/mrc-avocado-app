@@ -7,8 +7,9 @@
 
 import SwiftUI
 
+// View for empty cart
 struct EmptyCartView: View {
-
+	// MARK: - Body
 	var body: some View {
 		VStack {
 			Image(systemName: "cart")
@@ -18,10 +19,11 @@ struct EmptyCartView: View {
 				.padding()
 		}
 		.foregroundColor(.onboardingAccentColor)
-		.navigationBarTitle("Cart")
+		.navigationTitle("Cart")
 	}
 }
 
+// MARK: - Preview
 struct EmptyCartView_Previews: PreviewProvider {
 	static var previews: some View {
 		EmptyCartView()

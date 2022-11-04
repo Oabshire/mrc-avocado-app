@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Factory to create screens for StartView
 struct CartListFactory {
-
+	/// Selected TabBar tab
 	@Binding var selectedTab: Int
 
 	/// Create screen for order tab

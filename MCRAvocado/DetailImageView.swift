@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+/// Image for MenuItemDeteailView
 struct DetailImageView: View {
+	/// Image URL
 	let menuItemPicture: URL?
 
 	var body: some View {
