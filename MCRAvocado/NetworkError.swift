@@ -13,6 +13,7 @@ public enum NetworkError: LocalizedError {
 	case invalidServerResponse
 	case failedToDecode
 
+	// MARK: - LocalizedError
 	public var errorDescription: String? {
 		switch self {
 		case .invalidServerResponse:

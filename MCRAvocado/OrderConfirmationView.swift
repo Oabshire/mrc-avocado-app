@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct OrderConfirmationView: View {
+	/// Order that contains ordered items and discounts
 	@EnvironmentObject var order: Order
-	@Binding var isOrderPlaced: Bool
+	/// Selected tab of tabBar
 	@Binding var selectedTab: Int
+	/// is Order Places
+	@Binding var isOrderPlaced: Bool
 
+	// MARK: - Body
 	var body: some View {
 		ZStack {
 			VStack {
@@ -46,8 +50,10 @@ struct OrderConfirmationView: View {
 	}
 }
 
+// MARK: - Preview
 struct OrderConfirmationView_Previews: PreviewProvider {
 	static var previews: some View {
-		OrderConfirmationView(isOrderPlaced: .constant(false), selectedTab: .constant(2))
+		OrderConfirmationView(selectedTab: .constant(2),
+													isOrderPlaced: .constant(false))
 	}
 }

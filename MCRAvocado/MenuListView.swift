@@ -10,17 +10,20 @@ import Foundation
 
 /// List of menu items divided into section
 struct MenuListView: View {
+
+	/// viewContext for working with CoreData
 	@Environment(\.managedObjectContext) var viewContext
-
+	/// Order that contains ordered items and discounts
 	@EnvironmentObject var order: Order
-
-	@State var activeFilterIndex = 0
+	/// Is menu Loading
 	@Binding var isLoading: Bool
-
+	/// Index of choosen filter
+	@State var activeFilterIndex = 0
+	/// Prdedicates for filtering menu
+	let predicatesTypes = predicatesDataSource
+	/// Menu Sections with items
 	@FetchRequest(sortDescriptors: [])
 	var menuSections: FetchedResults<SectionEntity>
-
-	let predicatesTypes = predicatesDataSource
 
 	var body: some View {
 		NavigationView {
@@ -29,9 +32,9 @@ struct MenuListView: View {
 					Section(content: {
 						ForEach(section.menuItems ?? [] ,id: \.name) { item in
 							if item.isInStock == true {
-								let itemContainer = createItemContainer(from: item)
+								let itemContainer = ItemEntityAdapter.createItemContainer(from: item)
 								NavigationLink(
-									destination: MenuDetailView(order: _order, menuItem:itemContainer)) {
+									destination: MenuItemDetailView(order: _order, menuItem:itemContainer)) {
 										MenuRowView(menuItem: itemContainer).padding(.top)
 									}
 							}
@@ -66,20 +69,20 @@ struct MenuListView: View {
 			}
 		}
 		.task {
-			print("Called")
 			await fetchMenu()
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 
+// MARK: - Private
 private extension MenuListView {
+
+	/// Gets menu  from api, saves to coreData, fetchs menu from CoreData
 	func fetchMenu() async {
 		let  dataManager = DataManager()
-
 		do {
 			let menuContainer: [MenuSectionContainer] = try await dataManager.getMenu()
-
 			if !menuContainer.isEmpty {
 				for section in menuSections {
 					do {
@@ -103,39 +106,19 @@ private extension MenuListView {
 		await stopLoading()
 	}
 
+	/// Set isLoading to false (Dismis loading View)
 	@MainActor
 	func stopLoading() async {
 		isLoading = false
 	}
-
-	func 	createItemContainer (from entity: FetchedResults<ItemEntity>.Element ) -> MenuItemContainer {
-		MenuItemContainer(id: entity.id,
-											name: entity.name,
-											price: entity.price,
-											isInStock: entity.isInStock,
-											calories: Int(entity.calories),
-											description: entity.descript,
-											type: MenuItemType(rawValue: entity.type) ?? .other,
-											imageUrl: entity.imageUrl,
-											withIce: nil,
-											typeOfMilk: nil,
-											cupSize: nil)
-	}
 }
 
+// MARK: - Preview
 struct MenuListView_Previews: PreviewProvider {
 	static var previews: some View {
-		MenuListView(isLoading: .constant(true))
-			.environmentObject(orderDataSource)
-		MenuListView(isLoading: .constant(true))
-			.environmentObject(orderDataSource)
-			.preferredColorScheme(.dark)
-		MenuListView(isLoading: .constant(true))
-			.environmentObject(orderDataSource)
-			.previewLayout(.fixed(width: 568, height: 320))
-		MenuListView(isLoading: .constant(true))
-			.environmentObject(orderDataSource)
-			.previewLayout(.fixed(width: 568, height: 320))
-			.preferredColorScheme(.dark)
+		let context = PersistenceController.preview.container.viewContext
+		let section = SectionEntity(context: context)
+		section.name = "New Section"
+		return MenuListView(isLoading: .constant(false)).environment(\.managedObjectContext, context)
 	}
 }

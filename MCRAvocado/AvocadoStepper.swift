@@ -23,13 +23,13 @@ struct AvocadoStepper: View {
 				Button(action: {
 					if range.contains(value - 1) { value -= 1 }
 				}, label: {
-					DetailDescriptionText(lineText: "-")
+					LargeDescriptionText(lineText: "-")
 				})
-				DetailDescriptionText(lineText: value.formatted())
+				LargeDescriptionText(lineText: value.formatted())
 				Button(action: {
 					if range.contains(value + 1) { value += 1 }
 				}, label: {
-					DetailDescriptionText(lineText: "+")
+					LargeDescriptionText(lineText: "+")
 				})
 			}
 			.font(.body)
@@ -45,6 +45,7 @@ struct AvocadoStepper: View {
 	}
 }
 
+// MARK: - Preview
 struct AvocadoStepper_Previews: PreviewProvider {
 	static var previews: some View {
 		AvocadoStepper(value: .constant(2), in: 1...100)

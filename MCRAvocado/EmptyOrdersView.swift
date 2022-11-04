@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+/// View for empty order list
 struct EmptyOrdersView: View {
 
+	// MARK: - Body
 	var body: some View {
 		VStack {
 			Image(systemName: "clock")
@@ -21,6 +23,7 @@ struct EmptyOrdersView: View {
 	}
 }
 
+// MARK: - Preview
 struct EmptyOrdersView_Previews: PreviewProvider {
 	static var previews: some View {
 		EmptyOrdersView()

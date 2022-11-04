@@ -7,6 +7,8 @@
 
 import Foundation
 // swiftlint:disable: all
+
+/// Extension for US Holidays
 extension Date {
 	var isUSHoliday: Bool {
 		let components = Calendar.current.dateComponents([.year, .month, .day, .weekday, .weekdayOrdinal], from: self)

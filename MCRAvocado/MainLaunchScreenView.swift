@@ -7,9 +7,15 @@
 
 import SwiftUI
 
+/// View with loading animation
 struct MainLaunchScreenView: View {
+
+	/// Manager of lunch screen to control AnimationView
 	@EnvironmentObject var launchScreenManager: LaunchScreenManager
+
+	/// Is firste Stage of Animation (Rotating Seed)
 	@State var firstPhaseIsAnimating: Bool = false
+	/// Is  second Stage of Animation (Scale Seed)
 	@State var secondPhaseIsAnimating: Bool = false
 
 	private let timer = Timer.publish(every: 0.65,
@@ -36,14 +42,7 @@ struct MainLaunchScreenView: View {
 	}
 }
 
-struct LaunchScreenView_Previews: PreviewProvider {
-	static var previews: some View {
-		let launchScreenManager = LaunchScreenManager()
-		MainLaunchScreenView()
-			.environmentObject(launchScreenManager)
-	}
-}
-
+// MARK: - Private
 private extension MainLaunchScreenView {
 
 	var background: some View {
@@ -75,5 +74,14 @@ private extension MainLaunchScreenView {
 		.scaleEffect(firstPhaseIsAnimating ? 1.5: 1)
 		.scaleEffect(secondPhaseIsAnimating ? UIScreen.main.bounds.height/4 : 1)
 		.rotationEffect(.degrees(firstPhaseIsAnimating ? 360 : 0))
+	}
+}
+
+// MARK: - Preview
+struct LaunchScreenView_Previews: PreviewProvider {
+	static var previews: some View {
+		let launchScreenManager = LaunchScreenManager()
+		MainLaunchScreenView()
+			.environmentObject(launchScreenManager)
 	}
 }

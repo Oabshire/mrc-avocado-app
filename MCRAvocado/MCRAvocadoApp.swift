@@ -9,8 +9,14 @@ import SwiftUI
 
 @main
 struct MCRAvocadoApp: App {
+
+	/// Order that contains ordered items and discounts
 	@StateObject var order = Order(orderedItems: [:])
+
+	/// Manager of lunch screen to control AnimationView
 	@StateObject var launchScreenManager = LaunchScreenManager()
+
+	/// Selected tab of tabBar
 	@State var selectedTab: Int = 1
 
 	let persistenceController = PersistenceController.shared

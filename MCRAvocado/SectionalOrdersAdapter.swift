@@ -8,7 +8,11 @@
 import Foundation
 
 struct SectionalOrdersAdapter {
-	func sectionOrders(from orders: [OrderContainer]) -> [SectionalOrderModel] {
+
+	/// Gets array of OrderContainer type  and transform it to SectionalOrderModel array
+	/// - Parameter orders: array of OrderContainer type
+	/// - Returns: array of SectionalOrderModel type
+	static func sectionOrders(from orders: [OrderContainer]) -> [SectionalOrderModel] {
 		var sectionOrders: [String: [OrderContainer]] = [:]
 		for order in orders {
 			if sectionOrders[order.dateOfCreation?.toMonthYearString ?? ""] != nil {
@@ -25,6 +29,6 @@ struct SectionalOrdersAdapter {
 			}
 			result.append(SectionalOrderModel(orders: orders, sectionName: section.key))
 		}
-		return result
+		return result.sorted { $0.dateOfFirstOrder > $1.dateOfFirstOrder }
 	}
 }

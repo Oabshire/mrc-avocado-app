@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-/// List of ordered Items
+/// List of Orders
 struct OrdersListView: View {
-
+/// Is order confirmation view shows
 	@State var isOrderConfShows = false
+	/// All orders
 	@State var orders: [SectionalOrderModel] = []
 
+// MARK: - Body
 	var body: some View {
 		NavigationView {
 			if !orders.isEmpty {
@@ -41,6 +43,7 @@ struct OrdersListView: View {
 	}
 }
 
+// MARK: - Private
 private extension OrdersListView {
 	func getOrders() async {
 		do {
@@ -54,23 +57,14 @@ private extension OrdersListView {
 
 	@MainActor
 	func stopLoading(with orders: [OrderContainer]) async {
-		self.orders = SectionalOrdersAdapter().sectionOrders(from: orders)
+		self.orders = SectionalOrdersAdapter.sectionOrders(from: orders)
 	}
 }
 
+// MARK: - Preview
 struct OrdersListView_Preview: PreviewProvider {
 	static var previews: some View {
 		CartListView(selectedTab: .constant(2))
 			.environmentObject(orderDataSource)
-		CartListView(selectedTab: .constant(2))
-			.environmentObject(orderDataSource)
-			.preferredColorScheme(.dark)
-		CartListView(selectedTab: .constant(2))
-			.environmentObject(orderDataSource)
-			.previewLayout(.fixed(width: 568, height: 320))
-		CartListView(selectedTab: .constant(2))
-			.environmentObject(orderDataSource)
-			.previewLayout(.fixed(width: 568, height: 320))
-			.preferredColorScheme(.dark)
 	}
 }

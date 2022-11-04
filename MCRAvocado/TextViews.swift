@@ -18,7 +18,7 @@ struct DetailTitleText: View {
 	}
 }
 
-struct DetailDescriptionText: View {
+struct LargeDescriptionText: View {
 	let lineText: String
 	var body: some View {
 		Text(lineText)
@@ -60,20 +60,23 @@ struct HeaderText: View {
 			.frame(alignment: .center)
 	}
 }
+
 struct HeaderLargeText: View {
 	let text: String
 	var body: some View {
 		Text(text)
 			.font(.title3)
 			.fontWeight(.semibold)
-			.frame(alignment: .center)	}
+		.frame(alignment: .center)	}
 }
+
+// MARK: - Preview
 struct TextViews_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
 			VStack {
 				DetailTitleText(lineText: "Detail Title Text")
-				DetailDescriptionText(lineText: "Detail DescriptionText")
+				LargeDescriptionText(lineText: "Detail DescriptionText")
 				DetailPriceText(price: "45")
 				SectionHeader(text: "OATMEAL")
 			}

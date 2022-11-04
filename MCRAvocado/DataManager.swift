@@ -10,10 +10,15 @@ import SwiftUI
 class DataManager {
 	private let requestManager = RequestManager()
 
+	/// Get menu
+	/// - Returns: array of MenuSectionContainer
 	func getMenu() async throws -> [MenuSectionContainer] {
 		return try await requestManager.perform(MenuRequest.getAllMenu)
 	}
 
+	/// Post order
+	/// - Parameter order: order to post
+	/// - Returns: posted order
 	func postOrder(order: OrderContainer) async -> OrderContainer? {
 		do {
 			let parameters = try order.asDictionary()
@@ -25,10 +30,14 @@ class DataManager {
 		}
 	}
 
+	/// get order
+	/// - Returns: array of OrderContainer
 	func getOrders() async throws -> [OrderContainer] {
 		return try await requestManager.perform(OrderRequest.getOrder)
 	}
 
+	/// Get current date
+	/// - Returns: date
 	func getCurrentDate() async throws -> Date {
 		let dateContainer: DateContainer = try await requestManager.perform(DateRequest.getCurrentDate)
 		return dateContainer.currentDate

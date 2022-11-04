@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-/// List of ordered Items
+/// View for detail information about order
 struct OrderDetailView: View {
-
-	@Environment(\.verticalSizeClass ) var verticalSizeClass
-	@Environment(\.horizontalSizeClass ) var horizontalSizeClass
-
+	/// Order that contains information to display
 	let order: OrderContainer
 
+	// MARK: - Body
 	var body: some View {
 		GeometryReader { geometry in
 			VStack {
@@ -34,7 +32,7 @@ struct OrderDetailView: View {
 		}
 	}
 }
-
+// MARK: - Preview
 struct OrderDetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		OrderDetailView(order: OrderContainer(id: UUID(),
