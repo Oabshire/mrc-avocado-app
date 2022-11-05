@@ -16,17 +16,23 @@ struct MenuListView: View {
 	@EnvironmentObject var order: Order
 	/// NetworkReachability to check network connection
 	@EnvironmentObject var network: NetworkReachability
-
+	/// Is menu updation needed
+	@State var needUpdateMenu = true
 	/// Is menu Loading
 	@Binding var isLoading: Bool
 	/// Index of choosen filter
-	@State var activeFilterIndex = 0
+	@Binding var activeFilterIndex: Int
 	/// Prdedicates for filtering menu
 	let predicatesTypes = predicatesDataSource
 	/// Menu Sections with items
-	@FetchRequest(sortDescriptors: [])
-	var menuSections: FetchedResults<SectionEntity>
+	@FetchRequest var menuSections: FetchedResults<SectionEntity>
 	@State private var refreshedID = UUID()
+
+	init(isLoading: Binding<Bool>, activeFilterIndex: Binding<Int>, fetchRequest: FetchRequest<SectionEntity>) {
+		self._isLoading = isLoading
+		self._activeFilterIndex = activeFilterIndex
+		self._menuSections = fetchRequest
+	}
 
 	var body: some View {
 		NavigationView {
@@ -92,6 +98,7 @@ private extension MenuListView {
 
 	/// Gets menu  from api, saves to coreData, fetchs menu from CoreData
 	func fetchMenu() async {
+		guard needUpdateMenu  else { return }
 		let  dataManager = DataManager()
 		do {
 			let menuContainer: [MenuSectionContainer] = try await dataManager.getMenu()
@@ -112,16 +119,17 @@ private extension MenuListView {
 					}
 				}
 			}
+			await stopLoading()
 		} catch {
 			print(error.localizedDescription)
 		}
-		await stopLoading()
 	}
 
 	/// Set isLoading to false (Dismis loading View)
 	@MainActor
 	func stopLoading() async {
 		isLoading = false
+		needUpdateMenu = false
 	}
 }
 
@@ -131,6 +139,12 @@ struct MenuListView_Previews: PreviewProvider {
 		let context = PersistenceController.preview.container.viewContext
 		let section = SectionEntity(context: context)
 		section.name = "New Section"
-		return MenuListView(isLoading: .constant(false)).environment(\.managedObjectContext, context)
+		return MenuListView(isLoading: .constant(false),
+												activeFilterIndex: .constant(0),
+												fetchRequest: FetchRequest(
+													entity: SectionEntity.entity(),
+													sortDescriptors: [],
+													predicate: predicatesDataSource[0].predicate))
+		.environment(\.managedObjectContext, context)
 	}
 }

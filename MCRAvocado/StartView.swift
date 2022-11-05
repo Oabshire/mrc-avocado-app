@@ -19,6 +19,8 @@ struct StartView: View {
 	@Binding var selectedTab: Int
 	/// State of Menu loading (Dismiss animation if false)
 	@State var isLoading = true
+	/// Menu filter Index
+	@State var activeFilterIndex = 0
 
 	/// Factory of Cart tab View
 	let factory: CartListFactory
@@ -40,12 +42,17 @@ struct StartView: View {
 				.tag(0)
 
 			// tab with menu
-			MenuListView(isLoading: $isLoading).environmentObject(order)
-				.tabItem {
-					Image(systemName: "menucard")
-						.resizable()
-					Text("Menu")
-				}				.tag(1)
+			MenuListView(isLoading: $isLoading,
+									 activeFilterIndex: $activeFilterIndex,
+									 fetchRequest: FetchRequest(
+										entity: SectionEntity.entity(),
+										sortDescriptors: [],
+										predicate: predicatesDataSource[activeFilterIndex].predicate))
+			.tabItem {
+				Image(systemName: "menucard")
+					.resizable()
+				Text("Menu")
+			}				.tag(1)
 
 			// tab with ordered items
 			factory.createCartList(order: order)
