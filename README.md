@@ -3,7 +3,7 @@
 
 # About the App
 
-<img src="https://github.com/Oabshire/mrc-avocado-app/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202022-11-03%20at%2020.42.44.png?raw=true" width="200" height="443"/><img src="https://raw.githubusercontent.com/Oabshire/mrc-avocado-app/44ada3dc3fd49a67d559e7443ee9c46211ce5157/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202022-11-03%20at%2020.42.40.png" width="200" height="443"/><img src="https://github.com/Oabshire/mrc-avocado-app/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202022-11-03%20at%2020.43.11.png?raw=true" width="200" height="443"/><img src="https://github.com/Oabshire/mrc-avocado-app/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202022-11-03%20at%2020.48.04.png" width="200" height="443"/>
+<img src="https://raw.githubusercontent.com/Oabshire/mrc-avocado-app/44ada3dc3fd49a67d559e7443ee9c46211ce5157/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202022-11-03%20at%2020.42.40.png" width="200" height="443"/><img src="https://github.com/Oabshire/mrc-avocado-app/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202022-11-03%20at%2020.43.11.png?raw=true" width="200" height="443"/><img src="https://github.com/Oabshire/mrc-avocado-app/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202022-11-03%20at%2020.48.04.png" width="200" height="443"/><img src="https://github.com/Oabshire/mrc-avocado-app/blob/main/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202022-11-03%20at%2020.51.52.png?raw=true" width="200" height="443"/>
 
 # About the App
 
