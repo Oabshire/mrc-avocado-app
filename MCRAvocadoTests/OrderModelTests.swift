@@ -69,6 +69,53 @@ extension OrderModelTests {
 	}
 }
 
+// MARK: - Test changeAmount
+extension OrderModelTests {
+	func changeAmountOfMenuItem() {
+		// arrange
+		menuItem = MenuItemContainer(id: UUID(),
+																 name: "Blueberry pancake",
+																 price: 4.5,
+																 isInStock: true,
+																 calories: 610,
+																 description: "",
+																 type: .pancakes,
+																 imageUrl: nil,
+																 withIce: nil,
+																 typeOfMilk: nil,
+																 cupSize: nil)
+		sut = Order(orderedItems: [menuItem: 2])
+
+		// act
+		sut.changeAmount(of: menuItem, amount: 5)
+
+		// assert
+		XCTAssertEqual(sut.orderedItems[menuItem], 5)
+	}
+
+	func changeAmountOfMenuItemZero() {
+			// arrange
+			menuItem = MenuItemContainer(id: UUID(),
+																	 name: "Blueberry pancake",
+																	 price: 4.5,
+																	 isInStock: true,
+																	 calories: 610,
+																	 description: "",
+																	 type: .pancakes,
+																	 imageUrl: nil,
+																	 withIce: nil,
+																	 typeOfMilk: nil,
+																	 cupSize: nil)
+			sut = Order(orderedItems: [menuItem: 2])
+
+			// act
+			sut.changeAmount(of: menuItem, amount: 0)
+
+			// assert
+			XCTAssertNil(sut.orderedItems[menuItem])
+	}
+}
+
 // MARK: - Test amountWithoutDiscount
 extension OrderModelTests {
 	func testAmountWithoutDiscount() {

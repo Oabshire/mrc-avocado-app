@@ -9,12 +9,14 @@ import SwiftUI
 
 /// Row for ordered items
 struct CartRowView: View {
+	/// Order with added items or empty
+	@EnvironmentObject var order: Order
 
 	/// Ordered menu item
 	let menuItem: MenuItemContainer
 
-	/// Amount of ordered menu items
-	let amount: Int
+	var amount: Int
+	@State var amountState: Int = 0
 
 	// MARK: - Body
 	var body: some View {
@@ -23,8 +25,17 @@ struct CartRowView: View {
 			VStack(alignment: .leading) {
 				Text(menuItem.name)
 					.font(.title2)
-				Text("$ " + String(menuItem.price) + " × " + String(amount))
+				HStack {
+					Text("$ " + String(menuItem.price) + " × " + String(amountState))
+						.frame(minWidth: 100, alignment: .leading)
+					Stepper("", value: $amountState, in: 1...99, step: 1).labelsHidden()
+				}
 			}
+		}.onAppear {
+			amountState = amount
+		}
+		.onChange(of: amountState) { _ in
+			order.changeAmount(of: menuItem, amount: amountState)
 		}
 	}
 }
@@ -44,12 +55,5 @@ struct CartRowView_Preview: PreviewProvider {
 																		 typeOfMilk: nil,
 																		 cupSize: nil)
 		CartRowView(menuItem: menuItem, amount: 1)
-		CartRowView(menuItem: menuItem, amount: 1)
-			.preferredColorScheme(.dark)
-		CartRowView(menuItem: menuItem, amount: 1)
-			.previewLayout(.fixed(width: 568, height: 320))
-		CartRowView(menuItem: menuItem, amount: 1)
-			.previewLayout(.fixed(width: 568, height: 320))
-			.preferredColorScheme(.dark)
 	}
 }
