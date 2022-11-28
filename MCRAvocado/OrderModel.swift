@@ -74,6 +74,22 @@ class Order: ObservableObject, Codable {
 		return true
 	}
 
+	/// Change amount of orderedItems.
+	/// - Parameters:
+	///   - item: menu item to add
+	///   - amount: amount of items
+	func changeAmount(of item: MenuItemContainer, amount: Int) {
+		guard item.isInStock else {
+			print("Sorry! Out of Stock :(")
+			return
+		}
+		if amount == 0 {
+			orderedItems.removeValue(forKey: item)
+		}
+		orderedItems[item] = amount
+		saveJSONOrder()
+	}
+
 	/// Removes item from orderedItems at first offset.
 	/// - Parameter offsets: set of idexes
 	func removeItem(at offsets: IndexSet) {
