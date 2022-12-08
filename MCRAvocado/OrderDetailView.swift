@@ -20,7 +20,7 @@ struct OrderDetailView: View {
 				List {
 					Section(content: {
 						ForEach(order.orderedItems.sorted(by: {$0.item > $1.item}), id: \.item) { orderedItems in
-							CartRowView(menuItem: orderedItems.item, amount: orderedItems.amount)
+							OrderDetailRowView(menuItem: orderedItems.item, amount: orderedItems.amount)
 								.listRowSeparator(.hidden)
 						}
 					}, header: {
