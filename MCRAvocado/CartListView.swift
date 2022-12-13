@@ -45,7 +45,7 @@ private extension CartListView {
 
 	func postOrder(_ order: OrderContainer) async {
 		let dataManager = DataManager()
-		if let _: OrderContainer = await dataManager.postOrder(order: order) {
+		if await dataManager.postOrder(order: order) != nil {
 			isOrderConfShows = true
 		}
 	}

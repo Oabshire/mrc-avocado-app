@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0904A3102948011900D48C40 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904A30F2948011900D48C40 /* ReviewView.swift */; };
 		091171F428E0E11600052533 /* CartListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F328E0E11600052533 /* CartListFactory.swift */; };
 		091171F628E0E18C00052533 /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091171F528E0E18C00052533 /* EmptyCartView.swift */; };
 		0911720628E1286F00052533 /* MenuItemToAddBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */; };
@@ -108,6 +109,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0904A30F2948011900D48C40 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		091171F328E0E11600052533 /* CartListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListFactory.swift; sourceTree = "<group>"; };
 		091171F528E0E18C00052533 /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		0911720528E1286F00052533 /* MenuItemToAddBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemToAddBuilder.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				09928FEF28FA224A00AEFF21 /* NetworkLayer */,
 				09573D0C28FCF99400775985 /* CoreDataLayer */,
 				0949F43728B1AF70000B9CE6 /* Preview Content */,
+				0904A30F2948011900D48C40 /* ReviewView.swift */,
 			);
 			path = MCRAvocado;
 			sourceTree = "<group>";
@@ -883,6 +886,7 @@
 				09573D1628FD249600775985 /* SectionEntity+CoreDataProperties.swift in Sources */,
 				0940B55028D6D4180008A387 /* DiscountGridRow.swift in Sources */,
 				091171F628E0E18C00052533 /* EmptyCartView.swift in Sources */,
+				0904A3102948011900D48C40 /* ReviewView.swift in Sources */,
 				09573D1528FD249600775985 /* SectionEntity+CoreDataClass.swift in Sources */,
 				09928FEE28FA222D00AEFF21 /* APIManager.swift in Sources */,
 				096D5E4F290F75E300FA94B8 /* OrdersListView.swift in Sources */,

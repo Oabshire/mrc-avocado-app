@@ -20,8 +20,10 @@ struct OrderDetailView: View {
 				List {
 					Section(content: {
 						ForEach(order.orderedItems.sorted(by: {$0.item > $1.item}), id: \.item) { orderedItems in
-							OrderDetailRowView(menuItem: orderedItems.item, amount: orderedItems.amount)
-								.listRowSeparator(.hidden)
+							OrderDetailRowView(isOrderCompleted: order.status == .completed,
+																 menuItem: orderedItems.item,
+																 amount: orderedItems.amount)
+							.buttonStyle(.plain)
 						}
 					}, header: {
 						SectionHeader(text: "Ordered items:")
