@@ -9,7 +9,8 @@ import SwiftUI
 
 /// Row for ordered items
 struct OrderDetailRowView: View {
-
+	let isOrderCompleted: Bool
+	@State var isReviewShown = false
 	/// Ordered menu item
 	let menuItem: MenuItemContainer
 
@@ -25,10 +26,21 @@ struct OrderDetailRowView: View {
 					.font(.title2)
 				Text("$ " + String(menuItem.price) + " × " + String(amount))
 			}
+			if isOrderCompleted {
+				Spacer()
+				Button {
+					isReviewShown.toggle()
+				} label: {
+					Text("Review")
+						.foregroundColor(Color.onboardingAccentColor)
+						.fullScreenCover(isPresented: $isReviewShown) {
+							ReviewView(isShown: $isReviewShown)
+						}
+				}
+			}
 		}
 	}
 }
-
 // MARK: - Preview
 struct OrderDetailRowView_Preview: PreviewProvider {
 	static var previews: some View {
@@ -43,6 +55,6 @@ struct OrderDetailRowView_Preview: PreviewProvider {
 																		 withIce: nil,
 																		 typeOfMilk: nil,
 																		 cupSize: nil)
-		CartRowView(menuItem: menuItem, amount: 1)
+		OrderDetailRowView(isOrderCompleted: true, menuItem: menuItem, amount: 1)
 	}
 }
