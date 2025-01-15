@@ -9,7 +9,7 @@
 
 Minimal Contact Restaurant Avocado - an app aimed for restaurant owners to manage their customers with minimum contact, when customer’s seated at a restaurant table.
 
-## Features will included:
+## Features included:
 
  ✅ The app shows a menu as a list.
 
